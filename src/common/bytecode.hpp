@@ -2,6 +2,8 @@
 #define __ULANG_COM_BYTECODE_H
 
 #include <cstdint> // uint8_t
+#include <cstddef>
+#include <stdexcept>
 
 #define ULANG_OP_COUNT 2
 #define ULANG_OP_MAX_DATA_SZ 16
@@ -64,6 +66,27 @@ namespace ULang {
         size_t calcTotalSz() const {
             return sizeof(opcode) + sizeof(operandMeta_t) * 2 + opA.getDataSz() + opB.getDataSz();
         }
+    };
+
+    class BytecodeStream {
+        private:
+        const uint8_t* data;
+        size_t offset;
+        size_t size;
+
+        public:
+        BytecodeStream(const uint8_t* buffer, size_t bufferSz);
+
+        uint8_t readByte();
+        const uint8_t* readBytes(size_t n);
+
+        uint8_t peekByte();
+        const uint8_t* peekBytes(size_t n);
+        uint8_t peekPos(size_t pos);
+
+        size_t tell() const;
+        bool eof() const;
+        void reset() const;
     };
 };
 
