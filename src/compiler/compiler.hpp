@@ -3,6 +3,11 @@
 
 #include <cstdint>
 #include <string>
+#include <vector>
+
+#ifndef THROW_AWAY
+#define THROW_AWAY (void)
+#endif
 
 namespace ULang {
     enum class ASTNodeType {
@@ -33,6 +38,38 @@ namespace ULang {
         ASTNode(int64_t val);
         ASTNode(const std::string& varname);
         ASTNode(ASTNodeType t);
+    };
+
+    enum class TokenType {
+        IntKeyword,
+        Identifier,
+        Number,
+        Plus,
+        Minus,
+        Mul,
+        Div,
+        Assign,
+        Semicolon,
+        EndOfFile
+    };
+
+    struct Token {
+        TokenType type;
+        std::string text;
+    };
+
+    class Lexer {
+        private:
+        const std::string& src;
+        size_t pos = 0;
+
+        char peek() const;
+        char get();
+
+        public:
+        std::vector<Token> tokenize();
+
+        Lexer(const std::string& input);
     };
 };
 
