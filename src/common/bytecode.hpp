@@ -88,6 +88,14 @@ namespace ULang {
         bool eof() const;
         void reset();
     };
+
+    /**
+     * @brief Parse the instruction
+     * 
+     * @param stream instruction stream
+     * @return Instruction 
+     */
+    Instruction parseInstruction(BytecodeStream& stream);
 };
 
 #endif
