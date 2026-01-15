@@ -2,7 +2,6 @@
 #define __ULANG_COM_BYTECODE_H
 
 #include <cstdint> // uint8_t
-#include <static_cast>
 
 #define ULANG_OP_COUNT 2
 #define ULANG_OP_MAX_DATA_SZ 16
@@ -19,7 +18,7 @@ namespace ULang {
     typedef uint8_t operandMeta_t;
 
     struct Operand {
-        ULang::OperandMeta_t raw_meta;
+        ULang::operandMeta_t raw_meta;
         uint8_t* value;
 
         /**
