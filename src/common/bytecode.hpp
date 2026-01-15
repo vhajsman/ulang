@@ -86,7 +86,7 @@ namespace ULang {
 
         size_t tell() const;
         bool eof() const;
-        void reset() const;
+        void reset();
     };
 };
 
