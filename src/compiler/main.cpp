@@ -45,4 +45,14 @@ int main(int argc, char** argv) {
     for(const auto& t : tokens) {
         std::cout << "Token: " << t.text << " Type: " << static_cast<int>(t.type) << "\n";
     }
+
+    auto ast = ULang::buildAST(tokens);
+
+    std::cout << "AST nodes: " << ast.size() << "\n";
+    for(auto* node : ast) {
+        std::cout << "  ASTNode type: " << static_cast<int>(node->type);
+        if(node->type == ULang::ASTNodeType::DECLARATION)
+            std::cout << " name=" << node->name;
+        std::cout << "\n";
+    }
 }

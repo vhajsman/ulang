@@ -71,6 +71,8 @@ namespace ULang {
 
         Lexer(const std::string& input);
     };
+
+    std::vector<ASTNode*> buildAST(const std::vector<Token>& tokens);
 };
 
 #endif
