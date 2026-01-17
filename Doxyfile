@@ -1,0 +1,28 @@
+#--------------------------------------------------------------------------- 
+# Doxyfile 1.9.8
+#--------------------------------------------------------------------------- 
+
+PROJECT_NAME           = "CompilerProject"
+OUTPUT_DIRECTORY       = docs/html
+
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+EXTRACT_ALL            = YES
+RECURSIVE              = YES
+INCLUDE_PATH           = src
+FILE_PATTERNS          = *.cpp *.hpp
+
+HAVE_DOT               = YES
+CLASS_DIAGRAMS         = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+DOT_IMAGE_FORMAT       = svg
+
+SHOW_FILES             = YES
+
+OPTIMIZE_OUTPUT_FOR_C   = NO
+OPTIMIZE_OUTPUT_JAVA    = NO
+
+QUIET                  = NO
+WARNINGS               = YES
