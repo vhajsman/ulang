@@ -1,6 +1,8 @@
 #ifndef __ULANG_COMPILER_H
 #define __ULANG_COMPILER_H
 
+#include "types.hpp"
+
 #include <cstdint>
 #include <string>
 #include <vector>
