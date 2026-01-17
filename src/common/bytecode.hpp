@@ -62,6 +62,11 @@ namespace ULang {
         Opcode opcode;
         Operand opA; Operand opB;
 
+        /**
+         * @brief Calculates the total size of instruction in memory, including opcode and operand type/size specifiers.
+         * 
+         * @return size_t 
+         */
         size_t calcTotalSz() const {
             return sizeof(opcode) + sizeof(operandMeta_t) * 2 + opA.getDataSz() + opB.getDataSz();
         }
@@ -76,15 +81,73 @@ namespace ULang {
         public:
         BytecodeStream(const uint8_t* buffer, size_t bufferSz);
 
+        /**
+         * @brief Reads a single byte from bytecode stream and prepares for reading another one.
+         * 
+         * @exception std::out_of_range
+         * 
+         * @return uint8_t 
+         */
         uint8_t readByte();
+
+        /**
+         * @brief Reads n bytes from bytecode stream and prepares for reading another ones.
+         * 
+         * @exception std::out_of_range
+         * 
+         * @param n byte count
+         * @return const uint8_t* a pointer to reading or NULL
+         */
         const uint8_t* readBytes(size_t n);
 
+        /**
+         * @brief Reads a single byte from bytecode stream but does not prepare for reading another one.
+         * 
+         * @exception std::out_of_range
+         * 
+         * @return uint8_t 
+         */
         uint8_t peekByte();
+
+        /**
+         * @brief Reads n bytes from bytecode stream but does not prepare for reading another ones.
+         * 
+         * @exception std::out_of_range
+         * 
+         * @param n byte count
+         * @return const uint8_t* a pointer to reading or NULL
+         */
         const uint8_t* peekBytes(size_t n);
+
+        /**
+         * @brief Reads a single byte from bytecode stream specific position but does not prepare for reading another one.
+         * 
+         * @exception std::out_of_range
+         * 
+         * @param pos byte index
+         * @return uint8_t 
+         */
         uint8_t peekPos(size_t pos);
 
+        /**
+         * @brief Get current stream offset
+         * 
+         * @return size_t offset
+         */
         size_t tell() const;
+
+        /**
+         * @brief check if end is reached
+         * 
+         * @return true 
+         * @return false 
+         */
         bool eof() const;
+
+        /**
+         * @brief Makes stream go back to its begining
+         * 
+         */
         void reset();
     };
 
