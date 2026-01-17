@@ -14,7 +14,6 @@ INCLUDE_PATH           = src
 FILE_PATTERNS          = *.cpp *.hpp
 
 HAVE_DOT               = YES
-CLASS_DIAGRAMS         = YES
 CALL_GRAPH             = YES
 CALLER_GRAPH           = YES
 DOT_IMAGE_FORMAT       = svg
