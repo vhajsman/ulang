@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -I./src -I/usr/include
+CXXFLAGS = -std=c++17 -Wall -I./src -I/usr/include -I./src/common
 LDFLAGS = -lboost_program_options
 
 COMMON_SRC = $(wildcard src/common/*.cpp)
