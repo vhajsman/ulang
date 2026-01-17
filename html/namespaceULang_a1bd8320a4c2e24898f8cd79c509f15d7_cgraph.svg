@@ -38,7 +38,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classULang_1_1BytecodeStream.html#a02703a840fc7c2a4b63d59ec1191257e" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="classULang_1_1BytecodeStream.html#a02703a840fc7c2a4b63d59ec1191257e" target="_top" xlink:title="Reads a single byte from bytecode stream and prepares for reading another one.">
 <polygon fill="white" stroke="#666666" points="310.5,-78 176.5,-78 176.5,-48 310.5,-48 310.5,-78"/>
 <text text-anchor="start" x="184.5" y="-66" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::BytecodeStream</text>
 <text text-anchor="middle" x="243.5" y="-55" font-family="Helvetica,sans-Serif" font-size="10.00">::readByte</text>
@@ -57,7 +57,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classULang_1_1BytecodeStream.html#a211d06d3a5fee3e2d543e414f180862c" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="classULang_1_1BytecodeStream.html#a211d06d3a5fee3e2d543e414f180862c" target="_top" xlink:title="Reads n bytes from bytecode stream and prepares for reading another ones.">
 <polygon fill="white" stroke="#666666" points="310.5,-30 176.5,-30 176.5,0 310.5,0 310.5,-30"/>
 <text text-anchor="start" x="184.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::BytecodeStream</text>
 <text text-anchor="middle" x="243.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::readBytes</text>

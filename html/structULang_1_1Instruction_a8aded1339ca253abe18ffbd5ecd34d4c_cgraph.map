@@ -1,5 +1,5 @@
 <map id="ULang::Instruction::calcTotalSz" name="ULang::Instruction::calcTotalSz">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,145,45"/>
+<area shape="rect" id="Node000001" title="Calculates the total size of instruction in memory, including opcode and operand type/size specifiers..." alt="" coords="5,5,145,45"/>
 <area shape="rect" id="Node000002" href="$structULang_1_1Operand.html#acfc6a1a65d7c82080525eb56157bcc27" title="Get the size of operand data." alt="" coords="193,13,395,38"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,23,180,23,180,28,146,28"/>
 </map>

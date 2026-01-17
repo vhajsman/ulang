@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Calculates the total size of instruction in memory, including opcode and operand type/size specifiers...">
 <polygon fill="#999999" stroke="#666666" points="105,-30 0,-30 0,0 105,0 105,-30"/>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::Instruction</text>
 <text text-anchor="middle" x="52.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::calcTotalSz</text>

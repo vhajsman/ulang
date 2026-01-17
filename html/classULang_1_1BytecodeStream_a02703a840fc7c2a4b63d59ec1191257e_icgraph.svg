@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Reads a single byte from bytecode stream and prepares for reading another one.">
 <polygon fill="#999999" stroke="#666666" points="302,-30 168,-30 168,0 302,0 302,-30"/>
 <text text-anchor="start" x="176" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::BytecodeStream</text>
 <text text-anchor="middle" x="235" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::readByte</text>

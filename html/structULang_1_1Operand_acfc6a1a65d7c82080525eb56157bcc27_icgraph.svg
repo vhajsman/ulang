@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="structULang_1_1Instruction.html#a8aded1339ca253abe18ffbd5ecd34d4c" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="structULang_1_1Instruction.html#a8aded1339ca253abe18ffbd5ecd34d4c" target="_top" xlink:title="Calculates the total size of instruction in memory, including opcode and operand type/size specifiers...">
 <polygon fill="white" stroke="#666666" points="118.5,-67.5 13.5,-67.5 13.5,-37.5 118.5,-37.5 118.5,-67.5"/>
 <text text-anchor="start" x="21.5" y="-55.5" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::Instruction</text>
 <text text-anchor="middle" x="66" y="-44.5" font-family="Helvetica,sans-Serif" font-size="10.00">::calcTotalSz</text>
