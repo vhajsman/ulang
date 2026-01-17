@@ -42,7 +42,7 @@ namespace ULang {
                 }
 
                 if(id == "int") {
-                    tokens.push_back({TokenType::IntKeyword, id});
+                    tokens.push_back({TokenType::TypeKeyword, id});
                 } else {
                     tokens.push_back({TokenType::Identifier, id});
                 }

@@ -57,7 +57,7 @@ namespace ULang {
     }
 
     ASTNode* parseVarDecl(const std::vector<Token>& tokens, size_t& pos) {
-        if(tokens[pos].type != TokenType::IntKeyword)
+        if(tokens[pos].type != TokenType::TypeKeyword)
             throw std::runtime_error("Expected 'int'");
 
         pos++;
@@ -92,7 +92,7 @@ namespace ULang {
             ASTNode* node = nullptr;
 
             switch(tokens[pos].type) {
-                case ULang::TokenType::IntKeyword:
+                case ULang::TokenType::TypeKeyword:
                     node = parseVarDecl(tokens, pos);
                     break;
                 

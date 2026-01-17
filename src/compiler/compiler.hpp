@@ -41,7 +41,7 @@ namespace ULang {
     };
 
     enum class TokenType {
-        IntKeyword,
+        TypeKeyword,
         Identifier,
         Number,
         Plus,
