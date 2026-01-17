@@ -1,4 +1,5 @@
 #include "bytecode.hpp"
+#include <stdexcept>
 
 namespace ULang {
     BytecodeStream::BytecodeStream(const uint8_t* buffer, size_t bufferSz) 

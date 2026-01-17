@@ -3,7 +3,6 @@
 
 #include <cstdint> // uint8_t
 #include <cstddef>
-#include <stdexcept>
 
 #define ULANG_OP_COUNT 2
 #define ULANG_OP_MAX_DATA_SZ 16
