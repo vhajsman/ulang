@@ -27,6 +27,8 @@ namespace ULang {
         DataTypeKind kind;
     };
 
+    const ULang::DataType* resolveDataType(const std::string& typeName);
+
 #define _FLAGS_UINT (DataTypeFlags::INTEGRAL | DataTypeFlags::NUMERIC)
 #define _FLAGS_INT  (DataTypeFlags::SIGN | _FLAGS_UINT)
 
