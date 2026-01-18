@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['opcode_0',['Opcode',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610',1,'ULang']]],
-  ['operandtype_1',['OperandType',['../namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b',1,'ULang']]]
+  ['datatypeflags_0',['DataTypeFlags',['../namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93e',1,'ULang']]],
+  ['datatypekind_1',['DataTypeKind',['../namespaceULang.html#a01ae46674e052182c20952000e3061fb',1,'ULang']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['getdatasz_0',['getDataSz',['../structULang_1_1Operand.html#acfc6a1a65d7c82080525eb56157bcc27',1,'ULang::Operand']]],
-  ['gettype_1',['getType',['../structULang_1_1Operand.html#abe0f74cf0ff7aa5156003047837cd076',1,'ULang::Operand']]]
+  ['endoffile_0',['EndOfFile',['../namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea9556e151da49cd4bcf0352857cb33509',1,'ULang']]],
+  ['enter_1',['enter',['../classULang_1_1SymbolTable.html#afc7bf5215d44dad96c04e3c2fd220ed8',1,'ULang::SymbolTable']]],
+  ['eof_2',['eof',['../classULang_1_1BytecodeStream.html#a36e0f595f3ea1c4be48a31a19c9184ef',1,'ULang::BytecodeStream']]]
 ];

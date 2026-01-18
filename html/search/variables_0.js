@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initial_0',['initial',['../structULang_1_1ASTNode.html#a46aff4544c32e2416f71acc0f7424787',1,'ULang::ASTNode']]]
+  ['_5fname_0',['_name',['../structULang_1_1Scope.html#a5717c78104b8e006ae2d29639c8df082',1,'ULang::Scope']]]
 ];

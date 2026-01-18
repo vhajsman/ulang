@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['halt_0',['HALT',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610abf2d798abfe8267da4f101692b6cfecd',1,'ULang']]]
+  ['flags_0',['flags',['../structULang_1_1DataType.html#aa6a25bdd0abdfc2d06f807530f8609f2',1,'ULang::DataType']]]
 ];

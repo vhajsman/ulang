@@ -1,6 +1,18 @@
 var searchData=
 [
-  ['val_0',['val',['../structULang_1_1ASTNode.html#a8ad45d84a5ba78a428dd577977be6e5b',1,'ULang::ASTNode']]],
-  ['value_1',['value',['../structULang_1_1Operand.html#a7e1524cf5b60527e91882eac5eda1ffb',1,'ULang::Operand']]],
-  ['variable_2',['VARIABLE',['../namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaae61ad9b2553a293b4a3f4d3b4fa5ab31',1,'ULang']]]
+  ['scope_0',['Scope',['../structULang_1_1Scope.html',1,'ULang']]],
+  ['semicolon_1',['Semicolon',['../namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea9806fa37a3ecd39bf637c203aa011ed0',1,'ULang']]],
+  ['sign_2',['SIGN',['../namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93ea0d1d305c4b163933b4ed4e24706f9357',1,'ULang']]],
+  ['size_3',['size',['../structULang_1_1DataType.html#af08f3bb61278b0b293b6e1b2b43676c4',1,'ULang::DataType']]],
+  ['sourcelocation_4',['SourceLocation',['../structULang_1_1SourceLocation.html',1,'ULang']]],
+  ['stackoffset_5',['stackOffset',['../structULang_1_1Symbol.html#a30b2463dea90338a50b8445f05cb68d5',1,'ULang::Symbol']]],
+  ['store_6',['STORE',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a3cfba54f6873dfd55b0b09d32910b20e',1,'ULang']]],
+  ['sub_7',['SUB',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a241dd841abade20fcb27b8a9f494e1eb',1,'ULang']]],
+  ['substraction_8',['SUBSTRACTION',['../namespaceULang.html#a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a',1,'ULang']]],
+  ['symbol_9',['Symbol',['../structULang_1_1Symbol.html',1,'ULang']]],
+  ['symbol_2ecpp_10',['symbol.cpp',['../symbol_8cpp.html',1,'']]],
+  ['symbol_5ftable_2ecpp_11',['symbol_table.cpp',['../symbol__table_8cpp.html',1,'']]],
+  ['symbolid_12',['symbolId',['../structULang_1_1Symbol.html#ab76e3937e3050aa19bc60a397fcb72fa',1,'ULang::Symbol']]],
+  ['symbols_13',['symbols',['../structULang_1_1Scope.html#a1a04fe24c11233f4a51eecff57b1bd00',1,'ULang::Scope']]],
+  ['symboltable_14',['symboltable',['../classULang_1_1SymbolTable.html',1,'ULang::SymbolTable'],['../classULang_1_1SymbolTable.html#a5e0f6b4d42c11a80a94bf94e12174876',1,'ULang::SymbolTable::SymbolTable()']]]
 ];

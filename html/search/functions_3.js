@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eof_0',['eof',['../classULang_1_1BytecodeStream.html#a36e0f595f3ea1c4be48a31a19c9184ef',1,'ULang::BytecodeStream']]]
+  ['decl_0',['decl',['../structULang_1_1Scope.html#ad041b2f9f91de453cfc34f1ff1192744',1,'ULang::Scope::decl()'],['../classULang_1_1SymbolTable.html#a97ea7bc61ceb17207ac67415f6982803',1,'ULang::SymbolTable::decl()']]]
 ];

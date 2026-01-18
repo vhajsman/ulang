@@ -73,7 +73,8 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">ULang Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -84,11 +85,21 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1BytecodeStream.html">BytecodeStream</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1DataType.html">DataType</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html">Instruction</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1Lexer.html">Lexer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html">Operand</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Scope.html">Scope</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1SourceLocation.html">SourceLocation</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Symbol.html">Symbol</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html">SymbolTable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Token.html">Token</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,6 +142,16 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a8d7a15ed9bd07d0972e15fda566fc610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01ae46674e052182c20952000e3061fb" id="r_a01ae46674e052182c20952000e3061fb"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fb">DataTypeKind</a> { <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">Int</a>
+, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba8e95e84813830072b7516cfaa7dbc1a9">Char</a>
+ }</td></tr>
+<tr class="separator:a01ae46674e052182c20952000e3061fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b1ef0eb5df6a19ab790cf4c467cb93e" id="r_a3b1ef0eb5df6a19ab790cf4c467cb93e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93e">DataTypeFlags</a> { <a class="el" href="namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93ea0d1d305c4b163933b4ed4e24706f9357">SIGN</a> = 1 &lt;&lt; 0
+, <a class="el" href="namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93ea3482aa85bd4eb9a8bc578ae64426402a">USER</a> = 1 &lt;&lt; 1
+, <a class="el" href="namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93ea5d8c01aa9d9888c73a642338b2e831e3">INTEGRAL</a> = 1 &lt;&lt; 2
+, <a class="el" href="namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93ead21a692ed197a013f41353b1e50eab7b">NUMERIC</a> = 1 &lt;&lt; 3
+ }</td></tr>
+<tr class="separator:a3b1ef0eb5df6a19ab790cf4c467cb93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5180906b993ff6f08366e27a9f1d3aea" id="r_a5180906b993ff6f08366e27a9f1d3aea"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aea">ASTNodeType</a> { <br />
 &#160;&#160;<a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa34f55eca38e0605a84f169ff61a2a396">NUMBER</a>
 , <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaae61ad9b2553a293b4a3f4d3b4fa5ab31">VARIABLE</a>
@@ -148,7 +169,7 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:a7af8a040ae5502513d31482bc5646f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c4e3d276fdc66f3f1b17e41292d7d0e" id="r_a2c4e3d276fdc66f3f1b17e41292d7d0e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a> { <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea86abf482031effd51ac4bc56c35da3c5">IntKeyword</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0eab785d149fb8a5d4053303ff33131b2f3">TypeKeyword</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea29ee5d1ebcc033234938a5234f1f2075">Identifier</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0eab2ee912b91d69b435159c7c3f6df7f5f">Number</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea32ba78fe43257d3e7f88e3935a8ea0d4">Plus</a>
@@ -177,6 +198,27 @@ Functions</h2></td></tr>
 <tr class="separator:a35dd0deee5e026fc04f288a48d2e7776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f59f969ec2996764887ae0230f13155" id="r_a8f59f969ec2996764887ae0230f13155"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8f59f969ec2996764887ae0230f13155">buildAST</a> (const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;tokens)</td></tr>
 <tr class="separator:a8f59f969ec2996764887ae0230f13155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ae74b9def6708053c459737bf4b08711e" id="r_ae74b9def6708053c459737bf4b08711e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ae74b9def6708053c459737bf4b08711e">TYPE_INT8</a> {&quot;int8&quot;, 1, <a class="el" href="types_8hpp.html#a0d20050d93e0ab5978c48f4bb18597c5">_FLAGS_INT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td></tr>
+<tr class="separator:ae74b9def6708053c459737bf4b08711e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a783ed150d38a35207863aa2ef11f995a" id="r_a783ed150d38a35207863aa2ef11f995a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a783ed150d38a35207863aa2ef11f995a">TYPE_INT16</a> {&quot;int16&quot;, 2, <a class="el" href="types_8hpp.html#a0d20050d93e0ab5978c48f4bb18597c5">_FLAGS_INT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td></tr>
+<tr class="separator:a783ed150d38a35207863aa2ef11f995a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04dd58051bba1763d5b3ac3c05dc29bd" id="r_a04dd58051bba1763d5b3ac3c05dc29bd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a04dd58051bba1763d5b3ac3c05dc29bd">TYPE_INT32</a> {&quot;int32&quot;, 4, <a class="el" href="types_8hpp.html#a0d20050d93e0ab5978c48f4bb18597c5">_FLAGS_INT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td></tr>
+<tr class="separator:a04dd58051bba1763d5b3ac3c05dc29bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f3ec8baa621a3d1161d3abff8d62528" id="r_a6f3ec8baa621a3d1161d3abff8d62528"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a6f3ec8baa621a3d1161d3abff8d62528">TYPE_INT64</a> {&quot;int64&quot;, 8, <a class="el" href="types_8hpp.html#a0d20050d93e0ab5978c48f4bb18597c5">_FLAGS_INT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td></tr>
+<tr class="separator:a6f3ec8baa621a3d1161d3abff8d62528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a503696161566f7377fe36e8de353d3" id="r_a3a503696161566f7377fe36e8de353d3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a3a503696161566f7377fe36e8de353d3">TYPE_UINT8</a> {&quot;uint8&quot;, 1, <a class="el" href="types_8hpp.html#a053ff6a4e1979accafdc69a819885e0e">_FLAGS_UINT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td></tr>
+<tr class="separator:a3a503696161566f7377fe36e8de353d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a649dd61f4b0b35dd63597291fd705461" id="r_a649dd61f4b0b35dd63597291fd705461"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a649dd61f4b0b35dd63597291fd705461">TYPE_UINT16</a> {&quot;uint16&quot;, 2, <a class="el" href="types_8hpp.html#a053ff6a4e1979accafdc69a819885e0e">_FLAGS_UINT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td></tr>
+<tr class="separator:a649dd61f4b0b35dd63597291fd705461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a602006122ba95cddcdf8f970f4e4545f" id="r_a602006122ba95cddcdf8f970f4e4545f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a602006122ba95cddcdf8f970f4e4545f">TYPE_UINT32</a> {&quot;uint32&quot;, 4, <a class="el" href="types_8hpp.html#a053ff6a4e1979accafdc69a819885e0e">_FLAGS_UINT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td></tr>
+<tr class="separator:a602006122ba95cddcdf8f970f4e4545f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58a28e9a84587de73a71adbe9a32830" id="r_ab58a28e9a84587de73a71adbe9a32830"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ab58a28e9a84587de73a71adbe9a32830">TYPE_UINT64</a> {&quot;uint64&quot;, 8, <a class="el" href="types_8hpp.html#a053ff6a4e1979accafdc69a819885e0e">_FLAGS_UINT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td></tr>
+<tr class="separator:ab58a28e9a84587de73a71adbe9a32830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1b081c8e94003fb18ef59b3873c0c96" id="r_af1b081c8e94003fb18ef59b3873c0c96"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#af1b081c8e94003fb18ef59b3873c0c96">TYPE_CHAR</a> {&quot;char&quot;, 1, <a class="el" href="namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93ea5d8c01aa9d9888c73a642338b2e831e3">DataTypeFlags::INTEGRAL</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba8e95e84813830072b7516cfaa7dbc1a9">DataTypeKind::Char</a>}</td></tr>
+<tr class="separator:af1b081c8e94003fb18ef59b3873c0c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a44bbf87954bd3e5d6751fd20615e5dab" name="a44bbf87954bd3e5d6751fd20615e5dab"></a>
@@ -247,6 +289,52 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a" name="a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a"></a>SUBSTRACTION&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6eaf4e42c8a8e1f0086b97479eb8a0571ad" name="a7af8a040ae5502513d31482bc5646f6eaf4e42c8a8e1f0086b97479eb8a0571ad"></a>MULTIPLICATION&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6ea72bbf163ab731bf04923a0975ccd2af5" name="a7af8a040ae5502513d31482bc5646f6ea72bbf163ab731bf04923a0975ccd2af5"></a>DIVISION&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a3b1ef0eb5df6a19ab790cf4c467cb93e" name="a3b1ef0eb5df6a19ab790cf4c467cb93e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b1ef0eb5df6a19ab790cf4c467cb93e">&#9670;&#160;</a></span>DataTypeFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93e">ULang::DataTypeFlags</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3b1ef0eb5df6a19ab790cf4c467cb93ea0d1d305c4b163933b4ed4e24706f9357" name="a3b1ef0eb5df6a19ab790cf4c467cb93ea0d1d305c4b163933b4ed4e24706f9357"></a>SIGN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3b1ef0eb5df6a19ab790cf4c467cb93ea3482aa85bd4eb9a8bc578ae64426402a" name="a3b1ef0eb5df6a19ab790cf4c467cb93ea3482aa85bd4eb9a8bc578ae64426402a"></a>USER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3b1ef0eb5df6a19ab790cf4c467cb93ea5d8c01aa9d9888c73a642338b2e831e3" name="a3b1ef0eb5df6a19ab790cf4c467cb93ea5d8c01aa9d9888c73a642338b2e831e3"></a>INTEGRAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3b1ef0eb5df6a19ab790cf4c467cb93ead21a692ed197a013f41353b1e50eab7b" name="a3b1ef0eb5df6a19ab790cf4c467cb93ead21a692ed197a013f41353b1e50eab7b"></a>NUMERIC&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a01ae46674e052182c20952000e3061fb" name="a01ae46674e052182c20952000e3061fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ae46674e052182c20952000e3061fb">&#9670;&#160;</a></span>DataTypeKind</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fb">ULang::DataTypeKind</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52" name="a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52"></a>Int&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a01ae46674e052182c20952000e3061fba8e95e84813830072b7516cfaa7dbc1a9" name="a01ae46674e052182c20952000e3061fba8e95e84813830072b7516cfaa7dbc1a9"></a>Char&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -338,7 +426,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2c4e3d276fdc66f3f1b17e41292d7d0ea86abf482031effd51ac4bc56c35da3c5" name="a2c4e3d276fdc66f3f1b17e41292d7d0ea86abf482031effd51ac4bc56c35da3c5"></a>IntKeyword&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2c4e3d276fdc66f3f1b17e41292d7d0eab785d149fb8a5d4053303ff33131b2f3" name="a2c4e3d276fdc66f3f1b17e41292d7d0eab785d149fb8a5d4053303ff33131b2f3"></a>TypeKeyword&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c4e3d276fdc66f3f1b17e41292d7d0ea29ee5d1ebcc033234938a5234f1f2075" name="a2c4e3d276fdc66f3f1b17e41292d7d0ea29ee5d1ebcc033234938a5234f1f2075"></a>Identifier&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c4e3d276fdc66f3f1b17e41292d7d0eab2ee912b91d69b435159c7c3f6df7f5f" name="a2c4e3d276fdc66f3f1b17e41292d7d0eab2ee912b91d69b435159c7c3f6df7f5f"></a>Number&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2c4e3d276fdc66f3f1b17e41292d7d0ea32ba78fe43257d3e7f88e3935a8ea0d4" name="a2c4e3d276fdc66f3f1b17e41292d7d0ea32ba78fe43257d3e7f88e3935a8ea0d4"></a>Plus&#160;</td><td class="fielddoc"></td></tr>
@@ -519,6 +607,205 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a35dd0deee5e026fc04f288a48d2e7776_icgraph.svg" width="447" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="af1b081c8e94003fb18ef59b3873c0c96" name="af1b081c8e94003fb18ef59b3873c0c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1b081c8e94003fb18ef59b3873c0c96">&#9670;&#160;</a></span>TYPE_CHAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a> ULang::TYPE_CHAR {&quot;char&quot;, 1, <a class="el" href="namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93ea5d8c01aa9d9888c73a642338b2e831e3">DataTypeFlags::INTEGRAL</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba8e95e84813830072b7516cfaa7dbc1a9">DataTypeKind::Char</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a783ed150d38a35207863aa2ef11f995a" name="a783ed150d38a35207863aa2ef11f995a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a783ed150d38a35207863aa2ef11f995a">&#9670;&#160;</a></span>TYPE_INT16</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a> ULang::TYPE_INT16 {&quot;int16&quot;, 2, <a class="el" href="types_8hpp.html#a0d20050d93e0ab5978c48f4bb18597c5">_FLAGS_INT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04dd58051bba1763d5b3ac3c05dc29bd" name="a04dd58051bba1763d5b3ac3c05dc29bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04dd58051bba1763d5b3ac3c05dc29bd">&#9670;&#160;</a></span>TYPE_INT32</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a> ULang::TYPE_INT32 {&quot;int32&quot;, 4, <a class="el" href="types_8hpp.html#a0d20050d93e0ab5978c48f4bb18597c5">_FLAGS_INT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f3ec8baa621a3d1161d3abff8d62528" name="a6f3ec8baa621a3d1161d3abff8d62528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3ec8baa621a3d1161d3abff8d62528">&#9670;&#160;</a></span>TYPE_INT64</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a> ULang::TYPE_INT64 {&quot;int64&quot;, 8, <a class="el" href="types_8hpp.html#a0d20050d93e0ab5978c48f4bb18597c5">_FLAGS_INT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae74b9def6708053c459737bf4b08711e" name="ae74b9def6708053c459737bf4b08711e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae74b9def6708053c459737bf4b08711e">&#9670;&#160;</a></span>TYPE_INT8</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a> ULang::TYPE_INT8 {&quot;int8&quot;, 1, <a class="el" href="types_8hpp.html#a0d20050d93e0ab5978c48f4bb18597c5">_FLAGS_INT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a649dd61f4b0b35dd63597291fd705461" name="a649dd61f4b0b35dd63597291fd705461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a649dd61f4b0b35dd63597291fd705461">&#9670;&#160;</a></span>TYPE_UINT16</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a> ULang::TYPE_UINT16 {&quot;uint16&quot;, 2, <a class="el" href="types_8hpp.html#a053ff6a4e1979accafdc69a819885e0e">_FLAGS_UINT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a602006122ba95cddcdf8f970f4e4545f" name="a602006122ba95cddcdf8f970f4e4545f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a602006122ba95cddcdf8f970f4e4545f">&#9670;&#160;</a></span>TYPE_UINT32</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a> ULang::TYPE_UINT32 {&quot;uint32&quot;, 4, <a class="el" href="types_8hpp.html#a053ff6a4e1979accafdc69a819885e0e">_FLAGS_UINT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab58a28e9a84587de73a71adbe9a32830" name="ab58a28e9a84587de73a71adbe9a32830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab58a28e9a84587de73a71adbe9a32830">&#9670;&#160;</a></span>TYPE_UINT64</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a> ULang::TYPE_UINT64 {&quot;uint64&quot;, 8, <a class="el" href="types_8hpp.html#a053ff6a4e1979accafdc69a819885e0e">_FLAGS_UINT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a503696161566f7377fe36e8de353d3" name="a3a503696161566f7377fe36e8de353d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a503696161566f7377fe36e8de353d3">&#9670;&#160;</a></span>TYPE_UINT8</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a> ULang::TYPE_UINT8 {&quot;uint8&quot;, 1, <a class="el" href="types_8hpp.html#a053ff6a4e1979accafdc69a819885e0e">_FLAGS_UINT</a>, <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">DataTypeKind::Int</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['text_0',['text',['../structULang_1_1Token.html#a5bfbfc1cef314abf9d35e6bad6f63498',1,'ULang::Token']]],
-  ['type_1',['type',['../structULang_1_1ASTNode.html#a10e80829875e0c4240a304cb3579ef6c',1,'ULang::ASTNode::type'],['../structULang_1_1Token.html#aa37847518d3e3d32624f22ef35cb95c0',1,'ULang::Token::type']]]
+  ['name_0',['name',['../structULang_1_1DataType.html#ab3aadfe9b8f7217ecdc97a4284ab8ef3',1,'ULang::DataType::name'],['../structULang_1_1ASTNode.html#a3dfc22b3502c72744c9f6c1fc3c7e024',1,'ULang::ASTNode::name'],['../structULang_1_1Symbol.html#af5e29a28eb28175a39e5ab55dd6bfa8d',1,'ULang::Symbol::name']]],
+  ['nextoffset_1',['nextOffset',['../structULang_1_1Scope.html#ad56056e8dd5ff39cb6b8bb55b8c24798',1,'ULang::Scope']]]
 ];

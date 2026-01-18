@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['add_0',['ADD',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a9eeb52badb613229884838847294b90d',1,'ULang']]],
-  ['addition_1',['ADDITION',['../namespaceULang.html#a7af8a040ae5502513d31482bc5646f6ea8cc6c2a8240840901a7317b95658c073',1,'ULang']]],
-  ['assign_2',['Assign',['../namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea185b7133db22230701a857c059360cc2',1,'ULang']]],
-  ['assignment_3',['ASSIGNMENT',['../namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa791ff9f35e0ac7dbbf3a564c6ef98c83',1,'ULang']]],
-  ['ast_2ecpp_4',['ast.cpp',['../ast_8cpp.html',1,'']]],
-  ['astnode_5',['astnode',['../structULang_1_1ASTNode.html',1,'ULang::ASTNode'],['../structULang_1_1ASTNode.html#a8ca5435c25267a3c8e17ec9090bb1966',1,'ULang::ASTNode::ASTNode(int64_t val)'],['../structULang_1_1ASTNode.html#a80b7cf318861f2e63b2c8eeb0ab1d953',1,'ULang::ASTNode::ASTNode(const std::string &amp;varname)'],['../structULang_1_1ASTNode.html#a78c44a78afd59ef2d8eec497113d8941',1,'ULang::ASTNode::ASTNode(ASTNodeType t)']]],
-  ['astnodetype_6',['ASTNodeType',['../namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aea',1,'ULang']]]
+  ['_5fflags_5fint_0',['_FLAGS_INT',['../types_8hpp.html#a0d20050d93e0ab5978c48f4bb18597c5',1,'types.hpp']]],
+  ['_5fflags_5fuint_1',['_FLAGS_UINT',['../types_8hpp.html#a053ff6a4e1979accafdc69a819885e0e',1,'types.hpp']]],
+  ['_5fname_2',['_name',['../structULang_1_1Scope.html#a5717c78104b8e006ae2d29639c8df082',1,'ULang::Scope']]]
 ];

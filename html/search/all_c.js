@@ -1,15 +1,13 @@
 var searchData=
 [
-  ['op_0',['op',['../structULang_1_1ASTNode.html#af3ede38362300452243927bd0b6dae4f',1,'ULang::ASTNode']]],
-  ['op_5fconstant_1',['OP_CONSTANT',['../namespaceULang.html#ad972f88d41f3bd63c56317b91abb526ba4570d48c219ebcd3bbcbaae7868f05cc',1,'ULang']]],
-  ['op_5fimmediate_2',['OP_IMMEDIATE',['../namespaceULang.html#ad972f88d41f3bd63c56317b91abb526ba5adfd25d19e3f4a569c7a8620a6ea95e',1,'ULang']]],
-  ['op_5fnull_3',['OP_NULL',['../namespaceULang.html#ad972f88d41f3bd63c56317b91abb526baee7062fb138d3bbf27d964c115fcb943',1,'ULang']]],
-  ['op_5freference_4',['OP_REFERENCE',['../namespaceULang.html#ad972f88d41f3bd63c56317b91abb526ba121e572688cc18d4c6f57df9b750500b',1,'ULang']]],
-  ['op_5fregister_5',['OP_REGISTER',['../namespaceULang.html#ad972f88d41f3bd63c56317b91abb526ba06586ccc2d103c330dce253d70e75c23',1,'ULang']]],
-  ['opa_6',['opA',['../structULang_1_1Instruction.html#a3a30c48f2d3bd0ce73cf45026b17c9ec',1,'ULang::Instruction']]],
-  ['opb_7',['opB',['../structULang_1_1Instruction.html#a00ad91ffd5663e759f2fd4a04a5bd88d',1,'ULang::Instruction']]],
-  ['opcode_8',['opcode',['../structULang_1_1Instruction.html#a5ea49ebee51d872548a67364a1d9a8fe',1,'ULang::Instruction::opcode'],['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610',1,'ULang::Opcode']]],
-  ['operand_9',['Operand',['../structULang_1_1Operand.html',1,'ULang']]],
-  ['operandmeta_5ft_10',['operandMeta_t',['../namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab',1,'ULang']]],
-  ['operandtype_11',['OperandType',['../namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b',1,'ULang']]]
+  ['leave_0',['leave',['../classULang_1_1SymbolTable.html#a3b2c6f3e1d3195967abdeda79a8558d8',1,'ULang::SymbolTable']]],
+  ['lefthand_1',['lefthand',['../structULang_1_1ASTNode.html#a18bd5b532aabb9054d3e2753ee55ed89',1,'ULang::ASTNode']]],
+  ['lexer_2',['lexer',['../classULang_1_1Lexer.html',1,'ULang::Lexer'],['../classULang_1_1Lexer.html#a407179f6555ac1bce95a942a63c09a0b',1,'ULang::Lexer::Lexer()']]],
+  ['lexer_2ecpp_3',['lexer.cpp',['../lexer_8cpp.html',1,'']]],
+  ['load_4',['LOAD',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028',1,'ULang']]],
+  ['loc_5fcol_5',['loc_col',['../structULang_1_1SourceLocation.html#a05ece2ac93e8d8cb4dda14e7f3242a71',1,'ULang::SourceLocation']]],
+  ['loc_5ffile_6',['loc_file',['../structULang_1_1SourceLocation.html#ac3cb885a8639c80e7677ce9846f00d71',1,'ULang::SourceLocation']]],
+  ['loc_5fline_7',['loc_line',['../structULang_1_1SourceLocation.html#ab2a54766016a7cb7b6ae703676437c18',1,'ULang::SourceLocation']]],
+  ['loc_5fparent_8',['loc_parent',['../structULang_1_1SourceLocation.html#afd072750a79bb0f85daac71f4fce8d91',1,'ULang::SourceLocation']]],
+  ['lookup_9',['lookup',['../structULang_1_1Scope.html#af3efbd04bbca65236e196aadda6c05d0',1,'ULang::Scope::lookup(const std::string &amp;name) const'],['../structULang_1_1Scope.html#a8de957aca07ee4601f6032ad26063dfd',1,'ULang::Scope::lookup(unsigned int symbolId) const'],['../classULang_1_1SymbolTable.html#a19fb5b1b47d3e13844e01860062a1241',1,'ULang::SymbolTable::lookup(const std::string &amp;name) const'],['../classULang_1_1SymbolTable.html#a7a31dd1e97f816cdbf0f6930577eac9e',1,'ULang::SymbolTable::lookup(unsigned int symbolId) const']]]
 ];

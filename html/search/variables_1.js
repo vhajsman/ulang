@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lefthand_0',['lefthand',['../structULang_1_1ASTNode.html#a18bd5b532aabb9054d3e2753ee55ed89',1,'ULang::ASTNode']]]
+  ['flags_0',['flags',['../structULang_1_1DataType.html#aa6a25bdd0abdfc2d06f807530f8609f2',1,'ULang::DataType']]]
 ];

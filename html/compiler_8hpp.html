@@ -82,18 +82,20 @@ $(function() {
   <div class="headertitle"><div class="title">compiler.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="types_8hpp_source.html">types.hpp</a>&quot;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for compiler.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__incl.svg" width="248" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__incl.svg" width="468" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__dep__incl.svg" width="543" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__dep__incl.svg" width="928" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="compiler_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -105,6 +107,14 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Token.html">ULang::Token</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1Lexer.html">ULang::Lexer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1SourceLocation.html">ULang::SourceLocation</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Symbol.html">ULang::Symbol</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Scope.html">ULang::Scope</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html">ULang::SymbolTable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -136,7 +146,7 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:a7af8a040ae5502513d31482bc5646f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c4e3d276fdc66f3f1b17e41292d7d0e" id="r_a2c4e3d276fdc66f3f1b17e41292d7d0e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">ULang::TokenType</a> { <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea86abf482031effd51ac4bc56c35da3c5">ULang::IntKeyword</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0eab785d149fb8a5d4053303ff33131b2f3">ULang::TypeKeyword</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea29ee5d1ebcc033234938a5234f1f2075">ULang::Identifier</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0eab2ee912b91d69b435159c7c3f6df7f5f">ULang::Number</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea32ba78fe43257d3e7f88e3935a8ea0d4">ULang::Plus</a>
