@@ -1,4 +1,5 @@
 #include "compiler.hpp"
+#include "types.hpp"
 
 #include <cctype>
 #include <stdexcept>
@@ -41,11 +42,13 @@ namespace ULang {
                     id += this->get();
                 }
 
-                if(id == "int") {
-                    tokens.push_back({TokenType::TypeKeyword, id});
-                } else {
+                try {
+                    const DataType* type = resolveDataType(id);
+                    tokens.push_back({TokenType::TypeKeyword, type->name});
+                } catch(const std::exception& e) {
+                    THROW_AWAY e;
                     tokens.push_back({TokenType::Identifier, id});
-                }
+                };
 
                 continue;
             }
