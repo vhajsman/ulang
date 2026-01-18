@@ -1,0 +1,5 @@
+int fib(int n) {
+    return (n <= 1) ? n : fib(n - 1) + fin(n - 2);
+}
+
+int fib_ans = fib(144);
