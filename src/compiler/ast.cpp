@@ -13,6 +13,7 @@ namespace ULang {
     ASTNode::ASTNode(ASTNodeType t)
     : type(t) {}
 
+    /*
     ASTNode* parsePrimary(const std::vector<Token>& tokens, size_t& pos) {
         if(tokens[pos].type == TokenType::Number) {
             ASTNode* n = new ASTNode(ASTNodeType::NUMBER);
@@ -83,4 +84,5 @@ namespace ULang {
 
         return node;
     }
+    */
 };
