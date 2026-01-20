@@ -40,19 +40,11 @@ int main(int argc, char** argv) {
     std::cout << "Loaded " << sourceCode.size() << " bytes from" << sourceFile << ", output: " << outFile << "\n";
 
     ULang::Lexer lexer(sourceCode);
-    auto tokens = lexer.tokenize();
+    THROW_AWAY lexer.tokenize();
 
-    for(const auto& t : tokens) {
-        std::cout << "Token: " << t.text << " Type: " << static_cast<int>(t.type) << "\n";
-    }
+    ULang::CompilerInstance* ci = new ULang::CompilerInstance(sourceCode, sourceFile);
+    THROW_AWAY ci->compile();
+    std::cout << "Compile OK" << std::endl;
 
-    auto ast = ULang::buildAST(tokens);
-
-    std::cout << "AST nodes: " << ast.size() << "\n";
-    for(auto* node : ast) {
-        std::cout << "  ASTNode type: " << static_cast<int>(node->type);
-        if(node->type == ULang::ASTNodeType::DECLARATION)
-            std::cout << " name=" << node->name;
-        std::cout << "\n";
-    }
+    delete ci;
 }
