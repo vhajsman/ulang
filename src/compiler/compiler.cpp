@@ -136,7 +136,6 @@ namespace ULang {
         this->pos = 0;
 
         while(this->tokens[this->pos].type != TokenType::EndOfFile) {
-            ASTPtr node;
             ASTNode* node_raw = nullptr;
 
             if(this->tokens[this->pos].type == TokenType::TypeKeyword) {
@@ -149,8 +148,7 @@ namespace ULang {
             if(!node_raw)
                 throw std::runtime_error("Parser returned null AST node");
 
-            node.reset(node_raw);
-            this->ast_owned.push_back(std::move(node));
+            this->ast_owned.push_back(ASTPtr(node_raw));
         }
     }
 
@@ -174,5 +172,12 @@ namespace ULang {
         }
 
         // TODO: type checking, bytecode, IR
+
+        /*
+        for(auto& node: this->ast_owned)
+            node.reset();
+
+        this->ast_owned.clear();
+        */
     }
 };

@@ -14,6 +14,7 @@ namespace ULang {
     }
 
     SymbolTable::~SymbolTable() {
+        /*
         Scope* s = this->scope_current;
         while(s) {
             Scope* parent = s->parent;
@@ -21,6 +22,9 @@ namespace ULang {
 
             s = parent;
         }
+        */
+
+        delete this->scope_global;
     }
 
     Scope* SymbolTable::enter(const std::string& name) {
@@ -60,6 +64,10 @@ namespace ULang {
 
     const Symbol* SymbolTable::lookup(unsigned int symbolId) const {
         return this->scope_current->lookup(symbolId);
+    }
+
+    Scope::~Scope() {
+        
     }
     
     Scope* SymbolTable::getCurrentScope() const {

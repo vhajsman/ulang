@@ -47,4 +47,5 @@ int main(int argc, char** argv) {
     std::cout << "Compile OK" << std::endl;
 
     delete ci;
+    return 0;
 }

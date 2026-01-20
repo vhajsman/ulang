@@ -119,6 +119,8 @@ namespace ULang {
         
         const Symbol* lookup(const std::string& name) const;
         const Symbol* lookup(unsigned int symbolId) const;
+
+        ~Scope();
     };
 
     class SymbolTable {
