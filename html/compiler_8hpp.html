@@ -77,8 +77,8 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">compiler.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -87,15 +87,16 @@ $(function() {
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for compiler.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__incl.svg" width="468" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__incl.svg" width="570" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__dep__incl.svg" width="928" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__dep__incl.svg" width="1143" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="compiler_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -116,6 +117,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html">ULang::SymbolTable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerInstance.html">ULang::CompilerInstance</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -126,6 +129,11 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:adad4758e9e4b3df8d21cf708c07e9ed9" id="r_adad4758e9e4b3df8d21cf708c07e9ed9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compiler_8hpp.html#adad4758e9e4b3df8d21cf708c07e9ed9">THROW_AWAY</a>&#160;&#160;&#160;(void)</td></tr>
 <tr class="separator:adad4758e9e4b3df8d21cf708c07e9ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a6360ef03fa62fd65f848a8b51c0aef3a" id="r_a6360ef03fa62fd65f848a8b51c0aef3a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a6360ef03fa62fd65f848a8b51c0aef3a">ULang::ASTPtr</a> = std::unique_ptr&lt; <a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> &gt;</td></tr>
+<tr class="separator:a6360ef03fa62fd65f848a8b51c0aef3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -161,11 +169,6 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a2c4e3d276fdc66f3f1b17e41292d7d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a8f59f969ec2996764887ae0230f13155" id="r_a8f59f969ec2996764887ae0230f13155"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8f59f969ec2996764887ae0230f13155">ULang::buildAST</a> (const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;tokens)</td></tr>
-<tr class="separator:a8f59f969ec2996764887ae0230f13155"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="adad4758e9e4b3df8d21cf708c07e9ed9" name="adad4758e9e4b3df8d21cf708c07e9ed9"></a>

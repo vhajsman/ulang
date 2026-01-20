@@ -85,6 +85,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1BytecodeStream.html">BytecodeStream</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerInstance.html">CompilerInstance</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1DataType.html">DataType</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html">Instruction</a></td></tr>
@@ -108,6 +110,8 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a44bbf87954bd3e5d6751fd20615e5dab" id="r_a44bbf87954bd3e5d6751fd20615e5dab"><td class="memItemLeft" align="right" valign="top">typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">operandMeta_t</a></td></tr>
 <tr class="separator:a44bbf87954bd3e5d6751fd20615e5dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6360ef03fa62fd65f848a8b51c0aef3a" id="r_a6360ef03fa62fd65f848a8b51c0aef3a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a6360ef03fa62fd65f848a8b51c0aef3a">ASTPtr</a> = std::unique_ptr&lt; <a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> &gt;</td></tr>
+<tr class="separator:a6360ef03fa62fd65f848a8b51c0aef3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -196,10 +200,8 @@ Functions</h2></td></tr>
 <tr class="separator:a547bfd2943b2be11c7018ea6c5a8060e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bc72c6d5fa71c1e6d1f58b6b6c7b939" id="r_a4bc72c6d5fa71c1e6d1f58b6b6c7b939"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a4bc72c6d5fa71c1e6d1f58b6b6c7b939">parseExpression</a> (const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;tokens, size_t &amp;pos)</td></tr>
 <tr class="separator:a4bc72c6d5fa71c1e6d1f58b6b6c7b939"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35dd0deee5e026fc04f288a48d2e7776" id="r_a35dd0deee5e026fc04f288a48d2e7776"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a35dd0deee5e026fc04f288a48d2e7776">parseVarDecl</a> (const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;tokens, size_t &amp;pos)</td></tr>
-<tr class="separator:a35dd0deee5e026fc04f288a48d2e7776"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f59f969ec2996764887ae0230f13155" id="r_a8f59f969ec2996764887ae0230f13155"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8f59f969ec2996764887ae0230f13155">buildAST</a> (const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;tokens)</td></tr>
-<tr class="separator:a8f59f969ec2996764887ae0230f13155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa418dc07b5d89ea88494aa021fa1380f" id="r_aa418dc07b5d89ea88494aa021fa1380f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#aa418dc07b5d89ea88494aa021fa1380f">parseVarDecl</a> (const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;tokens, size_t &amp;pos, <a class="el" href="structULang_1_1Symbol.html">Symbol</a> *sym=nullptr)</td></tr>
+<tr class="separator:aa418dc07b5d89ea88494aa021fa1380f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -223,6 +225,20 @@ Variables</h2></td></tr>
 <tr class="separator:af1b081c8e94003fb18ef59b3873c0c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="a6360ef03fa62fd65f848a8b51c0aef3a" name="a6360ef03fa62fd65f848a8b51c0aef3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6360ef03fa62fd65f848a8b51c0aef3a">&#9670;&#160;</a></span>ASTPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceULang.html#a6360ef03fa62fd65f848a8b51c0aef3a">ULang::ASTPtr</a> = typedef std::unique_ptr&lt;<a class="el" href="structULang_1_1ASTNode.html">ASTNode</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a44bbf87954bd3e5d6751fd20615e5dab" name="a44bbf87954bd3e5d6751fd20615e5dab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44bbf87954bd3e5d6751fd20615e5dab">&#9670;&#160;</a></span>operandMeta_t</h2>
 
@@ -443,34 +459,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a8f59f969ec2996764887ae0230f13155" name="a8f59f969ec2996764887ae0230f13155"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f59f969ec2996764887ae0230f13155">&#9670;&#160;</a></span>buildAST()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> * &gt; ULang::buildAST </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tokens</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a8f59f969ec2996764887ae0230f13155_cgraph.svg" width="778" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a8f59f969ec2996764887ae0230f13155_icgraph.svg" width="242" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a id="a4bc72c6d5fa71c1e6d1f58b6b6c7b939" name="a4bc72c6d5fa71c1e6d1f58b6b6c7b939"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4bc72c6d5fa71c1e6d1f58b6b6c7b939">&#9670;&#160;</a></span>parseExpression()</h2>
 
@@ -504,7 +492,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a4bc72c6d5fa71c1e6d1f58b6b6c7b939_icgraph.svg" width="674" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a4bc72c6d5fa71c1e6d1f58b6b6c7b939_icgraph.svg" width="395" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -569,13 +557,13 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a547bfd2943b2be11c7018ea6c5a8060e_icgraph.svg" width="880" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a547bfd2943b2be11c7018ea6c5a8060e_icgraph.svg" width="602" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a35dd0deee5e026fc04f288a48d2e7776" name="a35dd0deee5e026fc04f288a48d2e7776"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35dd0deee5e026fc04f288a48d2e7776">&#9670;&#160;</a></span>parseVarDecl()</h2>
+<a id="aa418dc07b5d89ea88494aa021fa1380f" name="aa418dc07b5d89ea88494aa021fa1380f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa418dc07b5d89ea88494aa021fa1380f">&#9670;&#160;</a></span>parseVarDecl()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -590,7 +578,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t &amp;&#160;</td>
-          <td class="paramname"><em>pos</em>&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td>
+          <td class="paramname"><em>sym</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -602,12 +596,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a35dd0deee5e026fc04f288a48d2e7776_cgraph.svg" width="602" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a35dd0deee5e026fc04f288a48d2e7776_icgraph.svg" width="447" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_aa418dc07b5d89ea88494aa021fa1380f_cgraph.svg" width="602" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -630,7 +619,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a2437ad588ffb8270e6c3c174357638f2_icgraph.svg" width="511" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a2437ad588ffb8270e6c3c174357638f2_icgraph.svg" width="744" height="74"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

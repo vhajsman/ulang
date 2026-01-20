@@ -1,15 +1,10 @@
 <map id="main" name="main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,60,56"/>
-<area shape="rect" id="Node000002" href="$namespaceULang.html#a8f59f969ec2996764887ae0230f13155" title=" " alt="" coords="129,5,257,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,36,115,28,115,33,61,42"/>
-<area shape="rect" id="Node000006" href="$classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" title=" " alt="" coords="108,55,277,80"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="61,45,95,50,94,55,60,50"/>
-<area shape="rect" id="Node000003" href="$namespaceULang.html#a35dd0deee5e026fc04f288a48d2e7776" title=" " alt="" coords="337,5,494,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="257,15,323,15,323,21,257,21"/>
-<area shape="rect" id="Node000004" href="$namespaceULang.html#a4bc72c6d5fa71c1e6d1f58b6b6c7b939" title=" " alt="" coords="553,5,732,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="495,15,539,15,539,21,495,21"/>
-<area shape="rect" id="Node000005" href="$namespaceULang.html#a547bfd2943b2be11c7018ea6c5a8060e" title=" " alt="" coords="780,5,939,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="732,15,766,15,766,21,732,21"/>
-<area shape="rect" id="Node000007" href="$namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2" title=" " alt="" coords="325,55,505,80"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="278,65,312,65,312,70,278,70"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,42,60,67"/>
+<area shape="rect" id="Node000002" href="$classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa" title=" " alt="" coords="108,5,293,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,47,94,41,95,47,61,53"/>
+<area shape="rect" id="Node000003" href="$classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" title=" " alt="" coords="341,42,511,67"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="60,53,108,55,293,55,328,54,328,60,293,60,108,60,60,58"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="294,35,328,39,327,45,294,40"/>
+<area shape="rect" id="Node000004" href="$namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2" title=" " alt="" coords="559,42,739,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="511,52,545,52,545,57,511,57"/>
 </map>

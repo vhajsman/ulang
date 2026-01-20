@@ -6,5 +6,6 @@ var searchData=
   ['assignment_3',['ASSIGNMENT',['../namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa791ff9f35e0ac7dbbf3a564c6ef98c83',1,'ULang']]],
   ['ast_2ecpp_4',['ast.cpp',['../ast_8cpp.html',1,'']]],
   ['astnode_5',['astnode',['../structULang_1_1ASTNode.html',1,'ULang::ASTNode'],['../structULang_1_1ASTNode.html#a8ca5435c25267a3c8e17ec9090bb1966',1,'ULang::ASTNode::ASTNode(int64_t val)'],['../structULang_1_1ASTNode.html#a80b7cf318861f2e63b2c8eeb0ab1d953',1,'ULang::ASTNode::ASTNode(const std::string &amp;varname)'],['../structULang_1_1ASTNode.html#a78c44a78afd59ef2d8eec497113d8941',1,'ULang::ASTNode::ASTNode(ASTNodeType t)']]],
-  ['astnodetype_6',['ASTNodeType',['../namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aea',1,'ULang']]]
+  ['astnodetype_6',['ASTNodeType',['../namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aea',1,'ULang']]],
+  ['astptr_7',['ASTPtr',['../namespaceULang.html#a6360ef03fa62fd65f848a8b51c0aef3a',1,'ULang']]]
 ];

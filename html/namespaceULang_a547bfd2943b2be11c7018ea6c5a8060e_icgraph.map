@@ -1,11 +1,7 @@
 <map id="ULang::parsePrimary" name="ULang::parsePrimary">
-<area shape="rect" id="Node000001" title=" " alt="" coords="716,5,875,31"/>
-<area shape="rect" id="Node000002" href="$namespaceULang.html#a4bc72c6d5fa71c1e6d1f58b6b6c7b939" title=" " alt="" coords="489,5,668,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="702,21,668,21,668,15,702,15"/>
-<area shape="rect" id="Node000003" href="$namespaceULang.html#a35dd0deee5e026fc04f288a48d2e7776" title=" " alt="" coords="284,5,441,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="476,21,442,21,442,15,476,15"/>
-<area shape="rect" id="Node000004" href="$namespaceULang.html#a8f59f969ec2996764887ae0230f13155" title=" " alt="" coords="108,5,236,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="270,21,236,21,236,15,270,15"/>
-<area shape="rect" id="Node000005" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="437,5,596,31"/>
+<area shape="rect" id="Node000002" href="$namespaceULang.html#a4bc72c6d5fa71c1e6d1f58b6b6c7b939" title=" " alt="" coords="211,5,389,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,21,390,21,390,15,423,15"/>
+<area shape="rect" id="Node000003" href="$namespaceULang.html#aa418dc07b5d89ea88494aa021fa1380f" title=" " alt="" coords="5,5,163,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="197,21,163,21,163,15,197,15"/>
 </map>
