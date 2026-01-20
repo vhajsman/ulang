@@ -56,7 +56,7 @@ namespace ULang {
         return left;
     }
 
-    ASTNode* parseVarDecl(const std::vector<Token>& tokens, size_t& pos) {
+    ASTNode* parseVarDecl(const std::vector<Token>& tokens, size_t& pos, Symbol* sym = nullptr) {
         if(tokens[pos].type != TokenType::TypeKeyword)
             throw std::runtime_error("Expected 'int'");
 
@@ -82,28 +82,5 @@ namespace ULang {
         node->initial = expr;
 
         return node;
-    }
-
-    std::vector<ASTNode*> buildAST(const std::vector<Token> &tokens) {
-        std::vector<ASTNode*> ast;
-        size_t pos = 0;
-
-        while(tokens[pos].type != TokenType::EndOfFile) {
-            ASTNode* node = nullptr;
-
-            switch(tokens[pos].type) {
-                case ULang::TokenType::TypeKeyword:
-                    node = parseVarDecl(tokens, pos);
-                    break;
-                
-                default:
-                    throw std::runtime_error("Unexpected token: " + tokens[pos].text);
-            }
-
-            if(node)
-                ast.push_back(node);
-        }
-
-        return ast;
     }
 };

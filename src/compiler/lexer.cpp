@@ -6,7 +6,7 @@
 
 namespace ULang {
     Lexer::Lexer(const std::string& input)
-    : src(input) {}
+    : src(input), pos(0) {}
 
     char Lexer::peek() const {
         return this->pos < this->src.size() ? this->src[this->pos] : '\0';
@@ -18,6 +18,7 @@ namespace ULang {
 
     std::vector<Token> Lexer::tokenize() {
         std::vector<Token> tokens;
+        this->pos = 0;
 
         while(this->pos < this->src.size()) {
             char c = this->peek();

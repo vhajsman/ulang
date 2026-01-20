@@ -1,6 +1,7 @@
 #include "compiler.hpp"
 #include <cstring>
 #include <stdexcept>
+#include <iostream>
 
 namespace ULang {
     Symbol* Scope::decl(const std::string& name, const DataType* type, SourceLocation* where, size_t align_head, size_t align_tail) {
@@ -16,13 +17,15 @@ namespace ULang {
             this->nextOffset + align_head
         };
 
-        if(where)
-            std::memcpy((void*) &sym.where, where, sizeof(SourceLocation));
+        if(where) {
+            // std::memcpy((void*) &sym.where, where, sizeof(SourceLocation));
+            sym.where = *where;
+        }
 
-        this->symbols.emplace(name, sym);
+        auto it = this->symbols.emplace(name, sym);
         this->nextOffset += type->size + align_tail;
-
-        return &this->symbols.at(name);
+        
+        return &it.first->second;
     }
 
     const Symbol* Scope::lookup(const std::string& name) const {
