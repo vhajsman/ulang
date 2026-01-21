@@ -82,6 +82,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">AST nodes.  <a href="structULang_1_1ASTNode.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1BytecodeStream.html">BytecodeStream</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -94,6 +95,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html">Instruction</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1Lexer.html">Lexer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts source to tokens  <a href="classULang_1_1Lexer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html">Operand</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -276,11 +278,16 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaa34f55eca38e0605a84f169ff61a2a396" name="a5180906b993ff6f08366e27a9f1d3aeaa34f55eca38e0605a84f169ff61a2a396"></a>NUMBER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaae61ad9b2553a293b4a3f4d3b4fa5ab31" name="a5180906b993ff6f08366e27a9f1d3aeaae61ad9b2553a293b4a3f4d3b4fa5ab31"></a>VARIABLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaa6233c9c9f32348e5b61b09596861ede0" name="a5180906b993ff6f08366e27a9f1d3aeaa6233c9c9f32348e5b61b09596861ede0"></a>BINOP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaae463bca4b554156e78cf2e8447c0a53e" name="a5180906b993ff6f08366e27a9f1d3aeaae463bca4b554156e78cf2e8447c0a53e"></a>DECLARATION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaa791ff9f35e0ac7dbbf3a564c6ef98c83" name="a5180906b993ff6f08366e27a9f1d3aeaa791ff9f35e0ac7dbbf3a564c6ef98c83"></a>ASSIGNMENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaa34f55eca38e0605a84f169ff61a2a396" name="a5180906b993ff6f08366e27a9f1d3aeaa34f55eca38e0605a84f169ff61a2a396"></a>NUMBER&#160;</td><td class="fielddoc"><p>integral value </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaae61ad9b2553a293b4a3f4d3b4fa5ab31" name="a5180906b993ff6f08366e27a9f1d3aeaae61ad9b2553a293b4a3f4d3b4fa5ab31"></a>VARIABLE&#160;</td><td class="fielddoc"><p>variable reference </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaa6233c9c9f32348e5b61b09596861ede0" name="a5180906b993ff6f08366e27a9f1d3aeaa6233c9c9f32348e5b61b09596861ede0"></a>BINOP&#160;</td><td class="fielddoc"><p>binary operator </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaae463bca4b554156e78cf2e8447c0a53e" name="a5180906b993ff6f08366e27a9f1d3aeaae463bca4b554156e78cf2e8447c0a53e"></a>DECLARATION&#160;</td><td class="fielddoc"><p>declaration (int myVar = ...) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5180906b993ff6f08366e27a9f1d3aeaa791ff9f35e0ac7dbbf3a564c6ef98c83" name="a5180906b993ff6f08366e27a9f1d3aeaa791ff9f35e0ac7dbbf3a564c6ef98c83"></a>ASSIGNMENT&#160;</td><td class="fielddoc"><p>value assignment (myVar = ...) </p>
+</td></tr>
 </table>
 
 </div>
@@ -305,10 +312,14 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6ea8cc6c2a8240840901a7317b95658c073" name="a7af8a040ae5502513d31482bc5646f6ea8cc6c2a8240840901a7317b95658c073"></a>ADDITION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a" name="a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a"></a>SUBSTRACTION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6eaf4e42c8a8e1f0086b97479eb8a0571ad" name="a7af8a040ae5502513d31482bc5646f6eaf4e42c8a8e1f0086b97479eb8a0571ad"></a>MULTIPLICATION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6ea72bbf163ab731bf04923a0975ccd2af5" name="a7af8a040ae5502513d31482bc5646f6ea72bbf163ab731bf04923a0975ccd2af5"></a>DIVISION&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6ea8cc6c2a8240840901a7317b95658c073" name="a7af8a040ae5502513d31482bc5646f6ea8cc6c2a8240840901a7317b95658c073"></a>ADDITION&#160;</td><td class="fielddoc"><p>addition </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a" name="a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a"></a>SUBSTRACTION&#160;</td><td class="fielddoc"><p>substraction </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6eaf4e42c8a8e1f0086b97479eb8a0571ad" name="a7af8a040ae5502513d31482bc5646f6eaf4e42c8a8e1f0086b97479eb8a0571ad"></a>MULTIPLICATION&#160;</td><td class="fielddoc"><p>multiplication </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7af8a040ae5502513d31482bc5646f6ea72bbf163ab731bf04923a0975ccd2af5" name="a7af8a040ae5502513d31482bc5646f6ea72bbf163ab731bf04923a0975ccd2af5"></a>DIVISION&#160;</td><td class="fielddoc"><p>division </p>
+</td></tr>
 </table>
 
 </div>

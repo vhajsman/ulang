@@ -91,6 +91,7 @@ Collaboration diagram for ULang::Scope:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad041b2f9f91de453cfc34f1ff1192744" id="r_ad041b2f9f91de453cfc34f1ff1192744"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Scope.html#ad041b2f9f91de453cfc34f1ff1192744">decl</a> (const std::string &amp;name, const <a class="el" href="structULang_1_1DataType.html">DataType</a> *type, <a class="el" href="structULang_1_1SourceLocation.html">SourceLocation</a> *where=nullptr, size_t align_head=0, size_t align_tail=0)</td></tr>
+<tr class="memdesc:ad041b2f9f91de453cfc34f1ff1192744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a symbol in current scope.  <br /></td></tr>
 <tr class="separator:ad041b2f9f91de453cfc34f1ff1192744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3efbd04bbca65236e196aadda6c05d0" id="r_af3efbd04bbca65236e196aadda6c05d0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Scope.html#af3efbd04bbca65236e196aadda6c05d0">lookup</a> (const std::string &amp;name) const</td></tr>
 <tr class="separator:af3efbd04bbca65236e196aadda6c05d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +173,25 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Declares a symbol in current scope. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>symbol name </td></tr>
+    <tr><td class="paramname">type</td><td>data type </td></tr>
+    <tr><td class="paramname">where</td><td>position in source code (default: nullptr) </td></tr>
+    <tr><td class="paramname">align_head</td><td>alignment before (default: 0) </td></tr>
+    <tr><td class="paramname">align_tail</td><td>alignment after (default: 0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Symbol* symbol pointer </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

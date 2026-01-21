@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classULang_1_1CompilerSyntaxException.html#ae089035a162b01242f33e8b4a5fdaf05" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classULang_1_1CompilerSyntaxException.html#ae089035a162b01242f33e8b4a5fdaf05" target="_top" xlink:title="formatted compiler exception output (JSON)">
 <polygon fill="white" stroke="#666666" points="179,-30 0,-30 0,0 179,0 179,-30"/>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::CompilerSyntaxException</text>
 <text text-anchor="middle" x="89.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::fmt_json</text>

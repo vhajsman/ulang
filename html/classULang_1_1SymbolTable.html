@@ -93,6 +93,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3b2c6f3e1d3195967abdeda79a8558d8" id="r_a3b2c6f3e1d3195967abdeda79a8558d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Scope.html">Scope</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html#a3b2c6f3e1d3195967abdeda79a8558d8">leave</a> ()</td></tr>
 <tr class="separator:a3b2c6f3e1d3195967abdeda79a8558d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97ea7bc61ceb17207ac67415f6982803" id="r_a97ea7bc61ceb17207ac67415f6982803"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html#a97ea7bc61ceb17207ac67415f6982803">decl</a> (const std::string &amp;name, const <a class="el" href="structULang_1_1DataType.html">DataType</a> *type, <a class="el" href="structULang_1_1SourceLocation.html">SourceLocation</a> *loc=nullptr, size_t align_head=0, size_t align_tail=0)</td></tr>
+<tr class="memdesc:a97ea7bc61ceb17207ac67415f6982803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a symbol in current scope.  <br /></td></tr>
 <tr class="separator:a97ea7bc61ceb17207ac67415f6982803"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19fb5b1b47d3e13844e01860062a1241" id="r_a19fb5b1b47d3e13844e01860062a1241"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html#a19fb5b1b47d3e13844e01860062a1241">lookup</a> (const std::string &amp;name) const</td></tr>
 <tr class="separator:a19fb5b1b47d3e13844e01860062a1241"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,6 +183,25 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Declares a symbol in current scope. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>symbol name </td></tr>
+    <tr><td class="paramname">type</td><td>data type </td></tr>
+    <tr><td class="paramname">loc</td><td>position in source code (default: nullptr) </td></tr>
+    <tr><td class="paramname">align_head</td><td>alignment before (default: 0) </td></tr>
+    <tr><td class="paramname">align_tail</td><td>alignment after (default: 0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Symbol* symbol pointer </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

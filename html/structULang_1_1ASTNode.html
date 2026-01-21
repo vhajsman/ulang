@@ -81,6 +81,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>AST nodes.  
+ <a href="structULang_1_1ASTNode.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="compiler_8hpp_source.html">compiler.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for ULang::ASTNode:</div>
@@ -100,23 +103,33 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a10e80829875e0c4240a304cb3579ef6c" id="r_a10e80829875e0c4240a304cb3579ef6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aea">ASTNodeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#a10e80829875e0c4240a304cb3579ef6c">type</a></td></tr>
+<tr class="memdesc:a10e80829875e0c4240a304cb3579ef6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">node type  <br /></td></tr>
 <tr class="separator:a10e80829875e0c4240a304cb3579ef6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ad45d84a5ba78a428dd577977be6e5b" id="r_a8ad45d84a5ba78a428dd577977be6e5b"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#a8ad45d84a5ba78a428dd577977be6e5b">val</a></td></tr>
+<tr class="memdesc:a8ad45d84a5ba78a428dd577977be6e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">value (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa34f55eca38e0605a84f169ff61a2a396" title="integral value">ASTNodeType::NUMBER</a>)  <br /></td></tr>
 <tr class="separator:a8ad45d84a5ba78a428dd577977be6e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dfc22b3502c72744c9f6c1fc3c7e024" id="r_a3dfc22b3502c72744c9f6c1fc3c7e024"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#a3dfc22b3502c72744c9f6c1fc3c7e024">name</a></td></tr>
+<tr class="memdesc:a3dfc22b3502c72744c9f6c1fc3c7e024"><td class="mdescLeft">&#160;</td><td class="mdescRight">name  <br /></td></tr>
 <tr class="separator:a3dfc22b3502c72744c9f6c1fc3c7e024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3ede38362300452243927bd0b6dae4f" id="r_af3ede38362300452243927bd0b6dae4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceULang.html#a7af8a040ae5502513d31482bc5646f6e">BinopType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#af3ede38362300452243927bd0b6dae4f">op</a></td></tr>
+<tr class="memdesc:af3ede38362300452243927bd0b6dae4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa6233c9c9f32348e5b61b09596861ede0" title="binary operator">ASTNodeType::BINOP</a>)  <br /></td></tr>
 <tr class="separator:af3ede38362300452243927bd0b6dae4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18bd5b532aabb9054d3e2753ee55ed89" id="r_a18bd5b532aabb9054d3e2753ee55ed89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#a18bd5b532aabb9054d3e2753ee55ed89">lefthand</a> = nullptr</td></tr>
+<tr class="memdesc:a18bd5b532aabb9054d3e2753ee55ed89"><td class="mdescLeft">&#160;</td><td class="mdescRight">lefthand operand  <br /></td></tr>
 <tr class="separator:a18bd5b532aabb9054d3e2753ee55ed89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab576acd8cd965067618d98027ccea5b5" id="r_ab576acd8cd965067618d98027ccea5b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#ab576acd8cd965067618d98027ccea5b5">righthand</a> = nullptr</td></tr>
+<tr class="memdesc:ab576acd8cd965067618d98027ccea5b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">righthand operand  <br /></td></tr>
 <tr class="separator:ab576acd8cd965067618d98027ccea5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46aff4544c32e2416f71acc0f7424787" id="r_a46aff4544c32e2416f71acc0f7424787"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#a46aff4544c32e2416f71acc0f7424787">initial</a> = nullptr</td></tr>
+<tr class="memdesc:a46aff4544c32e2416f71acc0f7424787"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial value (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaae463bca4b554156e78cf2e8447c0a53e" title="declaration (int myVar = ...)">ASTNodeType::DECLARATION</a>)  <br /></td></tr>
 <tr class="separator:a46aff4544c32e2416f71acc0f7424787"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcbad15ada8de6370ca4a555f2282a92" id="r_adcbad15ada8de6370ca4a555f2282a92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#adcbad15ada8de6370ca4a555f2282a92">symbol</a> = nullptr</td></tr>
+<tr class="memdesc:adcbad15ada8de6370ca4a555f2282a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">symbol  <br /></td></tr>
 <tr class="separator:adcbad15ada8de6370ca4a555f2282a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>AST nodes. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8ca5435c25267a3c8e17ec9090bb1966" name="a8ca5435c25267a3c8e17ec9090bb1966"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ca5435c25267a3c8e17ec9090bb1966">&#9670;&#160;</a></span>ASTNode() <span class="overload">[1/3]</span></h2>
 
@@ -184,6 +197,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>initial value (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaae463bca4b554156e78cf2e8447c0a53e" title="declaration (int myVar = ...)">ASTNodeType::DECLARATION</a>) </p>
+
 </div>
 </div>
 <a id="a18bd5b532aabb9054d3e2753ee55ed89" name="a18bd5b532aabb9054d3e2753ee55ed89"></a>
@@ -197,6 +212,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>lefthand operand </p>
 
 </div>
 </div>
@@ -212,6 +229,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>name </p>
+
 </div>
 </div>
 <a id="af3ede38362300452243927bd0b6dae4f" name="af3ede38362300452243927bd0b6dae4f"></a>
@@ -225,6 +244,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>operator (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa6233c9c9f32348e5b61b09596861ede0" title="binary operator">ASTNodeType::BINOP</a>) </p>
 
 </div>
 </div>
@@ -240,6 +261,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>righthand operand </p>
+
 </div>
 </div>
 <a id="adcbad15ada8de6370ca4a555f2282a92" name="adcbad15ada8de6370ca4a555f2282a92"></a>
@@ -253,6 +276,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>symbol </p>
 
 </div>
 </div>
@@ -268,6 +293,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>node type </p>
+
 </div>
 </div>
 <a id="a8ad45d84a5ba78a428dd577977be6e5b" name="a8ad45d84a5ba78a428dd577977be6e5b"></a>
@@ -281,6 +308,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>value (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa34f55eca38e0605a84f169ff61a2a396" title="integral value">ASTNodeType::NUMBER</a>) </p>
 
 </div>
 </div>

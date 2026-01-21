@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classULang_1_1CompilerSyntaxException.html#a39539114f05c2d71321e5eb748da29f6" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classULang_1_1CompilerSyntaxException.html#a39539114f05c2d71321e5eb748da29f6" target="_top" xlink:title="formatted compiler exception output (human readable)">
 <polygon fill="white" stroke="#666666" points="203,-19 0,-19 0,0 203,0 203,-19"/>
 <text text-anchor="middle" x="101.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::CompilerSyntaxException::fmt</text>
 </a>

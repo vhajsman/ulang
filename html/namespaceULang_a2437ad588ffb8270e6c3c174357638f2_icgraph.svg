@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" target="_top" xlink:title="converts source code to tokens">
 <polygon fill="white" stroke="#666666" points="379,-19 252,-19 252,0 379,0 379,-19"/>
 <text text-anchor="middle" x="315.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::Lexer::tokenize</text>
 </a>
@@ -38,7 +38,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa" target="_top" xlink:title="does the compilation">
 <polygon fill="white" stroke="#666666" points="216,-46.5 77,-46.5 77,-16.5 216,-16.5 216,-46.5"/>
 <text text-anchor="start" x="85" y="-34.5" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::CompilerInstance</text>
 <text text-anchor="middle" x="146.5" y="-23.5" font-family="Helvetica,sans-Serif" font-size="10.00">::compile</text>

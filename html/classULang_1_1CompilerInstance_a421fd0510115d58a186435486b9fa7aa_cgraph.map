@@ -1,6 +1,6 @@
 <map id="ULang::CompilerInstance::compile" name="ULang::CompilerInstance::compile">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,191,45"/>
-<area shape="rect" id="Node000002" href="$classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" title=" " alt="" coords="239,13,408,38"/>
+<area shape="rect" id="Node000001" title="does the compilation" alt="" coords="5,5,191,45"/>
+<area shape="rect" id="Node000002" href="$classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" title="converts source code to tokens" alt="" coords="239,13,408,38"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,23,225,23,225,28,191,28"/>
 <area shape="rect" id="Node000003" href="$namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2" title=" " alt="" coords="456,13,636,38"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,23,443,23,443,28,408,28"/>

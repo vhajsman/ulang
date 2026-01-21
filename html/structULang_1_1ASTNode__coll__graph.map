@@ -1,5 +1,5 @@
 <map id="ULang::ASTNode" name="ULang::ASTNode">
-<area shape="rect" id="Node000001" title=" " alt="" coords="94,191,225,216"/>
+<area shape="rect" id="Node000001" title="AST nodes." alt="" coords="94,191,225,216"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="239,193,248,197,251,204,243,212,225,216,224,210,241,207,246,203,244,201,237,198"/>
 <area shape="rect" id="Node000002" href="$structULang_1_1Symbol.html" title=" " alt="" coords="99,93,219,119"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="162,132,162,190,157,190,157,132"/>

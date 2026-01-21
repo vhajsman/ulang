@@ -108,8 +108,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6bac429bee65121a473bad6af7b5edbd" id="r_a6bac429bee65121a473bad6af7b5edbd"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerSyntaxException.html#a6bac429bee65121a473bad6af7b5edbd">what</a> () const noexcept override</td></tr>
 <tr class="separator:a6bac429bee65121a473bad6af7b5edbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39539114f05c2d71321e5eb748da29f6" id="r_a39539114f05c2d71321e5eb748da29f6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerSyntaxException.html#a39539114f05c2d71321e5eb748da29f6">fmt</a> (bool en_color, std::string line=&quot;&quot;) const</td></tr>
+<tr class="memdesc:a39539114f05c2d71321e5eb748da29f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">formatted compiler exception output (human readable)  <br /></td></tr>
 <tr class="separator:a39539114f05c2d71321e5eb748da29f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae089035a162b01242f33e8b4a5fdaf05" id="r_ae089035a162b01242f33e8b4a5fdaf05"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerSyntaxException.html#ae089035a162b01242f33e8b4a5fdaf05">fmt_json</a> () const</td></tr>
+<tr class="memdesc:ae089035a162b01242f33e8b4a5fdaf05"><td class="mdescLeft">&#160;</td><td class="mdescRight">formatted compiler exception output (JSON)  <br /></td></tr>
 <tr class="separator:ae089035a162b01242f33e8b4a5fdaf05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39818372c08ca906d4b50a91012801c6" id="r_a39818372c08ca906d4b50a91012801c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">Severity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerSyntaxException.html#a39818372c08ca906d4b50a91012801c6">getSeverity</a> () const</td></tr>
 <tr class="separator:a39818372c08ca906d4b50a91012801c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -211,6 +213,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>formatted compiler exception output (human readable) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">en_color</td><td>whether to enable ANSII escapes for colors </td></tr>
+    <tr><td class="paramname">line</td><td>source code (optional) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string formatted string </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -233,6 +245,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>formatted compiler exception output (JSON) </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string formatted string </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
