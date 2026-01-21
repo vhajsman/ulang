@@ -87,6 +87,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerInstance.html">CompilerInstance</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerSyntaxException.html">CompilerSyntaxException</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1DataType.html">DataType</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html">Instruction</a></td></tr>
@@ -196,12 +198,12 @@ Functions</h2></td></tr>
 <tr class="separator:a1bd8320a4c2e24898f8cd79c509f15d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2437ad588ffb8270e6c3c174357638f2" id="r_a2437ad588ffb8270e6c3c174357638f2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">ULang::DataType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2">resolveDataType</a> (const std::string &amp;typeName)</td></tr>
 <tr class="separator:a2437ad588ffb8270e6c3c174357638f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a547bfd2943b2be11c7018ea6c5a8060e" id="r_a547bfd2943b2be11c7018ea6c5a8060e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a547bfd2943b2be11c7018ea6c5a8060e">parsePrimary</a> (const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;tokens, size_t &amp;pos)</td></tr>
-<tr class="separator:a547bfd2943b2be11c7018ea6c5a8060e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bc72c6d5fa71c1e6d1f58b6b6c7b939" id="r_a4bc72c6d5fa71c1e6d1f58b6b6c7b939"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a4bc72c6d5fa71c1e6d1f58b6b6c7b939">parseExpression</a> (const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;tokens, size_t &amp;pos)</td></tr>
-<tr class="separator:a4bc72c6d5fa71c1e6d1f58b6b6c7b939"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa418dc07b5d89ea88494aa021fa1380f" id="r_aa418dc07b5d89ea88494aa021fa1380f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#aa418dc07b5d89ea88494aa021fa1380f">parseVarDecl</a> (const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;tokens, size_t &amp;pos, <a class="el" href="structULang_1_1Symbol.html">Symbol</a> *sym=nullptr)</td></tr>
-<tr class="separator:aa418dc07b5d89ea88494aa021fa1380f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa872add6618cd1839d302348efd6020b" id="r_aa872add6618cd1839d302348efd6020b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#aa872add6618cd1839d302348efd6020b">h_severityStr</a> (<a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a> severity)</td></tr>
+<tr class="separator:aa872add6618cd1839d302348efd6020b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8e49c1984c33b8c1c608f97a125e3ea" id="r_ad8e49c1984c33b8c1c608f97a125e3ea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ad8e49c1984c33b8c1c608f97a125e3ea">h_severityStr_json</a> (<a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a> severity)</td></tr>
+<tr class="separator:ad8e49c1984c33b8c1c608f97a125e3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a991893b6b9fc7f5f594ad4375bfbe05c" id="r_a991893b6b9fc7f5f594ad4375bfbe05c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a991893b6b9fc7f5f594ad4375bfbe05c">h_severityColor</a> (<a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a> severity)</td></tr>
+<tr class="separator:a991893b6b9fc7f5f594ad4375bfbe05c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -459,40 +461,71 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a4bc72c6d5fa71c1e6d1f58b6b6c7b939" name="a4bc72c6d5fa71c1e6d1f58b6b6c7b939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bc72c6d5fa71c1e6d1f58b6b6c7b939">&#9670;&#160;</a></span>parseExpression()</h2>
+<a id="a991893b6b9fc7f5f594ad4375bfbe05c" name="a991893b6b9fc7f5f594ad4375bfbe05c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a991893b6b9fc7f5f594ad4375bfbe05c">&#9670;&#160;</a></span>h_severityColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> * ULang::parseExpression </td>
+          <td class="memname">std::string ULang::h_severityColor </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tokens</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a>&#160;</td>
+          <td class="paramname"><em>severity</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">size_t &amp;&#160;</td>
-          <td class="paramname"><em>pos</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a4bc72c6d5fa71c1e6d1f58b6b6c7b939_cgraph.svg" width="396" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a991893b6b9fc7f5f594ad4375bfbe05c_icgraph.svg" width="503" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="aa872add6618cd1839d302348efd6020b" name="aa872add6618cd1839d302348efd6020b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa872add6618cd1839d302348efd6020b">&#9670;&#160;</a></span>h_severityStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ULang::h_severityStr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a>&#160;</td>
+          <td class="paramname"><em>severity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a4bc72c6d5fa71c1e6d1f58b6b6c7b939_icgraph.svg" width="395" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_aa872add6618cd1839d302348efd6020b_icgraph.svg" width="487" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad8e49c1984c33b8c1c608f97a125e3ea" name="ad8e49c1984c33b8c1c608f97a125e3ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8e49c1984c33b8c1c608f97a125e3ea">&#9670;&#160;</a></span>h_severityStr_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ULang::h_severityStr_json </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a>&#160;</td>
+          <td class="paramname"><em>severity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_ad8e49c1984c33b8c1c608f97a125e3ea_icgraph.svg" width="488" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -525,78 +558,6 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a1bd8320a4c2e24898f8cd79c509f15d7_cgraph.svg" width="436" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a547bfd2943b2be11c7018ea6c5a8060e" name="a547bfd2943b2be11c7018ea6c5a8060e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a547bfd2943b2be11c7018ea6c5a8060e">&#9670;&#160;</a></span>parsePrimary()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> * ULang::parsePrimary </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tokens</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;&#160;</td>
-          <td class="paramname"><em>pos</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a547bfd2943b2be11c7018ea6c5a8060e_icgraph.svg" width="602" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aa418dc07b5d89ea88494aa021fa1380f" name="aa418dc07b5d89ea88494aa021fa1380f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa418dc07b5d89ea88494aa021fa1380f">&#9670;&#160;</a></span>parseVarDecl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> * ULang::parseVarDecl </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="structULang_1_1Token.html">Token</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tokens</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;&#160;</td>
-          <td class="paramname"><em>pos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td>
-          <td class="paramname"><em>sym</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_aa418dc07b5d89ea88494aa021fa1380f_cgraph.svg" width="602" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

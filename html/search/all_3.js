@@ -6,5 +6,7 @@ var searchData=
   ['compile_3',['compile',['../classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa',1,'ULang::CompilerInstance']]],
   ['compiler_2ecpp_4',['compiler.cpp',['../compiler_8cpp.html',1,'']]],
   ['compiler_2ehpp_5',['compiler.hpp',['../compiler_8hpp.html',1,'']]],
-  ['compilerinstance_6',['compilerinstance',['../classULang_1_1CompilerInstance.html',1,'ULang::CompilerInstance'],['../classULang_1_1CompilerInstance.html#a96b9d556ce877c6d0fe0f90e306cc7e0',1,'ULang::CompilerInstance::CompilerInstance()']]]
+  ['compilerinstance_6',['compilerinstance',['../classULang_1_1CompilerInstance.html',1,'ULang::CompilerInstance'],['../classULang_1_1CompilerInstance.html#a96b9d556ce877c6d0fe0f90e306cc7e0',1,'ULang::CompilerInstance::CompilerInstance()']]],
+  ['compilersyntaxexception_7',['compilersyntaxexception',['../classULang_1_1CompilerSyntaxException.html',1,'ULang::CompilerSyntaxException'],['../classULang_1_1CompilerSyntaxException.html#ad001a88a8d16336df262c15f4afe64b5',1,'ULang::CompilerSyntaxException::CompilerSyntaxException()']]],
+  ['compilersyntaxexception_2ecpp_8',['CompilerSyntaxException.cpp',['../CompilerSyntaxException_8cpp.html',1,'']]]
 ];

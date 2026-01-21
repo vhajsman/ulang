@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['leave_0',['leave',['../classULang_1_1SymbolTable.html#a3b2c6f3e1d3195967abdeda79a8558d8',1,'ULang::SymbolTable']]],
-  ['lexer_1',['Lexer',['../classULang_1_1Lexer.html#a407179f6555ac1bce95a942a63c09a0b',1,'ULang::Lexer']]],
-  ['lookup_2',['lookup',['../structULang_1_1Scope.html#af3efbd04bbca65236e196aadda6c05d0',1,'ULang::Scope::lookup(const std::string &amp;name) const'],['../structULang_1_1Scope.html#a8de957aca07ee4601f6032ad26063dfd',1,'ULang::Scope::lookup(unsigned int symbolId) const'],['../classULang_1_1SymbolTable.html#a19fb5b1b47d3e13844e01860062a1241',1,'ULang::SymbolTable::lookup(const std::string &amp;name) const'],['../classULang_1_1SymbolTable.html#a7a31dd1e97f816cdbf0f6930577eac9e',1,'ULang::SymbolTable::lookup(unsigned int symbolId) const']]]
+  ['getcurrentscope_0',['getCurrentScope',['../classULang_1_1SymbolTable.html#a690d9b3dc97723b71d17ca867c84dd79',1,'ULang::SymbolTable']]],
+  ['getdatasz_1',['getDataSz',['../structULang_1_1Operand.html#acfc6a1a65d7c82080525eb56157bcc27',1,'ULang::Operand']]],
+  ['getglobalscope_2',['getGlobalScope',['../classULang_1_1SymbolTable.html#afccc103d9709d6e3a4beabb5ee291a0e',1,'ULang::SymbolTable']]],
+  ['getlocation_3',['getLocation',['../classULang_1_1CompilerSyntaxException.html#a09c24bfe59b88c66298cbf49575ee518',1,'ULang::CompilerSyntaxException']]],
+  ['getseverity_4',['getSeverity',['../classULang_1_1CompilerSyntaxException.html#a39818372c08ca906d4b50a91012801c6',1,'ULang::CompilerSyntaxException']]],
+  ['gettype_5',['getType',['../structULang_1_1Operand.html#abe0f74cf0ff7aa5156003047837cd076',1,'ULang::Operand']]]
 ];
