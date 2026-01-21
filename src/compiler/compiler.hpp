@@ -4,6 +4,7 @@
 #include "types.hpp"
 
 #include <cstdint>
+#include <exception>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -148,6 +149,28 @@ namespace ULang {
         
         Scope* getCurrentScope() const;
         Scope* getGlobalScope() const;
+    };
+
+    class CompilerSyntaxException: public std::exception {
+        public:
+        enum class Severity {Error, Warning, Note};
+
+        private:
+        Severity severity;
+        SourceLocation loc;
+        std::string msg;
+        unsigned int errnum;
+
+        public:
+        CompilerSyntaxException(Severity severity, const std::string& m, SourceLocation loc, unsigned int errnum = 0);
+
+        const char* what() const noexcept override {return this->msg.c_str();};
+
+        std::string fmt(bool en_color, std::string line = "") const;
+        std::string fmt_json() const;
+        
+        Severity getSeverity() const;
+        SourceLocation getLocation() const;
     };
 
     class CompilerInstance {
