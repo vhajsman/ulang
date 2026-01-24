@@ -75,8 +75,8 @@ namespace ULang {
     class BytecodeStream {
         private:
         const uint8_t* data;
-        size_t offset;
         size_t size;
+        size_t offset;
 
         public:
         BytecodeStream(const uint8_t* buffer, size_t bufferSz);

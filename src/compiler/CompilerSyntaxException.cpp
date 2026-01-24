@@ -11,6 +11,8 @@ namespace ULang {
             case CompilerSyntaxException::Severity::Note:
                 return "Note   ";
         }
+
+        return "       ";
     }
 
     std::string h_severityStr_json(CompilerSyntaxException::Severity severity) {
@@ -22,6 +24,8 @@ namespace ULang {
             case CompilerSyntaxException::Severity::Note:
                 return "note";
         }
+
+        return "none";
     }
 
     std::string h_severityColor(CompilerSyntaxException::Severity severity) {
@@ -33,6 +37,8 @@ namespace ULang {
             case CompilerSyntaxException::Severity::Note:
                 return "\033[34;1;4m";
         }
+
+        return "";
     }
 
     CompilerSyntaxException::CompilerSyntaxException(Severity severity, const std::string& m, SourceLocation loc, unsigned int errnum)
