@@ -151,6 +151,21 @@ namespace ULang {
         void reset();
     };
 
+    #pragma pack(push, 1)
+    struct BytecodeHeader {
+        char     magic[6];        // "ULANG0"
+        uint16_t version;         // 1
+        uint8_t  endian;          // 0 = LE, 1 = BE
+        uint8_t  word_size;       // 4 or 8 B
+        uint32_t code_offset;     // in bytes
+        uint32_t code_size;       // in bytes
+        uint32_t meta_offset;     // in bytes
+        uint32_t meta_size;       // in bytes
+        uint32_t flags;           // bitmask
+        uint32_t checksum;        // CRC32 or 0
+    };
+    #pragma  pack(pop)
+
     /**
      * @brief Parse the instruction
      * 
