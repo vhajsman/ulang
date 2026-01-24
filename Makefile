@@ -9,6 +9,10 @@ COMPILER_SRC = $(wildcard src/compiler/*.cpp)
 COMPILER_OBJ = $(COMPILER_SRC:.cpp=.o)
 COMPILER_BIN = build/compiler_bin
 
+BCDUMP_SRC = $(wildcard src/bcdump/*.cpp)
+BCDUMP_OBJ = $(BCDUMP_SRC:.cpp=.o)
+BCDUMP_BIN = build/bcdump
+
 #DEBUGGER_SRC = $(wildcard src/debugger/*.cpp)
 #DEBUGGER_OBJ = $(DEBUGGER_SRC:.cpp=.o)
 #DEBUGGER_BIN = debugger_bin
@@ -19,10 +23,13 @@ COMPILER_BIN = build/compiler_bin
 
 .PHONY: all clean
 
-all: $(COMPILER_BIN) $(DEBUGGER_BIN) $(RUNTIME_BIN)
+all: $(COMPILER_BIN) $(BCDUMP_BIN) $(DEBUGGER_BIN) $(RUNTIME_BIN)
 
 # Compiler
 $(COMPILER_BIN): $(COMMON_OBJ) $(COMPILER_OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+
+$(BCDUMP_BIN): $(COMMON_OBJ) $(BCDUMP_OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Debugger

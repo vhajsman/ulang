@@ -21,7 +21,7 @@ namespace ULang {
         hdr.code_offset = sizeof(BytecodeHeader);
         hdr.code_size = code_size;
         hdr.meta_offset = hdr.code_offset + hdr.code_size;
-        hdr.meta_size = meta_size;
+        hdr.meta_size   = sizeof(BytecodeMetaHeader);
 
         hdr.flags = 0;
         hdr.checksum = 0;    // TODO: CRC32
@@ -70,7 +70,8 @@ namespace ULang {
     }
 
     void writeBytecode(const std::string& filename, const std::vector<uint8_t>& code, const MetaData& meta, uint8_t word_size) {
-        BytecodeHeader hdr = buildBytecodeHeader(code.size(), sizeof(BytecodeMetaHeader) + meta.symbols.size(), word_size);
+        uint32_t meta_size = sizeof(BytecodeMetaHeader) + meta.types.size() * sizeof(MetaType) + meta.symbols.size() * sizeof(MetaSymbol) + meta.string_pool.size();
+        BytecodeHeader hdr = buildBytecodeHeader(code.size(), meta_size, word_size);
 
         std::ofstream fout(filename, std::ios::binary);
         fout.write(reinterpret_cast<char*>(&hdr), sizeof(hdr));
