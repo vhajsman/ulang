@@ -1,7 +1,15 @@
 <map id="ULang::CompilerInstance::compile" name="ULang::CompilerInstance::compile">
-<area shape="rect" id="Node000001" title="does the compilation" alt="" coords="5,5,191,45"/>
-<area shape="rect" id="Node000002" href="$classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" title="converts source code to tokens" alt="" coords="239,13,408,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,23,225,23,225,28,191,28"/>
-<area shape="rect" id="Node000003" href="$namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2" title=" " alt="" coords="456,13,636,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,23,443,23,443,28,408,28"/>
+<area shape="rect" id="Node000001" title="does the compilation" alt="" coords="5,79,191,119"/>
+<area shape="rect" id="Node000002" href="$classULang_1_1CompilerSyntaxException.html#a39539114f05c2d71321e5eb748da29f6" title="formatted compiler exception output (human readable)" alt="" coords="239,29,509,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,77,238,65,289,55,290,60,239,70,185,82"/>
+<area shape="rect" id="Node000005" href="$classULang_1_1CompilerSyntaxException.html#a39818372c08ca906d4b50a91012801c6" title=" " alt="" coords="255,79,493,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="191,97,241,97,241,102,191,102"/>
+<area shape="rect" id="Node000006" href="$classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" title="converts source code to tokens" alt="" coords="289,144,459,169"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="185,117,239,129,290,139,289,144,238,134,184,122"/>
+<area shape="rect" id="Node000003" href="$namespaceULang.html#a991893b6b9fc7f5f594ad4375bfbe05c" title=" " alt="" coords="561,5,734,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="509,27,547,24,547,29,510,33"/>
+<area shape="rect" id="Node000004" href="$namespaceULang.html#aa872add6618cd1839d302348efd6020b" title=" " alt="" coords="569,55,726,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="510,52,555,56,554,61,509,57"/>
+<area shape="rect" id="Node000007" href="$namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2" title=" " alt="" coords="557,144,737,169"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="459,154,544,154,544,159,459,159"/>
 </map>
