@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['size_0',['size',['../structULang_1_1DataType.html#af08f3bb61278b0b293b6e1b2b43676c4',1,'ULang::DataType']]],
-  ['stackoffset_1',['stackOffset',['../structULang_1_1Symbol.html#a30b2463dea90338a50b8445f05cb68d5',1,'ULang::Symbol']]],
-  ['symbol_2',['symbol',['../structULang_1_1ASTNode.html#adcbad15ada8de6370ca4a555f2282a92',1,'ULang::ASTNode']]],
-  ['symbolid_3',['symbolId',['../structULang_1_1Symbol.html#ab76e3937e3050aa19bc60a397fcb72fa',1,'ULang::Symbol']]],
-  ['symbols_4',['symbols',['../structULang_1_1Scope.html#a1a04fe24c11233f4a51eecff57b1bd00',1,'ULang::Scope']]]
+  ['name_0',['name',['../structULang_1_1DataType.html#ab3aadfe9b8f7217ecdc97a4284ab8ef3',1,'ULang::DataType::name'],['../structULang_1_1ASTNode.html#a3dfc22b3502c72744c9f6c1fc3c7e024',1,'ULang::ASTNode::name'],['../structULang_1_1Symbol.html#af5e29a28eb28175a39e5ab55dd6bfa8d',1,'ULang::Symbol::name']]],
+  ['name_5foffset_1',['name_offset',['../structULang_1_1MetaSymbol.html#a738670620129dc27b0c3c7886a6a07de',1,'ULang::MetaSymbol::name_offset'],['../structULang_1_1MetaType.html#a7816aa85c42727a703879ae81438e3a4',1,'ULang::MetaType::name_offset']]],
+  ['nextoffset_2',['nextOffset',['../structULang_1_1Scope.html#ad56056e8dd5ff39cb6b8bb55b8c24798',1,'ULang::Scope']]]
 ];

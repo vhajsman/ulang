@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['initial_0',['initial',['../structULang_1_1ASTNode.html#a46aff4544c32e2416f71acc0f7424787',1,'ULang::ASTNode']]]
+  ['endian_0',['endian',['../structULang_1_1BytecodeHeader.html#afd996aee312c5c1b883e17e240511066',1,'ULang::BytecodeHeader']]],
+  ['entry_5fptr_1',['entry_ptr',['../structULang_1_1BytecodeHeader.html#a30a281dffdb306c1e3ce5e621734044e',1,'ULang::BytecodeHeader']]]
 ];

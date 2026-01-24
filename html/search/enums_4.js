@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['severity_0',['Severity',['../classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e',1,'ULang::CompilerSyntaxException']]]
+  ['opcode_0',['Opcode',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610',1,'ULang']]],
+  ['operandtype_1',['OperandType',['../namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b',1,'ULang']]]
 ];

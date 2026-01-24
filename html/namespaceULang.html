@@ -84,6 +84,10 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html">ASTNode</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">AST nodes.  <a href="structULang_1_1ASTNode.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1BytecodeMetaHeader.html">BytecodeMetaHeader</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1BytecodeStream.html">BytecodeStream</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerInstance.html">CompilerInstance</a></td></tr>
@@ -96,6 +100,12 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1Lexer.html">Lexer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts source to tokens  <a href="classULang_1_1Lexer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1MetaData.html">MetaData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1MetaSymbol.html">MetaSymbol</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1MetaType.html">MetaType</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html">Operand</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +160,22 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a8d7a15ed9bd07d0972e15fda566fc610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17d3b9c3095507c41271792f941d9d5c" id="r_a17d3b9c3095507c41271792f941d9d5c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5c">BytecodeFlags</a> : uint32_t { <a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5caed6879c3041fcb3f158947012554016a">BC_FLAG_DEBUG</a> = 1 &lt;&lt; 0
+, <a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5cab9df148e245056cebc464e58ca605608">BC_FLAG_STRIPPED</a> = 1 &lt;&lt; 1
+, <a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5ca0855b250dbafc62e4343df3408599d23">BC_FLAG_SIGNED_VM</a> = 1 &lt;&lt; 2
+, <a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5caec3034ccfb878e4d80143800fd4c2c97">BC_FLAG_OPTIMIZED</a> = 1 &lt;&lt; 3
+ }</td></tr>
+<tr class="separator:a17d3b9c3095507c41271792f941d9d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629d3b25493b735fb958c1897e97ff8c" id="r_a629d3b25493b735fb958c1897e97ff8c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a629d3b25493b735fb958c1897e97ff8c">MetaSymbolFlags</a> : uint32_t { <a class="el" href="namespaceULang.html#a629d3b25493b735fb958c1897e97ff8ca17e6fa5ed5923ec631b1f0055009b4ed">SYM_GLOBAL</a> = 1 &lt;&lt; 0
+, <a class="el" href="namespaceULang.html#a629d3b25493b735fb958c1897e97ff8ca1378495b209b502c40337bde4e0d70c1">SYM_CONST</a> = 1 &lt;&lt; 1
+, <a class="el" href="namespaceULang.html#a629d3b25493b735fb958c1897e97ff8cae8a431c5b312e60fd7de05af9b204209">SYM_PARAM</a> = 1 &lt;&lt; 2
+ }</td></tr>
+<tr class="separator:a629d3b25493b735fb958c1897e97ff8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6dae0c1dc343cb1c41941148aa24c70" id="r_ad6dae0c1dc343cb1c41941148aa24c70"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70">MetaTypeFlags</a> : uint32_t { <a class="el" href="namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70a6b500bac6faa71a28cb3fefd93454c37">TYPE_SIGNED</a> = 1 &lt;&lt; 0
+, <a class="el" href="namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70a2acc13aa585e26434e4a04a637a5e385">TYPE_FLOAT</a> = 1 &lt;&lt; 1
+, <a class="el" href="namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70a87651b601ab3872c89f37dfa7d5c6190">TYPE_POINTER</a> = 1 &lt;&lt; 2
+ }</td></tr>
+<tr class="separator:ad6dae0c1dc343cb1c41941148aa24c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01ae46674e052182c20952000e3061fb" id="r_a01ae46674e052182c20952000e3061fb"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fb">DataTypeKind</a> { <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52">Int</a>
 , <a class="el" href="namespaceULang.html#a01ae46674e052182c20952000e3061fba8e95e84813830072b7516cfaa7dbc1a9">Char</a>
  }</td></tr>
@@ -198,6 +224,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a1bd8320a4c2e24898f8cd79c509f15d7" id="r_a1bd8320a4c2e24898f8cd79c509f15d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Instruction.html">Instruction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a1bd8320a4c2e24898f8cd79c509f15d7">parseInstruction</a> (<a class="el" href="classULang_1_1BytecodeStream.html">BytecodeStream</a> &amp;stream)</td></tr>
 <tr class="memdesc:a1bd8320a4c2e24898f8cd79c509f15d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the instruction.  <br /></td></tr>
 <tr class="separator:a1bd8320a4c2e24898f8cd79c509f15d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad491776cf7acfb29eec3e69cec0d6bd8" id="r_ad491776cf7acfb29eec3e69cec0d6bd8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ad491776cf7acfb29eec3e69cec0d6bd8">validateHeader</a> (const <a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a> &amp;hdr, size_t file_size)</td></tr>
+<tr class="separator:ad491776cf7acfb29eec3e69cec0d6bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab25471e948040c9980d26601b7052485" id="r_ab25471e948040c9980d26601b7052485"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ab25471e948040c9980d26601b7052485">validateMetaSection</a> (const <a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a> &amp;hdr, const <a class="el" href="structULang_1_1BytecodeMetaHeader.html">BytecodeMetaHeader</a> &amp;meta, size_t file_size)</td></tr>
+<tr class="separator:ab25471e948040c9980d26601b7052485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc471bffb16abe17362183d2a536a9e9" id="r_afc471bffb16abe17362183d2a536a9e9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#afc471bffb16abe17362183d2a536a9e9">addStringToPool</a> (std::string &amp;pool, const std::string &amp;str)</td></tr>
+<tr class="separator:afc471bffb16abe17362183d2a536a9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2437ad588ffb8270e6c3c174357638f2" id="r_a2437ad588ffb8270e6c3c174357638f2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">ULang::DataType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2">resolveDataType</a> (const std::string &amp;typeName)</td></tr>
 <tr class="separator:a2437ad588ffb8270e6c3c174357638f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa872add6618cd1839d302348efd6020b" id="r_aa872add6618cd1839d302348efd6020b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#aa872add6618cd1839d302348efd6020b">h_severityStr</a> (<a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a> severity)</td></tr>
@@ -324,6 +356,26 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a17d3b9c3095507c41271792f941d9d5c" name="a17d3b9c3095507c41271792f941d9d5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17d3b9c3095507c41271792f941d9d5c">&#9670;&#160;</a></span>BytecodeFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5c">ULang::BytecodeFlags</a> : uint32_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a17d3b9c3095507c41271792f941d9d5caed6879c3041fcb3f158947012554016a" name="a17d3b9c3095507c41271792f941d9d5caed6879c3041fcb3f158947012554016a"></a>BC_FLAG_DEBUG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a17d3b9c3095507c41271792f941d9d5cab9df148e245056cebc464e58ca605608" name="a17d3b9c3095507c41271792f941d9d5cab9df148e245056cebc464e58ca605608"></a>BC_FLAG_STRIPPED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a17d3b9c3095507c41271792f941d9d5ca0855b250dbafc62e4343df3408599d23" name="a17d3b9c3095507c41271792f941d9d5ca0855b250dbafc62e4343df3408599d23"></a>BC_FLAG_SIGNED_VM&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a17d3b9c3095507c41271792f941d9d5caec3034ccfb878e4d80143800fd4c2c97" name="a17d3b9c3095507c41271792f941d9d5caec3034ccfb878e4d80143800fd4c2c97"></a>BC_FLAG_OPTIMIZED&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="a3b1ef0eb5df6a19ab790cf4c467cb93e" name="a3b1ef0eb5df6a19ab790cf4c467cb93e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b1ef0eb5df6a19ab790cf4c467cb93e">&#9670;&#160;</a></span>DataTypeFlags</h2>
 
@@ -366,6 +418,44 @@ Variables</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52" name="a01ae46674e052182c20952000e3061fba1686a6c336b71b36d77354cea19a8b52"></a>Int&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a01ae46674e052182c20952000e3061fba8e95e84813830072b7516cfaa7dbc1a9" name="a01ae46674e052182c20952000e3061fba8e95e84813830072b7516cfaa7dbc1a9"></a>Char&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a629d3b25493b735fb958c1897e97ff8c" name="a629d3b25493b735fb958c1897e97ff8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629d3b25493b735fb958c1897e97ff8c">&#9670;&#160;</a></span>MetaSymbolFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceULang.html#a629d3b25493b735fb958c1897e97ff8c">ULang::MetaSymbolFlags</a> : uint32_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a629d3b25493b735fb958c1897e97ff8ca17e6fa5ed5923ec631b1f0055009b4ed" name="a629d3b25493b735fb958c1897e97ff8ca17e6fa5ed5923ec631b1f0055009b4ed"></a>SYM_GLOBAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a629d3b25493b735fb958c1897e97ff8ca1378495b209b502c40337bde4e0d70c1" name="a629d3b25493b735fb958c1897e97ff8ca1378495b209b502c40337bde4e0d70c1"></a>SYM_CONST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a629d3b25493b735fb958c1897e97ff8cae8a431c5b312e60fd7de05af9b204209" name="a629d3b25493b735fb958c1897e97ff8cae8a431c5b312e60fd7de05af9b204209"></a>SYM_PARAM&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ad6dae0c1dc343cb1c41941148aa24c70" name="ad6dae0c1dc343cb1c41941148aa24c70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6dae0c1dc343cb1c41941148aa24c70">&#9670;&#160;</a></span>MetaTypeFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70">ULang::MetaTypeFlags</a> : uint32_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad6dae0c1dc343cb1c41941148aa24c70a6b500bac6faa71a28cb3fefd93454c37" name="ad6dae0c1dc343cb1c41941148aa24c70a6b500bac6faa71a28cb3fefd93454c37"></a>TYPE_SIGNED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad6dae0c1dc343cb1c41941148aa24c70a2acc13aa585e26434e4a04a637a5e385" name="ad6dae0c1dc343cb1c41941148aa24c70a2acc13aa585e26434e4a04a637a5e385"></a>TYPE_FLOAT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad6dae0c1dc343cb1c41941148aa24c70a87651b601ab3872c89f37dfa7d5c6190" name="ad6dae0c1dc343cb1c41941148aa24c70a87651b601ab3872c89f37dfa7d5c6190"></a>TYPE_POINTER&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -472,6 +562,34 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="afc471bffb16abe17362183d2a536a9e9" name="afc471bffb16abe17362183d2a536a9e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc471bffb16abe17362183d2a536a9e9">&#9670;&#160;</a></span>addStringToPool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t ULang::addStringToPool </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>pool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a991893b6b9fc7f5f594ad4375bfbe05c" name="a991893b6b9fc7f5f594ad4375bfbe05c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a991893b6b9fc7f5f594ad4375bfbe05c">&#9670;&#160;</a></span>h_severityColor()</h2>
 
@@ -593,6 +711,68 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a2437ad588ffb8270e6c3c174357638f2_icgraph.svg" width="744" height="74"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="ad491776cf7acfb29eec3e69cec0d6bd8" name="ad491776cf7acfb29eec3e69cec0d6bd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad491776cf7acfb29eec3e69cec0d6bd8">&#9670;&#160;</a></span>validateHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ULang::validateHeader </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a> &amp;&#160;</td>
+          <td class="paramname"><em>hdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>file_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab25471e948040c9980d26601b7052485" name="ab25471e948040c9980d26601b7052485"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab25471e948040c9980d26601b7052485">&#9670;&#160;</a></span>validateMetaSection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ULang::validateMetaSection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a> &amp;&#160;</td>
+          <td class="paramname"><em>hdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structULang_1_1BytecodeMetaHeader.html">BytecodeMetaHeader</a> &amp;&#160;</td>
+          <td class="paramname"><em>meta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>file_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

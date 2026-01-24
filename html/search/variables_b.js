@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['val_0',['val',['../structULang_1_1ASTNode.html#a8ad45d84a5ba78a428dd577977be6e5b',1,'ULang::ASTNode']]],
-  ['value_1',['value',['../structULang_1_1Operand.html#a7e1524cf5b60527e91882eac5eda1ffb',1,'ULang::Operand']]]
+  ['parent_0',['parent',['../structULang_1_1Scope.html#afad96b12f96fa3b4485d6d424d31bc88',1,'ULang::Scope']]]
 ];

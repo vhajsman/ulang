@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" target="_top" xlink:title="converts source code to tokens">
+<g id="a_Node000002"><a xlink:href="classULang_1_1Lexer.html#a683839683dfefa9502c5e151222ecb7e" target="_top" xlink:title="converts source code to tokens">
 <polygon fill="white" stroke="#666666" points="379,-19 252,-19 252,0 379,0 379,-19"/>
 <text text-anchor="middle" x="315.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ULang::Lexer::tokenize</text>
 </a>

@@ -85,10 +85,12 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bytecode.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="bytecode_8hpp__incl.svg" width="206" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="bytecode_8hpp__incl.svg" width="344" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -105,6 +107,16 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html">ULang::Instruction</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1BytecodeStream.html">ULang::BytecodeStream</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1BytecodeHeader.html">ULang::BytecodeHeader</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1MetaSymbol.html">ULang::MetaSymbol</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1MetaType.html">ULang::MetaType</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1BytecodeMetaHeader.html">ULang::BytecodeMetaHeader</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1MetaData.html">ULang::MetaData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -157,6 +169,22 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a8d7a15ed9bd07d0972e15fda566fc610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17d3b9c3095507c41271792f941d9d5c" id="r_a17d3b9c3095507c41271792f941d9d5c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5c">ULang::BytecodeFlags</a> : uint32_t { <a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5caed6879c3041fcb3f158947012554016a">ULang::BC_FLAG_DEBUG</a> = 1 &lt;&lt; 0
+, <a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5cab9df148e245056cebc464e58ca605608">ULang::BC_FLAG_STRIPPED</a> = 1 &lt;&lt; 1
+, <a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5ca0855b250dbafc62e4343df3408599d23">ULang::BC_FLAG_SIGNED_VM</a> = 1 &lt;&lt; 2
+, <a class="el" href="namespaceULang.html#a17d3b9c3095507c41271792f941d9d5caec3034ccfb878e4d80143800fd4c2c97">ULang::BC_FLAG_OPTIMIZED</a> = 1 &lt;&lt; 3
+ }</td></tr>
+<tr class="separator:a17d3b9c3095507c41271792f941d9d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629d3b25493b735fb958c1897e97ff8c" id="r_a629d3b25493b735fb958c1897e97ff8c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a629d3b25493b735fb958c1897e97ff8c">ULang::MetaSymbolFlags</a> : uint32_t { <a class="el" href="namespaceULang.html#a629d3b25493b735fb958c1897e97ff8ca17e6fa5ed5923ec631b1f0055009b4ed">ULang::SYM_GLOBAL</a> = 1 &lt;&lt; 0
+, <a class="el" href="namespaceULang.html#a629d3b25493b735fb958c1897e97ff8ca1378495b209b502c40337bde4e0d70c1">ULang::SYM_CONST</a> = 1 &lt;&lt; 1
+, <a class="el" href="namespaceULang.html#a629d3b25493b735fb958c1897e97ff8cae8a431c5b312e60fd7de05af9b204209">ULang::SYM_PARAM</a> = 1 &lt;&lt; 2
+ }</td></tr>
+<tr class="separator:a629d3b25493b735fb958c1897e97ff8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6dae0c1dc343cb1c41941148aa24c70" id="r_ad6dae0c1dc343cb1c41941148aa24c70"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70">ULang::MetaTypeFlags</a> : uint32_t { <a class="el" href="namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70a6b500bac6faa71a28cb3fefd93454c37">ULang::TYPE_SIGNED</a> = 1 &lt;&lt; 0
+, <a class="el" href="namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70a2acc13aa585e26434e4a04a637a5e385">ULang::TYPE_FLOAT</a> = 1 &lt;&lt; 1
+, <a class="el" href="namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70a87651b601ab3872c89f37dfa7d5c6190">ULang::TYPE_POINTER</a> = 1 &lt;&lt; 2
+ }</td></tr>
+<tr class="separator:ad6dae0c1dc343cb1c41941148aa24c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>

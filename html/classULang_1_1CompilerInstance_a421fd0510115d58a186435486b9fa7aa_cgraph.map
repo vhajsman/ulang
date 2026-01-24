@@ -1,11 +1,13 @@
 <map id="ULang::CompilerInstance::compile" name="ULang::CompilerInstance::compile">
-<area shape="rect" id="Node000001" title="does the compilation" alt="" coords="5,79,191,119"/>
+<area shape="rect" id="Node000001" title="does the compilation" alt="" coords="5,109,191,149"/>
 <area shape="rect" id="Node000002" href="$classULang_1_1CompilerSyntaxException.html#a39539114f05c2d71321e5eb748da29f6" title="formatted compiler exception output (human readable)" alt="" coords="239,29,509,55"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,77,238,65,289,55,290,60,239,70,185,82"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,106,185,84,238,65,275,55,277,60,239,70,187,89,140,111"/>
 <area shape="rect" id="Node000005" href="$classULang_1_1CompilerSyntaxException.html#a39818372c08ca906d4b50a91012801c6" title=" " alt="" coords="255,79,493,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="191,97,241,97,241,102,191,102"/>
-<area shape="rect" id="Node000006" href="$classULang_1_1Lexer.html#ae872eb2e23ddedc140f49db092b9462b" title="converts source code to tokens" alt="" coords="289,144,459,169"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="185,117,239,129,290,139,289,144,238,134,184,122"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="190,116,241,111,241,116,191,122"/>
+<area shape="rect" id="Node000006" href="$classULang_1_1Lexer.html#a683839683dfefa9502c5e151222ecb7e" title="converts source code to tokens" alt="" coords="289,144,459,169"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="191,135,276,144,276,149,190,141"/>
+<area shape="rect" id="Node000008" href="$classULang_1_1CompilerSyntaxException.html#a6bac429bee65121a473bad6af7b5edbd" title=" " alt="" coords="255,194,493,234"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="148,146,239,179,270,188,268,193,238,185,146,151"/>
 <area shape="rect" id="Node000003" href="$namespaceULang.html#a991893b6b9fc7f5f594ad4375bfbe05c" title=" " alt="" coords="561,5,734,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="509,27,547,24,547,29,510,33"/>
 <area shape="rect" id="Node000004" href="$namespaceULang.html#aa872add6618cd1839d302348efd6020b" title=" " alt="" coords="569,55,726,80"/>
