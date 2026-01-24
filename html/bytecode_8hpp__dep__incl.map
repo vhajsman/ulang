@@ -1,7 +1,29 @@
 <map id="src/common/bytecode.hpp" name="src/common/bytecode.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="106,5,301,31"/>
-<area shape="rect" id="Node000002" href="$bytecode_8cpp.html" title=" " alt="" coords="5,86,199,111"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,41,119,88,115,84,176,37"/>
-<area shape="rect" id="Node000003" href="$bytecode__stream_8cpp.html" title=" " alt="" coords="223,79,389,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,37,283,76,280,81,228,41"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="454,5,649,31"/>
+<area shape="rect" id="Node000002" href="$bcdump_2main_8cpp.html" title=" " alt="" coords="5,86,167,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="461,35,178,81,140,89,139,83,178,76,460,30"/>
+<area shape="rect" id="Node000003" href="$common_2bytecode_8cpp.html" title=" " alt="" coords="191,86,384,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="501,37,327,89,325,83,499,32"/>
+<area shape="rect" id="Node000004" href="$bytecode__stream_8cpp.html" title=" " alt="" coords="408,79,575,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="536,43,508,80,504,77,532,40"/>
+<area shape="rect" id="Node000005" href="$compiler_2bytecode_8cpp.html" title=" " alt="" coords="351,174,544,199"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="573,41,592,78,595,100,588,120,571,140,550,156,503,176,501,171,547,151,568,136,584,117,589,99,587,80,568,43"/>
+<area shape="rect" id="Node000006" href="$compiler_8cpp.html" title=" " alt="" coords="569,174,758,199"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="576,38,611,77,641,129,661,172,656,175,637,132,607,80,572,42"/>
+<area shape="rect" id="Node000007" href="$compiler_8hpp.html" title=" " alt="" coords="997,86,1188,111"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="644,30,1014,83,1013,89,643,35"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="984,115,785,139,557,169,511,177,510,171,556,164,784,133,983,109"/>
+<area shape="poly" id="edge10_Node000007_Node000006" title=" " alt="" coords="1022,117,721,177,720,171,1021,111"/>
+<area shape="rect" id="Node000008" href="$CompilerSyntaxException_8cpp.html" title=" " alt="" coords="782,167,993,207"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1054,119,934,169,932,164,1052,114"/>
+<area shape="rect" id="Node000009" href="$ast_8cpp.html" title=" " alt="" coords="1016,174,1169,199"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="1095,125,1095,173,1090,173,1090,125"/>
+<area shape="rect" id="Node000010" href="$lexer_8cpp.html" title=" " alt="" coords="1193,174,1357,199"/>
+<area shape="poly" id="edge11_Node000007_Node000010" title=" " alt="" coords="1131,115,1252,171,1249,176,1129,120"/>
+<area shape="rect" id="Node000011" href="$compiler_2main_8cpp.html" title=" " alt="" coords="1381,174,1548,199"/>
+<area shape="poly" id="edge12_Node000007_Node000011" title=" " alt="" coords="1156,112,1416,171,1415,177,1155,117"/>
+<area shape="rect" id="Node000012" href="$symbol_8cpp.html" title=" " alt="" coords="1573,174,1754,199"/>
+<area shape="poly" id="edge13_Node000007_Node000012" title=" " alt="" coords="1194,111,1561,164,1604,171,1603,177,1560,169,1193,116"/>
+<area shape="rect" id="Node000013" href="$symbol__table_8cpp.html" title=" " alt="" coords="1778,167,1933,207"/>
+<area shape="poly" id="edge14_Node000007_Node000013" title=" " alt="" coords="1202,105,1460,126,1613,143,1766,164,1778,166,1778,171,1766,169,1613,149,1460,132,1202,110"/>
 </map>

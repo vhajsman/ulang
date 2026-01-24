@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CompilerProject: src/common/bytecode.cpp File Reference</title>
+<title>CompilerProject: src/compiler/bytecode.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,24 +69,29 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html">common</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_f13bc85843fa14191e0ad4a3a157cf60.html">compiler</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">bytecode.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="bytecode_8hpp_source.html">bytecode.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="compiler_8hpp_source.html">compiler.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="types_8hpp_source.html">types.hpp</a>&quot;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
-<code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bytecode.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="bytecode_8cpp__incl.svg" width="544" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_2bytecode_8cpp__incl.svg" width="832" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -94,18 +99,35 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceULang" id="r_namespaceULang"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html">ULang</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2add299105a2fec9edfe1ecd7229d0bb" id="r_a2add299105a2fec9edfe1ecd7229d0bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compiler_2bytecode_8cpp.html#a2add299105a2fec9edfe1ecd7229d0bb">verbose_cout</a>&#160;&#160;&#160;if(verbose_en) std::cout</td></tr>
+<tr class="separator:a2add299105a2fec9edfe1ecd7229d0bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1bd8320a4c2e24898f8cd79c509f15d7" id="r_a1bd8320a4c2e24898f8cd79c509f15d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Instruction.html">Instruction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a1bd8320a4c2e24898f8cd79c509f15d7">ULang::parseInstruction</a> (<a class="el" href="classULang_1_1BytecodeStream.html">BytecodeStream</a> &amp;stream)</td></tr>
-<tr class="memdesc:a1bd8320a4c2e24898f8cd79c509f15d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the instruction.  <br /></td></tr>
-<tr class="separator:a1bd8320a4c2e24898f8cd79c509f15d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad491776cf7acfb29eec3e69cec0d6bd8" id="r_ad491776cf7acfb29eec3e69cec0d6bd8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ad491776cf7acfb29eec3e69cec0d6bd8">ULang::validateHeader</a> (const <a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a> &amp;hdr, size_t file_size)</td></tr>
-<tr class="separator:ad491776cf7acfb29eec3e69cec0d6bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab25471e948040c9980d26601b7052485" id="r_ab25471e948040c9980d26601b7052485"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ab25471e948040c9980d26601b7052485">ULang::validateMetaSection</a> (const <a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a> &amp;hdr, const <a class="el" href="structULang_1_1BytecodeMetaHeader.html">BytecodeMetaHeader</a> &amp;meta, size_t file_size)</td></tr>
-<tr class="separator:ab25471e948040c9980d26601b7052485"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc471bffb16abe17362183d2a536a9e9" id="r_afc471bffb16abe17362183d2a536a9e9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#afc471bffb16abe17362183d2a536a9e9">ULang::addStringToPool</a> (std::string &amp;pool, const std::string &amp;str)</td></tr>
-<tr class="separator:afc471bffb16abe17362183d2a536a9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8674adb59a39623d1f715c18a8cede91" id="r_a8674adb59a39623d1f715c18a8cede91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8674adb59a39623d1f715c18a8cede91">ULang::buildBytecodeHeader</a> (uint32_t code_size, uint32_t meta_size, uint8_t word_size)</td></tr>
+<tr class="separator:a8674adb59a39623d1f715c18a8cede91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b1129fa6b35790dbd18cbf3add8eb8" id="r_ae0b1129fa6b35790dbd18cbf3add8eb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1MetaData.html">MetaData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ae0b1129fa6b35790dbd18cbf3add8eb8">ULang::buildMeta</a> (<a class="el" href="classULang_1_1SymbolTable.html">SymbolTable</a> &amp;symtable, const std::vector&lt; const <a class="el" href="structULang_1_1DataType.html">DataType</a> * &gt; &amp;types, bool verbose_en)</td></tr>
+<tr class="separator:ae0b1129fa6b35790dbd18cbf3add8eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a223393890930647184159ba3ee750798" id="r_a223393890930647184159ba3ee750798"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a223393890930647184159ba3ee750798">ULang::writeBytecode</a> (const std::string &amp;filename, const std::vector&lt; uint8_t &gt; &amp;code, const <a class="el" href="structULang_1_1MetaData.html">MetaData</a> &amp;meta, uint8_t word_size)</td></tr>
+<tr class="separator:a223393890930647184159ba3ee750798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a2add299105a2fec9edfe1ecd7229d0bb" name="a2add299105a2fec9edfe1ecd7229d0bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2add299105a2fec9edfe1ecd7229d0bb">&#9670;&#160;</a></span>verbose_cout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define verbose_cout&#160;&#160;&#160;if(verbose_en) std::cout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

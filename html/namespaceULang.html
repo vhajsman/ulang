@@ -232,6 +232,12 @@ Functions</h2></td></tr>
 <tr class="separator:afc471bffb16abe17362183d2a536a9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2437ad588ffb8270e6c3c174357638f2" id="r_a2437ad588ffb8270e6c3c174357638f2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">ULang::DataType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2">resolveDataType</a> (const std::string &amp;typeName)</td></tr>
 <tr class="separator:a2437ad588ffb8270e6c3c174357638f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8674adb59a39623d1f715c18a8cede91" id="r_a8674adb59a39623d1f715c18a8cede91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8674adb59a39623d1f715c18a8cede91">buildBytecodeHeader</a> (uint32_t code_size, uint32_t meta_size, uint8_t word_size)</td></tr>
+<tr class="separator:a8674adb59a39623d1f715c18a8cede91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b1129fa6b35790dbd18cbf3add8eb8" id="r_ae0b1129fa6b35790dbd18cbf3add8eb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1MetaData.html">MetaData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ae0b1129fa6b35790dbd18cbf3add8eb8">buildMeta</a> (<a class="el" href="classULang_1_1SymbolTable.html">SymbolTable</a> &amp;symtable, const std::vector&lt; const <a class="el" href="structULang_1_1DataType.html">DataType</a> * &gt; &amp;types, bool verbose_en)</td></tr>
+<tr class="separator:ae0b1129fa6b35790dbd18cbf3add8eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a223393890930647184159ba3ee750798" id="r_a223393890930647184159ba3ee750798"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a223393890930647184159ba3ee750798">writeBytecode</a> (const std::string &amp;filename, const std::vector&lt; uint8_t &gt; &amp;code, const <a class="el" href="structULang_1_1MetaData.html">MetaData</a> &amp;meta, uint8_t word_size)</td></tr>
+<tr class="separator:a223393890930647184159ba3ee750798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa872add6618cd1839d302348efd6020b" id="r_aa872add6618cd1839d302348efd6020b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#aa872add6618cd1839d302348efd6020b">h_severityStr</a> (<a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a> severity)</td></tr>
 <tr class="separator:aa872add6618cd1839d302348efd6020b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8e49c1984c33b8c1c608f97a125e3ea" id="r_ad8e49c1984c33b8c1c608f97a125e3ea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ad8e49c1984c33b8c1c608f97a125e3ea">h_severityStr_json</a> (<a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a> severity)</td></tr>
@@ -587,6 +593,94 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_afc471bffb16abe17362183d2a536a9e9_icgraph.svg" width="706" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8674adb59a39623d1f715c18a8cede91" name="a8674adb59a39623d1f715c18a8cede91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8674adb59a39623d1f715c18a8cede91">&#9670;&#160;</a></span>buildBytecodeHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a> ULang::buildBytecodeHeader </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>code_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>meta_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>word_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a8674adb59a39623d1f715c18a8cede91_icgraph.svg" width="771" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae0b1129fa6b35790dbd18cbf3add8eb8" name="ae0b1129fa6b35790dbd18cbf3add8eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b1129fa6b35790dbd18cbf3add8eb8">&#9670;&#160;</a></span>buildMeta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structULang_1_1MetaData.html">MetaData</a> ULang::buildMeta </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classULang_1_1SymbolTable.html">SymbolTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>symtable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="structULang_1_1DataType.html">DataType</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>types</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>verbose_en</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_ae0b1129fa6b35790dbd18cbf3add8eb8_cgraph.svg" width="370" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_ae0b1129fa6b35790dbd18cbf3add8eb8_icgraph.svg" width="483" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -773,6 +867,56 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a223393890930647184159ba3ee750798" name="a223393890930647184159ba3ee750798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a223393890930647184159ba3ee750798">&#9670;&#160;</a></span>writeBytecode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ULang::writeBytecode </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; uint8_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structULang_1_1MetaData.html">MetaData</a> &amp;&#160;</td>
+          <td class="paramname"><em>meta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>word_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a223393890930647184159ba3ee750798_cgraph.svg" width="435" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a223393890930647184159ba3ee750798_icgraph.svg" width="512" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
