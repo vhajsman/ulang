@@ -7,9 +7,13 @@
 
 #include "errno.h"
 
+#define cout_verbose        \
+    if(this->en_verbose)    \
+        std::cout
+
 namespace ULang {
-    CompilerInstance::CompilerInstance(const std::string& source, const std::string& filename)
-    : lexer(source), filename(filename) {}
+    CompilerInstance::CompilerInstance(const std::string& source, const std::string& filename, bool en_verbose)
+    : lexer(source), filename(filename), en_verbose(en_verbose) {}
 
     const Token& CompilerInstance::expectToken(TokenType type, SourceLocation loc) {
         if(this->tokens[this->pos].type != type) {            
@@ -106,7 +110,7 @@ namespace ULang {
         // symbol
         Symbol* sym = this->symbols.decl(tok_name.text, type, &loc);
 
-        std::cout << " --> Creating ASTNode for " << tok_name.text << std::endl;
+        cout_verbose << " --> Creating ASTNode for " << tok_name.text << std::endl;
 
         ASTNode* node = new ASTNode(ASTNodeType::DECLARATION);
         node->name = tok_name.text;
@@ -193,7 +197,7 @@ namespace ULang {
             }
         }
 
-        std::cout   << " -> " 
+        cout_verbose<< " -> " 
                     << this->tokens.size() 
                     << " tokens, " 
                     << this->ast_owned.size() 
@@ -201,7 +205,7 @@ namespace ULang {
                     << std::endl;
 
         for(const auto& node: this->ast_owned) {
-            std::cout   << " --> AST node type: "
+            cout_verbose<< " --> AST node type: "
                         << static_cast<int>(node->type)
                         << std::endl;
         }
@@ -216,3 +220,5 @@ namespace ULang {
         */
     }
 };
+
+#undef cout_verbose

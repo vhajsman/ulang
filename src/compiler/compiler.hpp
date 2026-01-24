@@ -241,6 +241,8 @@ namespace ULang {
         std::string filename;
         size_t pos = 0;
 
+        bool en_verbose;
+
         private:
         /**
          * @brief Throws an expection if unexcepted token, returns the token if else.
@@ -295,7 +297,7 @@ namespace ULang {
         void buildAST();
 
         public:
-        CompilerInstance(const std::string& source, const std::string& filename = "unnamed");
+        CompilerInstance(const std::string& source, const std::string& filename = "unnamed", bool en_verbose = false);
 
         /**
          * @brief does the compilation

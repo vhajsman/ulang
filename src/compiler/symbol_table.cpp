@@ -53,7 +53,7 @@ namespace ULang {
         Symbol* sym = this->scope_current->decl(name, type, loc, align_head, align_tail);
         sym->symbolId = this->nextSymbolId++;
 
-        std::cout << "decl: " << type->name << " " << name << " in scope '" << this->scope_current->_name << "' @ vstack: " << sym->stackOffset << std::endl;
+        //std::cout << "decl: " << type->name << " " << name << " in scope '" << this->scope_current->_name << "' @ vstack: " << sym->stackOffset << std::endl;
 
         return sym;
     }

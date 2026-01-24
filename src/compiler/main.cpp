@@ -1,5 +1,6 @@
 #include "compiler.hpp"
 #include <boost/program_options.hpp>
+#include <boost/program_options/value_semantic.hpp>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -9,12 +10,14 @@ namespace po = boost::program_options;
 int main(int argc, char** argv) {
     std::string sourceFile;
     std::string outFile;
+    bool verbose = false;
 
     po::options_description desc("ULang Compiler Options");
     desc.add_options()
         ("help,h", "Show help")
         ("file,f", po::value<std::string>(&sourceFile), "Source file")
-        ("output,o", po::value<std::string>(&outFile)->default_value("a.out"), "Output file");
+        ("output,o", po::value<std::string>(&outFile)->default_value("a.out"), "Output file")
+        ("verbose", po::bool_switch(&verbose)->default_value(false), "Generate verbose compilation log");
 
     po::variables_map vm;
     try {
@@ -42,7 +45,7 @@ int main(int argc, char** argv) {
     ULang::Lexer lexer(sourceCode);
     THROW_AWAY lexer.tokenize();
 
-    ULang::CompilerInstance* ci = new ULang::CompilerInstance(sourceCode, sourceFile);
+    ULang::CompilerInstance* ci = new ULang::CompilerInstance(sourceCode, sourceFile, verbose);
     THROW_AWAY ci->compile();
     std::cout << "Compile OK" << std::endl;
 
