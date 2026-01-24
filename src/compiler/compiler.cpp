@@ -20,7 +20,7 @@ namespace ULang {
             throw CompilerSyntaxException(
                 CompilerSyntaxException::Severity::Error, 
                 "Unexcepted token: '" + this->tokens[this->pos].text + "'",
-                loc,
+                this->tokens[this->pos].loc,
                 ULANG_SYNT_ERR_UNEXCEPT_TOK
             );
         }
@@ -33,7 +33,7 @@ namespace ULang {
             throw CompilerSyntaxException(
                 CompilerSyntaxException::Severity::Error,
                 "Unexcepted token: '" + this->tokens[this->pos].text + "', excepted '" + token + "'",
-                loc,
+                this->tokens[this->pos].loc,
                 ULANG_SYNT_ERR_UNEXCEPT_TOK
             );
         }
@@ -82,24 +82,12 @@ namespace ULang {
         throw CompilerSyntaxException(
             CompilerSyntaxException::Severity::Error,
             "Excepted primary expression",
-            {
-                0,
-                "",
-                0,
-                0
-            },
+            tok.loc,
             ULANG_SYNT_ERR_EXCEPTED_PRIMARY
         );
     }
 
     ASTNode* CompilerInstance::parseVarDecl() {
-        // TODO: do source location
-        SourceLocation loc {
-            nullptr,
-            this->filename,
-            0, 0
-        };
-
         // type
         Token tok_type = this->expectToken(TokenType::TypeKeyword);
         const DataType* type = resolveDataType(tok_type.text);
@@ -108,7 +96,7 @@ namespace ULang {
         Token tok_name = this->expectToken(TokenType::Identifier);
 
         // symbol
-        Symbol* sym = this->symbols.decl(tok_name.text, type, &loc);
+        Symbol* sym = this->symbols.decl(tok_name.text, type, &tok_name.loc);
 
         cout_verbose << " --> Creating ASTNode for " << tok_name.text << std::endl;
 
