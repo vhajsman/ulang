@@ -65,9 +65,6 @@ namespace ULang {
 
     using ASTPtr = std::unique_ptr<ASTNode>;
 
-    const DataType* getType(ASTNode* node, SourceLocation loc = ULANG_LOCATION_NULL);
-    const DataType* determineBinopType(const DataType* left, const DataType* right);
-
     enum class TokenType {
         TypeKeyword,
         Identifier,
@@ -248,8 +245,15 @@ namespace ULang {
         size_t pos = 0;
 
         bool en_verbose;
+        std::vector<CompilerSyntaxException> exceptions_friendly;
 
         private:
+
+        void friendlyException(CompilerSyntaxException e);
+
+        const DataType* getType(ASTNode* node, SourceLocation loc = ULANG_LOCATION_NULL);
+        const DataType* determineBinopType(const DataType* left, const DataType* right);
+
         /**
          * @brief Throws an expection if unexcepted token, returns the token if else.
          * @exception std::runtime_error

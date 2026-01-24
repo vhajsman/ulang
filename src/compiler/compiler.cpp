@@ -7,6 +7,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 #include "errno.h"
 
@@ -17,6 +18,80 @@
 namespace ULang {
     CompilerInstance::CompilerInstance(const std::string& source, const std::string& filename, bool en_verbose)
     : lexer(source), filename(filename), en_verbose(en_verbose) {}
+
+    void CompilerInstance::friendlyException(CompilerSyntaxException e) {
+        this->exceptions_friendly.push_back(e);
+        std::cout << e.fmt(true) << std::endl;
+    }
+
+    const DataType* CompilerInstance::getType(ASTNode* node, SourceLocation loc) {
+        if(!node)
+            return nullptr;
+
+        switch(node->type) {
+            case ASTNodeType::DECLARATION: 
+                return node->symbol ? node->symbol->type : nullptr;
+
+            case ASTNodeType::ASSIGNMENT:
+                return node->righthand ? getType(node->righthand, loc) : nullptr;
+                
+            case ASTNodeType::NUMBER:
+                return &TYPE_INT32;
+
+            case ASTNodeType::VARIABLE:
+                if(node->symbol) 
+                    return node->symbol->type;
+
+                throw CompilerSyntaxException(
+                    CompilerSyntaxException::Severity::Error,
+                    "Could not determine type for '" + node->name + "'",
+                    loc,
+                    ULANG_SYNT_ERR_TYPE_DETERMINE_FAIL
+                );
+
+            case ASTNodeType::BINOP: {
+                // fallback loc pro levý a pravý operand
+                SourceLocation loc_left  = node->lefthand && node->lefthand->symbol ? node->lefthand->symbol->where : loc;
+                SourceLocation loc_right = node->righthand && node->righthand->symbol ? node->righthand->symbol->where : loc;
+
+                const DataType* left  = getType(node->lefthand, loc_left);
+                const DataType* right = getType(node->righthand, loc_right);
+
+                if((left->flags & SIGN) != (right->flags & SIGN)) {
+                    this->friendlyException(CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Warning,
+                        "Operand types '" + left->name + "' and '" + right->name + "' differ in signedness",
+                        loc,
+                        ULANG_SYNT_WARN_TYPES_SIGN_DIFF
+                    ));
+                }
+
+                if(left->size != right->size) {
+                    this->friendlyException(CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Warning,
+                        "Operand types '" + left->name + "' and '" + right->name + "' differ in sizes",
+                        loc,
+                        ULANG_SYNT_WARN_TYPES_SIZE_DIFF
+                    ));
+                }
+
+                return left;
+            }
+        }
+
+        return nullptr;
+    }
+
+    const DataType* CompilerInstance::determineBinopType(const DataType* left, const DataType* right) {
+        if(left->size > right->size) return left;
+        if(right->size > left->size) return right;
+
+        if((left->flags & SIGN) != (right->flags & SIGN)) {
+            return (left->flags & SIGN) ? left : right;
+        }
+        
+        return left;
+    }
 
     const Token& CompilerInstance::expectToken(TokenType type) {
         if(this->tokens[this->pos].type != type) {            
@@ -136,21 +211,21 @@ namespace ULang {
                 const DataType* init_type = getType(node->initial, sym->where);
 
                 if((init_type->flags & SIGN) != (type->flags & SIGN)) {
-                    throw CompilerSyntaxException(
+                    this->friendlyException(CompilerSyntaxException(
                         CompilerSyntaxException::Severity::Warning,
                         "Types '" + init_type->name + "' and '" + type->name + "' differ in signedness",
                         sym->where,
                         ULANG_SYNT_WARN_TYPES_SIGN_DIFF
-                    );
+                    ));
                 }
 
                 if(init_type->size != type->size) {
-                    throw CompilerSyntaxException(
+                    this->friendlyException(CompilerSyntaxException(
                         CompilerSyntaxException::Severity::Warning,
                         "Types '" + init_type->name + "' and '" + type->name + "' differ in sizes",
                         sym->where,
                         ULANG_SYNT_WARN_TYPES_SIZE_DIFF
-                    );
+                    ));
                 }
             }
 
@@ -195,21 +270,21 @@ namespace ULang {
             const DataType* right_type = getType(righthand, righthand->symbol ? righthand->symbol->where : SourceLocation{});
 
             if((left_type->flags & SIGN) != (right_type->flags & SIGN)) {
-                throw CompilerSyntaxException(
+                this->friendlyException(CompilerSyntaxException(
                     CompilerSyntaxException::Severity::Warning,
                     "Operand types '" + left_type->name + "' and '" + right_type->name + "' differ in signedness",
                     lefthand->symbol ? lefthand->symbol->where : ULANG_LOCATION_NULL,
                     ULANG_SYNT_WARN_TYPES_SIGN_DIFF
-                );
+                ));
             }
 
             if(left_type->size != right_type->size) {
-                throw CompilerSyntaxException(
+                this->friendlyException(CompilerSyntaxException(
                     CompilerSyntaxException::Severity::Warning,
                     "Operand types '" + left_type->name + "' and '" + right_type->name + "' differ in sizes",
                     lefthand->symbol ? lefthand->symbol->where : ULANG_LOCATION_NULL,
                     ULANG_SYNT_WARN_TYPES_SIZE_DIFF
-                );
+                ));
             }
 
             // determine result type (pick larger size, signedness preference)
@@ -265,7 +340,7 @@ namespace ULang {
             this->tokens = this->lexer.tokenize();
             this->buildAST();
         } catch(const CompilerSyntaxException& e) {
-            std::cerr << e.fmt(true);
+            std::cerr << e.fmt(true) << std::endl;
 
             if(e.getSeverity() == CompilerSyntaxException::Severity::Error) {
                 std::cout << "Compilation terminated" << std::endl;
