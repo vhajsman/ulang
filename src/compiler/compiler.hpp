@@ -109,6 +109,10 @@ namespace ULang {
         int loc_col;
     };
 
+#ifndef ULANG_LOCATION_NULL
+#define ULANG_LOCATION_NULL (ULang::SourceLocation) {nullptr, "(unknown)", 0, 0}
+#endif
+
     struct Symbol {
         std::string name;
         unsigned int symbolId;
@@ -242,17 +246,19 @@ namespace ULang {
          * @brief Throws an expection if unexcepted token, returns the token if else.
          * @exception std::runtime_error
          * @param type token type
+         * @param loc location in source (optional)
          * @return const Token& 
          */
-        const Token& expectToken(TokenType type);
+        const Token& expectToken(TokenType type, SourceLocation loc = ULANG_LOCATION_NULL);
 
         /**
          * @brief Throws an expection if unexcepted token, returns the token if else.
          * @exception std::runtime_error
          * @param type token text
+         * @param loc source location (optional)
          * @return const Token& 
          */
-        const Token& expectToken(const std::string& token);
+        const Token& expectToken(const std::string& token, SourceLocation loc = ULANG_LOCATION_NULL);
 
         bool matchToken(TokenType type);
 

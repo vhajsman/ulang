@@ -1,23 +1,38 @@
 #include "compiler.hpp"
 #include "types.hpp"
+#include <cstdlib>
 #include <iostream>
 #include <stdexcept>
 #include <string>
+
+#include "errno.h"
 
 namespace ULang {
     CompilerInstance::CompilerInstance(const std::string& source, const std::string& filename)
     : lexer(source), filename(filename) {}
 
-    const Token& CompilerInstance::expectToken(TokenType type) {
-        if(this->tokens[this->pos].type != type)
-            throw std::runtime_error("Unexcepted token: " + this->tokens[this->pos].text);
+    const Token& CompilerInstance::expectToken(TokenType type, SourceLocation loc) {
+        if(this->tokens[this->pos].type != type) {            
+            throw CompilerSyntaxException(
+                CompilerSyntaxException::Severity::Error, 
+                "Unexcepted token: '" + this->tokens[this->pos].text + "'",
+                loc,
+                ULANG_SYNT_ERR_UNEXCEPT_TOK
+            );
+        }
 
         return this->tokens[this->pos++];
     }
 
-    const Token& CompilerInstance::expectToken(const std::string& token) {
-        if(this->tokens[this->pos].text != token)
-            throw std::runtime_error("Unexcepted token: " + this->tokens[this->pos].text);
+    const Token& CompilerInstance::expectToken(const std::string& token, SourceLocation loc) {
+        if(this->tokens[this->pos].text != token) {
+            throw CompilerSyntaxException(
+                CompilerSyntaxException::Severity::Error,
+                "Unexcepted token: '" + this->tokens[this->pos].text + "', excepted '" + token + "'",
+                loc,
+                ULANG_SYNT_ERR_UNEXCEPT_TOK
+            );
+        }
 
         return this->tokens[this->pos++];
     }
@@ -59,7 +74,18 @@ namespace ULang {
             return new ASTNode(tok.text);
         }
 
-        throw std::runtime_error("Expected primary expression");
+        //throw std::runtime_error("Expected primary expression");
+        throw CompilerSyntaxException(
+            CompilerSyntaxException::Severity::Error,
+            "Excepted primary expression",
+            {
+                0,
+                "",
+                0,
+                0
+            },
+            ULANG_SYNT_ERR_EXCEPTED_PRIMARY
+        );
     }
 
     ASTNode* CompilerInstance::parseVarDecl() {
@@ -155,8 +181,17 @@ namespace ULang {
     void CompilerInstance::compile() {
         std::cout << "Compile: " << this->filename << std::endl;
 
-        this->tokens = this->lexer.tokenize();
-        this->buildAST();
+        try {
+            this->tokens = this->lexer.tokenize();
+            this->buildAST();
+        } catch(const CompilerSyntaxException& e) {
+            std::cerr << e.fmt(true);
+
+            if(e.getSeverity() == CompilerSyntaxException::Severity::Error) {
+                std::cout << "Compilation terminated" << std::endl;
+                exit(1);
+            }
+        }
 
         std::cout   << " -> " 
                     << this->tokens.size() 
