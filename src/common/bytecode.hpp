@@ -219,6 +219,11 @@ namespace ULang {
         std::string string_pool;
     };
 
+    bool validateHeader(const BytecodeHeader& hdr, size_t file_size);
+    bool validateMetaSection(const BytecodeHeader& hdr, const BytecodeMetaHeader& meta, size_t file_size);
+    
+    uint32_t addStringToPool(std::string& pool, const std::string& str);
+
     /**
      * @brief Parse the instruction
      * 
