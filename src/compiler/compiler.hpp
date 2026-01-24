@@ -17,6 +17,16 @@
 namespace ULang {
     struct Symbol;
 
+    struct SourceLocation {
+        void* loc_parent;
+        std::string loc_file;
+        size_t loc_line;
+        size_t loc_col;
+    };
+#ifndef ULANG_LOCATION_NULL
+    #define ULANG_LOCATION_NULL (ULang::SourceLocation) {nullptr, "(unknown)", 0, 0}
+#endif
+
     enum class ASTNodeType {
         NUMBER,         ///< integral value
         VARIABLE,       ///< variable reference
@@ -71,6 +81,7 @@ namespace ULang {
     struct Token {
         TokenType type;
         std::string text;
+        SourceLocation loc;
     };
 
     /**
@@ -79,7 +90,10 @@ namespace ULang {
     class Lexer {
         private:
         std::string src;    ///< source code
+
         size_t pos = 0;     ///< current position
+        size_t line = 1;    ///< line number
+        size_t col = 1;     ///< column number
 
         char peek() const;
         char get();
@@ -91,7 +105,7 @@ namespace ULang {
          * @exception std::runtime_error
          * @return std::vector<Token> token vector
          */
-        std::vector<Token> tokenize();
+        std::vector<Token> tokenize(const std::string& filename = "(unknown)");
 
         Lexer(const std::string& input);
     };
@@ -101,17 +115,6 @@ namespace ULang {
     // ASTNode* parsePrimary(const std::vector<Token>& tokens, size_t& pos);
     // ASTNode* parseExpression(const std::vector<Token>& tokens, size_t& pos);
     // ASTNode* parseVarDecl(const std::vector<Token>& tokens, size_t& pos);
-
-    struct SourceLocation {
-        void* loc_parent;
-        std::string loc_file;
-        int loc_line;
-        int loc_col;
-    };
-
-#ifndef ULANG_LOCATION_NULL
-#define ULANG_LOCATION_NULL (ULang::SourceLocation) {nullptr, "(unknown)", 0, 0}
-#endif
 
     struct Symbol {
         std::string name;
