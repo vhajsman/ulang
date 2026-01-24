@@ -15,7 +15,7 @@ namespace ULang {
     CompilerInstance::CompilerInstance(const std::string& source, const std::string& filename, bool en_verbose)
     : lexer(source), filename(filename), en_verbose(en_verbose) {}
 
-    const Token& CompilerInstance::expectToken(TokenType type, SourceLocation loc) {
+    const Token& CompilerInstance::expectToken(TokenType type) {
         if(this->tokens[this->pos].type != type) {            
             throw CompilerSyntaxException(
                 CompilerSyntaxException::Severity::Error, 
@@ -28,7 +28,7 @@ namespace ULang {
         return this->tokens[this->pos++];
     }
 
-    const Token& CompilerInstance::expectToken(const std::string& token, SourceLocation loc) {
+    const Token& CompilerInstance::expectToken(const std::string& token) {
         if(this->tokens[this->pos].text != token) {
             throw CompilerSyntaxException(
                 CompilerSyntaxException::Severity::Error,

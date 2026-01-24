@@ -251,19 +251,17 @@ namespace ULang {
          * @brief Throws an expection if unexcepted token, returns the token if else.
          * @exception std::runtime_error
          * @param type token type
-         * @param loc location in source (optional)
          * @return const Token& 
          */
-        const Token& expectToken(TokenType type, SourceLocation loc = ULANG_LOCATION_NULL);
+        const Token& expectToken(TokenType type);
 
         /**
          * @brief Throws an expection if unexcepted token, returns the token if else.
          * @exception std::runtime_error
          * @param type token text
-         * @param loc source location (optional)
          * @return const Token& 
          */
-        const Token& expectToken(const std::string& token, SourceLocation loc = ULANG_LOCATION_NULL);
+        const Token& expectToken(const std::string& token);
 
         bool matchToken(TokenType type);
 
