@@ -1,6 +1,7 @@
 #include "compiler.hpp"
 #include <boost/program_options.hpp>
 #include <boost/program_options/value_semantic.hpp>
+#include <cstdint>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -11,13 +12,15 @@ int main(int argc, char** argv) {
     std::string sourceFile;
     std::string outFile;
     bool verbose = false;
+    uint8_t word_size;
 
     po::options_description desc("ULang Compiler Options");
     desc.add_options()
         ("help,h", "Show help")
         ("file,f", po::value<std::string>(&sourceFile), "Source file")
         ("output,o", po::value<std::string>(&outFile)->default_value("a.out"), "Output file")
-        ("verbose", po::bool_switch(&verbose)->default_value(false), "Generate verbose compilation log");
+        ("verbose", po::bool_switch(&verbose)->default_value(false), "Generate verbose compilation log")
+        ("wsize", po::value<uint8_t>(&word_size)->default_value(8), "Word size (must be 4 or 8, defaults to 8)");
 
     po::variables_map vm;
     try {

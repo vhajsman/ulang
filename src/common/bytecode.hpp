@@ -3,6 +3,8 @@
 
 #include <cstdint> // uint8_t
 #include <cstddef>
+#include <string>
+#include <vector>
 
 #define ULANG_OP_COUNT 2
 #define ULANG_OP_MAX_DATA_SZ 16
@@ -153,18 +155,69 @@ namespace ULang {
 
     #pragma pack(push, 1)
     struct BytecodeHeader {
-        char     magic[6];        // "ULANG0"
-        uint16_t version;         // 1
-        uint8_t  endian;          // 0 = LE, 1 = BE
-        uint8_t  word_size;       // 4 or 8 B
-        uint32_t code_offset;     // in bytes
-        uint32_t code_size;       // in bytes
-        uint32_t meta_offset;     // in bytes
-        uint32_t meta_size;       // in bytes
-        uint32_t flags;           // bitmask
-        uint32_t checksum;        // CRC32 or 0
+        char     magic[6];          // "ULANG0"
+        uint8_t  version_major;     // 1
+        uint8_t  version_minor;     // 0
+        uint8_t  endian;            // 0 = LE, 1 = BE
+        uint8_t  word_size;         // 4 or 8
+        uint16_t header_size;       // sizeof(BytecodeHeader)
+        uint32_t flags;             // BytecodeFlags
+        uint32_t code_offset;
+        uint32_t code_size;
+        uint32_t meta_offset;
+        uint32_t meta_size;
+        uint32_t checksum;
+        uint8_t  checksum_type;     // 0 = none, 1 = CRC32
+        uint64_t entry_ptr;
+        uint8_t  reserved[7];
     };
-    #pragma  pack(pop)
+    #pragma pack(pop)
+
+    enum BytecodeFlags : uint32_t {
+        BC_FLAG_DEBUG      = 1 << 0,
+        BC_FLAG_STRIPPED   = 1 << 1,
+        BC_FLAG_SIGNED_VM  = 1 << 2,
+        BC_FLAG_OPTIMIZED  = 1 << 3
+    };
+
+    #pragma pack(push, 1)
+    struct MetaSymbol {
+        uint32_t name_offset;
+        uint32_t type_id;
+        uint32_t stack_offset;
+        uint32_t flags;
+    };
+
+    struct MetaType {
+        uint32_t name_offset;
+        uint32_t size;
+        uint32_t flags;
+    };
+
+    struct BytecodeMetaHeader {
+        uint32_t symbol_count;
+        uint32_t type_count;
+        uint32_t string_pool_size;
+    };
+    #pragma pack(pop)
+
+    enum MetaSymbolFlags : uint32_t {
+        SYM_GLOBAL = 1 << 0,
+        SYM_CONST  = 1 << 1,
+        SYM_PARAM  = 1 << 2,
+    };
+
+    enum MetaTypeFlags : uint32_t {
+        TYPE_SIGNED   = 1 << 0,
+        TYPE_FLOAT    = 1 << 1,
+        TYPE_POINTER  = 1 << 2,
+    };
+
+    struct MetaData {
+        std::vector<MetaType> types;
+        std::vector<MetaSymbol> symbols;
+        std::string string_pool;
+    };
 
     /**
      * @brief Parse the instruction
