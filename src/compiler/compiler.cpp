@@ -1,6 +1,9 @@
 #include "compiler.hpp"
 #include "types.hpp"
+#include <cstddef>
+#include <cstdint>
 #include <cstdlib>
+#include <exception>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -75,14 +78,35 @@ namespace ULang {
 
         if(tok.type == TokenType::Identifier) {
             this->pos++;
-            return new ASTNode(tok.text);
+
+            const Symbol* sym = this->symbols.lookup(tok.text);
+            if(!sym) {
+                throw CompilerSyntaxException(
+                    CompilerSyntaxException::Severity::Error,
+                    "'" + tok.text + "' is not declared in this scope",
+                    tok.loc,
+                    ULANG_SYNT_ERR_VAR_UNDEFINED
+                );
+            }
+
+            ASTNode* node = new ASTNode(tok.text);
+            node->symbol = const_cast<Symbol*>(sym);
+            return node;
+
+            //return new ASTNode(tok.text);
         }
 
-        //throw std::runtime_error("Expected primary expression");
+        SourceLocation loc_fail = {
+            nullptr,
+            this->filename,
+            static_cast<size_t>(tok.loc.loc_line),
+            static_cast<size_t>(tok.loc.loc_col)
+        };
+
         throw CompilerSyntaxException(
             CompilerSyntaxException::Severity::Error,
             "Excepted primary expression",
-            tok.loc,
+            loc_fail,
             ULANG_SYNT_ERR_EXCEPTED_PRIMARY
         );
     }
@@ -107,6 +131,29 @@ namespace ULang {
         if(this->tokens[this->pos].type == TokenType::Assign) {
             this->pos++;
             node->initial = this->parseExpression();
+
+            if(node->initial) {
+                const DataType* init_type = getType(node->initial, sym->where);
+
+                if((init_type->flags & SIGN) != (type->flags & SIGN)) {
+                    throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Warning,
+                        "Types '" + init_type->name + "' and '" + type->name + "' differ in signedness",
+                        sym->where,
+                        ULANG_SYNT_WARN_TYPES_SIGN_DIFF
+                    );
+                }
+
+                if(init_type->size != type->size) {
+                    throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Warning,
+                        "Types '" + init_type->name + "' and '" + type->name + "' differ in sizes",
+                        sym->where,
+                        ULANG_SYNT_WARN_TYPES_SIZE_DIFF
+                    );
+                }
+            }
+
         } else node->initial = nullptr;
 
         this->expectToken(TokenType::Semicolon);
@@ -142,6 +189,47 @@ namespace ULang {
                 default:
                     break;
             }
+
+            // ---- type checking & BINOP result type ----
+            const DataType* left_type  = getType(lefthand, lefthand->symbol ? lefthand->symbol->where : SourceLocation{});
+            const DataType* right_type = getType(righthand, righthand->symbol ? righthand->symbol->where : SourceLocation{});
+
+            if((left_type->flags & SIGN) != (right_type->flags & SIGN)) {
+                throw CompilerSyntaxException(
+                    CompilerSyntaxException::Severity::Warning,
+                    "Operand types '" + left_type->name + "' and '" + right_type->name + "' differ in signedness",
+                    lefthand->symbol ? lefthand->symbol->where : ULANG_LOCATION_NULL,
+                    ULANG_SYNT_WARN_TYPES_SIGN_DIFF
+                );
+            }
+
+            if(left_type->size != right_type->size) {
+                throw CompilerSyntaxException(
+                    CompilerSyntaxException::Severity::Warning,
+                    "Operand types '" + left_type->name + "' and '" + right_type->name + "' differ in sizes",
+                    lefthand->symbol ? lefthand->symbol->where : ULANG_LOCATION_NULL,
+                    ULANG_SYNT_WARN_TYPES_SIZE_DIFF
+                );
+            }
+
+            // determine result type (pick larger size, signedness preference)
+            const DataType* result_type = left_type;
+            if(right_type->size > left_type->size) {
+                result_type = right_type;
+            } else if((left_type->flags & SIGN) != (right_type->flags & SIGN)) {
+                result_type = (left_type->flags & SIGN) ? left_type : right_type;
+            }
+
+            /*
+            throw new CompilerSyntaxException(
+                CompilerSyntaxException::Severity::Note,
+                "Selected type: '" + result_type->name + "'",
+                lefthand->symbol ? lefthand->symbol->where : ULANG_LOCATION_NULL
+            );
+            */
+
+            node->symbol = new Symbol{"<binop>", 0, result_type, 0, {}};
+            // -----------------------------------------
 
             lefthand = node;
         }
@@ -183,6 +271,9 @@ namespace ULang {
                 std::cout << "Compilation terminated" << std::endl;
                 exit(1);
             }
+        } catch(const std::exception& e) {
+            std::cerr << e.what() << std::endl;
+            exit(1);
         }
 
         cout_verbose<< " -> " 

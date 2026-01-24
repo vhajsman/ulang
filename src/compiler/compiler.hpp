@@ -65,6 +65,9 @@ namespace ULang {
 
     using ASTPtr = std::unique_ptr<ASTNode>;
 
+    const DataType* getType(ASTNode* node, SourceLocation loc = ULANG_LOCATION_NULL);
+    const DataType* determineBinopType(const DataType* left, const DataType* right);
+
     enum class TokenType {
         TypeKeyword,
         Identifier,
