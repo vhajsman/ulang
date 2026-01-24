@@ -1,6 +1,7 @@
 #ifndef __ULANG_COMPILER_H
 #define __ULANG_COMPILER_H
 
+#include "bytecode.hpp"
 #include "types.hpp"
 
 #include <cstdint>
@@ -16,7 +17,6 @@
 
 namespace ULang {
     struct Symbol;
-
     struct SourceLocation {
         void* loc_parent;
         std::string loc_file;
@@ -233,6 +233,10 @@ namespace ULang {
         SourceLocation getLocation() const;
     };
 
+    BytecodeHeader buildBytecodeHeader(uint32_t code_size, uint32_t meta_size, uint8_t word_size);
+    MetaData buildMeta(SymbolTable& symtable, const std::vector<const DataType*>& types0, bool verbose_en);
+    void writeBytecode(const std::string& filename, const std::vector<uint8_t>& code, const MetaData& meta, uint8_t word_size);
+
     class CompilerInstance {
         private:
         std::vector<Token> tokens;
@@ -242,6 +246,7 @@ namespace ULang {
         std::vector<ASTPtr> ast_owned;
 
         std::string filename;
+        std::string filename_out;
         size_t pos = 0;
 
         bool en_verbose;
@@ -305,7 +310,7 @@ namespace ULang {
         void buildAST();
 
         public:
-        CompilerInstance(const std::string& source, const std::string& filename = "unnamed", bool en_verbose = false);
+        CompilerInstance(const std::string& source, const std::string& filename_out, const std::string& filename = "unnamed", bool en_verbose = false);
 
         /**
          * @brief does the compilation

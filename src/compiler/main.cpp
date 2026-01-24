@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
     ULang::Lexer lexer(sourceCode);
     THROW_AWAY lexer.tokenize();
 
-    ULang::CompilerInstance* ci = new ULang::CompilerInstance(sourceCode, sourceFile, verbose);
+    ULang::CompilerInstance* ci = new ULang::CompilerInstance(sourceCode, outFile, sourceFile, verbose);
     THROW_AWAY ci->compile();
     std::cout << "Compile OK" << std::endl;
 

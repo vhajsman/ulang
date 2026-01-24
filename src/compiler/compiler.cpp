@@ -1,4 +1,5 @@
 #include "compiler.hpp"
+#include "bytecode.hpp"
 #include "types.hpp"
 #include <cstddef>
 #include <cstdint>
@@ -16,8 +17,8 @@
         std::cout
 
 namespace ULang {
-    CompilerInstance::CompilerInstance(const std::string& source, const std::string& filename, bool en_verbose)
-    : lexer(source), filename(filename), en_verbose(en_verbose) {}
+    CompilerInstance::CompilerInstance(const std::string& source, const std::string& filename_out, const std::string& filename, bool en_verbose)
+    : lexer(source), filename(filename), filename_out(filename_out), en_verbose(en_verbose) {}
 
     void CompilerInstance::friendlyException(CompilerSyntaxException e) {
         this->exceptions_friendly.push_back(e);
@@ -364,14 +365,21 @@ namespace ULang {
                         << std::endl;
         }
 
-        // TODO: type checking, bytecode, IR
+        std::vector<const DataType*> types_vect;
+        types_vect.push_back(&TYPE_INT8);
+        types_vect.push_back(&TYPE_INT16);
+        types_vect.push_back(&TYPE_INT32);
+        types_vect.push_back(&TYPE_INT64);
+        types_vect.push_back(&TYPE_UINT8);
+        types_vect.push_back(&TYPE_UINT16);
+        types_vect.push_back(&TYPE_UINT32);
+        types_vect.push_back(&TYPE_UINT64);
+        types_vect.push_back(&TYPE_CHAR);
 
-        /*
-        for(auto& node: this->ast_owned)
-            node.reset();
+        MetaData meta = buildMeta(this->symbols, types_vect, this->en_verbose);
 
-        this->ast_owned.clear();
-        */
+        const std::vector<uint8_t> code;
+        writeBytecode(this->filename_out, code, meta, 8);
     }
 };
 
