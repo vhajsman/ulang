@@ -154,23 +154,27 @@ namespace ULang {
     };
 
     #pragma pack(push, 1)
+    /**
+     * @brief Bytecode header structure
+     * 
+     */
     struct BytecodeHeader {
-        char     magic[6];          // "ULANG0"
-        uint8_t  version_major;     // 1
-        uint8_t  version_minor;     // 0
-        uint8_t  endian;            // 0 = LE, 1 = BE
-        uint8_t  word_size;         // 4 or 8
-        uint16_t header_size;       // sizeof(BytecodeHeader)
-        uint32_t flags;             // BytecodeFlags
-        uint32_t code_offset;
-        uint32_t code_size;
-        uint32_t data_offset;
-        uint32_t data_size;
-        uint32_t meta_offset;
-        uint32_t meta_size;
+        char     magic[6];          ///< "ULANG0"
+        uint8_t  version_major;     ///< 1
+        uint8_t  version_minor;     ///< 0
+        uint8_t  endian;            ///< 0 = LE, 1 = BE
+        uint8_t  word_size;         ///< 4 or 8
+        uint16_t header_size;       ///< sizeof(BytecodeHeader)
+        uint32_t flags;             ///< BytecodeFlags
+        uint32_t code_offset;       ///< Code section offset
+        uint32_t code_size;         ///< Code section size
+        uint32_t data_offset;       ///< Data section offset
+        uint32_t data_size;         ///< Data section size
+        uint32_t meta_offset;       ///< Meta section offset
+        uint32_t meta_size;         ///< Meta section size
         uint32_t checksum;
-        uint8_t  checksum_type;     // 0 = none, 1 = CRC32
-        uint64_t entry_offset;
+        uint8_t  checksum_type;     ///< Checksum type: 0 = none, 1 = CRC32
+        uint64_t entry_offset;      ///< Offset of main function (relative to file start)
         uint8_t  reserved[7];
     };
     #pragma pack(pop)
@@ -183,6 +187,10 @@ namespace ULang {
     };
 
     #pragma pack(push, 1)
+    /**
+     * @brief Metadata symbol table entry
+     * 
+     */
     struct MetaSymbol {
         uint32_t name_offset;
         uint32_t type_id;
@@ -190,6 +198,10 @@ namespace ULang {
         uint32_t flags;
     };
 
+    /**
+     * @brief Metadata type table entry
+     * 
+     */
     struct MetaType {
         uint32_t name_offset;
         uint32_t size;
@@ -221,7 +233,25 @@ namespace ULang {
         std::string string_pool;
     };
 
+    /**
+     * @brief Validate the bytecode header
+     * 
+     * @param hdr header
+     * @param file_size file size
+     * @return true if header valid
+     * @return false if header NOT valid
+     */
     bool validateHeader(const BytecodeHeader& hdr, size_t file_size);
+
+    /**
+     * @brief Validate metadata structure
+     * 
+     * @param hdr header
+     * @param meta bytecode meta header
+     * @param file_size  file size
+     * @return true if valid
+     * @return false if NOT valid
+     */
     bool validateMetaSection(const BytecodeHeader& hdr, const BytecodeMetaHeader& meta, size_t file_size);
     
     uint32_t addStringToPool(std::string& pool, const std::string& str);

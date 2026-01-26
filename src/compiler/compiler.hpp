@@ -239,24 +239,42 @@ namespace ULang {
 
     class CompilerInstance {
         private:
-        std::vector<Token> tokens;
-        SymbolTable symbols;
-        Lexer lexer;
+        std::vector<Token> tokens;  ///< List of all the tokens from the source
+        SymbolTable symbols;        ///< Symbol table
+        Lexer lexer;                ///< Lexer instance
 
         std::vector<ASTPtr> ast_owned;
 
-        std::string filename;
-        std::string filename_out;
-        size_t pos = 0;
+        std::string filename;       ///< Input file filename
+        std::string filename_out;   ///< Output file filename
+        size_t pos = 0;             ///< Current position
 
-        bool en_verbose;
+        bool en_verbose;            ///< Whether to enable verbose logging or not
+
+        /**
+         * @brief CompilerSyntaxException exceptions not terminating the compilation
+         * 
+         */
         std::vector<CompilerSyntaxException> exceptions_friendly;
 
         private:
 
+        /**
+         * @brief Throws a friendly exception which does not terminate the compilation
+         * 
+         * @param e exception
+         */
         void friendlyException(CompilerSyntaxException e);
 
+        /**
+         * @brief Get the data type
+         * 
+         * @param node node
+         * @param loc source location for logging reference
+         * @return const DataType* 
+         */
         const DataType* getType(ASTNode* node, SourceLocation loc = ULANG_LOCATION_NULL);
+
         const DataType* determineBinopType(const DataType* left, const DataType* right);
 
         /**
