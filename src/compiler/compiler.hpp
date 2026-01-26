@@ -327,6 +327,9 @@ namespace ULang {
          */
         void buildAST();
 
+        Instruction makeInstruction(Opcode opcode, Operand a = {}, Operand b = {});
+        Operand IMM(uint64_t val = 0, uint8_t sz=8);
+
         public:
         CompilerInstance(const std::string& source, const std::string& filename_out, const std::string& filename = "unnamed", bool en_verbose = false);
 

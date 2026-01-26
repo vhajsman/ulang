@@ -22,7 +22,9 @@ namespace ULang {
 
     struct Operand {
         ULang::operandMeta_t raw_meta;
-        uint8_t* value;
+
+        uint8_t meta;   ///< top 4 bits = type; lower 4 bits = size in bytes
+        uint64_t data;  ///< value, offset or register ID
 
         /**
          * @brief Get operand type
@@ -30,7 +32,12 @@ namespace ULang {
          * @return ULang::OperandType 
          */
         ULang::OperandType getType() const { 
-            return static_cast<ULang::OperandType>((raw_meta & 0b11110000) >> 4); 
+            //return static_cast<ULang::OperandType>((raw_meta & 0b11110000) >> 4); 
+            return static_cast<OperandType>((this->meta >> 4) & 0xF);
+        }
+
+        void setType(OperandType type) {
+            this->meta = (this->meta & 0x0F) | (static_cast<uint8_t>(type) << 4);
         }
 
         /**
@@ -38,8 +45,13 @@ namespace ULang {
          * 
          * @return size_t 
          */
-        size_t getDataSz() const { 
-            return raw_meta & 0b00001111; 
+        uint8_t getDataSz() const { 
+            //return raw_meta & 0b00001111; 
+            return this->meta & 0xF;
+        }
+
+        void setDataSz(uint8_t sz) {
+            this->meta = (this->meta & 0xF0) | (sz & 0x0F);
         }
     };
 
@@ -62,7 +74,8 @@ namespace ULang {
 
     struct Instruction {
         Opcode opcode;
-        Operand opA; Operand opB;
+        Operand opA; 
+        Operand opB;
 
         /**
          * @brief Calculates the total size of instruction in memory, including opcode and operand type/size specifiers.
@@ -70,7 +83,12 @@ namespace ULang {
          * @return size_t 
          */
         size_t calcTotalSz() const {
-            return sizeof(opcode) + sizeof(operandMeta_t) * 2 + opA.getDataSz() + opB.getDataSz();
+            //return sizeof(opcode) + sizeof(operandMeta_t) * 2 + opA.getDataSz() + opB.getDataSz();
+
+            // opcode + meta for every operand + data sizes
+            return  sizeof(Opcode) + 
+                    sizeof(this->opA.meta) + sizeof(this->opB.meta) + 
+                    this->opA.getDataSz() + this->opB.getDataSz();
         }
     };
 
