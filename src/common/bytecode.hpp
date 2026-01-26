@@ -164,11 +164,13 @@ namespace ULang {
         uint32_t flags;             // BytecodeFlags
         uint32_t code_offset;
         uint32_t code_size;
+        uint32_t data_offset;
+        uint32_t data_size;
         uint32_t meta_offset;
         uint32_t meta_size;
         uint32_t checksum;
         uint8_t  checksum_type;     // 0 = none, 1 = CRC32
-        uint64_t entry_ptr;
+        uint64_t entry_offset;
         uint8_t  reserved[7];
     };
     #pragma pack(pop)
