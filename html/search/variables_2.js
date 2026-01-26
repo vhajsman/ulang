@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['endian_0',['endian',['../structULang_1_1BytecodeHeader.html#afd996aee312c5c1b883e17e240511066',1,'ULang::BytecodeHeader']]],
-  ['entry_5fptr_1',['entry_ptr',['../structULang_1_1BytecodeHeader.html#a30a281dffdb306c1e3ce5e621734044e',1,'ULang::BytecodeHeader']]]
+  ['data_5foffset_0',['data_offset',['../structULang_1_1BytecodeHeader.html#ac4ab583e3414531d8e74dd83536f1a39',1,'ULang::BytecodeHeader']]],
+  ['data_5fsize_1',['data_size',['../structULang_1_1BytecodeHeader.html#a715d0feb017632d7bd966fb9a6751e1c',1,'ULang::BytecodeHeader']]]
 ];
