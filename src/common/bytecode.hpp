@@ -5,6 +5,7 @@
 #include <cstddef>
 #include <string>
 #include <vector>
+#include <array>
 
 #define ULANG_OP_COUNT 2
 #define ULANG_OP_MAX_DATA_SZ 16
@@ -21,10 +22,10 @@ namespace ULang {
     typedef uint8_t operandMeta_t;
 
     struct Operand {
-        ULang::operandMeta_t raw_meta;
+        operandMeta_t raw_meta = 0;
 
-        uint8_t meta;   ///< top 4 bits = type; lower 4 bits = size in bytes
-        uint64_t data;  ///< value, offset or register ID
+        uint8_t meta;                                   ///< top 4 bits = type; lower 4 bits = size in bytes
+        std::array<uint8_t, ULANG_OP_MAX_DATA_SZ> data; ///< value, offset or register ID
 
         /**
          * @brief Get operand type
@@ -32,8 +33,7 @@ namespace ULang {
          * @return ULang::OperandType 
          */
         ULang::OperandType getType() const { 
-            //return static_cast<ULang::OperandType>((raw_meta & 0b11110000) >> 4); 
-            return static_cast<OperandType>((this->meta >> 4) & 0xF);
+            return static_cast<ULang::OperandType>((this->raw_meta & 0b11110000) >> 4); 
         }
 
         void setType(OperandType type) {
@@ -46,8 +46,7 @@ namespace ULang {
          * @return size_t 
          */
         uint8_t getDataSz() const { 
-            //return raw_meta & 0b00001111; 
-            return this->meta & 0xF;
+            return raw_meta & 0b00001111;
         }
 
         void setDataSz(uint8_t sz) {

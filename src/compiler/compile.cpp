@@ -89,6 +89,7 @@ namespace ULang {
     }
 
     void CompilerInstance::serializeInstruction(const Instruction& instr, std::vector<uint8_t>& out) {
+        /*
         out.push_back(static_cast<uint8_t>(instr.opcode));
         
         out.push_back(instr.opA.raw_meta);
@@ -98,20 +99,35 @@ namespace ULang {
         if(a_sz > 0 && instr.opA.getType() != OperandType::OP_NULL) {
             if(instr.opA.getType() == OperandType::OP_NULL)
                 throw std::runtime_error("Operand A has size but NULL type");
-            if(!instr.opA.data)
+            if(!instr.opA.data.data())
                 throw std::runtime_error("Operand A has size but no data");
 
-            write_bytes(out, (const void*) instr.opA.data, a_sz);
+            write_bytes(out, (const void*) instr.opA.data.data(), a_sz);
         }
 
         size_t b_sz = instr.opB.getDataSz();
         if(b_sz > 0 && instr.opB.getType() != OperandType::OP_NULL) {
             if(instr.opB.getType() == OperandType::OP_NULL)
                 throw std::runtime_error("Operand B has size but NULL type");
-            if(!instr.opB.data)
+            if(!instr.opB.data.data())
                 throw std::runtime_error("Operand B has size but no data");
 
-            write_bytes(out, (const void*) instr.opB.data, b_sz);
+            write_bytes(out, (const void*) instr.opB.data.data(), b_sz);
+        }
+        */
+
+        out.push_back(static_cast<uint8_t>(instr.opcode));
+        out.push_back(instr.opA.raw_meta);
+        out.push_back(instr.opB.raw_meta);
+
+        size_t a_sz = instr.opA.getDataSz();
+        if(a_sz > 0) {
+            write_bytes(out, instr.opA.data.data(), a_sz);
+        }
+
+        size_t b_sz = instr.opB.getDataSz();
+        if(b_sz > 0) {
+            write_bytes(out, instr.opB.data.data(), b_sz);
         }
     }
 };
