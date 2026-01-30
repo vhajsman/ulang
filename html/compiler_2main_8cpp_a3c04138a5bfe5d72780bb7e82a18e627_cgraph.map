@@ -1,26 +1,30 @@
 <map id="main" name="main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,239,60,264"/>
-<area shape="rect" id="Node000002" href="$classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa" title="does the compilation" alt="" coords="108,202,293,242"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,244,94,238,95,243,61,249"/>
-<area shape="rect" id="Node000010" href="$classULang_1_1Lexer.html#a683839683dfefa9502c5e151222ecb7e" title="converts source code to tokens" alt="" coords="392,299,561,324"/>
-<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="61,252,379,295,378,301,60,258"/>
-<area shape="rect" id="Node000003" href="$namespaceULang.html#ae0b1129fa6b35790dbd18cbf3add8eb8" title=" " alt="" coords="409,63,545,88"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="219,200,270,152,304,126,340,105,394,86,396,91,342,110,307,131,274,156,223,204"/>
-<area shape="rect" id="Node000006" href="$classULang_1_1CompilerSyntaxException.html#a39539114f05c2d71321e5eb748da29f6" title="formatted compiler exception output (human readable)" alt="" coords="341,120,612,145"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="238,199,286,176,341,155,377,146,378,151,342,161,288,181,241,204"/>
-<area shape="rect" id="Node000009" href="$classULang_1_1CompilerSyntaxException.html#a39818372c08ca906d4b50a91012801c6" title=" " alt="" coords="357,170,596,210"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="293,209,343,203,344,208,294,214"/>
-<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="253,240,295,258,318,272,342,284,379,294,378,299,340,288,316,277,292,263,251,245"/>
-<area shape="rect" id="Node000012" href="$classULang_1_1CompilerSyntaxException.html#a6bac429bee65121a473bad6af7b5edbd" title=" " alt="" coords="357,234,596,274"/>
-<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="294,230,344,236,343,241,293,235"/>
-<area shape="rect" id="Node000004" href="$namespaceULang.html#afc471bffb16abe17362183d2a536a9e9" title=" " alt="" coords="663,5,837,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="538,60,675,31,676,36,539,65"/>
-<area shape="rect" id="Node000005" href="$classULang_1_1SymbolTable.html#afccc103d9709d6e3a4beabb5ee291a0e" title=" " alt="" coords="673,55,827,95"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="545,73,659,73,659,78,545,78"/>
-<area shape="rect" id="Node000007" href="$namespaceULang.html#a991893b6b9fc7f5f594ad4375bfbe05c" title=" " alt="" coords="663,120,837,145"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="612,130,650,130,650,135,612,135"/>
-<area shape="rect" id="Node000008" href="$namespaceULang.html#aa872add6618cd1839d302348efd6020b" title=" " alt="" coords="671,169,829,195"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="548,143,666,164,665,169,547,148"/>
-<area shape="rect" id="Node000011" href="$namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2" title=" " alt="" coords="660,299,840,324"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="561,309,646,309,646,314,561,314"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,288,60,313"/>
+<area shape="rect" id="Node000002" href="$classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa" title="does the compilation" alt="" coords="108,219,293,259"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,288,132,262,133,267,61,293"/>
+<area shape="rect" id="Node000010" href="$classULang_1_1Lexer.html#a683839683dfefa9502c5e151222ecb7e" title="converts source code to tokens" alt="" coords="392,348,561,373"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="61,302,379,345,378,350,60,307"/>
+<area shape="rect" id="Node000003" href="$namespaceULang.html#ae0b1129fa6b35790dbd18cbf3add8eb8" title=" " alt="" coords="409,120,545,145"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,217,279,184,340,154,394,140,396,145,342,159,281,189,231,221"/>
+<area shape="rect" id="Node000006" href="$classULang_1_1CompilerSyntaxException.html#a39539114f05c2d71321e5eb748da29f6" title="formatted compiler exception output (human readable)" alt="" coords="341,169,612,195"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="286,217,341,205,392,195,393,200,342,210,288,222"/>
+<area shape="rect" id="Node000009" href="$classULang_1_1CompilerSyntaxException.html#a39818372c08ca906d4b50a91012801c6" title=" " alt="" coords="357,219,596,259"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="293,237,344,237,344,242,293,242"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="230,257,290,301,342,333,379,345,378,350,340,338,287,305,227,262"/>
+<area shape="rect" id="Node000012" href="$classULang_1_1CompilerSyntaxException.html#a6bac429bee65121a473bad6af7b5edbd" title=" " alt="" coords="357,283,596,323"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="288,257,377,278,376,283,287,262"/>
+<area shape="rect" id="Node000013" href="$namespaceULang.html#a223393890930647184159ba3ee750798" title=" " alt="" coords="394,37,559,63"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="217,217,269,163,303,133,340,105,381,82,422,65,424,70,383,87,343,110,306,137,273,167,221,221"/>
+<area shape="rect" id="Node000004" href="$namespaceULang.html#afc471bffb16abe17362183d2a536a9e9" title=" " alt="" coords="678,120,853,145"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="545,130,664,130,664,135,545,135"/>
+<area shape="rect" id="Node000005" href="$classULang_1_1SymbolTable.html#afccc103d9709d6e3a4beabb5ee291a0e" title=" " alt="" coords="688,55,843,95"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="541,117,674,91,675,96,542,123"/>
+<area shape="rect" id="Node000007" href="$namespaceULang.html#a991893b6b9fc7f5f594ad4375bfbe05c" title=" " alt="" coords="679,219,852,244"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="552,192,677,214,676,219,551,197"/>
+<area shape="rect" id="Node000008" href="$namespaceULang.html#aa872add6618cd1839d302348efd6020b" title=" " alt="" coords="687,169,844,195"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="612,179,673,179,673,185,612,185"/>
+<area shape="rect" id="Node000011" href="$namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2" title=" " alt="" coords="675,348,855,373"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="561,358,662,358,662,363,561,363"/>
+<area shape="rect" id="Node000014" href="$namespaceULang.html#a8674adb59a39623d1f715c18a8cede91" title=" " alt="" coords="660,5,871,31"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="559,38,646,28,647,34,560,44"/>
 </map>

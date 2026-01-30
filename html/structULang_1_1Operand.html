@@ -98,14 +98,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a0bbd12117f7f3eec103bd0add917e2b4" id="r_a0bbd12117f7f3eec103bd0add917e2b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">ULang::operandMeta_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#a0bbd12117f7f3eec103bd0add917e2b4">raw_meta</a></td></tr>
-<tr class="separator:a0bbd12117f7f3eec103bd0add917e2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ce4bbef4f1d1188b94798e1e500ae9d" id="r_a1ce4bbef4f1d1188b94798e1e500ae9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">operandMeta_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#a1ce4bbef4f1d1188b94798e1e500ae9d">raw_meta</a> = 0</td></tr>
+<tr class="separator:a1ce4bbef4f1d1188b94798e1e500ae9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af462bf0b44734f560139166958438aea" id="r_af462bf0b44734f560139166958438aea"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#af462bf0b44734f560139166958438aea">meta</a></td></tr>
 <tr class="memdesc:af462bf0b44734f560139166958438aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">top 4 bits = type; lower 4 bits = size in bytes  <br /></td></tr>
 <tr class="separator:af462bf0b44734f560139166958438aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9527fe5d159831f7ffe81cdde376b04" id="r_ac9527fe5d159831f7ffe81cdde376b04"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#ac9527fe5d159831f7ffe81cdde376b04">data</a></td></tr>
-<tr class="memdesc:ac9527fe5d159831f7ffe81cdde376b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">value, offset or register ID  <br /></td></tr>
-<tr class="separator:ac9527fe5d159831f7ffe81cdde376b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe75431d41f3f73653df8a3e8a140461" id="r_abe75431d41f3f73653df8a3e8a140461"><td class="memItemLeft" align="right" valign="top">std::array&lt; uint8_t, <a class="el" href="bytecode_8hpp.html#ad0813faec1670a7e989e17e734708471">ULANG_OP_MAX_DATA_SZ</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#abe75431d41f3f73653df8a3e8a140461">data</a></td></tr>
+<tr class="memdesc:abe75431d41f3f73653df8a3e8a140461"><td class="mdescLeft">&#160;</td><td class="mdescRight">value, offset or register ID  <br /></td></tr>
+<tr class="separator:abe75431d41f3f73653df8a3e8a140461"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad9f08fbb35cf1aceba8cc728f62e560b" name="ad9f08fbb35cf1aceba8cc728f62e560b"></a>
@@ -222,14 +222,14 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac9527fe5d159831f7ffe81cdde376b04" name="ac9527fe5d159831f7ffe81cdde376b04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9527fe5d159831f7ffe81cdde376b04">&#9670;&#160;</a></span>data</h2>
+<a id="abe75431d41f3f73653df8a3e8a140461" name="abe75431d41f3f73653df8a3e8a140461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe75431d41f3f73653df8a3e8a140461">&#9670;&#160;</a></span>data</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint64_t ULang::Operand::data</td>
+          <td class="memname">std::array&lt;uint8_t, <a class="el" href="bytecode_8hpp.html#ad0813faec1670a7e989e17e734708471">ULANG_OP_MAX_DATA_SZ</a>&gt; ULang::Operand::data</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -254,14 +254,14 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a0bbd12117f7f3eec103bd0add917e2b4" name="a0bbd12117f7f3eec103bd0add917e2b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bbd12117f7f3eec103bd0add917e2b4">&#9670;&#160;</a></span>raw_meta</h2>
+<a id="a1ce4bbef4f1d1188b94798e1e500ae9d" name="a1ce4bbef4f1d1188b94798e1e500ae9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ce4bbef4f1d1188b94798e1e500ae9d">&#9670;&#160;</a></span>raw_meta</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">ULang::operandMeta_t</a> ULang::Operand::raw_meta</td>
+          <td class="memname"><a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">operandMeta_t</a> ULang::Operand::raw_meta = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">

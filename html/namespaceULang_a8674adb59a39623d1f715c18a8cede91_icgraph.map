@@ -1,5 +1,9 @@
 <map id="ULang::buildBytecodeHeader" name="ULang::buildBytecodeHeader">
-<area shape="rect" id="Node000001" title=" " alt="" coords="219,5,429,31"/>
-<area shape="rect" id="Node000002" href="$namespaceULang.html#a223393890930647184159ba3ee750798" title=" " alt="" coords="5,5,171,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,21,171,21,171,15,205,15"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="555,13,765,38"/>
+<area shape="rect" id="Node000002" href="$namespaceULang.html#a223393890930647184159ba3ee750798" title=" " alt="" coords="341,13,507,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="541,28,507,28,507,23,541,23"/>
+<area shape="rect" id="Node000003" href="$classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa" title="does the compilation" alt="" coords="108,5,293,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="328,28,294,28,294,23,328,23"/>
+<area shape="rect" id="Node000004" href="$compiler_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,28,60,28,60,23,95,23"/>
 </map>
