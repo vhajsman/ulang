@@ -17,6 +17,11 @@
 
 namespace ULang {
     struct Symbol;
+
+    static inline void write_bytes(std::vector<uint8_t>& out, const void* src, size_t size) {
+        const uint8_t* p = static_cast<const uint8_t*>(src);
+        out.insert(out.end(), p, p + size);
+    }
     struct SourceLocation {
         void* loc_parent;
         std::string loc_file;
@@ -26,6 +31,10 @@ namespace ULang {
 #ifndef ULANG_LOCATION_NULL
     #define ULANG_LOCATION_NULL (ULang::SourceLocation) {nullptr, "(unknown)", 0, 0}
 #endif
+
+    // ==================================================================
+    // ======== AST NODES
+    // ==================================================================
 
     enum class ASTNodeType {
         NUMBER,         ///< integral value
@@ -64,6 +73,10 @@ namespace ULang {
     };
 
     using ASTPtr = std::unique_ptr<ASTNode>;
+
+    // ==================================================================
+    // ======== TOKENS AND LEXER
+    // ==================================================================
 
     enum class TokenType {
         TypeKeyword,
@@ -116,6 +129,9 @@ namespace ULang {
     // ASTNode* parseExpression(const std::vector<Token>& tokens, size_t& pos);
     // ASTNode* parseVarDecl(const std::vector<Token>& tokens, size_t& pos);
 
+    // ==================================================================
+    // ======== SYMBOLS AND SYMBOL TABLE
+    // ==================================================================
     struct Symbol {
         std::string name;
         unsigned int symbolId;
@@ -197,6 +213,10 @@ namespace ULang {
         Scope* getGlobalScope() const;
     };
 
+    // ==================================================================
+    // ======== COMPILER EXCEPTIONS
+    // ==================================================================
+
     class CompilerSyntaxException: public std::exception {
         public:
         enum class Severity {Error, Warning, Note};
@@ -233,6 +253,10 @@ namespace ULang {
         SourceLocation getLocation() const;
     };
 
+    // ==================================================================
+    // ======== COMPILATION, BYTECODE AND CONTEXT
+    // ==================================================================
+
     BytecodeHeader buildBytecodeHeader(uint32_t code_size, uint32_t meta_size, uint8_t word_size);
     MetaData buildMeta(SymbolTable& symtable, const std::vector<const DataType*>& types0, bool verbose_en);
     void writeBytecode(const std::string& filename, const std::vector<uint8_t>& code, const MetaData& meta, uint8_t word_size);
@@ -242,6 +266,10 @@ namespace ULang {
         SymbolTable* symtab;
         uint32_t stack_top;
     };
+
+    // ==================================================================
+    // ======== COMPILER INSTANCE
+    // ==================================================================
 
     class CompilerInstance {
         private:
@@ -354,11 +382,6 @@ namespace ULang {
          */
         void compile();
     };
-
-    static inline void write_bytes(std::vector<uint8_t>& out, const void* src, size_t size) {
-        const uint8_t* p = static_cast<const uint8_t*>(src);
-        out.insert(out.end(), p, p + size);
-    }
 };
 
 #endif
