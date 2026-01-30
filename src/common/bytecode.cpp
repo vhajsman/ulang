@@ -10,10 +10,10 @@ namespace ULang {
         ins.opcode = static_cast<Opcode>(stream.readByte());
 
         ins.opA.raw_meta = stream.readByte();
-        ins.opA.value = const_cast<uint8_t*>(stream.readBytes(ins.opA.getDataSz()));
+        std::memcpy(ins.opA.data.data(), stream.readBytes(ins.opA.getDataSz()), ins.opA.getDataSz());
 
         ins.opB.raw_meta = stream.readByte();
-        ins.opB.value = const_cast<uint8_t*>(stream.readBytes(ins.opB.getDataSz()));
+        std::memcpy(ins.opB.data.data(), stream.readBytes(ins.opB.getDataSz()), ins.opB.getDataSz());
 
         return ins;
     }
@@ -48,5 +48,36 @@ namespace ULang {
         pool += '\0';
         
         return offset;
+    }
+
+    const char* opcodeToStr(Opcode op) {
+        switch(op) {
+            case Opcode::NOP:   return "NOP";
+            case Opcode::PUSH:  return "PUSH";
+            case Opcode::POP:   return "POP";
+            case Opcode::ADD:   return "ADD";
+            case Opcode::SUB:   return "SUB";
+            case Opcode::MUL:   return "MUL";
+            case Opcode::DIV:   return "DIV";
+            case Opcode::LOAD:  return "LOAD";
+            case Opcode::STORE: return "STORE";
+            case Opcode::JMP:   return "JMP";
+            case Opcode::JZ:    return "JZ";
+            case Opcode::CALL:  return "CALL";
+            case Opcode::RET:   return "RET";
+            case Opcode::HALT:  return "HALT";
+        }
+        return "???";
+    }
+
+    const char* operandTypeToStr(OperandType t) {
+        switch(t) {
+            case OperandType::OP_NULL:      return "null";
+            case OperandType::OP_IMMEDIATE: return "imm";
+            case OperandType::OP_REFERENCE: return "ref";
+            case OperandType::OP_CONSTANT:  return "const";
+            case OperandType::OP_REGISTER:  return "reg";
+        }
+        return "?";
     }
 };

@@ -33,7 +33,7 @@ namespace ULang {
          * @return ULang::OperandType 
          */
         ULang::OperandType getType() const { 
-            return static_cast<ULang::OperandType>((this->raw_meta & 0b11110000) >> 4); 
+            return static_cast<OperandType>((this->meta >> 4) & 0x0F);
         }
 
         void setType(OperandType type) {
@@ -46,7 +46,7 @@ namespace ULang {
          * @return size_t 
          */
         uint8_t getDataSz() const { 
-            return raw_meta & 0b00001111;
+            return this->meta & 0x0F;
         }
 
         void setDataSz(uint8_t sz) {
@@ -90,6 +90,8 @@ namespace ULang {
                     this->opA.getDataSz() + this->opB.getDataSz();
         }
     };
+
+    
 
     class BytecodeStream {
         private:
@@ -168,6 +170,8 @@ namespace ULang {
          * 
          */
         void reset();
+
+        size_t getSize() const;
     };
 
     #pragma pack(push, 1)
@@ -280,6 +284,9 @@ namespace ULang {
      * @return Instruction 
      */
     Instruction parseInstruction(BytecodeStream& stream);
+
+    const char* opcodeToStr(Opcode op);
+    const char* operandTypeToStr(OperandType t);
 };
 
 #endif

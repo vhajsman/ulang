@@ -55,4 +55,8 @@ namespace ULang {
     void BytecodeStream::reset() {
         this->offset = 0;
     }
+
+    size_t BytecodeStream::getSize() const {
+        return this->size;
+    }
 };
