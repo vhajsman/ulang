@@ -313,6 +313,17 @@ namespace ULang {
         return lefthand;
     }
 
+    std::vector<uint8_t> CompilerInstance::serializeProgram(const std::vector<Instruction>& program) {
+        std::vector<uint8_t> bytecode;
+        bytecode.reserve(256);
+
+        for(const Instruction& instr: program) {
+            this->serializeInstruction(instr, bytecode);
+        }
+
+        return bytecode;
+    }
+
     void CompilerInstance::buildAST() {
         this->ast_owned.clear();
         this->pos = 0;
@@ -332,6 +343,13 @@ namespace ULang {
 
             this->ast_owned.push_back(ASTPtr(node_raw));
         }
+    }
+
+    void CompilerInstance::emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b) {
+        ctx.instructions.push_back({
+            opcode,
+            op_a, op_b
+        });
     }
 
     void CompilerInstance::compile() {
@@ -378,8 +396,10 @@ namespace ULang {
 
         MetaData meta = buildMeta(this->symbols, types_vect, this->en_verbose);
 
-        const std::vector<uint8_t> code;
-        writeBytecode(this->filename_out, code, meta, 8);
+        //std::vector<uint8_t> code = this->serializeProgram(const std::vector<Instruction> &program)
+
+        
+        // writeBytecode(this->filename_out, code, meta, 8);
     }
 };
 

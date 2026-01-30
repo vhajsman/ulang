@@ -237,6 +237,12 @@ namespace ULang {
     MetaData buildMeta(SymbolTable& symtable, const std::vector<const DataType*>& types0, bool verbose_en);
     void writeBytecode(const std::string& filename, const std::vector<uint8_t>& code, const MetaData& meta, uint8_t word_size);
 
+    struct GenerationContext {
+        std::vector<Instruction> instructions;
+        SymbolTable* symtab;
+        uint32_t stack_top;
+    };
+
     class CompilerInstance {
         private:
         std::vector<Token> tokens;  ///< List of all the tokens from the source
@@ -328,7 +334,16 @@ namespace ULang {
         void buildAST();
 
         Instruction makeInstruction(Opcode opcode, Operand a = {}, Operand b = {});
-        Operand IMM(uint64_t val = 0, uint8_t sz=8);
+        Operand makeIMM(uint64_t val = 0, uint8_t sz=8);
+        Operand makeIMMu32(uint32_t val = 0);
+        Operand makeRef(uint32_t offset, uint8_t sz=4);
+
+        void serializeInstruction(const Instruction& instr, std::vector<uint8_t>& out);
+        std::vector<uint8_t> serializeProgram(const std::vector<Instruction>& program);
+
+        void compileNode(ASTNode* node, std::vector<Instruction>& out);
+
+        void emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b);
 
         public:
         CompilerInstance(const std::string& source, const std::string& filename_out, const std::string& filename = "unnamed", bool en_verbose = false);
@@ -339,6 +354,11 @@ namespace ULang {
          */
         void compile();
     };
+
+    static inline void write_bytes(std::vector<uint8_t>& out, const void* src, size_t size) {
+        const uint8_t* p = static_cast<const uint8_t*>(src);
+        out.insert(out.end(), p, p + size);
+    }
 };
 
 #endif
