@@ -296,60 +296,85 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespaceULang.html#a223393890930647184159ba3ee750798">writeBytecode</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> std::vector&lt;uint8_t&gt;&amp; code, <span class="keyword">const</span> MetaData&amp; meta, uint8_t word_size);</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
 <div class="foldopen" id="foldopen00240" data-start="{" data-end="};">
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="classULang_1_1CompilerInstance.html">  240</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classULang_1_1CompilerInstance.html">CompilerInstance</a> {</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        std::vector&lt;Token&gt; tokens;  </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <a class="code hl_class" href="classULang_1_1SymbolTable.html">SymbolTable</a> symbols;        </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <a class="code hl_class" href="classULang_1_1Lexer.html">Lexer</a> lexer;                </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        std::vector&lt;ASTPtr&gt; ast_owned;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        std::string filename;       </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        std::string filename_out;   </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="keywordtype">size_t</span> pos = 0;             </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keywordtype">bool</span> en_verbose;            </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        std::vector&lt;CompilerSyntaxException&gt; exceptions_friendly;</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <span class="keywordtype">void</span> friendlyException(<a class="code hl_class" href="classULang_1_1CompilerSyntaxException.html">CompilerSyntaxException</a> e);</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1DataType.html">DataType</a>* getType(<a class="code hl_struct" href="structULang_1_1ASTNode.html">ASTNode</a>* node, <a class="code hl_struct" href="structULang_1_1SourceLocation.html">SourceLocation</a> loc = <a class="code hl_define" href="compiler_8hpp.html#a1b7ad7ca803cbcdf5b4faba2abc49a3c">ULANG_LOCATION_NULL</a>);</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1DataType.html">DataType</a>* determineBinopType(<span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1DataType.html">DataType</a>* left, <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1DataType.html">DataType</a>* right);</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1Token.html">Token</a>&amp; expectToken(<a class="code hl_enumeration" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a> type);</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1Token.html">Token</a>&amp; expectToken(<span class="keyword">const</span> std::string&amp; token);</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <span class="keywordtype">bool</span> matchToken(<a class="code hl_enumeration" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a> type);</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        <span class="keywordtype">int</span> precedence(<a class="code hl_enumeration" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a> type);</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <a class="code hl_struct" href="structULang_1_1ASTNode.html">ASTNode</a>* parsePrimary();</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        <a class="code hl_struct" href="structULang_1_1ASTNode.html">ASTNode</a>* parseVarDecl();</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <a class="code hl_struct" href="structULang_1_1ASTNode.html">ASTNode</a>* parseExpression(<span class="keywordtype">int</span> prec_min = 0);</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <span class="keywordtype">void</span> buildAST();</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <a class="code hl_class" href="classULang_1_1CompilerInstance.html">CompilerInstance</a>(<span class="keyword">const</span> std::string&amp; source, <span class="keyword">const</span> std::string&amp; filename_out, <span class="keyword">const</span> std::string&amp; filename = <span class="stringliteral">&quot;unnamed&quot;</span>, <span class="keywordtype">bool</span> en_verbose = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa">compile</a>();</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    };</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="structULang_1_1GenerationContext.html">  240</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structULang_1_1GenerationContext.html">GenerationContext</a> {</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="structULang_1_1GenerationContext.html#a84cabfac12b7d1de1666059c71e5c7e0">  241</a></span>        std::vector&lt;Instruction&gt; <a class="code hl_variable" href="structULang_1_1GenerationContext.html#a84cabfac12b7d1de1666059c71e5c7e0">instructions</a>;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="structULang_1_1GenerationContext.html#aa9c1f2143ca11ffa184404fe39977cfc">  242</a></span>        <a class="code hl_class" href="classULang_1_1SymbolTable.html">SymbolTable</a>* <a class="code hl_variable" href="structULang_1_1GenerationContext.html#aa9c1f2143ca11ffa184404fe39977cfc">symtab</a>;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="structULang_1_1GenerationContext.html#a09fed38da0c81032d13d3c19f046baaa">  243</a></span>        uint32_t <a class="code hl_variable" href="structULang_1_1GenerationContext.html#a09fed38da0c81032d13d3c19f046baaa">stack_top</a>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    };</div>
 </div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>};</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="foldopen" id="foldopen00246" data-start="{" data-end="};">
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="classULang_1_1CompilerInstance.html">  246</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classULang_1_1CompilerInstance.html">CompilerInstance</a> {</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        std::vector&lt;Token&gt; tokens;  </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        <a class="code hl_class" href="classULang_1_1SymbolTable.html">SymbolTable</a> symbols;        </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <a class="code hl_class" href="classULang_1_1Lexer.html">Lexer</a> lexer;                </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        std::vector&lt;ASTPtr&gt; ast_owned;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        std::string filename;       </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        std::string filename_out;   </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordtype">size_t</span> pos = 0;             </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordtype">bool</span> en_verbose;            </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        std::vector&lt;CompilerSyntaxException&gt; exceptions_friendly;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        <span class="keywordtype">void</span> friendlyException(<a class="code hl_class" href="classULang_1_1CompilerSyntaxException.html">CompilerSyntaxException</a> e);</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1DataType.html">DataType</a>* getType(<a class="code hl_struct" href="structULang_1_1ASTNode.html">ASTNode</a>* node, <a class="code hl_struct" href="structULang_1_1SourceLocation.html">SourceLocation</a> loc = <a class="code hl_define" href="compiler_8hpp.html#a1b7ad7ca803cbcdf5b4faba2abc49a3c">ULANG_LOCATION_NULL</a>);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1DataType.html">DataType</a>* determineBinopType(<span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1DataType.html">DataType</a>* left, <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1DataType.html">DataType</a>* right);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1Token.html">Token</a>&amp; expectToken(<a class="code hl_enumeration" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a> type);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1Token.html">Token</a>&amp; expectToken(<span class="keyword">const</span> std::string&amp; token);</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <span class="keywordtype">bool</span> matchToken(<a class="code hl_enumeration" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a> type);</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        <span class="keywordtype">int</span> precedence(<a class="code hl_enumeration" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a> type);</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <a class="code hl_struct" href="structULang_1_1ASTNode.html">ASTNode</a>* parsePrimary();</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        <a class="code hl_struct" href="structULang_1_1ASTNode.html">ASTNode</a>* parseVarDecl();</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <a class="code hl_struct" href="structULang_1_1ASTNode.html">ASTNode</a>* parseExpression(<span class="keywordtype">int</span> prec_min = 0);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="keywordtype">void</span> buildAST();</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <a class="code hl_struct" href="structULang_1_1Instruction.html">Instruction</a> makeInstruction(<a class="code hl_enumeration" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a> opcode, <a class="code hl_struct" href="structULang_1_1Operand.html">Operand</a> a = {}, <a class="code hl_struct" href="structULang_1_1Operand.html">Operand</a> b = {});</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <a class="code hl_struct" href="structULang_1_1Operand.html">Operand</a> makeIMM(uint64_t val = 0, uint8_t sz=8);</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        <a class="code hl_struct" href="structULang_1_1Operand.html">Operand</a> makeIMMu32(uint32_t val = 0);</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <a class="code hl_struct" href="structULang_1_1Operand.html">Operand</a> makeRef(uint32_t offset, uint8_t sz=4);</div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordtype">void</span> serializeInstruction(<span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1Instruction.html">Instruction</a>&amp; instr, std::vector&lt;uint8_t&gt;&amp; out);</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        std::vector&lt;uint8_t&gt; serializeProgram(<span class="keyword">const</span> std::vector&lt;Instruction&gt;&amp; program);</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keywordtype">void</span> compileNode(<a class="code hl_struct" href="structULang_1_1ASTNode.html">ASTNode</a>* node, std::vector&lt;Instruction&gt;&amp; out);</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        <span class="keywordtype">void</span> emit(<a class="code hl_struct" href="structULang_1_1GenerationContext.html">GenerationContext</a>&amp; ctx, <a class="code hl_enumeration" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a> opcode, <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1Operand.html">Operand</a>&amp; op_a, <span class="keyword">const</span> <a class="code hl_struct" href="structULang_1_1Operand.html">Operand</a>&amp; op_b);</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        <a class="code hl_class" href="classULang_1_1CompilerInstance.html">CompilerInstance</a>(<span class="keyword">const</span> std::string&amp; source, <span class="keyword">const</span> std::string&amp; filename_out, <span class="keyword">const</span> std::string&amp; filename = <span class="stringliteral">&quot;unnamed&quot;</span>, <span class="keywordtype">bool</span> en_verbose = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa">compile</a>();</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    };</div>
+</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> write_bytes(std::vector&lt;uint8_t&gt;&amp; out, <span class="keyword">const</span> <span class="keywordtype">void</span>* src, <span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        <span class="keyword">const</span> uint8_t* p = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>uint8_t*<span class="keyword">&gt;</span>(src);</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        out.insert(out.end(), p, p + size);</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    }</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>};</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="abytecode_8hpp_html"><div class="ttname"><a href="bytecode_8hpp.html">bytecode.hpp</a></div></div>
-<div class="ttc" id="aclassULang_1_1CompilerInstance_html"><div class="ttname"><a href="classULang_1_1CompilerInstance.html">ULang::CompilerInstance</a></div><div class="ttdef"><b>Definition</b> compiler.hpp:240</div></div>
-<div class="ttc" id="aclassULang_1_1CompilerInstance_html_a421fd0510115d58a186435486b9fa7aa"><div class="ttname"><a href="classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa">ULang::CompilerInstance::compile</a></div><div class="ttdeci">void compile()</div><div class="ttdoc">does the compilation</div><div class="ttdef"><b>Definition</b> compiler.cpp:337</div></div>
+<div class="ttc" id="aclassULang_1_1CompilerInstance_html"><div class="ttname"><a href="classULang_1_1CompilerInstance.html">ULang::CompilerInstance</a></div><div class="ttdef"><b>Definition</b> compiler.hpp:246</div></div>
+<div class="ttc" id="aclassULang_1_1CompilerInstance_html_a421fd0510115d58a186435486b9fa7aa"><div class="ttname"><a href="classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa">ULang::CompilerInstance::compile</a></div><div class="ttdeci">void compile()</div><div class="ttdoc">does the compilation</div><div class="ttdef"><b>Definition</b> compiler.cpp:355</div></div>
 <div class="ttc" id="aclassULang_1_1CompilerSyntaxException_html"><div class="ttname"><a href="classULang_1_1CompilerSyntaxException.html">ULang::CompilerSyntaxException</a></div><div class="ttdef"><b>Definition</b> compiler.hpp:200</div></div>
 <div class="ttc" id="aclassULang_1_1CompilerSyntaxException_html_a09c24bfe59b88c66298cbf49575ee518"><div class="ttname"><a href="classULang_1_1CompilerSyntaxException.html#a09c24bfe59b88c66298cbf49575ee518">ULang::CompilerSyntaxException::getLocation</a></div><div class="ttdeci">SourceLocation getLocation() const</div><div class="ttdef"><b>Definition</b> CompilerSyntaxException.cpp:55</div></div>
 <div class="ttc" id="aclassULang_1_1CompilerSyntaxException_html_a25991f489556dc9e6a9f448d6b08ce0e"><div class="ttname"><a href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">ULang::CompilerSyntaxException::Severity</a></div><div class="ttdeci">Severity</div><div class="ttdef"><b>Definition</b> compiler.hpp:202</div></div>
@@ -398,6 +423,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="anamespaceULang_html_a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a"><div class="ttname"><a href="namespaceULang.html#a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a">ULang::BinopType::SUBSTRACTION</a></div><div class="ttdeci">@ SUBSTRACTION</div><div class="ttdoc">substraction</div></div>
 <div class="ttc" id="anamespaceULang_html_a7af8a040ae5502513d31482bc5646f6eaf4e42c8a8e1f0086b97479eb8a0571ad"><div class="ttname"><a href="namespaceULang.html#a7af8a040ae5502513d31482bc5646f6eaf4e42c8a8e1f0086b97479eb8a0571ad">ULang::BinopType::MULTIPLICATION</a></div><div class="ttdeci">@ MULTIPLICATION</div><div class="ttdoc">multiplication</div></div>
 <div class="ttc" id="anamespaceULang_html_a8674adb59a39623d1f715c18a8cede91"><div class="ttname"><a href="namespaceULang.html#a8674adb59a39623d1f715c18a8cede91">ULang::buildBytecodeHeader</a></div><div class="ttdeci">BytecodeHeader buildBytecodeHeader(uint32_t code_size, uint32_t meta_size, uint8_t word_size)</div><div class="ttdef"><b>Definition</b> bytecode.cpp:11</div></div>
+<div class="ttc" id="anamespaceULang_html_a8d7a15ed9bd07d0972e15fda566fc610"><div class="ttname"><a href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">ULang::Opcode</a></div><div class="ttdeci">Opcode</div><div class="ttdef"><b>Definition</b> bytecode.hpp:58</div></div>
 <div class="ttc" id="anamespaceULang_html_ae0b1129fa6b35790dbd18cbf3add8eb8"><div class="ttname"><a href="namespaceULang.html#ae0b1129fa6b35790dbd18cbf3add8eb8">ULang::buildMeta</a></div><div class="ttdeci">MetaData buildMeta(SymbolTable &amp;symtable, const std::vector&lt; const DataType * &gt; &amp;types, bool verbose_en)</div><div class="ttdef"><b>Definition</b> bytecode.cpp:32</div></div>
 <div class="ttc" id="astructULang_1_1ASTNode_html"><div class="ttname"><a href="structULang_1_1ASTNode.html">ULang::ASTNode</a></div><div class="ttdoc">AST nodes.</div><div class="ttdef"><b>Definition</b> compiler.hpp:48</div></div>
 <div class="ttc" id="astructULang_1_1ASTNode_html_a10e80829875e0c4240a304cb3579ef6c"><div class="ttname"><a href="structULang_1_1ASTNode.html#a10e80829875e0c4240a304cb3579ef6c">ULang::ASTNode::type</a></div><div class="ttdeci">ASTNodeType type</div><div class="ttdoc">node type</div><div class="ttdef"><b>Definition</b> compiler.hpp:49</div></div>
@@ -409,6 +435,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="astructULang_1_1ASTNode_html_adcbad15ada8de6370ca4a555f2282a92"><div class="ttname"><a href="structULang_1_1ASTNode.html#adcbad15ada8de6370ca4a555f2282a92">ULang::ASTNode::symbol</a></div><div class="ttdeci">Symbol * symbol</div><div class="ttdoc">symbol</div><div class="ttdef"><b>Definition</b> compiler.hpp:59</div></div>
 <div class="ttc" id="astructULang_1_1ASTNode_html_af3ede38362300452243927bd0b6dae4f"><div class="ttname"><a href="structULang_1_1ASTNode.html#af3ede38362300452243927bd0b6dae4f">ULang::ASTNode::op</a></div><div class="ttdeci">BinopType op</div><div class="ttdoc">operator (if ASTNodeType::BINOP)</div><div class="ttdef"><b>Definition</b> compiler.hpp:54</div></div>
 <div class="ttc" id="astructULang_1_1DataType_html"><div class="ttname"><a href="structULang_1_1DataType.html">ULang::DataType</a></div><div class="ttdef"><b>Definition</b> types.hpp:23</div></div>
+<div class="ttc" id="astructULang_1_1GenerationContext_html"><div class="ttname"><a href="structULang_1_1GenerationContext.html">ULang::GenerationContext</a></div><div class="ttdef"><b>Definition</b> compiler.hpp:240</div></div>
+<div class="ttc" id="astructULang_1_1GenerationContext_html_a09fed38da0c81032d13d3c19f046baaa"><div class="ttname"><a href="structULang_1_1GenerationContext.html#a09fed38da0c81032d13d3c19f046baaa">ULang::GenerationContext::stack_top</a></div><div class="ttdeci">uint32_t stack_top</div><div class="ttdef"><b>Definition</b> compiler.hpp:243</div></div>
+<div class="ttc" id="astructULang_1_1GenerationContext_html_a84cabfac12b7d1de1666059c71e5c7e0"><div class="ttname"><a href="structULang_1_1GenerationContext.html#a84cabfac12b7d1de1666059c71e5c7e0">ULang::GenerationContext::instructions</a></div><div class="ttdeci">std::vector&lt; Instruction &gt; instructions</div><div class="ttdef"><b>Definition</b> compiler.hpp:241</div></div>
+<div class="ttc" id="astructULang_1_1GenerationContext_html_aa9c1f2143ca11ffa184404fe39977cfc"><div class="ttname"><a href="structULang_1_1GenerationContext.html#aa9c1f2143ca11ffa184404fe39977cfc">ULang::GenerationContext::symtab</a></div><div class="ttdeci">SymbolTable * symtab</div><div class="ttdef"><b>Definition</b> compiler.hpp:242</div></div>
+<div class="ttc" id="astructULang_1_1Instruction_html"><div class="ttname"><a href="structULang_1_1Instruction.html">ULang::Instruction</a></div><div class="ttdef"><b>Definition</b> bytecode.hpp:75</div></div>
+<div class="ttc" id="astructULang_1_1Operand_html"><div class="ttname"><a href="structULang_1_1Operand.html">ULang::Operand</a></div><div class="ttdef"><b>Definition</b> bytecode.hpp:23</div></div>
 <div class="ttc" id="astructULang_1_1Scope_html"><div class="ttname"><a href="structULang_1_1Scope.html">ULang::Scope</a></div><div class="ttdef"><b>Definition</b> compiler.hpp:129</div></div>
 <div class="ttc" id="astructULang_1_1Scope_html_a1a04fe24c11233f4a51eecff57b1bd00"><div class="ttname"><a href="structULang_1_1Scope.html#a1a04fe24c11233f4a51eecff57b1bd00">ULang::Scope::symbols</a></div><div class="ttdeci">std::unordered_map&lt; std::string, Symbol &gt; symbols</div><div class="ttdef"><b>Definition</b> compiler.hpp:132</div></div>
 <div class="ttc" id="astructULang_1_1Scope_html_a5717c78104b8e006ae2d29639c8df082"><div class="ttname"><a href="structULang_1_1Scope.html#a5717c78104b8e006ae2d29639c8df082">ULang::Scope::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition</b> compiler.hpp:130</div></div>

@@ -152,23 +152,23 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:ad972f88d41f3bd63c56317b91abb526b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d7a15ed9bd07d0972e15fda566fc610" id="r_a8d7a15ed9bd07d0972e15fda566fc610"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">ULang::Opcode</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a1a004f5abe2b334db21328be1ea6b593">ULang::NOP</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a73dabe4437725eedc05a1824a2c31550">ULang::PUSH</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aefdb39a4c7286afcecf0e8a7435fce6a">ULang::POP</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a9eeb52badb613229884838847294b90d">ULang::ADD</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a1a004f5abe2b334db21328be1ea6b593">ULang::NOP</a> = 0x00
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a73dabe4437725eedc05a1824a2c31550">ULang::PUSH</a> = 0x01
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aefdb39a4c7286afcecf0e8a7435fce6a">ULang::POP</a> = 0x02
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a9eeb52badb613229884838847294b90d">ULang::ADD</a> = 0x03
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a241dd841abade20fcb27b8a9f494e1eb">ULang::SUB</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a2cdf52a55876063ec93b7d18bc741f6c">ULang::MUL</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a29bbf66f7f8529ec47e394fb5a36c646">ULang::DIV</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028">ULang::LOAD</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a241dd841abade20fcb27b8a9f494e1eb">ULang::SUB</a> = 0x04
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a2cdf52a55876063ec93b7d18bc741f6c">ULang::MUL</a> = 0x05
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a29bbf66f7f8529ec47e394fb5a36c646">ULang::DIV</a> = 0x06
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028">ULang::LOAD</a> = 0x07
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a3cfba54f6873dfd55b0b09d32910b20e">ULang::STORE</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a152b9af76a9e7dd95d9da277b69fdd95">ULang::JMP</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a743bda3a6098df4383907d7c772fca9c">ULang::JZ</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aca3547acb9162b49fb4a6594ed9b3030">ULang::CALL</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a3cfba54f6873dfd55b0b09d32910b20e">ULang::STORE</a> = 0x08
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a152b9af76a9e7dd95d9da277b69fdd95">ULang::JMP</a> = 0x09
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a743bda3a6098df4383907d7c772fca9c">ULang::JZ</a> = 0x0A
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aca3547acb9162b49fb4a6594ed9b3030">ULang::CALL</a> = 0x0B
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610afb902bc4807c307b9309f2b528b96f2b">ULang::RET</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610abf2d798abfe8267da4f101692b6cfecd">ULang::HALT</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610afb902bc4807c307b9309f2b528b96f2b">ULang::RET</a> = 0x0C
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610abf2d798abfe8267da4f101692b6cfecd">ULang::HALT</a> = 0x0D
 <br />
  }</td></tr>
 <tr class="separator:a8d7a15ed9bd07d0972e15fda566fc610"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -97,6 +97,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1DataType.html">DataType</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1GenerationContext.html">GenerationContext</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html">Instruction</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1Lexer.html">Lexer</a></td></tr>
@@ -143,23 +145,23 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:ad972f88d41f3bd63c56317b91abb526b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d7a15ed9bd07d0972e15fda566fc610" id="r_a8d7a15ed9bd07d0972e15fda566fc610"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a1a004f5abe2b334db21328be1ea6b593">NOP</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a73dabe4437725eedc05a1824a2c31550">PUSH</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aefdb39a4c7286afcecf0e8a7435fce6a">POP</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a9eeb52badb613229884838847294b90d">ADD</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a1a004f5abe2b334db21328be1ea6b593">NOP</a> = 0x00
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a73dabe4437725eedc05a1824a2c31550">PUSH</a> = 0x01
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aefdb39a4c7286afcecf0e8a7435fce6a">POP</a> = 0x02
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a9eeb52badb613229884838847294b90d">ADD</a> = 0x03
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a241dd841abade20fcb27b8a9f494e1eb">SUB</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a2cdf52a55876063ec93b7d18bc741f6c">MUL</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a29bbf66f7f8529ec47e394fb5a36c646">DIV</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028">LOAD</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a241dd841abade20fcb27b8a9f494e1eb">SUB</a> = 0x04
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a2cdf52a55876063ec93b7d18bc741f6c">MUL</a> = 0x05
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a29bbf66f7f8529ec47e394fb5a36c646">DIV</a> = 0x06
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028">LOAD</a> = 0x07
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a3cfba54f6873dfd55b0b09d32910b20e">STORE</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a152b9af76a9e7dd95d9da277b69fdd95">JMP</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a743bda3a6098df4383907d7c772fca9c">JZ</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aca3547acb9162b49fb4a6594ed9b3030">CALL</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a3cfba54f6873dfd55b0b09d32910b20e">STORE</a> = 0x08
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a152b9af76a9e7dd95d9da277b69fdd95">JMP</a> = 0x09
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a743bda3a6098df4383907d7c772fca9c">JZ</a> = 0x0A
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aca3547acb9162b49fb4a6594ed9b3030">CALL</a> = 0x0B
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610afb902bc4807c307b9309f2b528b96f2b">RET</a>
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610abf2d798abfe8267da4f101692b6cfecd">HALT</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610afb902bc4807c307b9309f2b528b96f2b">RET</a> = 0x0C
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610abf2d798abfe8267da4f101692b6cfecd">HALT</a> = 0x0D
 <br />
  }</td></tr>
 <tr class="separator:a8d7a15ed9bd07d0972e15fda566fc610"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -640,7 +642,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a8674adb59a39623d1f715c18a8cede91_icgraph.svg" width="771" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a8674adb59a39623d1f715c18a8cede91_icgraph.svg" width="435" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -941,11 +943,6 @@ false if NOT valid </dd></dl>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a223393890930647184159ba3ee750798_cgraph.svg" width="435" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a223393890930647184159ba3ee750798_icgraph.svg" width="512" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
