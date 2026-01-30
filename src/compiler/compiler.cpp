@@ -370,36 +370,26 @@ namespace ULang {
             exit(1);
         }
 
-        cout_verbose<< " -> " 
-                    << this->tokens.size() 
-                    << " tokens, " 
-                    << this->ast_owned.size() 
-                    << " AST nodes" 
-                    << std::endl;
+        cout_verbose<< " -> " << this->tokens.size() << " tokens, " << this->ast_owned.size() << " AST nodes" << std::endl;
+
+        GenerationContext ctx;
+        ctx.symtab = &this->symbols;
+        ctx.stack_top = 0x00;
 
         for(const auto& node: this->ast_owned) {
-            cout_verbose<< " --> AST node type: "
-                        << static_cast<int>(node->type)
-                        << std::endl;
+            cout_verbose<< " --> AST node type: " << static_cast<int>(node->type) << std::endl;
+            this->compileNode(node.get(), ctx.instructions);
         }
 
-        std::vector<const DataType*> types_vect;
-        types_vect.push_back(&TYPE_INT8);
-        types_vect.push_back(&TYPE_INT16);
-        types_vect.push_back(&TYPE_INT32);
-        types_vect.push_back(&TYPE_INT64);
-        types_vect.push_back(&TYPE_UINT8);
-        types_vect.push_back(&TYPE_UINT16);
-        types_vect.push_back(&TYPE_UINT32);
-        types_vect.push_back(&TYPE_UINT64);
-        types_vect.push_back(&TYPE_CHAR);
+        std::vector<const DataType*> types_vect = {
+            &TYPE_INT8, &TYPE_INT16, &TYPE_INT32, &TYPE_INT64,
+            &TYPE_UINT8, &TYPE_UINT16, &TYPE_UINT32, &TYPE_UINT64,
+            &TYPE_CHAR
+        };
 
         MetaData meta = buildMeta(this->symbols, types_vect, this->en_verbose);
-
-        //std::vector<uint8_t> code = this->serializeProgram(const std::vector<Instruction> &program)
-
-        
-        // writeBytecode(this->filename_out, code, meta, 8);
+        std::vector<uint8_t> code = this->serializeProgram(ctx.instructions);
+        writeBytecode(this->filename_out, code, meta, 4);
     }
 };
 
