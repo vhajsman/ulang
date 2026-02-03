@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -I./src -I/usr/include -I./src/common
+CXXFLAGS = -std=c++17 -Wall -I./src -I/usr/include -I./src/common -g
 LDFLAGS = -lboost_program_options
 
 COMMON_SRC = $(wildcard src/common/*.cpp)
@@ -13,6 +13,10 @@ BCDUMP_SRC = $(wildcard src/bcdump/*.cpp)
 BCDUMP_OBJ = $(BCDUMP_SRC:.cpp=.o)
 BCDUMP_BIN = build/bcdump
 
+BCDISASM_SRC = $(wildcard src/bcdisasm/*.cpp)
+BCDISASM_OBJ = $(BCDISASM_SRC:.cpp=.o)
+BCDISASM_BIN = build/bcdisasm
+
 #DEBUGGER_SRC = $(wildcard src/debugger/*.cpp)
 #DEBUGGER_OBJ = $(DEBUGGER_SRC:.cpp=.o)
 #DEBUGGER_BIN = debugger_bin
@@ -23,13 +27,16 @@ BCDUMP_BIN = build/bcdump
 
 .PHONY: all clean
 
-all: $(COMPILER_BIN) $(BCDUMP_BIN) $(DEBUGGER_BIN) $(RUNTIME_BIN)
+all: $(COMPILER_BIN) $(BCDUMP_BIN) $(DEBUGGER_BIN) $(RUNTIME_BIN) ${BCDISASM_BIN}
 
 # Compiler
 $(COMPILER_BIN): $(COMMON_OBJ) $(COMPILER_OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 $(BCDUMP_BIN): $(COMMON_OBJ) $(BCDUMP_OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+
+$(BCDISASM_BIN): $(COMMON_OBJ) $(BCDISASM_OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Debugger
