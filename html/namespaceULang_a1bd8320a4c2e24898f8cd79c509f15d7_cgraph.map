@@ -1,9 +1,7 @@
 <map id="ULang::parseInstruction" name="ULang::parseInstruction">
-<area shape="rect" id="Node000001" title="Parse the instruction." alt="" coords="5,63,181,88"/>
-<area shape="rect" id="Node000002" href="$structULang_1_1Operand.html#ad9f08fbb35cf1aceba8cc728f62e560b" title="Get the size of operand data." alt="" coords="229,5,431,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,60,263,31,264,37,147,65"/>
-<area shape="rect" id="Node000003" href="$classULang_1_1BytecodeStream.html#a02703a840fc7c2a4b63d59ec1191257e" title="Reads a single byte from bytecode stream and prepares for reading another one." alt="" coords="241,55,419,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,73,227,73,227,78,182,78"/>
-<area shape="rect" id="Node000004" href="$classULang_1_1BytecodeStream.html#a211d06d3a5fee3e2d543e414f180862c" title="Reads n bytes from bytecode stream and prepares for reading another ones." alt="" coords="241,119,419,159"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="142,86,243,113,242,118,141,91"/>
+<area shape="rect" id="Node000001" title="Parse the instruction." alt="" coords="5,45,181,70"/>
+<area shape="rect" id="Node000002" href="$classULang_1_1BytecodeStream.html#a02703a840fc7c2a4b63d59ec1191257e" title="Reads a single byte from bytecode stream and prepares for reading another one." alt="" coords="229,5,408,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,42,215,37,216,43,182,48"/>
+<area shape="rect" id="Node000003" href="$classULang_1_1BytecodeStream.html#a211d06d3a5fee3e2d543e414f180862c" title="Reads n bytes from bytecode stream and prepares for reading another ones." alt="" coords="229,69,408,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,67,216,72,215,77,181,72"/>
 </map>

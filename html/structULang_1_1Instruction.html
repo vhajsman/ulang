@@ -82,11 +82,6 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="bytecode_8hpp_source.html">bytecode.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for ULang::Instruction:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structULang_1_1Instruction__coll__graph.svg" width="151" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -98,10 +93,10 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5ea49ebee51d872548a67364a1d9a8fe" id="r_a5ea49ebee51d872548a67364a1d9a8fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html#a5ea49ebee51d872548a67364a1d9a8fe">opcode</a></td></tr>
 <tr class="separator:a5ea49ebee51d872548a67364a1d9a8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a30c48f2d3bd0ce73cf45026b17c9ec" id="r_a3a30c48f2d3bd0ce73cf45026b17c9ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Operand.html">Operand</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html#a3a30c48f2d3bd0ce73cf45026b17c9ec">opA</a></td></tr>
-<tr class="separator:a3a30c48f2d3bd0ce73cf45026b17c9ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00ad91ffd5663e759f2fd4a04a5bd88d" id="r_a00ad91ffd5663e759f2fd4a04a5bd88d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Operand.html">Operand</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html#a00ad91ffd5663e759f2fd4a04a5bd88d">opB</a></td></tr>
-<tr class="separator:a00ad91ffd5663e759f2fd4a04a5bd88d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44a925f140edb77f2c4cc3bc7cda30c4" id="r_a44a925f140edb77f2c4cc3bc7cda30c4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structULang_1_1Operand.html">Operand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html#a44a925f140edb77f2c4cc3bc7cda30c4">operands</a></td></tr>
+<tr class="separator:a44a925f140edb77f2c4cc3bc7cda30c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14f44fea29c9d677fe67bdad040f7ebb" id="r_a14f44fea29c9d677fe67bdad040f7ebb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Instruction.html#a14f44fea29c9d677fe67bdad040f7ebb">offset</a></td></tr>
+<tr class="separator:a14f44fea29c9d677fe67bdad040f7ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8aded1339ca253abe18ffbd5ecd34d4c" name="a8aded1339ca253abe18ffbd5ecd34d4c"></a>
@@ -129,37 +124,18 @@ Public Attributes</h2></td></tr>
 
 <p>Calculates the total size of instruction in memory, including opcode and operand type/size specifiers. </p>
 <dl class="section return"><dt>Returns</dt><dd>size_t </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structULang_1_1Instruction_a8aded1339ca253abe18ffbd5ecd34d4c_cgraph.svg" width="400" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3a30c48f2d3bd0ce73cf45026b17c9ec" name="a3a30c48f2d3bd0ce73cf45026b17c9ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a30c48f2d3bd0ce73cf45026b17c9ec">&#9670;&#160;</a></span>opA</h2>
+<a id="a14f44fea29c9d677fe67bdad040f7ebb" name="a14f44fea29c9d677fe67bdad040f7ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14f44fea29c9d677fe67bdad040f7ebb">&#9670;&#160;</a></span>offset</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structULang_1_1Operand.html">Operand</a> ULang::Instruction::opA</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a00ad91ffd5663e759f2fd4a04a5bd88d" name="a00ad91ffd5663e759f2fd4a04a5bd88d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00ad91ffd5663e759f2fd4a04a5bd88d">&#9670;&#160;</a></span>opB</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structULang_1_1Operand.html">Operand</a> ULang::Instruction::opB</td>
+          <td class="memname">size_t ULang::Instruction::offset</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -174,6 +150,20 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a> ULang::Instruction::opcode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44a925f140edb77f2c4cc3bc7cda30c4" name="a44a925f140edb77f2c4cc3bc7cda30c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a925f140edb77f2c4cc3bc7cda30c4">&#9670;&#160;</a></span>operands</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structULang_1_1Operand.html">Operand</a>&gt; ULang::Instruction::operands</td>
         </tr>
       </table>
 </div><div class="memdoc">

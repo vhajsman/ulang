@@ -74,7 +74,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structULang_1_1Operand-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ULang::Operand Struct Reference</div></div>
@@ -83,188 +82,42 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="bytecode_8hpp_source.html">bytecode.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:abe0f74cf0ff7aa5156003047837cd076" id="r_abe0f74cf0ff7aa5156003047837cd076"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">ULang::OperandType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#abe0f74cf0ff7aa5156003047837cd076">getType</a> () const</td></tr>
-<tr class="memdesc:abe0f74cf0ff7aa5156003047837cd076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get operand type.  <br /></td></tr>
-<tr class="separator:abe0f74cf0ff7aa5156003047837cd076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787e169de39d605bee55371bfa6d5238" id="r_a787e169de39d605bee55371bfa6d5238"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#a787e169de39d605bee55371bfa6d5238">setType</a> (<a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">OperandType</a> type)</td></tr>
-<tr class="separator:a787e169de39d605bee55371bfa6d5238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9f08fbb35cf1aceba8cc728f62e560b" id="r_ad9f08fbb35cf1aceba8cc728f62e560b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#ad9f08fbb35cf1aceba8cc728f62e560b">getDataSz</a> () const</td></tr>
-<tr class="memdesc:ad9f08fbb35cf1aceba8cc728f62e560b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of operand data.  <br /></td></tr>
-<tr class="separator:ad9f08fbb35cf1aceba8cc728f62e560b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74a9d1d08d6054ec6980f833eb5dbca4" id="r_a74a9d1d08d6054ec6980f833eb5dbca4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#a74a9d1d08d6054ec6980f833eb5dbca4">setDataSz</a> (uint8_t sz)</td></tr>
-<tr class="separator:a74a9d1d08d6054ec6980f833eb5dbca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1ce4bbef4f1d1188b94798e1e500ae9d" id="r_a1ce4bbef4f1d1188b94798e1e500ae9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">operandMeta_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#a1ce4bbef4f1d1188b94798e1e500ae9d">raw_meta</a> = 0</td></tr>
-<tr class="separator:a1ce4bbef4f1d1188b94798e1e500ae9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af462bf0b44734f560139166958438aea" id="r_af462bf0b44734f560139166958438aea"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#af462bf0b44734f560139166958438aea">meta</a></td></tr>
-<tr class="memdesc:af462bf0b44734f560139166958438aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">top 4 bits = type; lower 4 bits = size in bytes  <br /></td></tr>
-<tr class="separator:af462bf0b44734f560139166958438aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe75431d41f3f73653df8a3e8a140461" id="r_abe75431d41f3f73653df8a3e8a140461"><td class="memItemLeft" align="right" valign="top">std::array&lt; uint8_t, <a class="el" href="bytecode_8hpp.html#ad0813faec1670a7e989e17e734708471">ULANG_OP_MAX_DATA_SZ</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#abe75431d41f3f73653df8a3e8a140461">data</a></td></tr>
-<tr class="memdesc:abe75431d41f3f73653df8a3e8a140461"><td class="mdescLeft">&#160;</td><td class="mdescRight">value, offset or register ID  <br /></td></tr>
-<tr class="separator:abe75431d41f3f73653df8a3e8a140461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d89a7cb2ac8cb67fe40e4980ed8b342" id="r_a9d89a7cb2ac8cb67fe40e4980ed8b342"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">OperandType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#a9d89a7cb2ac8cb67fe40e4980ed8b342">type</a></td></tr>
+<tr class="memdesc:a9d89a7cb2ac8cb67fe40e4980ed8b342"><td class="mdescLeft">&#160;</td><td class="mdescRight">operand type  <br /></td></tr>
+<tr class="separator:a9d89a7cb2ac8cb67fe40e4980ed8b342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0610f5ca30ab8954cc544de83f1b05b" id="r_ab0610f5ca30ab8954cc544de83f1b05b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1Operand.html#ab0610f5ca30ab8954cc544de83f1b05b">data</a></td></tr>
+<tr class="separator:ab0610f5ca30ab8954cc544de83f1b05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad9f08fbb35cf1aceba8cc728f62e560b" name="ad9f08fbb35cf1aceba8cc728f62e560b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9f08fbb35cf1aceba8cc728f62e560b">&#9670;&#160;</a></span>getDataSz()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t ULang::Operand::getDataSz </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the size of operand data. </p>
-<dl class="section return"><dt>Returns</dt><dd>size_t </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structULang_1_1Operand_ad9f08fbb35cf1aceba8cc728f62e560b_icgraph.svg" width="436" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="abe0f74cf0ff7aa5156003047837cd076" name="abe0f74cf0ff7aa5156003047837cd076"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe0f74cf0ff7aa5156003047837cd076">&#9670;&#160;</a></span>getType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">ULang::OperandType</a> ULang::Operand::getType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get operand type. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">ULang::OperandType</a> </dd></dl>
-
-</div>
-</div>
-<a id="a74a9d1d08d6054ec6980f833eb5dbca4" name="a74a9d1d08d6054ec6980f833eb5dbca4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74a9d1d08d6054ec6980f833eb5dbca4">&#9670;&#160;</a></span>setDataSz()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ULang::Operand::setDataSz </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>sz</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a787e169de39d605bee55371bfa6d5238" name="a787e169de39d605bee55371bfa6d5238"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a787e169de39d605bee55371bfa6d5238">&#9670;&#160;</a></span>setType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ULang::Operand::setType </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">OperandType</a>&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="abe75431d41f3f73653df8a3e8a140461" name="abe75431d41f3f73653df8a3e8a140461"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe75431d41f3f73653df8a3e8a140461">&#9670;&#160;</a></span>data</h2>
+<a id="ab0610f5ca30ab8954cc544de83f1b05b" name="ab0610f5ca30ab8954cc544de83f1b05b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0610f5ca30ab8954cc544de83f1b05b">&#9670;&#160;</a></span>data</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt;uint8_t, <a class="el" href="bytecode_8hpp.html#ad0813faec1670a7e989e17e734708471">ULANG_OP_MAX_DATA_SZ</a>&gt; ULang::Operand::data</td>
+          <td class="memname">uint32_t ULang::Operand::data</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>value, offset or register ID </p>
-
 </div>
 </div>
-<a id="af462bf0b44734f560139166958438aea" name="af462bf0b44734f560139166958438aea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af462bf0b44734f560139166958438aea">&#9670;&#160;</a></span>meta</h2>
+<a id="a9d89a7cb2ac8cb67fe40e4980ed8b342" name="a9d89a7cb2ac8cb67fe40e4980ed8b342"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d89a7cb2ac8cb67fe40e4980ed8b342">&#9670;&#160;</a></span>type</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t ULang::Operand::meta</td>
+          <td class="memname"><a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">OperandType</a> ULang::Operand::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>top 4 bits = type; lower 4 bits = size in bytes </p>
-
-</div>
-</div>
-<a id="a1ce4bbef4f1d1188b94798e1e500ae9d" name="a1ce4bbef4f1d1188b94798e1e500ae9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ce4bbef4f1d1188b94798e1e500ae9d">&#9670;&#160;</a></span>raw_meta</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">operandMeta_t</a> ULang::Operand::raw_meta = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>operand type </p>
 
 </div>
 </div>

@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['leave_0',['leave',['../classULang_1_1SymbolTable.html#a3b2c6f3e1d3195967abdeda79a8558d8',1,'ULang::SymbolTable']]],
-  ['lefthand_1',['lefthand',['../structULang_1_1ASTNode.html#a18bd5b532aabb9054d3e2753ee55ed89',1,'ULang::ASTNode']]],
-  ['lexer_2',['lexer',['../classULang_1_1Lexer.html',1,'ULang::Lexer'],['../classULang_1_1Lexer.html#a407179f6555ac1bce95a942a63c09a0b',1,'ULang::Lexer::Lexer()']]],
-  ['lexer_2ecpp_3',['lexer.cpp',['../lexer_8cpp.html',1,'']]],
-  ['load_4',['LOAD',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028',1,'ULang']]],
+  ['ld_0',['LD',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a8dcc0a0222cd401c1bf999cc6133fee6',1,'ULang']]],
+  ['leave_1',['leave',['../classULang_1_1SymbolTable.html#a3b2c6f3e1d3195967abdeda79a8558d8',1,'ULang::SymbolTable']]],
+  ['lefthand_2',['lefthand',['../structULang_1_1ASTNode.html#a18bd5b532aabb9054d3e2753ee55ed89',1,'ULang::ASTNode']]],
+  ['lexer_3',['lexer',['../classULang_1_1Lexer.html',1,'ULang::Lexer'],['../classULang_1_1Lexer.html#a407179f6555ac1bce95a942a63c09a0b',1,'ULang::Lexer::Lexer()']]],
+  ['lexer_2ecpp_4',['lexer.cpp',['../lexer_8cpp.html',1,'']]],
   ['loc_5',['loc',['../structULang_1_1Token.html#ac8085a1a94ab13393bb22e1ef14323de',1,'ULang::Token']]],
   ['loc_5fcol_6',['loc_col',['../structULang_1_1SourceLocation.html#a5c23181649d01c6b49d3c17c5ef74161',1,'ULang::SourceLocation']]],
   ['loc_5ffile_7',['loc_file',['../structULang_1_1SourceLocation.html#ac3cb885a8639c80e7677ce9846f00d71',1,'ULang::SourceLocation']]],

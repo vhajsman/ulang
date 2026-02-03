@@ -77,7 +77,6 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">bytecode.hpp File Reference</div></div>
@@ -87,16 +86,15 @@ $(function() {
 <code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;array&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bytecode.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="bytecode_8hpp__incl.svg" width="424" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="bytecode_8hpp__incl.svg" width="344" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="bytecode_8hpp__dep__incl.svg" width="2216" height="212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="bytecode_8hpp__dep__incl.svg" width="2411" height="212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="bytecode_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -135,11 +133,6 @@ Macros</h2></td></tr>
 <tr class="memitem:ad0813faec1670a7e989e17e734708471" id="r_ad0813faec1670a7e989e17e734708471"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bytecode_8hpp.html#ad0813faec1670a7e989e17e734708471">ULANG_OP_MAX_DATA_SZ</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:ad0813faec1670a7e989e17e734708471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a44bbf87954bd3e5d6751fd20615e5dab" id="r_a44bbf87954bd3e5d6751fd20615e5dab"><td class="memItemLeft" align="right" valign="top">typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">ULang::operandMeta_t</a></td></tr>
-<tr class="separator:a44bbf87954bd3e5d6751fd20615e5dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:ad972f88d41f3bd63c56317b91abb526b" id="r_ad972f88d41f3bd63c56317b91abb526b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">ULang::OperandType</a> : uint8_t { <br />
@@ -152,24 +145,24 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:ad972f88d41f3bd63c56317b91abb526b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d7a15ed9bd07d0972e15fda566fc610" id="r_a8d7a15ed9bd07d0972e15fda566fc610"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">ULang::Opcode</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a1a004f5abe2b334db21328be1ea6b593">ULang::NOP</a> = 0x00
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a73dabe4437725eedc05a1824a2c31550">ULang::PUSH</a> = 0x01
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aefdb39a4c7286afcecf0e8a7435fce6a">ULang::POP</a> = 0x02
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a9eeb52badb613229884838847294b90d">ULang::ADD</a> = 0x03
+<tr class="memitem:a8d7a15ed9bd07d0972e15fda566fc610" id="r_a8d7a15ed9bd07d0972e15fda566fc610"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">ULang::Opcode</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aa5b888cd31ad97cc50efbc7b5a21edb0">ULang::NOP</a> = 0x00
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a6de00ea5632e6f73f70dd98d9ef52155">ULang::PUSH</a> = 0x01
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610acdf9cb2545c71a13f27be56474447ca5">ULang::POP</a> = 0x02
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a4cfb3525ae5ae58fcc1fe9fccb5e2339">ULang::ADD</a> = 0x03
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a241dd841abade20fcb27b8a9f494e1eb">ULang::SUB</a> = 0x04
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a2cdf52a55876063ec93b7d18bc741f6c">ULang::MUL</a> = 0x05
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a29bbf66f7f8529ec47e394fb5a36c646">ULang::DIV</a> = 0x06
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028">ULang::LOAD</a> = 0x07
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a6c5a51aa840009eea359216cca563f30">ULang::SUB</a> = 0x04
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aa87dc70c2ce54bcf50da328461a0695e">ULang::MUL</a> = 0x05
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a0a01bf91ad43014903640c09158b2311">ULang::DIV</a> = 0x06
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a8dcc0a0222cd401c1bf999cc6133fee6">ULang::LD</a> = 0x07
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a3cfba54f6873dfd55b0b09d32910b20e">ULang::STORE</a> = 0x08
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a152b9af76a9e7dd95d9da277b69fdd95">ULang::JMP</a> = 0x09
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a743bda3a6098df4383907d7c772fca9c">ULang::JZ</a> = 0x0A
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aca3547acb9162b49fb4a6594ed9b3030">ULang::CALL</a> = 0x0B
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a326062a58c51a73bc246d4b182738244">ULang::ST</a> = 0x08
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a14de7e8f3e7bbabdeefa0b903aa3d1af">ULang::JMP</a> = 0x09
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a1030c24aabd1d9b37cf1bba04a548fa2">ULang::JZ</a> = 0x0A
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610acad7fdbefc17f2ea92d60469ccf4eabd">ULang::CALL</a> = 0x0B
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610afb902bc4807c307b9309f2b528b96f2b">ULang::RET</a> = 0x0C
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610abf2d798abfe8267da4f101692b6cfecd">ULang::HALT</a> = 0x0D
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610af3c02bba182046bfe063f7c2fa0745b2">ULang::RET</a> = 0x0C
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6">ULang::HALT</a> = 0x0D
 <br />
  }</td></tr>
 <tr class="separator:a8d7a15ed9bd07d0972e15fda566fc610"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,6 +196,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a1bd8320a4c2e24898f8cd79c509f15d7" id="r_a1bd8320a4c2e24898f8cd79c509f15d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Instruction.html">Instruction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a1bd8320a4c2e24898f8cd79c509f15d7">ULang::parseInstruction</a> (<a class="el" href="classULang_1_1BytecodeStream.html">BytecodeStream</a> &amp;stream)</td></tr>
 <tr class="memdesc:a1bd8320a4c2e24898f8cd79c509f15d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the instruction.  <br /></td></tr>
 <tr class="separator:a1bd8320a4c2e24898f8cd79c509f15d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07d7c0abda4bbb418a54f150da027c5" id="r_aa07d7c0abda4bbb418a54f150da027c5"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#aa07d7c0abda4bbb418a54f150da027c5">ULang::opcodeToStr</a> (<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a> op)</td></tr>
+<tr class="separator:aa07d7c0abda4bbb418a54f150da027c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b551aecfa07f4f0b3f56d976cf1d2e" id="r_a27b551aecfa07f4f0b3f56d976cf1d2e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a27b551aecfa07f4f0b3f56d976cf1d2e">ULang::operandTypeToStr</a> (<a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">OperandType</a> t)</td></tr>
+<tr class="separator:a27b551aecfa07f4f0b3f56d976cf1d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="acb06301ebb018e10ad76e6a1277bd415" name="acb06301ebb018e10ad76e6a1277bd415"></a>

@@ -6,7 +6,7 @@ var searchData=
   ['token_3',['Token',['../structULang_1_1Token.html',1,'ULang']]],
   ['tokenize_4',['tokenize',['../classULang_1_1Lexer.html#a683839683dfefa9502c5e151222ecb7e',1,'ULang::Lexer']]],
   ['tokentype_5',['TokenType',['../namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e',1,'ULang']]],
-  ['type_6',['type',['../structULang_1_1ASTNode.html#a10e80829875e0c4240a304cb3579ef6c',1,'ULang::ASTNode::type'],['../structULang_1_1Token.html#aa37847518d3e3d32624f22ef35cb95c0',1,'ULang::Token::type'],['../structULang_1_1Symbol.html#aba600b46682fbe563f225fcef53d1338',1,'ULang::Symbol::type']]],
+  ['type_6',['type',['../structULang_1_1Operand.html#a9d89a7cb2ac8cb67fe40e4980ed8b342',1,'ULang::Operand::type'],['../structULang_1_1ASTNode.html#a10e80829875e0c4240a304cb3579ef6c',1,'ULang::ASTNode::type'],['../structULang_1_1Token.html#aa37847518d3e3d32624f22ef35cb95c0',1,'ULang::Token::type'],['../structULang_1_1Symbol.html#aba600b46682fbe563f225fcef53d1338',1,'ULang::Symbol::type']]],
   ['type_5fchar_7',['TYPE_CHAR',['../namespaceULang.html#af1b081c8e94003fb18ef59b3873c0c96',1,'ULang']]],
   ['type_5fcount_8',['type_count',['../structULang_1_1BytecodeMetaHeader.html#a4d10cb4dcdb75aeea539c7b95f89526d',1,'ULang::BytecodeMetaHeader']]],
   ['type_5ffloat_9',['TYPE_FLOAT',['../namespaceULang.html#ad6dae0c1dc343cb1c41941148aa24c70a2acc13aa585e26434e4a04a637a5e385',1,'ULang']]],

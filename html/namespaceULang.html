@@ -127,8 +127,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a44bbf87954bd3e5d6751fd20615e5dab" id="r_a44bbf87954bd3e5d6751fd20615e5dab"><td class="memItemLeft" align="right" valign="top">typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">operandMeta_t</a></td></tr>
-<tr class="separator:a44bbf87954bd3e5d6751fd20615e5dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6360ef03fa62fd65f848a8b51c0aef3a" id="r_a6360ef03fa62fd65f848a8b51c0aef3a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a6360ef03fa62fd65f848a8b51c0aef3a">ASTPtr</a> = std::unique_ptr&lt; <a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> &gt;</td></tr>
 <tr class="separator:a6360ef03fa62fd65f848a8b51c0aef3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -144,24 +142,24 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:ad972f88d41f3bd63c56317b91abb526b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d7a15ed9bd07d0972e15fda566fc610" id="r_a8d7a15ed9bd07d0972e15fda566fc610"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a1a004f5abe2b334db21328be1ea6b593">NOP</a> = 0x00
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a73dabe4437725eedc05a1824a2c31550">PUSH</a> = 0x01
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aefdb39a4c7286afcecf0e8a7435fce6a">POP</a> = 0x02
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a9eeb52badb613229884838847294b90d">ADD</a> = 0x03
+<tr class="memitem:a8d7a15ed9bd07d0972e15fda566fc610" id="r_a8d7a15ed9bd07d0972e15fda566fc610"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aa5b888cd31ad97cc50efbc7b5a21edb0">NOP</a> = 0x00
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a6de00ea5632e6f73f70dd98d9ef52155">PUSH</a> = 0x01
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610acdf9cb2545c71a13f27be56474447ca5">POP</a> = 0x02
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a4cfb3525ae5ae58fcc1fe9fccb5e2339">ADD</a> = 0x03
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a241dd841abade20fcb27b8a9f494e1eb">SUB</a> = 0x04
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a2cdf52a55876063ec93b7d18bc741f6c">MUL</a> = 0x05
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a29bbf66f7f8529ec47e394fb5a36c646">DIV</a> = 0x06
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028">LOAD</a> = 0x07
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a6c5a51aa840009eea359216cca563f30">SUB</a> = 0x04
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aa87dc70c2ce54bcf50da328461a0695e">MUL</a> = 0x05
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a0a01bf91ad43014903640c09158b2311">DIV</a> = 0x06
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a8dcc0a0222cd401c1bf999cc6133fee6">LD</a> = 0x07
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a3cfba54f6873dfd55b0b09d32910b20e">STORE</a> = 0x08
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a152b9af76a9e7dd95d9da277b69fdd95">JMP</a> = 0x09
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a743bda3a6098df4383907d7c772fca9c">JZ</a> = 0x0A
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610aca3547acb9162b49fb4a6594ed9b3030">CALL</a> = 0x0B
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a326062a58c51a73bc246d4b182738244">ST</a> = 0x08
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a14de7e8f3e7bbabdeefa0b903aa3d1af">JMP</a> = 0x09
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a1030c24aabd1d9b37cf1bba04a548fa2">JZ</a> = 0x0A
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610acad7fdbefc17f2ea92d60469ccf4eabd">CALL</a> = 0x0B
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610afb902bc4807c307b9309f2b528b96f2b">RET</a> = 0x0C
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610abf2d798abfe8267da4f101692b6cfecd">HALT</a> = 0x0D
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610af3c02bba182046bfe063f7c2fa0745b2">RET</a> = 0x0C
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6">HALT</a> = 0x0D
 <br />
  }</td></tr>
 <tr class="separator:a8d7a15ed9bd07d0972e15fda566fc610"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -237,6 +235,10 @@ Functions</h2></td></tr>
 <tr class="separator:ab25471e948040c9980d26601b7052485"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc471bffb16abe17362183d2a536a9e9" id="r_afc471bffb16abe17362183d2a536a9e9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#afc471bffb16abe17362183d2a536a9e9">addStringToPool</a> (std::string &amp;pool, const std::string &amp;str)</td></tr>
 <tr class="separator:afc471bffb16abe17362183d2a536a9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07d7c0abda4bbb418a54f150da027c5" id="r_aa07d7c0abda4bbb418a54f150da027c5"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#aa07d7c0abda4bbb418a54f150da027c5">opcodeToStr</a> (<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a> op)</td></tr>
+<tr class="separator:aa07d7c0abda4bbb418a54f150da027c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b551aecfa07f4f0b3f56d976cf1d2e" id="r_a27b551aecfa07f4f0b3f56d976cf1d2e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a27b551aecfa07f4f0b3f56d976cf1d2e">operandTypeToStr</a> (<a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">OperandType</a> t)</td></tr>
+<tr class="separator:a27b551aecfa07f4f0b3f56d976cf1d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2437ad588ffb8270e6c3c174357638f2" id="r_a2437ad588ffb8270e6c3c174357638f2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">ULang::DataType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2">resolveDataType</a> (const std::string &amp;typeName)</td></tr>
 <tr class="separator:a2437ad588ffb8270e6c3c174357638f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8674adb59a39623d1f715c18a8cede91" id="r_a8674adb59a39623d1f715c18a8cede91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8674adb59a39623d1f715c18a8cede91">buildBytecodeHeader</a> (uint32_t code_size, uint32_t meta_size, uint8_t word_size)</td></tr>
@@ -245,6 +247,8 @@ Functions</h2></td></tr>
 <tr class="separator:ae0b1129fa6b35790dbd18cbf3add8eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a223393890930647184159ba3ee750798" id="r_a223393890930647184159ba3ee750798"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a223393890930647184159ba3ee750798">writeBytecode</a> (const std::string &amp;filename, const std::vector&lt; uint8_t &gt; &amp;code, const <a class="el" href="structULang_1_1MetaData.html">MetaData</a> &amp;meta, uint8_t word_size)</td></tr>
 <tr class="separator:a223393890930647184159ba3ee750798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99022201251a62d3fe9993aa8d968f30" id="r_a99022201251a62d3fe9993aa8d968f30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a99022201251a62d3fe9993aa8d968f30">writeOperand</a> (std::vector&lt; uint8_t &gt; &amp;out, const <a class="el" href="structULang_1_1Operand.html">Operand</a> &amp;op)</td></tr>
+<tr class="separator:a99022201251a62d3fe9993aa8d968f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa872add6618cd1839d302348efd6020b" id="r_aa872add6618cd1839d302348efd6020b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#aa872add6618cd1839d302348efd6020b">h_severityStr</a> (<a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a> severity)</td></tr>
 <tr class="separator:aa872add6618cd1839d302348efd6020b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8e49c1984c33b8c1c608f97a125e3ea" id="r_ad8e49c1984c33b8c1c608f97a125e3ea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ad8e49c1984c33b8c1c608f97a125e3ea">h_severityStr_json</a> (<a class="el" href="classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e">CompilerSyntaxException::Severity</a> severity)</td></tr>
@@ -282,20 +286,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceULang.html#a6360ef03fa62fd65f848a8b51c0aef3a">ULang::ASTPtr</a> = typedef std::unique_ptr&lt;<a class="el" href="structULang_1_1ASTNode.html">ASTNode</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a44bbf87954bd3e5d6751fd20615e5dab" name="a44bbf87954bd3e5d6751fd20615e5dab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44bbf87954bd3e5d6751fd20615e5dab">&#9670;&#160;</a></span>operandMeta_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef uint8_t <a class="el" href="namespaceULang.html#a44bbf87954bd3e5d6751fd20615e5dab">ULang::operandMeta_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -478,35 +468,27 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">ULang::Opcode</a> : uint8_t</td>
+          <td class="memname">enum <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">ULang::Opcode</a> : uint8_t</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a1a004f5abe2b334db21328be1ea6b593" name="a8d7a15ed9bd07d0972e15fda566fc610a1a004f5abe2b334db21328be1ea6b593"></a>NOP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a73dabe4437725eedc05a1824a2c31550" name="a8d7a15ed9bd07d0972e15fda566fc610a73dabe4437725eedc05a1824a2c31550"></a>PUSH&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610aefdb39a4c7286afcecf0e8a7435fce6a" name="a8d7a15ed9bd07d0972e15fda566fc610aefdb39a4c7286afcecf0e8a7435fce6a"></a>POP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a9eeb52badb613229884838847294b90d" name="a8d7a15ed9bd07d0972e15fda566fc610a9eeb52badb613229884838847294b90d"></a>ADD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a241dd841abade20fcb27b8a9f494e1eb" name="a8d7a15ed9bd07d0972e15fda566fc610a241dd841abade20fcb27b8a9f494e1eb"></a>SUB&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a2cdf52a55876063ec93b7d18bc741f6c" name="a8d7a15ed9bd07d0972e15fda566fc610a2cdf52a55876063ec93b7d18bc741f6c"></a>MUL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a29bbf66f7f8529ec47e394fb5a36c646" name="a8d7a15ed9bd07d0972e15fda566fc610a29bbf66f7f8529ec47e394fb5a36c646"></a>DIV&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028" name="a8d7a15ed9bd07d0972e15fda566fc610a615d2885ef7576cedd9aafbb2578f028"></a>LOAD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a3cfba54f6873dfd55b0b09d32910b20e" name="a8d7a15ed9bd07d0972e15fda566fc610a3cfba54f6873dfd55b0b09d32910b20e"></a>STORE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a152b9af76a9e7dd95d9da277b69fdd95" name="a8d7a15ed9bd07d0972e15fda566fc610a152b9af76a9e7dd95d9da277b69fdd95"></a>JMP&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a743bda3a6098df4383907d7c772fca9c" name="a8d7a15ed9bd07d0972e15fda566fc610a743bda3a6098df4383907d7c772fca9c"></a>JZ&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610aca3547acb9162b49fb4a6594ed9b3030" name="a8d7a15ed9bd07d0972e15fda566fc610aca3547acb9162b49fb4a6594ed9b3030"></a>CALL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610afb902bc4807c307b9309f2b528b96f2b" name="a8d7a15ed9bd07d0972e15fda566fc610afb902bc4807c307b9309f2b528b96f2b"></a>RET&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610abf2d798abfe8267da4f101692b6cfecd" name="a8d7a15ed9bd07d0972e15fda566fc610abf2d798abfe8267da4f101692b6cfecd"></a>HALT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610aa5b888cd31ad97cc50efbc7b5a21edb0" name="a8d7a15ed9bd07d0972e15fda566fc610aa5b888cd31ad97cc50efbc7b5a21edb0"></a>NOP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a6de00ea5632e6f73f70dd98d9ef52155" name="a8d7a15ed9bd07d0972e15fda566fc610a6de00ea5632e6f73f70dd98d9ef52155"></a>PUSH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610acdf9cb2545c71a13f27be56474447ca5" name="a8d7a15ed9bd07d0972e15fda566fc610acdf9cb2545c71a13f27be56474447ca5"></a>POP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a4cfb3525ae5ae58fcc1fe9fccb5e2339" name="a8d7a15ed9bd07d0972e15fda566fc610a4cfb3525ae5ae58fcc1fe9fccb5e2339"></a>ADD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a6c5a51aa840009eea359216cca563f30" name="a8d7a15ed9bd07d0972e15fda566fc610a6c5a51aa840009eea359216cca563f30"></a>SUB&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610aa87dc70c2ce54bcf50da328461a0695e" name="a8d7a15ed9bd07d0972e15fda566fc610aa87dc70c2ce54bcf50da328461a0695e"></a>MUL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a0a01bf91ad43014903640c09158b2311" name="a8d7a15ed9bd07d0972e15fda566fc610a0a01bf91ad43014903640c09158b2311"></a>DIV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a8dcc0a0222cd401c1bf999cc6133fee6" name="a8d7a15ed9bd07d0972e15fda566fc610a8dcc0a0222cd401c1bf999cc6133fee6"></a>LD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a326062a58c51a73bc246d4b182738244" name="a8d7a15ed9bd07d0972e15fda566fc610a326062a58c51a73bc246d4b182738244"></a>ST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a14de7e8f3e7bbabdeefa0b903aa3d1af" name="a8d7a15ed9bd07d0972e15fda566fc610a14de7e8f3e7bbabdeefa0b903aa3d1af"></a>JMP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a1030c24aabd1d9b37cf1bba04a548fa2" name="a8d7a15ed9bd07d0972e15fda566fc610a1030c24aabd1d9b37cf1bba04a548fa2"></a>JZ&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610acad7fdbefc17f2ea92d60469ccf4eabd" name="a8d7a15ed9bd07d0972e15fda566fc610acad7fdbefc17f2ea92d60469ccf4eabd"></a>CALL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610af3c02bba182046bfe063f7c2fa0745b2" name="a8d7a15ed9bd07d0972e15fda566fc610af3c02bba182046bfe063f7c2fa0745b2"></a>RET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6" name="a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6"></a>HALT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -760,6 +742,47 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aa07d7c0abda4bbb418a54f150da027c5" name="aa07d7c0abda4bbb418a54f150da027c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa07d7c0abda4bbb418a54f150da027c5">&#9670;&#160;</a></span>opcodeToStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * ULang::opcodeToStr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610">Opcode</a>&#160;</td>
+          <td class="paramname"><em>op</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_aa07d7c0abda4bbb418a54f150da027c5_icgraph.svg" width="264" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a27b551aecfa07f4f0b3f56d976cf1d2e" name="a27b551aecfa07f4f0b3f56d976cf1d2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27b551aecfa07f4f0b3f56d976cf1d2e">&#9670;&#160;</a></span>operandTypeToStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * ULang::operandTypeToStr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceULang.html#ad972f88d41f3bd63c56317b91abb526b">OperandType</a>&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1bd8320a4c2e24898f8cd79c509f15d7" name="a1bd8320a4c2e24898f8cd79c509f15d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1bd8320a4c2e24898f8cd79c509f15d7">&#9670;&#160;</a></span>parseInstruction()</h2>
 
@@ -787,7 +810,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a1bd8320a4c2e24898f8cd79c509f15d7_cgraph.svg" width="436" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a1bd8320a4c2e24898f8cd79c509f15d7_cgraph.svg" width="414" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -852,6 +875,11 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>true if header valid </dd>
 <dd>
 false if header NOT valid </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_ad491776cf7acfb29eec3e69cec0d6bd8_icgraph.svg" width="284" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -949,6 +977,34 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a223393890930647184159ba3ee750798_icgraph.svg" width="512" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a99022201251a62d3fe9993aa8d968f30" name="a99022201251a62d3fe9993aa8d968f30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99022201251a62d3fe9993aa8d968f30">&#9670;&#160;</a></span>writeOperand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ULang::writeOperand </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structULang_1_1Operand.html">Operand</a> &amp;&#160;</td>
+          <td class="paramname"><em>op</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

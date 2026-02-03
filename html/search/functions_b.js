@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['readbyte_0',['readByte',['../classULang_1_1BytecodeStream.html#a02703a840fc7c2a4b63d59ec1191257e',1,'ULang::BytecodeStream']]],
-  ['readbytes_1',['readBytes',['../classULang_1_1BytecodeStream.html#a211d06d3a5fee3e2d543e414f180862c',1,'ULang::BytecodeStream']]],
-  ['reset_2',['reset',['../classULang_1_1BytecodeStream.html#ac574c96e418dddcdbe49baa0f2ef9985',1,'ULang::BytecodeStream']]],
-  ['resolvedatatype_3',['resolveDataType',['../namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2',1,'ULang']]]
+  ['parseinstruction_0',['parseInstruction',['../namespaceULang.html#a1bd8320a4c2e24898f8cd79c509f15d7',1,'ULang']]],
+  ['peekbyte_1',['peekByte',['../classULang_1_1BytecodeStream.html#ad5e0b66ed23d2f07969ab6b0d75a9084',1,'ULang::BytecodeStream']]],
+  ['peekbytes_2',['peekBytes',['../classULang_1_1BytecodeStream.html#a21b2a4dacb9e1c2877593f0fe181c80e',1,'ULang::BytecodeStream']]],
+  ['peekpos_3',['peekPos',['../classULang_1_1BytecodeStream.html#a75266b01079bc7aef33057738ea8e925',1,'ULang::BytecodeStream']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['text_0',['text',['../structULang_1_1Token.html#a5bfbfc1cef314abf9d35e6bad6f63498',1,'ULang::Token']]],
-  ['type_1',['type',['../structULang_1_1ASTNode.html#a10e80829875e0c4240a304cb3579ef6c',1,'ULang::ASTNode::type'],['../structULang_1_1Token.html#aa37847518d3e3d32624f22ef35cb95c0',1,'ULang::Token::type'],['../structULang_1_1Symbol.html#aba600b46682fbe563f225fcef53d1338',1,'ULang::Symbol::type']]],
+  ['type_1',['type',['../structULang_1_1Operand.html#a9d89a7cb2ac8cb67fe40e4980ed8b342',1,'ULang::Operand::type'],['../structULang_1_1ASTNode.html#a10e80829875e0c4240a304cb3579ef6c',1,'ULang::ASTNode::type'],['../structULang_1_1Token.html#aa37847518d3e3d32624f22ef35cb95c0',1,'ULang::Token::type'],['../structULang_1_1Symbol.html#aba600b46682fbe563f225fcef53d1338',1,'ULang::Symbol::type']]],
   ['type_5fchar_2',['TYPE_CHAR',['../namespaceULang.html#af1b081c8e94003fb18ef59b3873c0c96',1,'ULang']]],
   ['type_5fcount_3',['type_count',['../structULang_1_1BytecodeMetaHeader.html#a4d10cb4dcdb75aeea539c7b95f89526d',1,'ULang::BytecodeMetaHeader']]],
   ['type_5fid_4',['type_id',['../structULang_1_1MetaSymbol.html#a4515157a8c7bb543d8d3bb2191841ef5',1,'ULang::MetaSymbol']]],

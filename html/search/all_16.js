@@ -4,5 +4,6 @@ var searchData=
   ['what_1',['what',['../classULang_1_1CompilerSyntaxException.html#a6bac429bee65121a473bad6af7b5edbd',1,'ULang::CompilerSyntaxException']]],
   ['where_2',['where',['../structULang_1_1Symbol.html#a923a23cbea1328c950d06193ac3a75de',1,'ULang::Symbol']]],
   ['word_5fsize_3',['word_size',['../structULang_1_1BytecodeHeader.html#a7ae7058fd7237e06d345849e433c2b55',1,'ULang::BytecodeHeader']]],
-  ['writebytecode_4',['writeBytecode',['../namespaceULang.html#a223393890930647184159ba3ee750798',1,'ULang']]]
+  ['writebytecode_4',['writeBytecode',['../namespaceULang.html#a223393890930647184159ba3ee750798',1,'ULang']]],
+  ['writeoperand_5',['writeOperand',['../namespaceULang.html#a99022201251a62d3fe9993aa8d968f30',1,'ULang']]]
 ];
