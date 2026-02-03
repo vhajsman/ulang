@@ -1,7 +1,6 @@
 #include "bytecode.hpp"
+#include <cstdint>
 #include <cstring>
-#include <stdexcept>
-#include <iostream>
 
 namespace ULang {
     Instruction parseInstruction(BytecodeStream& stream) {
@@ -9,11 +8,32 @@ namespace ULang {
 
         ins.opcode = static_cast<Opcode>(stream.readByte());
 
-        ins.opA.raw_meta = stream.readByte();
-        std::memcpy(ins.opA.data.data(), stream.readBytes(ins.opA.getDataSz()), ins.opA.getDataSz());
+        /*
+        ins.opA.size = stream.readByte();
+        ins.opA.type = static_cast<OperandType>(stream.readByte());
+        if(ins.opA.size > 0) {
+            std::memset(&ins.opA.data, 0, sizeof(ins.opA.data));
+            std::memcpy(&ins.opA.data, stream.readBytes(ins.opA.size), ins.opA.size);
+        }
+        
+        ins.opB.size = stream.readByte();
+        ins.opB.type = static_cast<OperandType>(stream.readByte());
+        if(ins.opB.size > 0) {
+            std::memset(&ins.opB.data, 0, sizeof(ins.opB.data));
+            std::memcpy(&ins.opB.data, stream.readBytes(ins.opB.size), ins.opB.size);
+        }
+        */
 
-        ins.opB.raw_meta = stream.readByte();
-        std::memcpy(ins.opB.data.data(), stream.readBytes(ins.opB.getDataSz()), ins.opB.getDataSz());
+        for(int i = 0; i < 2; i++) {
+            uint8_t size = stream.readByte();
+
+            Operand op;
+            op.type = static_cast<OperandType>(stream.readByte());
+
+            std::memcpy(&op.data, stream.readBytes(size), size);
+            
+            ins.operands.push_back(op);
+        }
 
         return ins;
     }
@@ -59,8 +79,8 @@ namespace ULang {
             case Opcode::SUB:   return "SUB";
             case Opcode::MUL:   return "MUL";
             case Opcode::DIV:   return "DIV";
-            case Opcode::LOAD:  return "LOAD";
-            case Opcode::STORE: return "STORE";
+            case Opcode::LD:    return "LD";
+            case Opcode::ST:    return "ST";
             case Opcode::JMP:   return "JMP";
             case Opcode::JZ:    return "JZ";
             case Opcode::CALL:  return "CALL";

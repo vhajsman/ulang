@@ -1,13 +1,17 @@
 #include "bytecode.hpp"
 #include "compiler.hpp"
 #include "compiler/errno.h"
+#include <cstddef>
 #include <cstdint>
+#include <iostream>
 #include <stdexcept>
 
 namespace ULang {
     void CompilerInstance::compileNode(ASTNode* node, std::vector<Instruction>& out) {
-        if(!node)
+        if(!node) {
+            std::cout << "warning: null node" << std::endl;
             return;
+        }
 
         // TODO: locations in exceptions
 
@@ -23,27 +27,24 @@ namespace ULang {
                         ULANG_SYNT_ERR_VAR_UNDEFINED
                     );
                 }
-                
-                instruction = {
-                    Opcode::LOAD,
-                    this->makeRef(node->symbol->stackOffset)
-                };
+
+                instruction.opcode = Opcode::LD;
+                this->makeRef(node->symbol->stackOffset);
                 
                 out.push_back(instruction);
                 break;
             }
 
             case ASTNodeType::NUMBER: {
-                instruction = {
-                    Opcode::PUSH, 
-                    this->makeIMM(node->val)
-                };
-
+                instruction.opcode = Opcode::PUSH;
+                instruction.operands.push_back(this->makeIMM(node->val));
                 out.push_back(instruction);
                 break;
             }
 
             case ASTNodeType::BINOP: {
+                // TODO what?
+
                 switch(node->op) {
                     case BinopType::ADDITION:       instruction.opcode = Opcode::ADD; break;
                     case BinopType::SUBSTRACTION:   instruction.opcode = Opcode::SUB; break;
@@ -63,8 +64,8 @@ namespace ULang {
                 if(!node->lefthand || !node->lefthand->symbol)
                     throw std::runtime_error("Assignment target missing");
 
-                instruction.opcode = Opcode::STORE;
-                instruction.opA = this->makeRef(node->lefthand->symbol->stackOffset);
+                instruction.opcode = Opcode::ST;
+                instruction.operands.push_back(this->makeRef(node->lefthand->symbol->stackOffset));
 
                 out.push_back(instruction);
                 break;
@@ -74,8 +75,8 @@ namespace ULang {
                 if(node->initial) {
                     this->compileNode(node->initial, out);
 
-                    instruction.opcode = Opcode::STORE;
-                    instruction.opA = this->makeRef(node->symbol->stackOffset);
+                    instruction.opcode = Opcode::ST;
+                    instruction.operands.push_back(this->makeRef(node->symbol->stackOffset));
 
                     out.push_back(instruction);
                 }
@@ -89,45 +90,18 @@ namespace ULang {
     }
 
     void CompilerInstance::serializeInstruction(const Instruction& instr, std::vector<uint8_t>& out) {
-        /*
         out.push_back(static_cast<uint8_t>(instr.opcode));
-        
-        out.push_back(instr.opA.raw_meta);
-        out.push_back(instr.opB.raw_meta);
 
-        size_t a_sz = instr.opA.getDataSz();
-        if(a_sz > 0 && instr.opA.getType() != OperandType::OP_NULL) {
-            if(instr.opA.getType() == OperandType::OP_NULL)
-                throw std::runtime_error("Operand A has size but NULL type");
-            if(!instr.opA.data.data())
-                throw std::runtime_error("Operand A has size but no data");
+        for(size_t i = 0; i < 2; i++) {
+            Operand op{};
 
-            write_bytes(out, (const void*) instr.opA.data.data(), a_sz);
-        }
+            if(i < instr.operands.size())
+                op = instr.operands[i];
 
-        size_t b_sz = instr.opB.getDataSz();
-        if(b_sz > 0 && instr.opB.getType() != OperandType::OP_NULL) {
-            if(instr.opB.getType() == OperandType::OP_NULL)
-                throw std::runtime_error("Operand B has size but NULL type");
-            if(!instr.opB.data.data())
-                throw std::runtime_error("Operand B has size but no data");
+            out.push_back(static_cast<uint8_t>(op.type));
 
-            write_bytes(out, (const void*) instr.opB.data.data(), b_sz);
-        }
-        */
-
-        out.push_back(static_cast<uint8_t>(instr.opcode));
-        out.push_back(instr.opA.raw_meta);
-        out.push_back(instr.opB.raw_meta);
-
-        size_t a_sz = instr.opA.getDataSz();
-        if(a_sz > 0) {
-            write_bytes(out, instr.opA.data.data(), a_sz);
-        }
-
-        size_t b_sz = instr.opB.getDataSz();
-        if(b_sz > 0) {
-            write_bytes(out, instr.opB.data.data(), b_sz);
+            for(int b = 0; b < 4; b++)
+                out.push_back(uint8_t((op.data >> (8 * b)) & 0xFF));
         }
     }
 };

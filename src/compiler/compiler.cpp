@@ -17,6 +17,13 @@
         std::cout
 
 namespace ULang {
+    void writeOperand(std::vector<uint8_t>& out, const Operand& op) {
+        out.push_back(static_cast<uint8_t>(op.type));
+
+        for(size_t i = 0; i < sizeof(Operand::data); ++i)
+            out.push_back(static_cast<uint8_t>((op.data >> (8 * i)) & 0xFF));
+    }
+
     CompilerInstance::CompilerInstance(const std::string& source, const std::string& filename_out, const std::string& filename, bool en_verbose)
     : lexer(source), filename(filename), filename_out(filename_out), en_verbose(en_verbose) {}
 
@@ -346,10 +353,13 @@ namespace ULang {
     }
 
     void CompilerInstance::emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b) {
-        ctx.instructions.push_back({
-            opcode,
-            op_a, op_b
-        });
+        Instruction instr {};
+
+        instr.opcode = opcode;
+        instr.operands.push_back(op_a);
+        instr.operands.push_back(op_b);
+
+        ctx.instructions.push_back(instr);
     }
 
     void CompilerInstance::compile() {
@@ -377,8 +387,11 @@ namespace ULang {
         ctx.stack_top = 0x00;
 
         for(const auto& node: this->ast_owned) {
+            ASTNode* nodeg = node.get();
             cout_verbose<< " --> AST node type: " << static_cast<int>(node->type) << std::endl;
-            this->compileNode(node.get(), ctx.instructions);
+            cout_verbose<< "   --> node.get() = " << std::hex << &nodeg << std::endl;
+            cout_verbose<< "   --> node.get()->symbol = " << std::hex << &nodeg->symbol << std::endl;
+            this->compileNode(nodeg, ctx.instructions);
         }
 
         std::vector<const DataType*> types_vect = {

@@ -362,9 +362,9 @@ namespace ULang {
         void buildAST();
 
         Instruction makeInstruction(Opcode opcode, Operand a = {}, Operand b = {});
-        Operand makeIMM(uint64_t val = 0, uint8_t sz=8);
+        Operand makeIMM(uint32_t val = 0);
         Operand makeIMMu32(uint32_t val = 0);
-        Operand makeRef(uint32_t offset, uint8_t sz=4);
+        Operand makeRef(uint32_t offset);
 
         void serializeInstruction(const Instruction& instr, std::vector<uint8_t>& out);
         std::vector<uint8_t> serializeProgram(const std::vector<Instruction>& program);

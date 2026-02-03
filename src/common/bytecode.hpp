@@ -5,7 +5,6 @@
 #include <cstddef>
 #include <string>
 #include <vector>
-#include <array>
 
 #define ULANG_OP_COUNT 2
 #define ULANG_OP_MAX_DATA_SZ 16
@@ -19,42 +18,12 @@ namespace ULang {
         OP_REGISTER     = 0b1000     // internal register
     };
 
-    typedef uint8_t operandMeta_t;
-
     struct Operand {
-        operandMeta_t raw_meta = 0;
-
-        uint8_t meta;                                   ///< top 4 bits = type; lower 4 bits = size in bytes
-        std::array<uint8_t, ULANG_OP_MAX_DATA_SZ> data; ///< value, offset or register ID
-
-        /**
-         * @brief Get operand type
-         * 
-         * @return ULang::OperandType 
-         */
-        ULang::OperandType getType() const { 
-            return static_cast<OperandType>((this->meta >> 4) & 0x0F);
-        }
-
-        void setType(OperandType type) {
-            this->meta = (this->meta & 0x0F) | (static_cast<uint8_t>(type) << 4);
-        }
-
-        /**
-         * @brief Get the size of operand data
-         * 
-         * @return size_t 
-         */
-        uint8_t getDataSz() const { 
-            return this->meta & 0x0F;
-        }
-
-        void setDataSz(uint8_t sz) {
-            this->meta = (this->meta & 0xF0) | (sz & 0x0F);
-        }
+        OperandType type;                               ///< operand type
+        uint32_t data;
     };
 
-    enum class Opcode : uint8_t {
+    enum Opcode : uint8_t {
         NOP = 0x00,
         PUSH = 0x01,
         POP = 0x02,
@@ -62,8 +31,8 @@ namespace ULang {
         SUB = 0x04,
         MUL = 0x05,
         DIV = 0x06,
-        LOAD = 0x07,
-        STORE = 0x08,
+        LD = 0x07,
+        ST = 0x08,
         JMP = 0x09,
         JZ = 0x0A,
         CALL = 0x0B,
@@ -73,8 +42,8 @@ namespace ULang {
 
     struct Instruction {
         Opcode opcode;
-        Operand opA; 
-        Operand opB;
+        std::vector<Operand> operands;
+        size_t offset; // for disassembly
 
         /**
          * @brief Calculates the total size of instruction in memory, including opcode and operand type/size specifiers.
@@ -82,16 +51,11 @@ namespace ULang {
          * @return size_t 
          */
         size_t calcTotalSz() const {
-            //return sizeof(opcode) + sizeof(operandMeta_t) * 2 + opA.getDataSz() + opB.getDataSz();
-
-            // opcode + meta for every operand + data sizes
-            return  sizeof(Opcode) + 
-                    sizeof(this->opA.meta) + sizeof(this->opB.meta) + 
-                    this->opA.getDataSz() + this->opB.getDataSz();
+            size_t size = sizeof(opcode);
+            size += 1 + 1 + sizeof(uint32_t) * 2;
+            return size;
         }
     };
-
-    
 
     class BytecodeStream {
         private:
