@@ -11,8 +11,9 @@ var searchData=
   ['compile_2ecpp_8',['compile.cpp',['../compile_8cpp.html',1,'']]],
   ['compiler_2ecpp_9',['compiler.cpp',['../compiler_8cpp.html',1,'']]],
   ['compiler_2ehpp_10',['compiler.hpp',['../compiler_8hpp.html',1,'']]],
-  ['compilerinstance_11',['compilerinstance',['../classULang_1_1CompilerInstance.html',1,'ULang::CompilerInstance'],['../classULang_1_1CompilerInstance.html#a6c9fca017ac3c8bd93a2ede4065563f4',1,'ULang::CompilerInstance::CompilerInstance()']]],
-  ['compilersyntaxexception_12',['compilersyntaxexception',['../classULang_1_1CompilerSyntaxException.html',1,'ULang::CompilerSyntaxException'],['../classULang_1_1CompilerSyntaxException.html#ad001a88a8d16336df262c15f4afe64b5',1,'ULang::CompilerSyntaxException::CompilerSyntaxException()']]],
-  ['compilersyntaxexception_2ecpp_13',['CompilerSyntaxException.cpp',['../CompilerSyntaxException_8cpp.html',1,'']]],
-  ['cout_5fverbose_14',['cout_verbose',['../compiler_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;compiler.cpp'],['../instruction_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;instruction.cpp']]]
+  ['compilerinstance_11',['compilerinstance',['../classULang_1_1CompilerInstance.html',1,'ULang::CompilerInstance'],['../classULang_1_1CompilerInstance.html#a1e7c4c8659c9ebd21014068382bd8848',1,'ULang::CompilerInstance::CompilerInstance()']]],
+  ['compilerparameters_12',['CompilerParameters',['../structULang_1_1CompilerParameters.html',1,'ULang']]],
+  ['compilersyntaxexception_13',['compilersyntaxexception',['../classULang_1_1CompilerSyntaxException.html#ad001a88a8d16336df262c15f4afe64b5',1,'ULang::CompilerSyntaxException::CompilerSyntaxException()'],['../classULang_1_1CompilerSyntaxException.html',1,'ULang::CompilerSyntaxException']]],
+  ['compilersyntaxexception_2ecpp_14',['CompilerSyntaxException.cpp',['../CompilerSyntaxException_8cpp.html',1,'']]],
+  ['cout_5fverbose_15',['cout_verbose',['../compile_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;compile.cpp'],['../compiler_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;compiler.cpp'],['../instruction_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;instruction.cpp']]]
 ];
