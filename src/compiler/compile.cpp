@@ -6,6 +6,10 @@
 #include <iostream>
 #include <stdexcept>
 
+#define cout_verbose        \
+    if(this->cparams.verbose)    \
+        std::cout
+
 namespace ULang {
     void CompilerInstance::compileNode(ASTNode* node, std::vector<Instruction>& out) {
         if(!node) {
@@ -51,6 +55,8 @@ namespace ULang {
                     case BinopType::MULTIPLICATION: instruction.opcode = Opcode::MUL; break;
                     case BinopType::DIVISION:       instruction.opcode = Opcode::DIV; break;
                 }
+
+                cout_verbose << "   --> BINOP lefthand: " << node->lefthand->val << " righthand: " << node->righthand->val << std::endl;
 
                 this->compileNode(node->lefthand, out);
                 this->compileNode(node->righthand, out);
@@ -105,3 +111,5 @@ namespace ULang {
         }
     }
 };
+
+#undef cout_verbose

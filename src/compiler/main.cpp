@@ -6,21 +6,20 @@
 #include <iostream>
 #include <string>
 
+#include "params.hpp"
+
 namespace po = boost::program_options;
 
 int main(int argc, char** argv) {
-    std::string sourceFile;
-    std::string outFile;
-    bool verbose = false;
-    uint8_t word_size;
+    ULang::CompilerParameters cparams;
+
 
     po::options_description desc("ULang Compiler Options");
     desc.add_options()
         ("help,h", "Show help")
-        ("file,f", po::value<std::string>(&sourceFile), "Source file")
-        ("output,o", po::value<std::string>(&outFile)->default_value("a.out"), "Output file")
-        ("verbose", po::bool_switch(&verbose)->default_value(false), "Generate verbose compilation log")
-        ("wsize", po::value<uint8_t>(&word_size)->default_value(8), "Word size (must be 4 or 8, defaults to 8)");
+        ("file,f", po::value<std::string>(&cparams.sourceFile), "Source file")
+        ("output,o", po::value<std::string>(&cparams.outFile)->default_value("a.out"), "Output file")
+        ("verbose", po::bool_switch(&cparams.verbose)->default_value(false), "Generate verbose compilation log");
 
     po::variables_map vm;
     try {
@@ -36,19 +35,19 @@ int main(int argc, char** argv) {
         return 0;
     }
 
-    std::ifstream file(sourceFile);
+    std::ifstream file(cparams.sourceFile);
     if(!file.is_open()) {
-        std::cerr << "Cannot open file: " << sourceFile << "\n";
+        std::cerr << "Cannot open file: " << cparams.sourceFile << "\n";
         return 1;
     }
 
     std::string sourceCode((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
-    std::cout << "Loaded " << sourceCode.size() << " bytes from" << sourceFile << ", output: " << outFile << "\n";
+    std::cout << "Loaded " << sourceCode.size() << " bytes from" << cparams.sourceFile << ", output: " << cparams.outFile << "\n";
 
     ULang::Lexer lexer(sourceCode);
     THROW_AWAY lexer.tokenize();
 
-    ULang::CompilerInstance* ci = new ULang::CompilerInstance(sourceCode, outFile, sourceFile, verbose);
+    ULang::CompilerInstance* ci = new ULang::CompilerInstance(sourceCode, cparams);
     THROW_AWAY ci->compile();
     std::cout << "Compile OK" << std::endl;
 

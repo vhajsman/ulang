@@ -1,5 +1,6 @@
 #include "compiler.hpp"
 #include "bytecode.hpp"
+#include "compiler/params.hpp"
 #include "types.hpp"
 #include <cstddef>
 #include <cstdint>
@@ -13,7 +14,7 @@
 #include "errno.h"
 
 #define cout_verbose        \
-    if(this->en_verbose)    \
+    if(this->cparams.verbose)    \
         std::cout
 
 namespace ULang {
@@ -24,8 +25,8 @@ namespace ULang {
             out.push_back(static_cast<uint8_t>((op.data >> (8 * i)) & 0xFF));
     }
 
-    CompilerInstance::CompilerInstance(const std::string& source, const std::string& filename_out, const std::string& filename, bool en_verbose)
-    : lexer(source), filename(filename), filename_out(filename_out), en_verbose(en_verbose) {}
+    CompilerInstance::CompilerInstance(const std::string& source, CompilerParameters& cparams)
+    : lexer(source), cparams(cparams) {}
 
     void CompilerInstance::friendlyException(CompilerSyntaxException e) {
         this->exceptions_friendly.push_back(e);
@@ -181,7 +182,7 @@ namespace ULang {
 
         SourceLocation loc_fail = {
             nullptr,
-            this->filename,
+            this->cparams.sourceFile,
             static_cast<size_t>(tok.loc.loc_line),
             static_cast<size_t>(tok.loc.loc_col)
         };
@@ -363,7 +364,7 @@ namespace ULang {
     }
 
     void CompilerInstance::compile() {
-        std::cout << "Compile: " << this->filename << std::endl;
+        std::cout << "Compile: " << this->cparams.sourceFile << std::endl;
 
         try {
             this->tokens = this->lexer.tokenize();
@@ -400,9 +401,9 @@ namespace ULang {
             &TYPE_CHAR
         };
 
-        MetaData meta = buildMeta(this->symbols, types_vect, this->en_verbose);
+        MetaData meta = buildMeta(this->symbols, types_vect, this->cparams.verbose);
         std::vector<uint8_t> code = this->serializeProgram(ctx.instructions);
-        writeBytecode(this->filename_out, code, meta, 4);
+        writeBytecode(this->cparams.outFile, code, meta, 4);
     }
 };
 

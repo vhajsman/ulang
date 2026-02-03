@@ -2,6 +2,7 @@
 #define __ULANG_COMPILER_H
 
 #include "bytecode.hpp"
+#include "compiler/params.hpp"
 #include "types.hpp"
 
 #include <cstdint>
@@ -279,11 +280,9 @@ namespace ULang {
 
         std::vector<ASTPtr> ast_owned;
 
-        std::string filename;       ///< Input file filename
-        std::string filename_out;   ///< Output file filename
-        size_t pos = 0;             ///< Current position
+        CompilerParameters cparams;
 
-        bool en_verbose;            ///< Whether to enable verbose logging or not
+        size_t pos = 0;             ///< Current position
 
         /**
          * @brief CompilerSyntaxException exceptions not terminating the compilation
@@ -374,7 +373,7 @@ namespace ULang {
         void emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b);
 
         public:
-        CompilerInstance(const std::string& source, const std::string& filename_out, const std::string& filename = "unnamed", bool en_verbose = false);
+        CompilerInstance(const std::string& source, CompilerParameters& cparams);
 
         /**
          * @brief does the compilation
