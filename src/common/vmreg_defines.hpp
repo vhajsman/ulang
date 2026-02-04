@@ -37,5 +37,27 @@ namespace ULang {
 
 
     {0xff, "EXC"},
+    };
 };
-};
+
+#define R_GPR0A vmreg_defines[0]
+#define R_GPR0B vmreg_defines[1]
+#define R_GPR0C vmreg_defines[2]
+#define R_GPR0D vmreg_defines[3]
+#define R_GPR1A vmreg_defines[4]
+#define R_GPR1B vmreg_defines[5]
+#define R_GPR1C vmreg_defines[6]
+#define R_GPR1D vmreg_defines[7]
+#define R_MIA   vmreg_defines[8]
+#define R_MIR   vmreg_defines[9]
+#define R_MID0  vmreg_defines[10]
+#define R_MID1  vmreg_defines[11]
+#define R_SP    vmreg_defines[12]
+#define R_FP    vmreg_defines[13]
+#define R_PC    vmreg_defines[14]
+#define R_FLAGS vmreg_defines[15]
+#define R_TMP0  vmreg_defines[16]
+#define R_TMP1  vmreg_defines[17]
+#define R_TMP2  vmreg_defines[18]
+#define R_TMP3  vmreg_defines[19]
+#define R_EXC   vmreg_defines[20]
