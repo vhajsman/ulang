@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <cstdlib>
 #include "bytecode.hpp"
 #include "vmreg_defines.hpp"
 
@@ -42,10 +43,7 @@ namespace ULang {
         // ======== VM STATE + STACK
         // ==================================================================
 
-        uint64_t* pc = &regs[R_PC.reg_no];
-        uint64_t* sp = &regs[R_SP.reg_no];
-        uint64_t* fp = &regs[R_FP.reg_no];
-        uint64_t* flags = &regs[R_FLAGS.reg_no];
+        uint64_t* pc; uint64_t* sp; uint64_t* fp; uint64_t* flags;
 
         static constexpr size_t STACK_SIZE = 256 * 1024;
         uint8_t* stack;
@@ -60,7 +58,9 @@ namespace ULang {
         VirtualMachine(bool verbose_en, size_t heapsize_start_kb, size_t heapsize_limit_kb)
             : verbose_en(verbose_en), heapsize_start_kb(heapsize_start_kb), heapsize_limit_kb(heapsize_limit_kb) {};
 
-        ~VirtualMachine() {};
+        ~VirtualMachine() {
+            free(this->stack);
+        };
 
         void init();
         void run(const std::vector<Instruction> program);
