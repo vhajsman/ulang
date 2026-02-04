@@ -86,6 +86,7 @@ namespace ULang {
             case Opcode::CALL:  return "CALL";
             case Opcode::RET:   return "RET";
             case Opcode::HALT:  return "HALT";
+            case Opcode::MOV:   return "MOV";
         }
         return "???";
     }

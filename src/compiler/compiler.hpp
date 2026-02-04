@@ -57,7 +57,7 @@ namespace ULang {
      */
     struct ASTNode {
         ASTNodeType type;               ///< node type
-        int64_t val;                    ///< value (if ASTNodeType::NUMBER)
+        uint32_t val;                    ///< value (if ASTNodeType::NUMBER)
 
         std::string name;               ///< name
 
@@ -368,7 +368,7 @@ namespace ULang {
         void serializeInstruction(const Instruction& instr, std::vector<uint8_t>& out);
         std::vector<uint8_t> serializeProgram(const std::vector<Instruction>& program);
 
-        void compileNode(ASTNode* node, std::vector<Instruction>& out);
+        Operand compileNode(ASTNode* node, std::vector<Instruction>& out);
 
         void emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b);
 

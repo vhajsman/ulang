@@ -6,18 +6,26 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "vmreg_defines.hpp"
+
 #define cout_verbose        \
     if(this->cparams.verbose)    \
         std::cout
 
+#ifndef OP_GET_NULL
+#define OP_GET_NULL \
+    {OperandType::OP_NULL, 0}
+#endif
+
 namespace ULang {
-    void CompilerInstance::compileNode(ASTNode* node, std::vector<Instruction>& out) {
+    Operand CompilerInstance::compileNode(ASTNode* node, std::vector<Instruction>& out) {
         if(!node) {
             std::cout << "warning: null node" << std::endl;
-            return;
+            return OP_GET_NULL;
         }
 
         // TODO: locations in exceptions
+        // TODO: allocTmp()
 
         Instruction instruction;
 
@@ -32,22 +40,31 @@ namespace ULang {
                     );
                 }
 
-                instruction.opcode = Opcode::LD;
-                this->makeRef(node->symbol->stackOffset);
-                
-                out.push_back(instruction);
-                break;
+                return this->makeRef(node->symbol->stackOffset);
             }
 
             case ASTNodeType::NUMBER: {
-                instruction.opcode = Opcode::PUSH;
-                instruction.operands.push_back(this->makeIMM(node->val));
-                out.push_back(instruction);
-                break;
+                return {OperandType::OP_IMMEDIATE, node->val};
             }
 
             case ASTNodeType::BINOP: {
-                // TODO what?
+                Operand L = this->compileNode(node->lefthand, out);
+                Operand R = this->compileNode(node->righthand, out);
+
+                if(L.type != OperandType::OP_REGISTER && R.type != OperandType::OP_REGISTER) {
+                    Operand tmp = {
+                        OperandType::OP_REGISTER, 
+                        vmreg_defines[19].reg_no // TMP3
+                    };
+
+                    Instruction i_mov;
+                    i_mov.opcode = Opcode::MOV;
+                    i_mov.operands.push_back(tmp);
+                    i_mov.operands.push_back(L);
+
+                    out.push_back(i_mov);
+                    L = tmp;
+                }
 
                 switch(node->op) {
                     case BinopType::ADDITION:       instruction.opcode = Opcode::ADD; break;
@@ -58,36 +75,47 @@ namespace ULang {
 
                 cout_verbose << "   --> BINOP lefthand: " << node->lefthand->val << " righthand: " << node->righthand->val << std::endl;
 
-                this->compileNode(node->lefthand, out);
-                this->compileNode(node->righthand, out);
-
+                instruction.operands.push_back(L);
+                instruction.operands.push_back(R);
                 out.push_back(instruction);
-                break;
+
+                if( node->op == BinopType::DIVISION && 
+                    (R.type == OperandType::OP_IMMEDIATE || R.type == OperandType::OP_CONSTANT) &&
+                    R.data == 0) {
+                        this->friendlyException(CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Warning,
+                            "Division by zero", ULANG_LOCATION_NULL,
+                            ULANG_SYNT_WARN_DIVISION_ZERO
+                        ));
+                }
+                
+                return L;
             }
 
             case ASTNodeType::ASSIGNMENT: {
-                this->compileNode(node->righthand, out);
+                Operand R = this->compileNode(node->righthand, out);
                 if(!node->lefthand || !node->lefthand->symbol)
                     throw std::runtime_error("Assignment target missing");
 
                 instruction.opcode = Opcode::ST;
                 instruction.operands.push_back(this->makeRef(node->lefthand->symbol->stackOffset));
-
+                instruction.operands.push_back(R);
                 out.push_back(instruction);
-                break;
+                
+                return OP_GET_NULL;
             }
 
             case ASTNodeType::DECLARATION: {
                 if(node->initial) {
-                    this->compileNode(node->initial, out);
+                    Operand R = this->compileNode(node->initial, out);
 
                     instruction.opcode = Opcode::ST;
                     instruction.operands.push_back(this->makeRef(node->symbol->stackOffset));
-
+                    instruction.operands.push_back(R);
                     out.push_back(instruction);
                 }
 
-                break;
+                return OP_GET_NULL;
             }
 
             default:
