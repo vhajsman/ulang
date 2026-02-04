@@ -7,5 +7,8 @@ var searchData=
   ['verbose_4',['verbose',['../structULang_1_1CompilerParameters.html#a2e02b499bb3f396bcaaccf8c0da4e105',1,'ULang::CompilerParameters']]],
   ['verbose_5fcout_5',['verbose_cout',['../compiler_2bytecode_8cpp.html#a2add299105a2fec9edfe1ecd7229d0bb',1,'bytecode.cpp']]],
   ['version_5fmajor_6',['version_major',['../structULang_1_1BytecodeHeader.html#ac26f801f5fb0bbede3c1b71b8d9add6e',1,'ULang::BytecodeHeader']]],
-  ['version_5fminor_7',['version_minor',['../structULang_1_1BytecodeHeader.html#af4e3277aae40b5c0a5e3f4fafc4daceb',1,'ULang::BytecodeHeader']]]
+  ['version_5fminor_7',['version_minor',['../structULang_1_1BytecodeHeader.html#af4e3277aae40b5c0a5e3f4fafc4daceb',1,'ULang::BytecodeHeader']]],
+  ['vmreg_5fdefine_8',['VMReg_define',['../structULang_1_1VMReg__define.html',1,'ULang']]],
+  ['vmreg_5fdefines_9',['vmreg_defines',['../namespaceULang.html#a95b672dfcbef736ceb453a40559a9031',1,'ULang']]],
+  ['vmreg_5fdefines_2ehpp_10',['vmreg_defines.hpp',['../vmreg__defines_8hpp.html',1,'']]]
 ];
