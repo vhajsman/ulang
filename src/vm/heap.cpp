@@ -1,0 +1,86 @@
+#include "VirtualMachine.hpp"
+#include <cstddef>
+#include <cstdlib>
+#include <iostream>
+#include <stdexcept>
+
+namespace ULang {
+    void VirtualMachine::heap_init() {
+        if(this->verbose_en) {
+            std::cout << "HEAP: Heap initialization" << std::endl;
+            std::cout << "HEAP: Heap size starting: " << this->heapsize_start_kb << "K, max: " << this->heapsize_limit_kb << "K" << std::endl;
+        }
+
+        this->heap_start = (HeapBlockHdr*)(malloc(this->heapsize_start_kb * 1024));
+        if(!this->heap_start)
+            throw std::runtime_error("Could not allocate starting block for heap");
+
+        this->heap_start->size = (this->heapsize_start_kb * 1024) - sizeof(HeapBlockHdr);
+        this->heap_start->next = nullptr;
+        this->heap_freelist = heap_start;
+
+        this->heapsize_current = sizeof(HeapBlockHdr);
+    }
+
+    void* VirtualMachine::heap_alloc(size_t size) {
+        if(this->heapsize_limit_kb != 0 && (this->heapsize_current + size + sizeof(HeapBlockHdr)) * 1024 > this->heapsize_limit_kb)
+            throw std::runtime_error("insufficent resources");
+
+        HeapBlockHdr* current = this->heap_freelist;
+        while(current) {
+            if(current->size >= size + sizeof(HeapBlockHdr)) {
+                HeapBlockHdr* blk_new = (HeapBlockHdr*)((char*)current + sizeof(HeapBlockHdr) + size);
+                blk_new->size = current->size - size - sizeof(HeapBlockHdr);
+                blk_new->next = current->next;
+
+                current->size = size;
+                current->next = blk_new;
+
+                this->heapsize_current += blk_new->size;
+                void* result = (void*)((char*)current + sizeof(HeapBlockHdr));
+
+                if(this->verbose_en) {
+                    std::cout << "HEAP: alloc: " << size << ", now occupied " << this->heapsize_current << std::endl;
+                    std::cout << "HEAP:   --> addr: " << result << std::endl;
+                }
+
+                return result;
+            }
+
+            current = current->next;
+        }
+
+        throw std::runtime_error("insufficent resources");
+    }
+
+    void VirtualMachine::heap_free(void* ptr) {
+        if(!ptr) {
+            if(this->verbose_en) std::cout << "HEAP: free: ptr=null" << std::endl;
+            return;
+        }
+
+        HeapBlockHdr* target = (HeapBlockHdr*)((char*)ptr - sizeof(HeapBlockHdr));
+        HeapBlockHdr* current = this->heap_freelist;
+
+        target->next = current;
+        this->heap_freelist = target->next;
+
+        if(this->verbose_en)
+            std::cout << "HEAP: free: " << &target;
+
+        this->heap_mergeFree();
+    }
+
+    void VirtualMachine::heap_mergeFree() {
+        HeapBlockHdr* current = this->heap_freelist;
+        while(current && current->next) {
+            if((char*)current + sizeof(HeapBlockHdr) + current->size == (char*)current->next) {
+                current->size += sizeof(HeapBlockHdr) + current->next->size;
+                current->next = current->next->next;
+                continue;
+            }
+
+            current = current->next;
+        }
+    }
+};

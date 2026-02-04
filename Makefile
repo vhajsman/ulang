@@ -17,6 +17,10 @@ BCDISASM_SRC = $(wildcard src/bcdisasm/*.cpp)
 BCDISASM_OBJ = $(BCDISASM_SRC:.cpp=.o)
 BCDISASM_BIN = build/bcdisasm
 
+VM_SRC = $(wildcard src/vm/*.cpp)
+VM_OBJ = $(VM_SRC:.cpp=.o)
+VM_BIN = build/vm
+
 #DEBUGGER_SRC = $(wildcard src/debugger/*.cpp)
 #DEBUGGER_OBJ = $(DEBUGGER_SRC:.cpp=.o)
 #DEBUGGER_BIN = debugger_bin
@@ -27,7 +31,7 @@ BCDISASM_BIN = build/bcdisasm
 
 .PHONY: all clean
 
-all: $(COMPILER_BIN) $(BCDUMP_BIN) $(DEBUGGER_BIN) $(RUNTIME_BIN) ${BCDISASM_BIN}
+all: $(COMPILER_BIN) $(BCDUMP_BIN) $(DEBUGGER_BIN) $(RUNTIME_BIN) ${BCDISASM_BIN} ${VM_BIN}
 
 # Compiler
 $(COMPILER_BIN): $(COMMON_OBJ) $(COMPILER_OBJ)
@@ -37,6 +41,9 @@ $(BCDUMP_BIN): $(COMMON_OBJ) $(BCDUMP_OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 $(BCDISASM_BIN): $(COMMON_OBJ) $(BCDISASM_OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+
+$(VM_BIN): $(COMMON_OBJ) $(VM_OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Debugger
@@ -52,4 +59,4 @@ $(BCDISASM_BIN): $(COMMON_OBJ) $(BCDISASM_OBJ)
 
 clean:
 	rm -f $(COMMON_OBJ) $(COMPILER_OBJ) $(DEBUGGER_OBJ) $(RUNTIME_OBJ) \
-		$(COMPILER_BIN) $(DEBUGGER_BIN) $(RUNTIME_BIN)
+		$(COMPILER_BIN) $(DEBUGGER_BIN) $(RUNTIME_BIN) 
