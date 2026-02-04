@@ -2,6 +2,9 @@
 #define __ULANG_VM_H
 
 #include <cstddef>
+#include <cstdint>
+#include "bytecode.hpp"
+#include "vmreg_defines.hpp"
 
 namespace ULang {
     struct HeapBlockHdr {
@@ -13,16 +16,45 @@ namespace ULang {
         private:
         bool verbose_en;
 
+        // ==================================================================
+        // ======== MEMORY MANAGEMENT
+        // ==================================================================
+
         size_t heapsize_start_kb;
         size_t heapsize_limit_kb;
         size_t heapsize_current;
         HeapBlockHdr* heap_start;
         HeapBlockHdr* heap_freelist;
-
+        
         void heap_init();
         void* heap_alloc(size_t size);
         void heap_free(void* ptr);
         void heap_mergeFree();
+
+        // ==================================================================
+        // ======== REGISTERS
+        // ==================================================================
+
+        static constexpr uint32_t REG_COUNT = 32;
+        uint64_t regs[REG_COUNT];
+
+        // ==================================================================
+        // ======== VM STATE + STACK
+        // ==================================================================
+
+        uint64_t* pc = &regs[R_PC.reg_no];
+        uint64_t* sp = &regs[R_SP.reg_no];
+        uint64_t* fp = &regs[R_FP.reg_no];
+        uint64_t* flags = &regs[R_FLAGS.reg_no];
+
+        static constexpr size_t STACK_SIZE = 256 * 1024;
+        uint8_t* stack;
+
+        // ==================================================================
+        // ======== EXECUTION
+        // ==================================================================
+
+        void execute(const Instruction& instr);
 
         public:
         VirtualMachine(bool verbose_en, size_t heapsize_start_kb, size_t heapsize_limit_kb)
@@ -31,6 +63,8 @@ namespace ULang {
         ~VirtualMachine() {};
 
         void init();
+        void run(const std::vector<Instruction> program);
+        void halt();
     };
 };
 
