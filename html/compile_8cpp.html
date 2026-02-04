@@ -86,10 +86,11 @@ $(function() {
 <code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &quot;vmreg_defines.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for compile.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="compile_8cpp__incl.svg" width="1394" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="compile_8cpp__incl.svg" width="1540" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -101,6 +102,8 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a33e945e49b349b2f85808e2bccbfb06a" id="r_a33e945e49b349b2f85808e2bccbfb06a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compile_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a">cout_verbose</a></td></tr>
 <tr class="separator:a33e945e49b349b2f85808e2bccbfb06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc410fd460828963079ed188e618f703" id="r_acc410fd460828963079ed188e618f703"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compile_8cpp.html#acc410fd460828963079ed188e618f703">OP_GET_NULL</a>&#160;&#160;&#160;    {OperandType::OP_NULL, 0}</td></tr>
+<tr class="separator:acc410fd460828963079ed188e618f703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a33e945e49b349b2f85808e2bccbfb06a" name="a33e945e49b349b2f85808e2bccbfb06a"></a>
@@ -117,6 +120,20 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span>(this-&gt;cparams.verbose)    \</div>
 <div class="line">        std::cout</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="acc410fd460828963079ed188e618f703" name="acc410fd460828963079ed188e618f703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc410fd460828963079ed188e618f703">&#9670;&#160;</a></span>OP_GET_NULL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OP_GET_NULL&#160;&#160;&#160;    {OperandType::OP_NULL, 0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 </div><!-- contents -->
