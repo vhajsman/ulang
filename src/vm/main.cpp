@@ -117,6 +117,8 @@ int main(int argc, char** argv) {
         if(vmparams.verbose_en)
             std::cout << "BOOT: Instructions read: " << instructions.size() << std::endl;
 
+        vmachine.run(instructions);
+
     } catch(std::exception& e) {
         std::cerr << e.what() << std::endl;
 
