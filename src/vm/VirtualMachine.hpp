@@ -38,6 +38,8 @@ namespace ULang {
         HeapBlockHdr* heap_start;       ///< Heap start pointer
         HeapBlockHdr* heap_freelist;    ///< Heap free list pointer (cyclist)
 
+        size_t heapsize_tot = 0;
+
         uint8_t* heap_base;             ///< Heap memory pool pointer
         
         /**

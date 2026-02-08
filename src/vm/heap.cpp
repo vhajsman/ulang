@@ -23,6 +23,8 @@ namespace ULang {
         this->heap_start->next = nullptr;
 
         this->heap_freelist = heap_start;
+
+        this->heapsize_tot = bytes;
         this->heapsize_current = sizeof(HeapBlockHdr);
     }
 
@@ -91,7 +93,7 @@ namespace ULang {
     }
 
     uint8_t* VirtualMachine::castHeapReference(uint64_t offset) {
-        if(offset >= this->heapsize_current)
+        if(offset >= this->heapsize_tot)
             throw std::runtime_error("Heap reference out of bounds");
 
         return this->heap_base + offset;
