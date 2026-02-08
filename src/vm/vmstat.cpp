@@ -111,5 +111,28 @@ namespace ULang {
 
 
 
-    
+    void StatUCounterMeter::report(std::string& meter_name) const {
+        std::cout << "VMSTAT: " << meter_name << " = " << this->count << std::endl;
+    }
+
+    void StatUCounterMeter::reset() {
+        this->count = 0;
+    }
+
+    template<typename T_RET, typename T_ARG> 
+    void StatUCounterMeter::attach(T_RET(*caller)(T_ARG), T_ARG caller_arg) {
+        this->reset();
+        (void) caller(caller_arg);
+    }
+
+    template<typename T_RET, typename T_ARG> 
+    void StatUCounterMeter::attach(T_RET(*caller)(T_ARG), T_ARG caller_arg, void(*then)(T_RET, StatUCounterMeter&)) {
+        this->reset();
+        T_RET caller_ret = caller(caller_arg);
+        then(caller_ret);
+    }
+
+    void StatUCounterMeter::add(uint64_t val) {this->count += val;}
+    void StatUCounterMeter::sub(uint64_t val) {this->count -= val;}
+    void StatUCounterMeter::set(uint64_t val) {this->count = val;}
 }
