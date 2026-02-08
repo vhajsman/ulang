@@ -1,5 +1,6 @@
 #include "VirtualMachine.hpp"
 #include "bytecode.hpp"
+#include <chrono>
 #include <cstdint>
 #include <cstring>
 #include <iomanip>
@@ -66,6 +67,8 @@ namespace ULang {
         if(this->verbose_en) {
             std::cout << "EXEC: instruction count: " << program.size() << std::endl;
         }
+
+        this->stat_exec_begin = std::chrono::steady_clock::now();
 
         bool running = true;
         *this->pc = 0;

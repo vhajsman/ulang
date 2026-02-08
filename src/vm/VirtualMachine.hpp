@@ -1,6 +1,7 @@
 #ifndef __ULANG_VM_H
 #define __ULANG_VM_H
 
+#include <chrono>
 #include <cstddef>
 #include <cstdint>
 #include <cstdlib>
@@ -17,6 +18,12 @@ namespace ULang {
     class VirtualMachine {
         private:
         bool verbose_en;
+
+        // ==================================================================
+        // ======== STATS
+        // ==================================================================
+
+        std::chrono::steady_clock::time_point stat_exec_begin;
 
         // ==================================================================
         // ======== MEMORY MANAGEMENT
