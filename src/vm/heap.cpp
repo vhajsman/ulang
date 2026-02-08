@@ -7,12 +7,12 @@
 
 namespace ULang {
     void VirtualMachine::heap_init() {
-        if(this->verbose_en) {
+        if(this->vmparams.verbose_en) {
             std::cout << "HEAP: Heap initialization" << std::endl;
-            std::cout << "HEAP: Heap size starting: " << this->heapsize_start_kb << "K, max: " << this->heapsize_limit_kb << "K" << std::endl;
+            std::cout << "HEAP: Heap size starting: " << this->vmparams.heapsize_start_kb << "K, max: " << this->vmparams.heapsize_limit_kb << "K" << std::endl;
         }
 
-        size_t bytes = this->heapsize_start_kb * 1024;
+        size_t bytes = this->vmparams.heapsize_start_kb * 1024;
 
         this->heap_base = reinterpret_cast<uint8_t*>(malloc(bytes));
         if(!this->heap_base)
@@ -27,7 +27,7 @@ namespace ULang {
     }
 
     void* VirtualMachine::heap_alloc(size_t size) {
-        if(this->heapsize_limit_kb != 0 && (this->heapsize_current + size + sizeof(HeapBlockHdr)) * 1024 > this->heapsize_limit_kb)
+        if(this->vmparams.heapsize_limit_kb != 0 && (this->heapsize_current + size + sizeof(HeapBlockHdr)) * 1024 > this->vmparams.heapsize_limit_kb)
             throw std::runtime_error("insufficent resources");
 
         HeapBlockHdr* current = this->heap_freelist;
@@ -43,7 +43,7 @@ namespace ULang {
                 this->heapsize_current += blk_new->size;
                 void* result = (void*)((char*)current + sizeof(HeapBlockHdr));
 
-                if(this->verbose_en) {
+                if(this->vmparams.verbose_en) {
                     std::cout << "HEAP: alloc: " << size << ", now occupied " << this->heapsize_current << std::endl;
                     std::cout << "HEAP:   --> addr: " << result << std::endl;
                 }
@@ -59,7 +59,9 @@ namespace ULang {
 
     void VirtualMachine::heap_free(void* ptr) {
         if(!ptr) {
-            if(this->verbose_en) std::cout << "HEAP: free: ptr=null" << std::endl;
+            if(this->vmparams.verbose_en) 
+                std::cout << "HEAP: free: ptr=null" << std::endl;
+
             return;
         }
 
@@ -69,7 +71,7 @@ namespace ULang {
         target->next = current;
         this->heap_freelist = target->next;
 
-        if(this->verbose_en)
+        if(this->vmparams.verbose_en)
             std::cout << "HEAP: free: " << &target;
 
         this->heap_mergeFree();
