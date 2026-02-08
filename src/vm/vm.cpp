@@ -78,20 +78,6 @@ namespace ULang {
         }
     }
 
-    /*
-    uint64_t* VirtualMachine::castOpReference(const Operand& op) {
-        switch(op.type) {
-            case OperandType::OP_IMMEDIATE: return (uint64_t*) &op.data;
-            case OperandType::OP_CONSTANT:  return (uint64_t*) &op.data;
-            case OperandType::OP_REGISTER:  return &this->regs[op.data];
-            case OperandType::OP_REFERENCE: return (uint64_t*) this->castHeapReference(op.data);
-            case OperandType::OP_NULL:      return nullptr;
-            default:
-                std::runtime_error("Invalid operand");
-        }
-    }
-    */
-
     uint64_t VirtualMachine::readOpCast(const Operand& op) {
         switch(op.type) { // TODO: constants
             case OperandType::OP_CONSTANT:
