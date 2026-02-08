@@ -123,6 +123,8 @@ namespace ULang {
         }
 
         switch(instr.opcode) {
+            //TODO: flags
+
             case Opcode::NOP: break;
 
             case Opcode::PUSH: {
@@ -150,6 +152,81 @@ namespace ULang {
 
                 if(op.type == OperandType::OP_REGISTER)
                     this->regs[op.data] = val;
+
+                break;
+            }
+
+            case Opcode::ADD: {
+                //
+                // [DST] = ([DST] + [SRC])
+                //
+
+                const Operand& dst = instr.operands[0];
+                const Operand& src = instr.operands[1];
+
+                uint64_t a = readOpCast(dst);
+                uint64_t b = readOpCast(src);
+                uint64_t result = a + b;
+
+                writeOpCast(dst, result);
+
+                break;
+            }
+
+            case Opcode::SUB: {
+                //
+                // [DST] = ([DST] - [SRC])
+                //
+
+                const Operand& dst = instr.operands[0];
+                const Operand& src = instr.operands[1];
+
+                uint64_t a = readOpCast(dst);
+                uint64_t b = readOpCast(src);
+                uint64_t result = a - b;
+
+                writeOpCast(dst, result);
+
+                break;
+            }
+
+            case Opcode::MUL: {
+                //
+                // [DST] = ([DST] * [SRC])
+                //
+
+                const Operand& dst = instr.operands[0];
+                const Operand& src = instr.operands[1];
+
+                uint64_t a = readOpCast(dst);
+                uint64_t b = readOpCast(src);
+                uint64_t result = a * b;
+
+                writeOpCast(dst, result);
+
+                break;
+            }
+
+            case Opcode::DIV: {
+                //
+                // [DST]  = ([DST] / [SRC])
+                // [TMP0] = ([DST] % [SRC])
+                //
+
+                const Operand& dst = instr.operands[0];
+                const Operand& src = instr.operands[1];
+
+                uint64_t a = readOpCast(dst);
+                uint64_t b = readOpCast(src);
+
+                if(b == 0)
+                    throw std::runtime_error("Division by zero");
+
+                uint64_t q = a / b;
+                uint64_t r = a % b;
+
+                writeOpCast(dst, q);
+                this->regs[R_TMP0.reg_no] = r;
 
                 break;
             }
