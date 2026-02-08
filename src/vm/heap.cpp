@@ -1,5 +1,6 @@
 #include "VirtualMachine.hpp"
 #include <cstddef>
+#include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <stdexcept>
@@ -11,14 +12,17 @@ namespace ULang {
             std::cout << "HEAP: Heap size starting: " << this->heapsize_start_kb << "K, max: " << this->heapsize_limit_kb << "K" << std::endl;
         }
 
-        this->heap_start = (HeapBlockHdr*)(malloc(this->heapsize_start_kb * 1024));
-        if(!this->heap_start)
+        size_t bytes = this->heapsize_start_kb * 1024;
+
+        this->heap_base = reinterpret_cast<uint8_t*>(malloc(bytes));
+        if(!this->heap_base)
             throw std::runtime_error("Could not allocate starting block for heap");
-
-        this->heap_start->size = (this->heapsize_start_kb * 1024) - sizeof(HeapBlockHdr);
+        
+        this->heap_start = reinterpret_cast<HeapBlockHdr*>(this->heap_base);
+        this->heap_start->size = bytes - sizeof(HeapBlockHdr);
         this->heap_start->next = nullptr;
-        this->heap_freelist = heap_start;
 
+        this->heap_freelist = heap_start;
         this->heapsize_current = sizeof(HeapBlockHdr);
     }
 
@@ -82,5 +86,12 @@ namespace ULang {
 
             current = current->next;
         }
+    }
+
+    uint8_t* VirtualMachine::castHeapReference(uint64_t offset) {
+        if(offset >= this->heapsize_current)
+            throw std::runtime_error("Heap reference out of bounds");
+
+        return this->heap_base + offset;
     }
 };
