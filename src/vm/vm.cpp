@@ -44,7 +44,7 @@ std::string fmtOperand(const Operand& operand) {
 
 namespace ULang {
     void VirtualMachine::init() {
-        if(this->verbose_en) {
+        if(this->vmparams.verbose_en) {
             std::cout << "ULang VM v 1.0. - https://github.com/vhajsman/ulang" << std::endl;
             std::cout << "INIT: register size: " << sizeof(uint64_t) << ", count: " << this->REG_COUNT << std::endl;
             std::cout << "INIT: total register-occupied memory: " << sizeof(uint64_t) * this->REG_COUNT << std::endl;
@@ -64,7 +64,7 @@ namespace ULang {
     }
 
     void VirtualMachine::run(const std::vector<Instruction> program) {
-        if(this->verbose_en) {
+        if(this->vmparams.verbose_en) {
             std::cout << "EXEC: instruction count: " << program.size() << std::endl;
         }
 
@@ -111,7 +111,7 @@ namespace ULang {
     }
 
     void VirtualMachine::execute(const Instruction& instr) {
-        if(this->verbose_en) {
+        if(this->vmparams.verbose_en) {
             std::cout << "EXEC: DISASSEMBLY: ";
             std::cout << std::setw(8) << std::setfill('0') << std::hex << instr.offset;
             std::cout << ": " << opcodeToStr(instr.opcode);

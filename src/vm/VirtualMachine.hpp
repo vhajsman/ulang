@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "bytecode.hpp"
+#include "vm/vmparams.hpp"
 #include "vmreg_defines.hpp"
 
 namespace ULang {
@@ -17,7 +18,9 @@ namespace ULang {
 
     class VirtualMachine {
         private:
-        bool verbose_en;
+        // bool verbose_en;
+
+        VMParams vmparams;
 
         // ==================================================================
         // ======== STATS
@@ -29,8 +32,8 @@ namespace ULang {
         // ======== MEMORY MANAGEMENT
         // ==================================================================
 
-        size_t heapsize_start_kb;       ///< Size in kilobytes (1024) heap allocates at begining
-        size_t heapsize_limit_kb;       ///< Maximal size in kilobytes (1024) heap can allocate
+        // size_t heapsize_start_kb;       ///< Size in kilobytes (1024) heap allocates at begining
+        // size_t heapsize_limit_kb;       ///< Maximal size in kilobytes (1024) heap can allocate
         size_t heapsize_current;        ///< Current heap size in bytes
         HeapBlockHdr* heap_start;       ///< Heap start pointer
         HeapBlockHdr* heap_freelist;    ///< Heap free list pointer (cyclist)
@@ -118,14 +121,17 @@ namespace ULang {
         void writeOpCast(const Operand& op, uint64_t val);
 
         public:
-        VirtualMachine(bool verbose_en, size_t heapsize_start_kb, size_t heapsize_limit_kb)
-            : verbose_en(verbose_en), heapsize_start_kb(heapsize_start_kb), heapsize_limit_kb(heapsize_limit_kb) {};
+        //VirtualMachine(bool verbose_en, size_t heapsize_start_kb, size_t heapsize_limit_kb)
+        //    : verbose_en(verbose_en), heapsize_start_kb(heapsize_start_kb), heapsize_limit_kb(heapsize_limit_kb) {};
+
+        VirtualMachine(VMParams vmparams)
+        :   vmparams(vmparams) {};
 
         ~VirtualMachine() {
             free(this->stack); this->stack = nullptr;
             free(this->heap_base); this->heap_base = nullptr;
 
-            if(this->verbose_en)
+            if(this->vmparams.verbose_en)
                 std::cout << "VM:DESTRUCTOR: memory freed" << std::endl;
         };
 

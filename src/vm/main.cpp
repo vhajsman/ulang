@@ -1,5 +1,6 @@
 #include "bytecode.hpp"
 #include "vm/VirtualMachine.hpp"
+#include "vm/vmparams.hpp"
 #include <boost/program_options/value_semantic.hpp>
 #include <cstddef>
 #include <exception>
@@ -49,19 +50,15 @@ Instruction readInstruction(const std::vector<uint8_t>& buf, size_t& pc) {
 }
 
 int main(int argc, char** argv) {
-    std::string fileName;
-    bool verbose_en;
-
-    size_t heapsize_start_kb;
-    size_t heapsize_limit_kb;
+    VMParams vmparams;
 
     po::options_description desc("ULang Bytecode Dump");
     desc.add_options()
         ("help,h", "Show help")
-        ("file,f", po::value<std::string>(&fileName), "Binary bytecode file")
-        ("verbose,V", po::bool_switch(&verbose_en)->default_value(false), "Enable verbose debug outputs")
-        ("heapsize-start", po::value(&heapsize_start_kb)->default_value(256), "Starting virtual memory size to allocate (in kB, default: 256)")
-        ("heapsize-limit", po::value(&heapsize_limit_kb)->default_value(0), "Maximal virtual memory size to allocate (in kB, 0 for unlimited, default: 0)");
+        ("file,f", po::value<std::string>(&vmparams.fileName), "Binary bytecode file")
+        ("verbose,V", po::bool_switch(&vmparams.verbose_en)->default_value(false), "Enable verbose debug outputs")
+        ("heapsize-start", po::value(&vmparams.heapsize_start_kb)->default_value(256), "Starting virtual memory size to allocate (in kB, default: 256)")
+        ("heapsize-limit", po::value(&vmparams.heapsize_limit_kb)->default_value(0), "Maximal virtual memory size to allocate (in kB, 0 for unlimited, default: 0)");
 
     po::variables_map vm;
     try {
@@ -77,10 +74,13 @@ int main(int argc, char** argv) {
         return 0;
     }
 
-    std::ifstream f(fileName, std::ios::binary);
-    if(!f) { std::cerr << "Cannot open file: " << fileName << "\n"; return 1; }
+    std::ifstream f(vmparams.fileName, std::ios::binary);
+    if(!f) { 
+        std::cerr << "Cannot open file: " << vmparams.fileName << "\n"; 
+        return 1; 
+    }
 
-    VirtualMachine vmachine(verbose_en, heapsize_start_kb, heapsize_limit_kb);
+    VirtualMachine vmachine(vmparams);
     
     try {
         vmachine.init();
@@ -114,7 +114,7 @@ int main(int argc, char** argv) {
             instructions.push_back(instr);
         }
 
-        if(verbose_en)
+        if(vmparams.verbose_en)
             std::cout << "BOOT: Instructions read: " << instructions.size() << std::endl;
 
     } catch(std::exception& e) {
