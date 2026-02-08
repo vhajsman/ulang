@@ -230,6 +230,18 @@ namespace ULang {
 
                 break;
             }
+
+            case Opcode::MOV: {
+                //
+                // [DST] = [SRC]
+                //
+
+                const Operand& dst = instr.operands[0];
+                const Operand& src = instr.operands[1];
+
+                writeOpCast(dst, readOpCast(src));
+                break;
+            }
         }
     }
 };
