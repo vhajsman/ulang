@@ -8,7 +8,10 @@ var searchData=
   ['verbose_5fcout_5',['verbose_cout',['../compiler_2bytecode_8cpp.html#a2add299105a2fec9edfe1ecd7229d0bb',1,'bytecode.cpp']]],
   ['version_5fmajor_6',['version_major',['../structULang_1_1BytecodeHeader.html#ac26f801f5fb0bbede3c1b71b8d9add6e',1,'ULang::BytecodeHeader']]],
   ['version_5fminor_7',['version_minor',['../structULang_1_1BytecodeHeader.html#af4e3277aae40b5c0a5e3f4fafc4daceb',1,'ULang::BytecodeHeader']]],
-  ['vmreg_5fdefine_8',['VMReg_define',['../structULang_1_1VMReg__define.html',1,'ULang']]],
-  ['vmreg_5fdefines_9',['vmreg_defines',['../namespaceULang.html#a95b672dfcbef736ceb453a40559a9031',1,'ULang']]],
-  ['vmreg_5fdefines_2ehpp_10',['vmreg_defines.hpp',['../vmreg__defines_8hpp.html',1,'']]]
+  ['virtualmachine_8',['virtualmachine',['../classULang_1_1VirtualMachine.html',1,'ULang::VirtualMachine'],['../classULang_1_1VirtualMachine.html#a365dc269a57d87bee457ebd48b7e0321',1,'ULang::VirtualMachine::VirtualMachine()']]],
+  ['virtualmachine_2ehpp_9',['VirtualMachine.hpp',['../VirtualMachine_8hpp.html',1,'']]],
+  ['vm_2ecpp_10',['vm.cpp',['../vm_8cpp.html',1,'']]],
+  ['vmreg_5fdefine_11',['VMReg_define',['../structULang_1_1VMReg__define.html',1,'ULang']]],
+  ['vmreg_5fdefines_12',['vmreg_defines',['../namespaceULang.html#a95b672dfcbef736ceb453a40559a9031',1,'ULang']]],
+  ['vmreg_5fdefines_2ehpp_13',['vmreg_defines.hpp',['../vmreg__defines_8hpp.html',1,'']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['size_0',['size',['../structULang_1_1MetaType.html#a26853729f717acf898ddbf9f046790b0',1,'ULang::MetaType::size'],['../structULang_1_1DataType.html#af08f3bb61278b0b293b6e1b2b43676c4',1,'ULang::DataType::size']]],
+  ['size_0',['size',['../structULang_1_1MetaType.html#a26853729f717acf898ddbf9f046790b0',1,'ULang::MetaType::size'],['../structULang_1_1DataType.html#af08f3bb61278b0b293b6e1b2b43676c4',1,'ULang::DataType::size'],['../structULang_1_1HeapBlockHdr.html#a343a54d8c77cb45c126fbf83dc7ede4d',1,'ULang::HeapBlockHdr::size']]],
   ['sourcefile_1',['sourceFile',['../structULang_1_1CompilerParameters.html#ac45091e1560d4a973b45fad9b80697f8',1,'ULang::CompilerParameters']]],
   ['stack_5foffset_2',['stack_offset',['../structULang_1_1MetaSymbol.html#a79d2d7327a81fdd3c367157ce1f86f0c',1,'ULang::MetaSymbol']]],
   ['stack_5ftop_3',['stack_top',['../structULang_1_1GenerationContext.html#a09fed38da0c81032d13d3c19f046baaa',1,'ULang::GenerationContext']]],

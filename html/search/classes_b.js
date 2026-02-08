@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vmreg_5fdefine_0',['VMReg_define',['../structULang_1_1VMReg__define.html',1,'ULang']]]
+  ['token_0',['Token',['../structULang_1_1Token.html',1,'ULang']]]
 ];

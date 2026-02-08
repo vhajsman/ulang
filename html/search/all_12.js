@@ -4,7 +4,7 @@ var searchData=
   ['semicolon_1',['Semicolon',['../namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea9806fa37a3ecd39bf637c203aa011ed0',1,'ULang']]],
   ['severity_2',['Severity',['../classULang_1_1CompilerSyntaxException.html#a25991f489556dc9e6a9f448d6b08ce0e',1,'ULang::CompilerSyntaxException']]],
   ['sign_3',['SIGN',['../namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93ea0d1d305c4b163933b4ed4e24706f9357',1,'ULang']]],
-  ['size_4',['size',['../structULang_1_1DataType.html#af08f3bb61278b0b293b6e1b2b43676c4',1,'ULang::DataType::size'],['../structULang_1_1MetaType.html#a26853729f717acf898ddbf9f046790b0',1,'ULang::MetaType::size']]],
+  ['size_4',['size',['../structULang_1_1MetaType.html#a26853729f717acf898ddbf9f046790b0',1,'ULang::MetaType::size'],['../structULang_1_1DataType.html#af08f3bb61278b0b293b6e1b2b43676c4',1,'ULang::DataType::size'],['../structULang_1_1HeapBlockHdr.html#a343a54d8c77cb45c126fbf83dc7ede4d',1,'ULang::HeapBlockHdr::size']]],
   ['sourcefile_5',['sourceFile',['../structULang_1_1CompilerParameters.html#ac45091e1560d4a973b45fad9b80697f8',1,'ULang::CompilerParameters']]],
   ['sourcelocation_6',['SourceLocation',['../structULang_1_1SourceLocation.html',1,'ULang']]],
   ['st_7',['ST',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a326062a58c51a73bc246d4b182738244',1,'ULang']]],
@@ -23,7 +23,7 @@ var searchData=
   ['symbol_5fcount_20',['symbol_count',['../structULang_1_1BytecodeMetaHeader.html#ac94bf11ef5816ea96239696364db9682',1,'ULang::BytecodeMetaHeader']]],
   ['symbol_5ftable_2ecpp_21',['symbol_table.cpp',['../symbol__table_8cpp.html',1,'']]],
   ['symbolid_22',['symbolId',['../structULang_1_1Symbol.html#ab76e3937e3050aa19bc60a397fcb72fa',1,'ULang::Symbol']]],
-  ['symbols_23',['symbols',['../structULang_1_1Scope.html#a1a04fe24c11233f4a51eecff57b1bd00',1,'ULang::Scope::symbols'],['../structULang_1_1MetaData.html#aabb14e48934f78dc95801c00807d2993',1,'ULang::MetaData::symbols']]],
+  ['symbols_23',['symbols',['../structULang_1_1MetaData.html#aabb14e48934f78dc95801c00807d2993',1,'ULang::MetaData::symbols'],['../structULang_1_1Scope.html#a1a04fe24c11233f4a51eecff57b1bd00',1,'ULang::Scope::symbols']]],
   ['symboltable_24',['symboltable',['../classULang_1_1SymbolTable.html#a5e0f6b4d42c11a80a94bf94e12174876',1,'ULang::SymbolTable::SymbolTable()'],['../classULang_1_1SymbolTable.html',1,'ULang::SymbolTable']]],
   ['symtab_25',['symtab',['../structULang_1_1GenerationContext.html#aa9c1f2143ca11ffa184404fe39977cfc',1,'ULang::GenerationContext']]]
 ];

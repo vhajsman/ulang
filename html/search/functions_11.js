@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7escope_0',['~Scope',['../structULang_1_1Scope.html#a93082b1db76417f624d9594ba12b2f5c',1,'ULang::Scope']]],
-  ['_7esymboltable_1',['~SymbolTable',['../classULang_1_1SymbolTable.html#a38df14511619721353c2d559a3877d02',1,'ULang::SymbolTable']]]
+  ['what_0',['what',['../classULang_1_1CompilerSyntaxException.html#a6bac429bee65121a473bad6af7b5edbd',1,'ULang::CompilerSyntaxException']]],
+  ['writebytecode_1',['writeBytecode',['../namespaceULang.html#a223393890930647184159ba3ee750798',1,'ULang']]],
+  ['writeoperand_2',['writeOperand',['../namespaceULang.html#a99022201251a62d3fe9993aa8d968f30',1,'ULang']]]
 ];

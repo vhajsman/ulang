@@ -1,8 +1,8 @@
 var searchData=
 [
   ['magic_0',['magic',['../structULang_1_1BytecodeHeader.html#aff9192c3ddf92c876b6e8f4838c7da95',1,'ULang::BytecodeHeader']]],
-  ['main_1',['main',['../compiler_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../bcdisasm_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../bcdump_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp']]],
-  ['main_2ecpp_2',['main.cpp',['../bcdisasm_2main_8cpp.html',1,'(Global Namespace)'],['../bcdump_2main_8cpp.html',1,'(Global Namespace)'],['../compiler_2main_8cpp.html',1,'(Global Namespace)']]],
+  ['main_1',['main',['../vm_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../bcdisasm_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../bcdump_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../compiler_2main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp']]],
+  ['main_2ecpp_2',['main.cpp',['../bcdisasm_2main_8cpp.html',1,'(Global Namespace)'],['../bcdump_2main_8cpp.html',1,'(Global Namespace)'],['../compiler_2main_8cpp.html',1,'(Global Namespace)'],['../vm_2main_8cpp.html',1,'(Global Namespace)']]],
   ['meta_5foffset_3',['meta_offset',['../structULang_1_1BytecodeHeader.html#ab7ac7169a77178290884ff7048f1eb7c',1,'ULang::BytecodeHeader']]],
   ['meta_5fsize_4',['meta_size',['../structULang_1_1BytecodeHeader.html#ac132e0ac6a3e6d3062f4d484b5dc0d45',1,'ULang::BytecodeHeader']]],
   ['metadata_5',['MetaData',['../structULang_1_1MetaData.html',1,'ULang']]],
