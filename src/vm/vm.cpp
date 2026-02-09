@@ -277,6 +277,18 @@ namespace ULang {
                 writeOpCast(dst, val);
                 break;
             }
+
+            case Opcode::LD: {
+                //
+                // [VAL] = [REF]
+                //
+
+                const Operand& dst = instr.operands[0];
+                const Operand& src = instr.operands[1];
+
+                writeOpCast(dst, readOpCast(src));
+                break;
+            }
         }
     }
 };
