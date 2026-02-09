@@ -22,7 +22,7 @@ std::string fmtOperand(const Operand& operand) {
 
     switch (operand.type) {
         case OperandType::OP_NULL:
-            return "";
+            return "null";
 
         case OperandType::OP_IMMEDIATE:
         case OperandType::OP_CONSTANT: {
@@ -36,7 +36,7 @@ std::string fmtOperand(const Operand& operand) {
         }
 
         case OperandType::OP_REGISTER:
-            return "R" + std::to_string(operand.data); // TODO
+            return "r" + std::to_string(operand.data) + ":" + vmreg_defines[operand.data].reg_name;
     }
 
     return "???";
@@ -79,26 +79,35 @@ namespace ULang {
     }
 
     uint64_t VirtualMachine::readOpCast(const Operand& op) {
+        uint64_t res = 0;
         switch(op.type) { // TODO: constants
             case OperandType::OP_CONSTANT:
-            case OperandType::OP_IMMEDIATE: return op.data;
-            case OperandType::OP_REGISTER:  return this->regs[op.data];
-            case OperandType::OP_REFERENCE: return *(uint64_t*) this->castHeapReference(op.data);
-            case OperandType::OP_NULL:      return 0;
+            case OperandType::OP_IMMEDIATE: res = static_cast<uint32_t>(op.data); break;
+            case OperandType::OP_REGISTER:  res = this->regs[op.data]; break;
+            case OperandType::OP_REFERENCE: res = *(uint64_t*) this->castHeapReference(op.data); break;
+            case OperandType::OP_NULL:      res = 0; break;
             default:
                 throw std::runtime_error("Invalid operand");
         }
+
+        if(this->vmparams.verbose_en) {
+            std::cout << "\033[35m\t--> ";
+            std::cout << "read: " << fmtOperand(op) << " -> " << static_cast<uint32_t>(res);
+            std::cout << "\033[0m" << std::endl;
+        }
+
+        return res;
     }
 
     void VirtualMachine::writeOpCast(const Operand& op, uint64_t val) {
         switch (op.type) {
             case OperandType::OP_REGISTER:
                 this->regs[op.data] = val;
-                return;
+                break;
 
             case OperandType::OP_REFERENCE:
                 *(uint64_t*) this->castHeapReference(op.data) = val;
-                return;
+                break;
 
             case OperandType::OP_IMMEDIATE:
             case OperandType::OP_CONSTANT:
@@ -107,6 +116,12 @@ namespace ULang {
 
             default:
                 throw std::runtime_error("Invalid operand");
+        }
+
+        if(this->vmparams.verbose_en) {
+            std::cout << "\033[35m\t--> ";
+            std::cout << "write: " << fmtOperand(op) << " <- " << static_cast<uint32_t>(val);
+            std::cout << "\033[0m" << std::endl;
         }
     }
 
@@ -233,13 +248,33 @@ namespace ULang {
 
             case Opcode::MOV: {
                 //
-                // [DST] = [SRC]
+                // r:[DST] = [SRC]
                 //
 
                 const Operand& dst = instr.operands[0];
                 const Operand& src = instr.operands[1];
 
-                writeOpCast(dst, readOpCast(src));
+                if(dst.type != OperandType::OP_REGISTER)
+                    throw std::runtime_error("Excepted register reference");
+
+                uint64_t val = this->readOpCast(src);
+                this->regs[dst.data] = val;
+                break;
+            }
+
+            case Opcode::ST: {
+                //
+                // [REF] = [VAL]
+                //
+
+                const Operand& dst = instr.operands[0];
+                const Operand& src = instr.operands[1];
+
+                if(dst.type != OperandType::OP_REFERENCE)
+                    throw std::runtime_error("Excepted heap reference");
+
+                uint64_t val = readOpCast(src);
+                writeOpCast(dst, val);
                 break;
             }
         }

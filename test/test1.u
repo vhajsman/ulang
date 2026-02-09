@@ -7,4 +7,3 @@ int32 res_sub = a - b - c;
 int32 res_mul = a * b * c;
 int32 res_div = a / b / c;
 
-int32 div_zero = a / 0;
