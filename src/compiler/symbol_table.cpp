@@ -58,6 +58,15 @@ namespace ULang {
         return sym;
     }
 
+    Symbol* SymbolTable::decl_fn(const std::string& name, const DataType* type, SourceLocation* loc, size_t align_head, size_t align_tail) {
+        Symbol* sym = this->scope_current->decl_fn(name, type, loc, align_head, align_tail);
+        sym->symbolId = this->nextSymbolId++;
+
+        //std::cout << "decl: " << type->name << " " << name << " in scope '" << this->scope_current->_name << "' @ vstack: " << sym->stackOffset << std::endl;
+
+        return sym;
+    }
+
     const Symbol* SymbolTable::lookup(const std::string& name) const {
         return this->scope_current->lookup(name);
     }
