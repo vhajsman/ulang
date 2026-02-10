@@ -100,7 +100,7 @@ Include dependency graph for compiler.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__dep__incl.svg" width="2030" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__dep__incl.svg" width="2248" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="compiler_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -156,6 +156,11 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaae463bca4b554156e78cf2e8447c0a53e">ULang::DECLARATION</a>
 , <br />
 &#160;&#160;<a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa791ff9f35e0ac7dbbf3a564c6ef98c83">ULang::ASSIGNMENT</a>
+, <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa3bb0a50d89b2a51a9d782ea196d4b8c4">ULang::FN_DEF</a>
+, <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa84de88e5af6489ac8106ec64113e3177">ULang::FN_CALL</a>
+, <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa15926e10701e46a800d3727bec786fc6">ULang::FN_ARG</a>
+, <br />
+&#160;&#160;<a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaab6df2a9fdd5dc33454a7915dd68789c0">ULang::FN_RET</a>
 <br />
  }</td></tr>
 <tr class="separator:a5180906b993ff6f08366e27a9f1d3aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,24 +171,39 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:a7af8a040ae5502513d31482bc5646f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c4e3d276fdc66f3f1b17e41292d7d0e" id="r_a2c4e3d276fdc66f3f1b17e41292d7d0e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">ULang::TokenType</a> { <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0eab785d149fb8a5d4053303ff33131b2f3">ULang::TypeKeyword</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea876a9d4efdf66785e41cb452f0402c79">ULang::LParen</a>
+, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ead011e3feb19babda65e8951ff7189c0c">ULang::RParen</a>
+, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea133dfb2600877155424232cab0d596c6">ULang::LCurly</a>
+, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea55aaf2bb0bbe3a099dd750cee9544c24">ULang::RCurly</a>
+, <br />
+&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea58be47db9455679e6a44df2eff9c9fa6">ULang::Comma</a>
+, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0eab785d149fb8a5d4053303ff33131b2f3">ULang::TypeKeyword</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea29ee5d1ebcc033234938a5234f1f2075">ULang::Identifier</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0eab2ee912b91d69b435159c7c3f6df7f5f">ULang::Number</a>
-, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea32ba78fe43257d3e7f88e3935a8ea0d4">ULang::Plus</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea453fb623e752c5993f65bc410fd74fe5">ULang::Minus</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea32ba78fe43257d3e7f88e3935a8ea0d4">ULang::Plus</a>
+, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea453fb623e752c5993f65bc410fd74fe5">ULang::Minus</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea62b6d55816cf737bfc6f42e60df1a3f2">ULang::Mul</a>
 , <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea43d11850893d2fe84a1e618121c1cc0a">ULang::Div</a>
-, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea185b7133db22230701a857c059360cc2">ULang::Assign</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea9806fa37a3ecd39bf637c203aa011ed0">ULang::Semicolon</a>
-, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea9556e151da49cd4bcf0352857cb33509">ULang::EndOfFile</a>
+&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea185b7133db22230701a857c059360cc2">ULang::Assign</a>
+, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea9806fa37a3ecd39bf637c203aa011ed0">ULang::Semicolon</a>
+, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea86408593c34af77fdd90df932f8b5261">ULang::Function</a>
+, <a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea988fd738de9c6d177440c5dcf69e73ce">ULang::Return</a>
+, <br />
+&#160;&#160;<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea9556e151da49cd4bcf0352857cb33509">ULang::EndOfFile</a>
 <br />
  }</td></tr>
 <tr class="separator:a2c4e3d276fdc66f3f1b17e41292d7d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b8156f24cfbe1880434a8ba89cbd07b" id="r_a6b8156f24cfbe1880434a8ba89cbd07b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a6b8156f24cfbe1880434a8ba89cbd07b">ULang::SymbolKind</a> { <a class="el" href="namespaceULang.html#a6b8156f24cfbe1880434a8ba89cbd07bae61ad9b2553a293b4a3f4d3b4fa5ab31">ULang::VARIABLE</a>
+, <a class="el" href="namespaceULang.html#a6b8156f24cfbe1880434a8ba89cbd07ba6a72a6a776662a244f82d31e9274a07b">ULang::FUNCTION</a>
+ }</td></tr>
+<tr class="separator:a6b8156f24cfbe1880434a8ba89cbd07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac4b583ec318b2b7135eef7f0b66075d4" id="r_ac4b583ec318b2b7135eef7f0b66075d4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ac4b583ec318b2b7135eef7f0b66075d4">ULang::toktype2str</a> (<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a> tt)</td></tr>
+<tr class="separator:ac4b583ec318b2b7135eef7f0b66075d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8674adb59a39623d1f715c18a8cede91" id="r_a8674adb59a39623d1f715c18a8cede91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8674adb59a39623d1f715c18a8cede91">ULang::buildBytecodeHeader</a> (uint32_t code_size, uint32_t meta_size, uint8_t word_size)</td></tr>
 <tr class="separator:a8674adb59a39623d1f715c18a8cede91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0b1129fa6b35790dbd18cbf3add8eb8" id="r_ae0b1129fa6b35790dbd18cbf3add8eb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1MetaData.html">MetaData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ae0b1129fa6b35790dbd18cbf3add8eb8">ULang::buildMeta</a> (<a class="el" href="classULang_1_1SymbolTable.html">SymbolTable</a> &amp;symtable, const std::vector&lt; const <a class="el" href="structULang_1_1DataType.html">DataType</a> * &gt; &amp;types, bool verbose_en)</td></tr>

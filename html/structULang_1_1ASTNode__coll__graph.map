@@ -1,10 +1,11 @@
 <map id="ULang::ASTNode" name="ULang::ASTNode">
-<area shape="rect" id="Node000001" title="AST nodes." alt="" coords="94,191,225,216"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="239,193,248,197,251,204,243,212,225,216,224,210,241,207,246,203,244,201,237,198"/>
-<area shape="rect" id="Node000002" href="$structULang_1_1Symbol.html" title=" " alt="" coords="99,93,219,119"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="162,132,162,190,157,190,157,132"/>
+<area shape="rect" id="Node000001" title="AST nodes." alt="" coords="53,191,183,216"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="198,193,206,197,210,204,202,212,184,216,183,210,199,207,205,203,203,201,196,198"/>
+<area shape="rect" id="Node000002" href="$structULang_1_1Symbol.html" title=" " alt="" coords="154,93,274,119"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="194,130,132,192,128,188,191,127"/>
 <area shape="rect" id="Node000003" href="$structULang_1_1DataType.html" title=" " alt="" coords="5,5,137,31"/>
-<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="95,38,149,91,145,95,91,42"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="75,44,79,80,86,118,100,158,114,189,110,192,95,160,81,119,73,80,70,45"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="103,35,196,91,193,95,101,40"/>
 <area shape="rect" id="Node000004" href="$structULang_1_1SourceLocation.html" title=" " alt="" coords="162,5,333,31"/>
-<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="228,42,173,95,170,91,224,38"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="240,45,221,94,216,92,235,43"/>
 </map>

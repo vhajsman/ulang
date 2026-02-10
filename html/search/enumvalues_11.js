@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['variable_0',['VARIABLE',['../namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaae61ad9b2553a293b4a3f4d3b4fa5ab31',1,'ULang']]]
+  ['user_0',['USER',['../namespaceULang.html#a3b1ef0eb5df6a19ab790cf4c467cb93ea3482aa85bd4eb9a8bc578ae64426402a',1,'ULang']]]
 ];

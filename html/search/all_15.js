@@ -4,7 +4,7 @@ var searchData=
   ['validateheader_1',['validateHeader',['../namespaceULang.html#ad491776cf7acfb29eec3e69cec0d6bd8',1,'ULang']]],
   ['validatemetasection_2',['validateMetaSection',['../namespaceULang.html#ab25471e948040c9980d26601b7052485',1,'ULang']]],
   ['value_3',['value',['../classULang_1_1StatUCounterMeter.html#a100f38bf9006ad1bb5a1c1800ae25ffe',1,'ULang::StatUCounterMeter']]],
-  ['variable_4',['VARIABLE',['../namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaae61ad9b2553a293b4a3f4d3b4fa5ab31',1,'ULang']]],
+  ['variable_4',['variable',['../namespaceULang.html#a6b8156f24cfbe1880434a8ba89cbd07bae61ad9b2553a293b4a3f4d3b4fa5ab31',1,'ULang::VARIABLE'],['../namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaae61ad9b2553a293b4a3f4d3b4fa5ab31',1,'ULang::VARIABLE']]],
   ['verbose_5',['verbose',['../structULang_1_1CompilerParameters.html#a2e02b499bb3f396bcaaccf8c0da4e105',1,'ULang::CompilerParameters']]],
   ['verbose_5fcout_6',['verbose_cout',['../compiler_2bytecode_8cpp.html#a2add299105a2fec9edfe1ecd7229d0bb',1,'bytecode.cpp']]],
   ['verbose_5fen_7',['verbose_en',['../structULang_1_1VMParams.html#aa06cb3e1b488926403903da067c55af6',1,'ULang::VMParams']]],
@@ -19,5 +19,6 @@ var searchData=
   ['vmreg_5fdefines_16',['vmreg_defines',['../namespaceULang.html#a95b672dfcbef736ceb453a40559a9031',1,'ULang']]],
   ['vmreg_5fdefines_2ehpp_17',['vmreg_defines.hpp',['../vmreg__defines_8hpp.html',1,'']]],
   ['vmstat_2ecpp_18',['vmstat.cpp',['../vmstat_8cpp.html',1,'']]],
-  ['vmstat_2ehpp_19',['vmstat.hpp',['../vmstat_8hpp.html',1,'']]]
+  ['vmstat_2ehpp_19',['vmstat.hpp',['../vmstat_8hpp.html',1,'']]],
+  ['void_20',['Void',['../namespaceULang.html#a01ae46674e052182c20952000e3061fba81ceb48a978444906d80119200aa358d',1,'ULang']]]
 ];

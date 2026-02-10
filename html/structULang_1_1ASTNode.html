@@ -126,6 +126,14 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:adcbad15ada8de6370ca4a555f2282a92" id="r_adcbad15ada8de6370ca4a555f2282a92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#adcbad15ada8de6370ca4a555f2282a92">symbol</a> = nullptr</td></tr>
 <tr class="memdesc:adcbad15ada8de6370ca4a555f2282a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">symbol  <br /></td></tr>
 <tr class="separator:adcbad15ada8de6370ca4a555f2282a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73a2c86f5a908c50843c9ebc303f78f0" id="r_a73a2c86f5a908c50843c9ebc303f78f0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#a73a2c86f5a908c50843c9ebc303f78f0">body</a></td></tr>
+<tr class="memdesc:a73a2c86f5a908c50843c9ebc303f78f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">function body (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa3bb0a50d89b2a51a9d782ea196d4b8c4" title="function definition">ASTNodeType::FN_DEF</a>)  <br /></td></tr>
+<tr class="separator:a73a2c86f5a908c50843c9ebc303f78f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5341ac85281bf5808d00fa138604c0b" id="r_af5341ac85281bf5808d00fa138604c0b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structULang_1_1ASTNode.html">ASTNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#af5341ac85281bf5808d00fa138604c0b">args</a></td></tr>
+<tr class="memdesc:af5341ac85281bf5808d00fa138604c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">function args (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa84de88e5af6489ac8106ec64113e3177" title="function call">ASTNodeType::FN_CALL</a>)  <br /></td></tr>
+<tr class="separator:af5341ac85281bf5808d00fa138604c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96bc41eb2d719d2056c13f81ba83090c" id="r_a96bc41eb2d719d2056c13f81ba83090c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">DataType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structULang_1_1ASTNode.html#a96bc41eb2d719d2056c13f81ba83090c">ret_type</a> = nullptr</td></tr>
+<tr class="separator:a96bc41eb2d719d2056c13f81ba83090c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>AST nodes. </p>
@@ -185,6 +193,38 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af5341ac85281bf5808d00fa138604c0b" name="af5341ac85281bf5808d00fa138604c0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5341ac85281bf5808d00fa138604c0b">&#9670;&#160;</a></span>args</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structULang_1_1ASTNode.html">ASTNode</a>*&gt; ULang::ASTNode::args</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function args (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa84de88e5af6489ac8106ec64113e3177" title="function call">ASTNodeType::FN_CALL</a>) </p>
+
+</div>
+</div>
+<a id="a73a2c86f5a908c50843c9ebc303f78f0" name="a73a2c86f5a908c50843c9ebc303f78f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73a2c86f5a908c50843c9ebc303f78f0">&#9670;&#160;</a></span>body</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structULang_1_1ASTNode.html">ASTNode</a>*&gt; ULang::ASTNode::body</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function body (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa3bb0a50d89b2a51a9d782ea196d4b8c4" title="function definition">ASTNodeType::FN_DEF</a>) </p>
+
+</div>
+</div>
 <a id="a46aff4544c32e2416f71acc0f7424787" name="a46aff4544c32e2416f71acc0f7424787"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46aff4544c32e2416f71acc0f7424787">&#9670;&#160;</a></span>initial</h2>
 
@@ -246,6 +286,20 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>operator (if <a class="el" href="namespaceULang.html#a5180906b993ff6f08366e27a9f1d3aeaa6233c9c9f32348e5b61b09596861ede0" title="binary operator">ASTNodeType::BINOP</a>) </p>
+
+</div>
+</div>
+<a id="a96bc41eb2d719d2056c13f81ba83090c" name="a96bc41eb2d719d2056c13f81ba83090c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96bc41eb2d719d2056c13f81ba83090c">&#9670;&#160;</a></span>ret_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structULang_1_1DataType.html">DataType</a>* ULang::ASTNode::ret_type = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

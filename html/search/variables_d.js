@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['reg_5fname_0',['reg_name',['../structULang_1_1VMReg__define.html#a7e0bab519dc58aedaf73c14f61da7faf',1,'ULang::VMReg_define']]],
-  ['reg_5fno_1',['reg_no',['../structULang_1_1VMReg__define.html#a82daecf2e91358bc50996a144b6a27fb',1,'ULang::VMReg_define']]],
-  ['reserved_2',['reserved',['../structULang_1_1BytecodeHeader.html#a4165bdd7b859e12eb919c591581880e1',1,'ULang::BytecodeHeader']]],
-  ['righthand_3',['righthand',['../structULang_1_1ASTNode.html#ab576acd8cd965067618d98027ccea5b5',1,'ULang::ASTNode']]]
+  ['oexplicitzero_0',['OExplicitZero',['../structULang_1_1CompilerParameters.html#a5259568099bf67c45354fb47a187ac5c',1,'ULang::CompilerParameters']]],
+  ['offset_1',['offset',['../structULang_1_1Instruction.html#a14f44fea29c9d677fe67bdad040f7ebb',1,'ULang::Instruction']]],
+  ['op_2',['op',['../structULang_1_1ASTNode.html#af3ede38362300452243927bd0b6dae4f',1,'ULang::ASTNode']]],
+  ['opcode_3',['opcode',['../structULang_1_1Instruction.html#a5ea49ebee51d872548a67364a1d9a8fe',1,'ULang::Instruction']]],
+  ['operand_5fcount_4',['operand_count',['../bcdisasm_2main_8cpp.html#afeca5082f0936fafcb2847c86248a4e7',1,'main.cpp']]],
+  ['operands_5',['operands',['../structULang_1_1Instruction.html#a44a925f140edb77f2c4cc3bc7cda30c4',1,'ULang::Instruction']]],
+  ['outfile_6',['outFile',['../structULang_1_1CompilerParameters.html#a553a025e728480f61e5d94a0af8935b3',1,'ULang::CompilerParameters']]]
 ];

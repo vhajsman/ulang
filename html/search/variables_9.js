@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['magic_0',['magic',['../structULang_1_1BytecodeHeader.html#aff9192c3ddf92c876b6e8f4838c7da95',1,'ULang::BytecodeHeader']]],
-  ['meta_5foffset_1',['meta_offset',['../structULang_1_1BytecodeHeader.html#ab7ac7169a77178290884ff7048f1eb7c',1,'ULang::BytecodeHeader']]],
-  ['meta_5fsize_2',['meta_size',['../structULang_1_1BytecodeHeader.html#ac132e0ac6a3e6d3062f4d484b5dc0d45',1,'ULang::BytecodeHeader']]]
+  ['kind_0',['kind',['../structULang_1_1DataType.html#a589c4f03f4d84159d6c3642e3ce8f7c9',1,'ULang::DataType::kind'],['../structULang_1_1Symbol.html#a4768cff8ce0f0df25d39c8a65ecb1cc1',1,'ULang::Symbol::kind']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ld_0',['LD',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a8dcc0a0222cd401c1bf999cc6133fee6',1,'ULang']]]
+  ['jmp_0',['JMP',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a14de7e8f3e7bbabdeefa0b903aa3d1af',1,'ULang']]],
+  ['jz_1',['JZ',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a1030c24aabd1d9b37cf1bba04a548fa2',1,'ULang']]]
 ];

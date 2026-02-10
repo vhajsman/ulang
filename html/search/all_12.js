@@ -20,7 +20,7 @@ var searchData=
   ['stop_17',['stop',['../classULang_1_1StatTimeMeter.html#a1c5537b378295675f8e8b092ef754c54',1,'ULang::StatTimeMeter']]],
   ['string_5fpool_18',['string_pool',['../structULang_1_1MetaData.html#ada753dd0b96d285f6daa4918c51a07f2',1,'ULang::MetaData']]],
   ['string_5fpool_5fsize_19',['string_pool_size',['../structULang_1_1BytecodeMetaHeader.html#abcd2017c79f7af6d812c1d1d34c6721d',1,'ULang::BytecodeMetaHeader']]],
-  ['sub_20',['sub',['../classULang_1_1StatUCounterMeter.html#ab4f6d4b3400eef9ece3e2f97777fc2cd',1,'ULang::StatUCounterMeter::sub()'],['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a6c5a51aa840009eea359216cca563f30',1,'ULang::SUB']]],
+  ['sub_20',['sub',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a6c5a51aa840009eea359216cca563f30',1,'ULang::SUB'],['../classULang_1_1StatUCounterMeter.html#ab4f6d4b3400eef9ece3e2f97777fc2cd',1,'ULang::StatUCounterMeter::sub()']]],
   ['substraction_21',['SUBSTRACTION',['../namespaceULang.html#a7af8a040ae5502513d31482bc5646f6eaccc7402f87e0f95285ced35a684df46a',1,'ULang']]],
   ['sym_5fconst_22',['SYM_CONST',['../namespaceULang.html#a629d3b25493b735fb958c1897e97ff8ca1378495b209b502c40337bde4e0d70c1',1,'ULang']]],
   ['sym_5fglobal_23',['SYM_GLOBAL',['../namespaceULang.html#a629d3b25493b735fb958c1897e97ff8ca17e6fa5ed5923ec631b1f0055009b4ed',1,'ULang']]],
@@ -30,7 +30,8 @@ var searchData=
   ['symbol_5fcount_27',['symbol_count',['../structULang_1_1BytecodeMetaHeader.html#ac94bf11ef5816ea96239696364db9682',1,'ULang::BytecodeMetaHeader']]],
   ['symbol_5ftable_2ecpp_28',['symbol_table.cpp',['../symbol__table_8cpp.html',1,'']]],
   ['symbolid_29',['symbolId',['../structULang_1_1Symbol.html#ab76e3937e3050aa19bc60a397fcb72fa',1,'ULang::Symbol']]],
-  ['symbols_30',['symbols',['../structULang_1_1Scope.html#a1a04fe24c11233f4a51eecff57b1bd00',1,'ULang::Scope::symbols'],['../structULang_1_1MetaData.html#aabb14e48934f78dc95801c00807d2993',1,'ULang::MetaData::symbols']]],
-  ['symboltable_31',['symboltable',['../classULang_1_1SymbolTable.html#a5e0f6b4d42c11a80a94bf94e12174876',1,'ULang::SymbolTable::SymbolTable()'],['../classULang_1_1SymbolTable.html',1,'ULang::SymbolTable']]],
-  ['symtab_32',['symtab',['../structULang_1_1GenerationContext.html#aa9c1f2143ca11ffa184404fe39977cfc',1,'ULang::GenerationContext']]]
+  ['symbolkind_30',['SymbolKind',['../namespaceULang.html#a6b8156f24cfbe1880434a8ba89cbd07b',1,'ULang']]],
+  ['symbols_31',['symbols',['../structULang_1_1Scope.html#a1a04fe24c11233f4a51eecff57b1bd00',1,'ULang::Scope::symbols'],['../structULang_1_1MetaData.html#aabb14e48934f78dc95801c00807d2993',1,'ULang::MetaData::symbols']]],
+  ['symboltable_32',['symboltable',['../classULang_1_1SymbolTable.html#a5e0f6b4d42c11a80a94bf94e12174876',1,'ULang::SymbolTable::SymbolTable()'],['../classULang_1_1SymbolTable.html',1,'ULang::SymbolTable']]],
+  ['symtab_33',['symtab',['../structULang_1_1GenerationContext.html#aa9c1f2143ca11ffa184404fe39977cfc',1,'ULang::GenerationContext']]]
 ];

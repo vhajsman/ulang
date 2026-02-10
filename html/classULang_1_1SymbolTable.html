@@ -95,6 +95,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a97ea7bc61ceb17207ac67415f6982803" id="r_a97ea7bc61ceb17207ac67415f6982803"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html#a97ea7bc61ceb17207ac67415f6982803">decl</a> (const std::string &amp;name, const <a class="el" href="structULang_1_1DataType.html">DataType</a> *type, <a class="el" href="structULang_1_1SourceLocation.html">SourceLocation</a> *loc=nullptr, size_t align_head=0, size_t align_tail=0)</td></tr>
 <tr class="memdesc:a97ea7bc61ceb17207ac67415f6982803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a symbol in current scope.  <br /></td></tr>
 <tr class="separator:a97ea7bc61ceb17207ac67415f6982803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f137f4772f459991b6aebf60cd0b897" id="r_a6f137f4772f459991b6aebf60cd0b897"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html#a6f137f4772f459991b6aebf60cd0b897">decl_fn</a> (const std::string &amp;name, const <a class="el" href="structULang_1_1DataType.html">DataType</a> *ret_type, <a class="el" href="structULang_1_1SourceLocation.html">SourceLocation</a> *where=nullptr, size_t align_head=0, size_t align_tail=0)</td></tr>
+<tr class="memdesc:a6f137f4772f459991b6aebf60cd0b897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a function symbol in current scope.  <br /></td></tr>
+<tr class="separator:a6f137f4772f459991b6aebf60cd0b897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19fb5b1b47d3e13844e01860062a1241" id="r_a19fb5b1b47d3e13844e01860062a1241"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html#a19fb5b1b47d3e13844e01860062a1241">lookup</a> (const std::string &amp;name) const</td></tr>
 <tr class="separator:a19fb5b1b47d3e13844e01860062a1241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a31dd1e97f816cdbf0f6930577eac9e" id="r_a7a31dd1e97f816cdbf0f6930577eac9e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1Symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1SymbolTable.html#a7a31dd1e97f816cdbf0f6930577eac9e">lookup</a> (unsigned int symbolId) const</td></tr>
@@ -206,6 +209,76 @@ Public Member Functions</h2></td></tr>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classULang_1_1SymbolTable_a97ea7bc61ceb17207ac67415f6982803_cgraph.svg" width="359" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6f137f4772f459991b6aebf60cd0b897" name="a6f137f4772f459991b6aebf60cd0b897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f137f4772f459991b6aebf60cd0b897">&#9670;&#160;</a></span>decl_fn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structULang_1_1Symbol.html">Symbol</a> * ULang::SymbolTable::decl_fn </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structULang_1_1DataType.html">DataType</a> *&#160;</td>
+          <td class="paramname"><em>ret_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structULang_1_1SourceLocation.html">SourceLocation</a> *&#160;</td>
+          <td class="paramname"><em>where</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>align_head</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>align_tail</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Declares a function symbol in current scope. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>symbol name </td></tr>
+    <tr><td class="paramname">type</td><td>data type </td></tr>
+    <tr><td class="paramname">where</td><td>position in source code (default: nullptr) </td></tr>
+    <tr><td class="paramname">align_head</td><td>alignment before (default: 0) </td></tr>
+    <tr><td class="paramname">align_tail</td><td>alignment after (default: 0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Symbol* symbol pointer </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classULang_1_1SymbolTable_a6f137f4772f459991b6aebf60cd0b897_cgraph.svg" width="379" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

@@ -7,13 +7,14 @@ var searchData=
   ['checksum_5ftype_4',['checksum_type',['../structULang_1_1BytecodeHeader.html#ac7be207643ece6d383964b379a09f636',1,'ULang::BytecodeHeader']]],
   ['code_5foffset_5',['code_offset',['../structULang_1_1BytecodeHeader.html#a035e5073e5f5bfe1072f1f7117b639bb',1,'ULang::BytecodeHeader']]],
   ['code_5fsize_6',['code_size',['../structULang_1_1BytecodeHeader.html#aec5038b1088da39bf4f72cb14f4b4b13',1,'ULang::BytecodeHeader']]],
-  ['compile_7',['compile',['../classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa',1,'ULang::CompilerInstance']]],
-  ['compile_2ecpp_8',['compile.cpp',['../compile_8cpp.html',1,'']]],
-  ['compiler_2ecpp_9',['compiler.cpp',['../compiler_8cpp.html',1,'']]],
-  ['compiler_2ehpp_10',['compiler.hpp',['../compiler_8hpp.html',1,'']]],
-  ['compilerinstance_11',['compilerinstance',['../classULang_1_1CompilerInstance.html',1,'ULang::CompilerInstance'],['../classULang_1_1CompilerInstance.html#a1e7c4c8659c9ebd21014068382bd8848',1,'ULang::CompilerInstance::CompilerInstance()']]],
-  ['compilerparameters_12',['CompilerParameters',['../structULang_1_1CompilerParameters.html',1,'ULang']]],
-  ['compilersyntaxexception_13',['compilersyntaxexception',['../classULang_1_1CompilerSyntaxException.html#ad001a88a8d16336df262c15f4afe64b5',1,'ULang::CompilerSyntaxException::CompilerSyntaxException()'],['../classULang_1_1CompilerSyntaxException.html',1,'ULang::CompilerSyntaxException']]],
-  ['compilersyntaxexception_2ecpp_14',['CompilerSyntaxException.cpp',['../CompilerSyntaxException_8cpp.html',1,'']]],
-  ['cout_5fverbose_15',['cout_verbose',['../compile_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;compile.cpp'],['../compiler_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;compiler.cpp'],['../instruction_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;instruction.cpp']]]
+  ['comma_7',['Comma',['../namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea58be47db9455679e6a44df2eff9c9fa6',1,'ULang']]],
+  ['compile_8',['compile',['../classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa',1,'ULang::CompilerInstance']]],
+  ['compile_2ecpp_9',['compile.cpp',['../compile_8cpp.html',1,'']]],
+  ['compiler_2ecpp_10',['compiler.cpp',['../compiler_8cpp.html',1,'']]],
+  ['compiler_2ehpp_11',['compiler.hpp',['../compiler_8hpp.html',1,'']]],
+  ['compilerinstance_12',['compilerinstance',['../classULang_1_1CompilerInstance.html',1,'ULang::CompilerInstance'],['../classULang_1_1CompilerInstance.html#a1e7c4c8659c9ebd21014068382bd8848',1,'ULang::CompilerInstance::CompilerInstance()']]],
+  ['compilerparameters_13',['CompilerParameters',['../structULang_1_1CompilerParameters.html',1,'ULang']]],
+  ['compilersyntaxexception_14',['compilersyntaxexception',['../classULang_1_1CompilerSyntaxException.html#ad001a88a8d16336df262c15f4afe64b5',1,'ULang::CompilerSyntaxException::CompilerSyntaxException()'],['../classULang_1_1CompilerSyntaxException.html',1,'ULang::CompilerSyntaxException']]],
+  ['compilersyntaxexception_2ecpp_15',['CompilerSyntaxException.cpp',['../CompilerSyntaxException_8cpp.html',1,'']]],
+  ['cout_5fverbose_16',['cout_verbose',['../compile_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;compile.cpp'],['../compiler_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;compiler.cpp'],['../functions_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;functions.cpp'],['../instruction_8cpp.html#a33e945e49b349b2f85808e2bccbfb06a',1,'cout_verbose:&#160;instruction.cpp']]]
 ];
