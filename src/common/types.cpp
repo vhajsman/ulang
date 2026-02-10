@@ -16,6 +16,7 @@ namespace ULang {
         if(typeName == "uint64") return &TYPE_UINT64;
 
         if(typeName == "char")   return &TYPE_CHAR;
+        if(typeName == "void")   return &TYPE_VOID;
 
         throw std::runtime_error("could not resolve type: " + typeName);
     }

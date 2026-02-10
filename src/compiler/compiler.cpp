@@ -106,7 +106,7 @@ namespace ULang {
         if(this->tokens[this->pos].type != type) {            
             throw CompilerSyntaxException(
                 CompilerSyntaxException::Severity::Error, 
-                "Unexcepted token: '" + this->tokens[this->pos].text + "'",
+                "Unexcepted token: '" + this->tokens[this->pos].text + "', excepted " + toktype2str(type),
                 this->tokens[this->pos].loc,
                 ULANG_SYNT_ERR_UNEXCEPT_TOK
             );
@@ -137,6 +137,15 @@ namespace ULang {
         return false;
     }
 
+    bool CompilerInstance::matchToken(const std::string& token) {
+        if(this->tokens[this->pos].text == token) {
+            this->pos++;
+            return true;
+        }
+
+        return false;
+    }
+
     int CompilerInstance::precedence(TokenType type) {
         switch(type) {
             case TokenType::Mul:
@@ -154,6 +163,28 @@ namespace ULang {
 
     ASTNode* CompilerInstance::parsePrimary() {
         Token& tok = this->tokens[this->pos];
+
+        if(tok.type == TokenType::Return) {
+            this->pos++;
+            ASTNode* expr = nullptr;
+
+            if(this->tokens[this->pos].type != TokenType::Semicolon)
+                expr = this->parseExpression();
+
+            this->expectToken(TokenType::Semicolon);
+
+            ASTNode* node = new ASTNode(ASTNodeType::FN_RET);
+            node->initial = expr;
+            return node;
+        }
+
+        if(tok.type == TokenType::LParen) {
+            this->pos++;
+            ASTNode* expr = this->parseExpression();
+
+            this->expectToken(TokenType::RParen);
+            return expr;
+        }
 
         if(tok.type == TokenType::Number) {
             this->pos++;
@@ -175,9 +206,25 @@ namespace ULang {
 
             ASTNode* node = new ASTNode(tok.text);
             node->symbol = const_cast<Symbol*>(sym);
-            return node;
 
-            //return new ASTNode(tok.text);
+            // Is function call?
+            if(this->matchToken(TokenType::LParen)) {
+                cout_verbose << "Parsing function call: " << tok.text << "(...); ..." << std::endl;
+                std::vector<ASTNode*> args;
+
+                while(!this->matchToken(TokenType::RParen)) {
+                    ASTNode* arg_curr = parseExpression();
+                    args.push_back(arg_curr);
+
+                    if(!this->matchToken(TokenType::Comma))
+                        this->expectToken(TokenType::RParen);
+                }
+
+                node->args = std::move(args);
+                node->type = ASTNodeType::FN_CALL;
+            }
+
+            return node;
         }
 
         SourceLocation loc_fail = {
@@ -242,6 +289,57 @@ namespace ULang {
 
         this->expectToken(TokenType::Semicolon);
         return node;
+    }
+
+    ASTNode* CompilerInstance::parseFnDecl() {
+        this->expectToken(TokenType::Function);
+        const DataType* ret_type = resolveDataType(this->expectToken(TokenType::TypeKeyword).text);
+
+        Token tok_name = this->expectToken(TokenType::Identifier);
+
+        Symbol* sym = this->symbols.decl_fn(tok_name.text, ret_type, &tok_name.loc);
+
+        cout_verbose << " --> Creating ASTNode for function: " << tok_name.text << "(...)" << std::endl;
+        ASTNode* node = new ASTNode(ASTNodeType::FN_DEF);
+        node->name = tok_name.text;
+        node->symbol = sym;
+        
+        // parameters
+        this->expectToken("("); while(!this->matchToken(")")) {
+            const DataType* arg_type = resolveDataType(this->expectToken(TokenType::TypeKeyword).text);
+            Token arg_name = this->expectToken(TokenType::Identifier);
+            Symbol* arg_sym = this->symbols.decl(arg_name.text, arg_type);
+
+            cout_verbose << " --> Creating ASTNode for function parameter: " << tok_name.text << "(...)->" << arg_name.text << std::endl;
+            ASTNode* arg_node = new ASTNode(ASTNodeType::FN_ARG);
+            arg_node->name = arg_name.text;
+            arg_node->symbol = arg_sym;
+            
+            node->args.push_back(arg_node);
+        }
+
+        if(this->matchToken(TokenType::Semicolon)) {
+            this->friendlyException(CompilerSyntaxException(
+                CompilerSyntaxException::Severity::Warning,
+                "Function '" + tok_name.text + "' declaration doesn't define it's body",
+                tok_name.loc,
+                ULANG_SYNT_WARN_FN_NO_BODY
+            ));
+
+            return node;
+        }
+
+        // function body
+        Scope* fn_scope = this->symbols.enter(node->name);
+        this->expectToken(TokenType::LCurly); while(!this->matchToken(TokenType::RCurly)) {
+            ASTNode* stmt = this->parseStatement();
+            node->body.push_back(stmt);
+        }
+
+        this->symbols.leave();
+        return node;
+
+        THROW_AWAY fn_scope;
     }
 
     ASTNode* CompilerInstance::parseExpression(int prec_min) {
@@ -312,13 +410,48 @@ namespace ULang {
             );
             */
 
-            node->symbol = new Symbol{"<binop>", 0, result_type, 0, {}};
+            node->symbol = new Symbol{"<binop>", 0, SymbolKind::VARIABLE, result_type, 0, {}};
             // -----------------------------------------
 
             lefthand = node;
         }
 
         return lefthand;
+    }
+
+    ASTNode* CompilerInstance::parseStatement() {
+        if(this->matchToken(TokenType::Return)) {
+            ASTNode* ret_expr = nullptr;
+
+            if(this->tokens[this->pos].type != TokenType::Semicolon)
+                ret_expr = this->parseExpression();
+
+            this->expectToken(TokenType::Semicolon);
+
+            ASTNode* node = new ASTNode(ASTNodeType::FN_RET);
+            node->initial = ret_expr;
+            return node;
+        }
+
+        //if(this->matchToken(TokenType::TypeKeyword))
+        if(this->tokens[this->pos].type == TokenType::TypeKeyword)
+            return this->parseVarDecl();
+
+        // assignment
+        Token& tok = this->tokens[this->pos];
+        if(tok.type == TokenType::Identifier && this->tokens[this->pos + 1].type == TokenType::Assign) {
+            ASTNode* node = new ASTNode(ASTNodeType::ASSIGNMENT);
+            node->lefthand = new ASTNode(tok.text);
+            this->pos += 2;
+
+            node->righthand = parseExpression();
+            this->expectToken(TokenType::Semicolon);
+            return node;
+        }
+
+        ASTNode* expr = this->parseExpression();
+        this->expectToken(TokenType::Semicolon);
+        return expr;
     }
 
     std::vector<uint8_t> CompilerInstance::serializeProgram(const std::vector<Instruction>& program) {
@@ -333,17 +466,26 @@ namespace ULang {
     }
 
     void CompilerInstance::buildAST() {
+        cout_verbose << "Building AST tree..." << std::endl;
+
         this->ast_owned.clear();
         this->pos = 0;
 
         while(this->tokens[this->pos].type != TokenType::EndOfFile) {
             ASTNode* node_raw = nullptr;
 
-            if(this->tokens[this->pos].type == TokenType::TypeKeyword) {
-                node_raw = this->parseVarDecl();
-            } else {
-                node_raw = this->parseExpression();
-                this->expectToken(TokenType::Semicolon);
+            switch(this->tokens[this->pos].type) {
+                case TokenType::TypeKeyword:
+                    node_raw = this->parseVarDecl();
+                    break;
+                case TokenType::Function:
+                    node_raw = this->parseFnDecl();
+                    break;
+                default: {
+                    node_raw = this->parseExpression();
+                    this->expectToken(TokenType::Semicolon);
+                    break;
+                }
             }
             
             if(!node_raw)
@@ -369,6 +511,7 @@ namespace ULang {
         try {
             this->tokens = this->lexer.tokenize();
             this->buildAST();
+            this->registerFunctions();
         } catch(const CompilerSyntaxException& e) {
             std::cerr << e.fmt(true) << std::endl;
 
@@ -387,11 +530,24 @@ namespace ULang {
         ctx.symtab = &this->symbols;
         ctx.stack_top = 0x00;
 
+        // functions first
+        for(const auto& node: this->ast_owned) {
+            if(node->type != ASTNodeType::FN_DEF)
+                continue;
+
+            ASTNode* nodeg = node.get();
+            cout_verbose<< " --> AST (f) node type: " << static_cast<int>(node->type) << std::endl;
+            cout_verbose<< "   --> node.get() = " << std::hex << &nodeg << std::endl;
+            cout_verbose<< "   --> node.get()->symbol = " << std::hex << nodeg->symbol << std::endl;
+            this->compileNode(nodeg, ctx.instructions);
+        }
+
+        // upstream then
         for(const auto& node: this->ast_owned) {
             ASTNode* nodeg = node.get();
             cout_verbose<< " --> AST node type: " << static_cast<int>(node->type) << std::endl;
             cout_verbose<< "   --> node.get() = " << std::hex << &nodeg << std::endl;
-            cout_verbose<< "   --> node.get()->symbol = " << std::hex << &nodeg->symbol << std::endl;
+            cout_verbose<< "   --> node.get()->symbol = " << std::hex << nodeg->symbol << std::endl;
             this->compileNode(nodeg, ctx.instructions);
         }
 

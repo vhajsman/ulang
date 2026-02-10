@@ -10,7 +10,8 @@
 namespace ULang {
     enum class DataTypeKind {
         Int,
-        Char
+        Char,
+        Void
     };
 
     enum DataTypeFlags {
@@ -43,6 +44,8 @@ namespace ULang {
     inline const DataType TYPE_UINT64 {"uint64", 8, _FLAGS_UINT, DataTypeKind::Int};
 
     inline const DataType TYPE_CHAR {"char", 1, DataTypeFlags::INTEGRAL, DataTypeKind::Char};
+
+    inline const DataType TYPE_VOID {"void", 0, 0, DataTypeKind::Void};
 };
 
 #endif

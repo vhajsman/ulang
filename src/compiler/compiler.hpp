@@ -42,7 +42,11 @@ namespace ULang {
         VARIABLE,       ///< variable reference
         BINOP,          ///< binary operator
         DECLARATION,    ///< declaration (int myVar = ...)
-        ASSIGNMENT      ///< value assignment (myVar = ...)
+        ASSIGNMENT,     ///< value assignment (myVar = ...)
+        FN_DEF,         ///< function definition
+        FN_CALL,        ///< function call
+        FN_ARG,         ///< function argument
+        FN_RET,         ///< function return
     };
 
     enum class BinopType {
@@ -68,6 +72,10 @@ namespace ULang {
 
         Symbol* symbol = nullptr;       ///< symbol
 
+        std::vector<ASTNode*> body;     ///< function body (if ASTNodeType::FN_DEF)
+        std::vector<ASTNode*> args;     ///< function args (if ASTNodeType::FN_CALL)
+        const DataType* ret_type = nullptr;
+
         ASTNode(int64_t val);
         ASTNode(const std::string& varname);
         ASTNode(ASTNodeType t);
@@ -80,6 +88,11 @@ namespace ULang {
     // ==================================================================
 
     enum class TokenType {
+        LParen,
+        RParen,
+        LCurly,
+        RCurly,
+        Comma,
         TypeKeyword,
         Identifier,
         Number,
@@ -89,8 +102,32 @@ namespace ULang {
         Div,
         Assign,
         Semicolon,
+        Function,
+        Return,
         EndOfFile
     };
+
+    inline std::string toktype2str(TokenType tt){
+        switch (tt) {
+            case TokenType::LParen:         return "'('";
+            case TokenType::RParen:         return "')'";
+            case TokenType::LCurly:         return "'{'";
+            case TokenType::RCurly:         return "'}'";
+            case TokenType::Comma:          return "','";
+            case TokenType::TypeKeyword:    return "type keyword";
+            case TokenType::Identifier:     return "identifier";
+            case TokenType::Number:         return "number";
+            case TokenType::Plus:           return "addition";
+            case TokenType::Minus:          return "substraction";
+            case TokenType::Mul:            return "multiplication";
+            case TokenType::Div:            return "division";
+            case TokenType::Assign:         return "assignment";
+            case TokenType::Return:         return "return statement";
+            case TokenType::Semicolon:      return "','";
+            case TokenType::Function:       return "function";
+            case TokenType::EndOfFile:      return "EOF";
+        }
+    }
 
     struct Token {
         TokenType type;
@@ -133,12 +170,21 @@ namespace ULang {
     // ==================================================================
     // ======== SYMBOLS AND SYMBOL TABLE
     // ==================================================================
+
+    enum class SymbolKind {
+        VARIABLE,
+        FUNCTION
+    };
+
     struct Symbol {
         std::string name;
         unsigned int symbolId;
 
+        SymbolKind kind = SymbolKind::VARIABLE;
         const DataType* type;
+
         size_t stackOffset;
+        uint32_t entry_ip; ///< functions only
 
         SourceLocation where;
     };
@@ -166,6 +212,24 @@ namespace ULang {
                         const DataType* type, 
                         SourceLocation* where = nullptr, 
                         size_t align_head = 0, 
+                        size_t align_tail = 0);
+
+        /**
+         * @brief Declares a function symbol in current scope
+         * 
+         * @exception std::runtime_error
+         * 
+         * @param name symbol name
+         * @param type data type
+         * @param where position in source code (default: nullptr)
+         * @param align_head alignment before (default: 0)
+         * @param align_tail alignment after (default: 0)
+         * @return Symbol* symbol pointer
+         */
+        Symbol* decl_fn(const std::string& name,
+                        const DataType* ret_type,
+                        SourceLocation* where = nullptr,
+                        size_t align_head = 0,
                         size_t align_tail = 0);
         
         const Symbol* lookup(const std::string& name) const;
@@ -205,6 +269,24 @@ namespace ULang {
                         const DataType* type, 
                         SourceLocation* loc = nullptr, 
                         size_t align_head = 0, 
+                        size_t align_tail = 0);
+
+        /**
+         * @brief Declares a function symbol in current scope
+         * 
+         * @exception std::runtime_error
+         * 
+         * @param name symbol name
+         * @param type data type
+         * @param where position in source code (default: nullptr)
+         * @param align_head alignment before (default: 0)
+         * @param align_tail alignment after (default: 0)
+         * @return Symbol* symbol pointer
+         */
+        Symbol* decl_fn(const std::string& name,
+                        const DataType* ret_type,
+                        SourceLocation* where = nullptr,
+                        size_t align_head = 0,
                         size_t align_tail = 0);
         
         const Symbol* lookup(const std::string& name) const;
@@ -327,6 +409,7 @@ namespace ULang {
         const Token& expectToken(const std::string& token);
 
         bool matchToken(TokenType type);
+        bool matchToken(const std::string& token);
 
         int precedence(TokenType type);
 
@@ -345,6 +428,20 @@ namespace ULang {
          */
         ASTNode* parseVarDecl();
 
+        /**
+         * @brief parses function declaration
+         * @exception std::runtime_error
+         * @return ASTNode* pointer to new AST node
+         */
+        ASTNode* parseFnDecl();
+
+        /**
+         * @brief parses statement
+         * @exception std::runtime_error
+         * @return ASTNode* pointer to new AST node
+         */
+        ASTNode* parseStatement();
+
 
         /**
          * @brief parses arithmetical expression
@@ -353,6 +450,8 @@ namespace ULang {
          * @return ASTNode* pointer to new AST node
          */
         ASTNode* parseExpression(int prec_min = 0);
+
+        void registerFunctions();
 
         /**
          * @brief generates AST based on tokens
