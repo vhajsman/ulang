@@ -45,6 +45,8 @@ namespace ULang {
         ASSIGNMENT,     ///< value assignment (myVar = ...)
         FN_DEF,         ///< function definition
         FN_CALL,        ///< function call
+        FN_ARG,         ///< function argument
+        FN_RET,         ///< function return
     };
 
     enum class BinopType {
@@ -86,6 +88,11 @@ namespace ULang {
     // ==================================================================
 
     enum class TokenType {
+        LParen,
+        RParen,
+        LCurly,
+        RCurly,
+        Comma,
         TypeKeyword,
         Identifier,
         Number,
@@ -96,8 +103,31 @@ namespace ULang {
         Assign,
         Semicolon,
         Function,
+        Return,
         EndOfFile
     };
+
+    inline std::string toktype2str(TokenType tt){
+        switch (tt) {
+            case TokenType::LParen:         return "'('";
+            case TokenType::RParen:         return "')'";
+            case TokenType::LCurly:         return "'{'";
+            case TokenType::RCurly:         return "'}'";
+            case TokenType::Comma:          return "','";
+            case TokenType::TypeKeyword:    return "type keyword";
+            case TokenType::Identifier:     return "identifier";
+            case TokenType::Number:         return "number";
+            case TokenType::Plus:           return "addition";
+            case TokenType::Minus:          return "substraction";
+            case TokenType::Mul:            return "multiplication";
+            case TokenType::Div:            return "division";
+            case TokenType::Assign:         return "assignment";
+            case TokenType::Return:         return "return statement";
+            case TokenType::Semicolon:      return "','";
+            case TokenType::Function:       return "function";
+            case TokenType::EndOfFile:      return "EOF";
+        }
+    }
 
     struct Token {
         TokenType type;
@@ -379,6 +409,7 @@ namespace ULang {
         const Token& expectToken(const std::string& token);
 
         bool matchToken(TokenType type);
+        bool matchToken(const std::string& token);
 
         int precedence(TokenType type);
 
@@ -403,6 +434,13 @@ namespace ULang {
          * @return ASTNode* pointer to new AST node
          */
         ASTNode* parseFnDecl();
+
+        /**
+         * @brief parses statement
+         * @exception std::runtime_error
+         * @return ASTNode* pointer to new AST node
+         */
+        ASTNode* parseStatement();
 
 
         /**

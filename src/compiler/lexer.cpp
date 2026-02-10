@@ -62,25 +62,33 @@ namespace ULang {
 
             // identifiers, keywords
             if(std::isalpha(c)) {
-                std::string id;
+                std::string str;
                 size_t tok_col = this->col;
 
                 while(std::isalnum(this->peek()) || this->peek() == '_') {
-                    id += this->get();
+                    str += this->get();
                 }
 
-                try {
-                    const DataType* type = resolveDataType(id);
-                    tokens.push_back({TokenType::TypeKeyword, type->name, {
+                TokenType tt = TokenType::Identifier;
+
+                if(str == "fn")             tt = TokenType::Function;
+                else if(str == "return")    tt = TokenType::Return;
+                else try {
+                    const DataType* type = resolveDataType(str);
+                    tt = TokenType::TypeKeyword;
+                    str = type->name;
+                } catch(const std::exception& e) {
+                    THROW_AWAY e;
+                    //TokenType tt = TokenType::Identifier;
+                    //tokens.push_back({tt, str});
+                };
+
+                tokens.push_back({tt, str, {
                         nullptr,
                         filename,
                         this->line,
                         tok_col
                     }});
-                } catch(const std::exception& e) {
-                    THROW_AWAY e;
-                    tokens.push_back({TokenType::Identifier, id});
-                };
 
                 continue;
             }
@@ -94,7 +102,13 @@ namespace ULang {
                 case '*': tokens.push_back({TokenType::Mul,      std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
                 case '/': tokens.push_back({TokenType::Div,      std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
                 case '=': tokens.push_back({TokenType::Assign,   std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
+
                 case ';': tokens.push_back({TokenType::Semicolon,std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
+
+                case '(': tokens.push_back({TokenType::LParen,std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
+                case ')': tokens.push_back({TokenType::RParen,std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
+                case '{': tokens.push_back({TokenType::LCurly,std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
+                case '}': tokens.push_back({TokenType::RCurly,std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
                 
                 default: 
                     throw std::runtime_error(std::string("Unknown character: ") + c);
