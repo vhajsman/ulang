@@ -1,0 +1,15 @@
+int32 a = 3;
+int32 b = 7;
+int32 e;
+
+fn int32 sum() {
+    int32 c = 3 + 7;
+    return c;
+}
+
+fn void sub() {
+    e = 7 - 3;
+}
+
+int32 d = sum();
+sub()
