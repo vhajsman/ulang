@@ -437,6 +437,18 @@ namespace ULang {
         if(this->tokens[this->pos].type == TokenType::TypeKeyword)
             return this->parseVarDecl();
 
+        // assignment
+        Token& tok = this->tokens[this->pos];
+        if(tok.type == TokenType::Identifier && this->tokens[this->pos + 1].type == TokenType::Assign) {
+            ASTNode* node = new ASTNode(ASTNodeType::ASSIGNMENT);
+            node->lefthand = new ASTNode(tok.text);
+            this->pos += 2;
+
+            node->righthand = parseExpression();
+            this->expectToken(TokenType::Semicolon);
+            return node;
+        }
+
         ASTNode* expr = this->parseExpression();
         this->expectToken(TokenType::Semicolon);
         return expr;
