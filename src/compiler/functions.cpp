@@ -1,3 +1,4 @@
+/*
 #include "compiler/compiler.hpp"
 #include "compiler/errno.h"
 #include "types.hpp"
@@ -34,3 +35,4 @@ namespace ULang {
 };
 
 #undef cout_verbose
+*/

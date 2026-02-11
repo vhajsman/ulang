@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <exception>
 #include <iostream>
+#include <ostream>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -47,6 +48,7 @@ namespace ULang {
             case ASTNodeType::NUMBER:
                 return &TYPE_INT32;
 
+            case ASTNodeType::FN_ARG:
             case ASTNodeType::VARIABLE:
                 if(node->symbol) 
                     return node->symbol->type;
@@ -164,6 +166,19 @@ namespace ULang {
     ASTNode* CompilerInstance::parsePrimary() {
         Token& tok = this->tokens[this->pos];
 
+        if(tok.type == TokenType::LParen) {
+            this->pos++;
+            ASTNode* expr = this->parseExpression();
+
+            this->expectToken(TokenType::RParen);
+            return expr;
+        }
+
+        if(tok.type == TokenType::Number) {
+            this->pos++;
+            return new ASTNode(std::stoll(tok.text));
+        }
+
         if(tok.type == TokenType::Return) {
             this->pos++;
             ASTNode* expr = nullptr;
@@ -176,19 +191,6 @@ namespace ULang {
             ASTNode* node = new ASTNode(ASTNodeType::FN_RET);
             node->initial = expr;
             return node;
-        }
-
-        if(tok.type == TokenType::LParen) {
-            this->pos++;
-            ASTNode* expr = this->parseExpression();
-
-            this->expectToken(TokenType::RParen);
-            return expr;
-        }
-
-        if(tok.type == TokenType::Number) {
-            this->pos++;
-            return new ASTNode(std::stoll(tok.text));
         }
 
         if(tok.type == TokenType::Identifier) {
@@ -204,7 +206,8 @@ namespace ULang {
                 );
             }
 
-            ASTNode* node = new ASTNode(tok.text);
+            ASTNode* node = new ASTNode(ASTNodeType::VARIABLE);
+            node->name = tok.text;
             node->symbol = const_cast<Symbol*>(sym);
 
             // Is function call?
@@ -212,16 +215,42 @@ namespace ULang {
                 cout_verbose << "Parsing function call: " << tok.text << "(...); ..." << std::endl;
                 std::vector<ASTNode*> args;
 
-                while(!this->matchToken(TokenType::RParen)) {
-                    ASTNode* arg_curr = parseExpression();
-                    args.push_back(arg_curr);
+                if(!this->matchToken(TokenType::RParen)) {
+                    do {
+                        ASTNode* arg_curr = parseExpression();
+                        args.push_back(arg_curr);
+                    } while(this->matchToken(TokenType::Comma));
+                    this->expectToken(TokenType::RParen);
+                    
+                    node->args = std::move(args);
+                    node->type = ASTNodeType::FN_CALL;
+    
+                    cout_verbose << " --> Arguments count: " << args.size() << std::endl;
 
-                    if(!this->matchToken(TokenType::Comma))
-                        this->expectToken(TokenType::RParen);
+                    // set symbol and return type
+                    if(sym->kind != SymbolKind::FUNCTION) {
+                        throw CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Error,
+                            "'" + tok.text + "' is not a function",
+                            tok.loc,
+                            ULANG_SYNT_ERR_FN_NOT_FN
+                        );
+                    }
+
+                    /*
+                    node->symbol = new Symbol{
+                        sym->name,
+                        0,
+                        SymbolKind::FUNCTION,
+                        sym->type,
+                        0,
+                        0, // todo: resolve entry IP
+                        tok.loc
+                    };
+                    */
+
+                    cout_verbose << " --> Arguments count: " << node->args.size() << std::endl;
                 }
-
-                node->args = std::move(args);
-                node->type = ASTNodeType::FN_CALL;
             }
 
             return node;
@@ -296,7 +325,6 @@ namespace ULang {
         const DataType* ret_type = resolveDataType(this->expectToken(TokenType::TypeKeyword).text);
 
         Token tok_name = this->expectToken(TokenType::Identifier);
-
         Symbol* sym = this->symbols.decl_fn(tok_name.text, ret_type, &tok_name.loc);
 
         cout_verbose << " --> Creating ASTNode for function: " << tok_name.text << "(...)" << std::endl;
@@ -305,7 +333,8 @@ namespace ULang {
         node->symbol = sym;
         
         // parameters
-        this->expectToken("("); while(!this->matchToken(")")) {
+        this->expectToken("("); 
+        while(!this->matchToken(")")) {
             const DataType* arg_type = resolveDataType(this->expectToken(TokenType::TypeKeyword).text);
             Token arg_name = this->expectToken(TokenType::Identifier);
             Symbol* arg_sym = this->symbols.decl(arg_name.text, arg_type);
@@ -329,17 +358,14 @@ namespace ULang {
             return node;
         }
 
-        // function body
-        Scope* fn_scope = this->symbols.enter(node->name);
-        this->expectToken(TokenType::LCurly); while(!this->matchToken(TokenType::RCurly)) {
-            ASTNode* stmt = this->parseStatement();
-            node->body.push_back(stmt);
-        }
+        std::string scopeName = this->symbols.getCurrentScope()->_name + "::" + tok_name.text + "@fn_decl";
+        Scope* fn_scope = this->symbols.enter(scopeName);
+        cout_verbose << "Enter new scope: " << fn_scope->_name << std::endl;
+        
+        node->body = this->parseBlock();
 
         this->symbols.leave();
         return node;
-
-        THROW_AWAY fn_scope;
     }
 
     ASTNode* CompilerInstance::parseExpression(int prec_min) {
@@ -433,18 +459,41 @@ namespace ULang {
             return node;
         }
 
-        //if(this->matchToken(TokenType::TypeKeyword))
         if(this->tokens[this->pos].type == TokenType::TypeKeyword)
             return this->parseVarDecl();
 
-        // assignment
+        // assignment out of declaration
         Token& tok = this->tokens[this->pos];
         if(tok.type == TokenType::Identifier && this->tokens[this->pos + 1].type == TokenType::Assign) {
+            const Symbol* sym = this->symbols.lookup(tok.text);
+            if(!sym) {
+                throw CompilerSyntaxException(
+                    CompilerSyntaxException::Severity::Error,
+                    "'" + tok.text + "' is not declared in this scope",
+                    tok.loc,
+                    ULANG_SYNT_ERR_VAR_UNDEFINED
+                );
+            }
+
             ASTNode* node = new ASTNode(ASTNodeType::ASSIGNMENT);
+
+            node->lefthand = new ASTNode(ASTNodeType::VARIABLE);
             node->lefthand = new ASTNode(tok.text);
+            node->lefthand->symbol = (Symbol*) sym;
+
+            cout_verbose << " --> Assignment LHS: " << tok.text << ", following: " << this->tokens[this->pos+1].text << std::endl;
             this->pos += 2;
 
             node->righthand = parseExpression();
+            if(!node->righthand) {
+                throw CompilerSyntaxException(
+                    CompilerSyntaxException::Severity::Error,
+                    "assignment requires an expression",
+                    tok.loc,
+                    ULANG_SYNT_ERR_EXCEPTED_EXPR
+                );
+            }
+
             this->expectToken(TokenType::Semicolon);
             return node;
         }
@@ -452,6 +501,19 @@ namespace ULang {
         ASTNode* expr = this->parseExpression();
         this->expectToken(TokenType::Semicolon);
         return expr;
+    }
+
+    std::vector<ASTNode*> CompilerInstance::parseBlock() {
+        this->expectToken(TokenType::LCurly);
+        
+        std::vector<ASTNode*> stmt;
+        while(this->tokens[this->pos].type != TokenType::RCurly) {
+            ASTNode* stmt_curr = this->parseStatement();
+            stmt.push_back(stmt_curr);
+        }
+
+        this->expectToken(TokenType::RCurly);
+        return stmt;
     }
 
     std::vector<uint8_t> CompilerInstance::serializeProgram(const std::vector<Instruction>& program) {
@@ -511,7 +573,7 @@ namespace ULang {
         try {
             this->tokens = this->lexer.tokenize();
             this->buildAST();
-            this->registerFunctions();
+            //this->registerFunctions();
         } catch(const CompilerSyntaxException& e) {
             std::cerr << e.fmt(true) << std::endl;
 

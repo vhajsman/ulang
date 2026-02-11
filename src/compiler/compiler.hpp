@@ -442,6 +442,12 @@ namespace ULang {
          */
         ASTNode* parseStatement();
 
+        /**
+         * @brief parses code block (a sequence of statements)
+         * @exception std::runtime_error
+         * @return std::vector<ASTNode*> a vector of pointers to new AST nodes
+         */
+        std::vector<ASTNode*> parseBlock();
 
         /**
          * @brief parses arithmetical expression
@@ -451,7 +457,7 @@ namespace ULang {
          */
         ASTNode* parseExpression(int prec_min = 0);
 
-        void registerFunctions();
+        // void registerFunctions();
 
         /**
          * @brief generates AST based on tokens
