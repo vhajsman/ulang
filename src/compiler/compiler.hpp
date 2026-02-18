@@ -377,6 +377,20 @@ namespace ULang {
 
         std::vector<bool> tmp_used = std::vector<bool>(4, false);
 
+        unsigned int verbose_depthLvl = 0;
+
+        void verbose_print(std::string str);
+        void verbose_print(int val, int base = 16, int pad_width = 0);
+        void verbose_nl(std::string str, bool ignore_depth = false);
+        
+        inline void verbose_ascend() {
+            this->verbose_depthLvl++;
+        }
+
+        inline void verbose_descend() {
+            if(this->verbose_depthLvl > 0) this->verbose_depthLvl--;
+        }
+
         /**
          * @brief Allocate temporary register
          * @exception std::runtime_error no free tmp register available

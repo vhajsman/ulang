@@ -192,6 +192,8 @@ namespace ULang {
             return node;
         }
 
+        this->verbose_ascend();
+
         if(tok.type == TokenType::Identifier) {
             this->pos++;
 
@@ -211,7 +213,8 @@ namespace ULang {
 
             // Is function call?
             if(this->matchToken(TokenType::LParen)) {
-                cout_verbose << "Parsing function call: " << tok.text << "(...); ..." << std::endl;
+                this->verbose_nl("Parsing function call: '" + tok.text + "(...)' -> ");
+
                 std::vector<ASTNode*> args;
 
                 if(!this->matchToken(TokenType::RParen)) {
@@ -224,7 +227,7 @@ namespace ULang {
                     node->args = std::move(args);
                     node->type = ASTNodeType::FN_CALL;
 
-                    cout_verbose << " --> Arguments count: " << args.size() << std::endl;
+                    this->verbose_print("argc=" + std::to_string(args.size()));
 
                     // set symbol and return type
                     if(sym->kind != SymbolKind::FUNCTION) {
@@ -235,23 +238,10 @@ namespace ULang {
                             ULANG_SYNT_ERR_FN_NOT_FN
                         );
                     }
-
-                    /*
-                    node->symbol = new Symbol{
-                        sym->name,
-                        0,
-                        SymbolKind::FUNCTION,
-                        sym->type,
-                        0,
-                        0, // todo: resolve entry IP
-                        tok.loc
-                    };
-                    */
-
-                    cout_verbose << " --> Arguments count: " << node->args.size() << std::endl;
                 }
             }
 
+            this->verbose_descend();
             return node;
         }
 
@@ -262,6 +252,7 @@ namespace ULang {
             static_cast<size_t>(tok.loc.loc_col)
         };
 
+        this->verbose_descend();
         throw CompilerSyntaxException(
             CompilerSyntaxException::Severity::Error,
             "Excepted primary expression",
@@ -271,6 +262,8 @@ namespace ULang {
     }
 
     ASTNode* CompilerInstance::parseVarDecl() {
+        //this->verbose_ascend();
+
         // type
         Token tok_type = this->expectToken(TokenType::TypeKeyword);
         const DataType* type = resolveDataType(tok_type.text);
@@ -281,7 +274,7 @@ namespace ULang {
         // symbol
         Symbol* sym = this->symbols.decl(tok_name.text, type, &tok_name.loc);
 
-        cout_verbose << " --> Creating ASTNode for " << tok_name.text << std::endl;
+        this->verbose_nl("Creating ASTNode for decl: '" + tok_name.text + "'");
 
         ASTNode* node = new ASTNode(ASTNodeType::DECLARATION);
         node->name = tok_name.text;
@@ -316,6 +309,7 @@ namespace ULang {
         } else node->initial = nullptr;
 
         this->expectToken(TokenType::Semicolon);
+        //this->verbose_descend();
         return node;
     }
 
@@ -326,7 +320,9 @@ namespace ULang {
         Token tok_name = this->expectToken(TokenType::Identifier);
         Symbol* sym = this->symbols.decl_fn(tok_name.text, ret_type, &tok_name.loc);
 
-        cout_verbose << " --> Creating ASTNode for function: " << tok_name.text << "(...)" << std::endl;
+        this->verbose_nl("Creating ASTNode for function '" + tok_name.text + "(...)'");
+        this->verbose_ascend();
+
         ASTNode* node = new ASTNode(ASTNodeType::FN_DEF);
         node->name = tok_name.text;
         node->symbol = sym;
@@ -338,7 +334,7 @@ namespace ULang {
             Token arg_name = this->expectToken(TokenType::Identifier);
             Symbol* arg_sym = this->symbols.decl(arg_name.text, arg_type);
 
-            cout_verbose << " --> Creating ASTNode for function parameter: " << tok_name.text << "(...)->" << arg_name.text << std::endl;
+            this->verbose_nl("Creating ASTNode for function parameter '" + tok_name.text + "(...)->" + arg_name.text + "'");
             ASTNode* arg_node = new ASTNode(ASTNodeType::FN_ARG);
             arg_node->name = arg_name.text;
             arg_node->symbol = arg_sym;
@@ -354,16 +350,18 @@ namespace ULang {
                 ULANG_SYNT_WARN_FN_NO_BODY
             ));
 
+            this->verbose_descend();
             return node;
         }
 
         std::string scopeName = this->symbols.getCurrentScope()->_name + "::" + tok_name.text + "@fn_decl";
         Scope* fn_scope = this->symbols.enter(scopeName);
-        cout_verbose << "Enter new scope: " << fn_scope->_name << std::endl;
+        this->verbose_nl("Enter new scope: " + fn_scope->_name);
 
         node->body = this->parseBlock();
 
         this->symbols.leave();
+        this->verbose_descend();
         return node;
     }
 
@@ -427,14 +425,6 @@ namespace ULang {
                 result_type = (left_type->flags & SIGN) ? left_type : right_type;
             }
 
-            /*
-            throw new CompilerSyntaxException(
-                CompilerSyntaxException::Severity::Note,
-                "Selected type: '" + result_type->name + "'",
-                lefthand->symbol ? lefthand->symbol->where : ULANG_LOCATION_NULL
-            );
-            */
-
             node->symbol = new Symbol{
                 "<binop>", 
                 0, 
@@ -488,7 +478,8 @@ namespace ULang {
             lhs->symbol = const_cast<Symbol *>(sym);
             node->lefthand = lhs;
 
-            cout_verbose << " --> Assignment LHS: " << tok.text << ", following: " << this->tokens[this->pos + 1].text << std::endl;
+            this->verbose_nl("Assignment LHS: " + tok.text + ", following: " + this->tokens[this->pos + 1].text);
+            this->verbose_ascend();
             this->pos += 2;
 
             node->righthand = parseExpression();
@@ -505,6 +496,7 @@ namespace ULang {
             if(node->righthand->type == ASTNodeType::FN_CALL)
                 node->righthand->target_symbol = lhs->symbol;
 
+            this->verbose_descend();
             this->expectToken(TokenType::Semicolon);
             return node;
         }
@@ -539,7 +531,8 @@ namespace ULang {
     }
 
     void CompilerInstance::buildAST() {
-        cout_verbose << "Building AST tree..." << std::endl;
+        this->verbose_nl("Build AST tree");
+        this->verbose_ascend();
 
         this->ast_owned.clear();
         this->pos = 0;
@@ -566,6 +559,8 @@ namespace ULang {
 
             this->ast_owned.push_back(ASTPtr(node_raw));
         }
+
+        this->verbose_descend();
     }
 
     void CompilerInstance::emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b) {
@@ -596,7 +591,7 @@ namespace ULang {
             exit(1);
         }
 
-        cout_verbose << " -> " << this->tokens.size() << " tokens, " << this->ast_owned.size() << " AST nodes" << std::endl;
+        this->verbose_nl("tokens: " + std::to_string(this->tokens.size()) + ", nodes: " + std::to_string(this->ast_owned.size()));
 
         // GenerationContext ctx;
         this->ctx.symtab = &this->symbols;
@@ -608,22 +603,34 @@ namespace ULang {
                 continue;
 
             ASTNode* nodeg = node.get();
-            cout_verbose << " --> AST (f) node type: "      << static_cast<int>(node->type) << std::endl;
-            cout_verbose << "   --> node.get() = "          << std::hex << &nodeg << std::endl;
-            cout_verbose << "   --> node.get()->symbol = "  << std::hex << nodeg->symbol << std::endl;
+            
+            this->verbose_nl("AST function node type: ");
+            this->verbose_print(static_cast<int>(node->type));
+            this->verbose_ascend();
+
+            this->verbose_nl("node.get() = "); this->verbose_print((uintptr_t) &nodeg);
+            this->verbose_nl("node.get()->symbol = "); this->verbose_print((uintptr_t) &nodeg->symbol);
 
             this->compileNode(nodeg, ctx.instructions);
+            this->verbose_descend();
         }
 
         // upstream then
         for(const auto& node: this->ast_owned) {
             ASTNode* nodeg = node.get();
-            cout_verbose << " --> AST node type: "          << static_cast<int>(node->type) << std::endl;
-            cout_verbose << "   --> node.get() = "          << std::hex << &nodeg << std::endl;
-            cout_verbose << "   --> node.get()->symbol = "  << std::hex << nodeg->symbol << std::endl;
+
+            this->verbose_nl("AST normal node type: ");
+            this->verbose_print(static_cast<int>(node->type));
+            this->verbose_ascend();
+
+            this->verbose_nl("node.get() = "); this->verbose_print((uintptr_t) &nodeg);
+            this->verbose_nl("node.get()->symbol = "); this->verbose_print((uintptr_t) &nodeg->symbol);
 
             this->compileNode(nodeg, ctx.instructions);
+            this->verbose_descend();
         }
+
+        this->verbose_nl("\n");
 
         std::vector<const DataType*> types_vect = {
             &TYPE_INT8, &TYPE_INT16, &TYPE_INT32, &TYPE_INT64,

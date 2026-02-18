@@ -41,11 +41,13 @@ namespace ULang {
             throw std::runtime_error("function symbol not found");
 
         node->symbol->entry_ip = out.size();
-        cout_verbose << "Compile function " << node->symbol->name << ", entry IP=" << node->symbol->entry_ip << std::endl;
+        this->verbose_nl("Compile function '" + node->symbol->name + "', entry_ip=");
+        this->verbose_print(node->symbol->entry_ip);
+        this->verbose_ascend();
 
         std::string scope_name = this->symbols.getCurrentScope()->_name + "::" + node->name + "@fn_decl";
         this->symbols.enter(scope_name);
-        cout_verbose << " --> Enter scope: " << scope_name << std::endl;
+        this->verbose_nl("Enter scope: " + scope_name);
 
         for(ASTNode* stmt: node->body)
             this->compileNode(stmt, out);
@@ -59,6 +61,8 @@ namespace ULang {
                 ULANG_SYNT_ERR_FN_NO_RET
             );
         }
+
+        this->verbose_descend();
     }
 };
 

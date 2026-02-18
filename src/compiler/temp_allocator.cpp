@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <iostream>
 #include <stdexcept>
+#include <string>
 
 #define cout_verbose        \
     if(this->cparams.verbose)    \
@@ -14,7 +15,7 @@ namespace ULang {
         for(uint32_t i = 0; i < this->tmp_used.size(); i++) {
             if(!this->tmp_used[i]) {
                 this->tmp_used[i] = true;
-                cout_verbose << "\t* allocTmpReg -> TMP" << i << std::endl;
+                this->verbose_nl("* allocTmpReg -> TMP" + std::to_string(i), true);
                 return {OperandType::OP_REGISTER, R_TMP0.reg_no + i};
             }
         }
@@ -25,7 +26,7 @@ namespace ULang {
     void CompilerInstance::freeTmpReg(uint8_t reg, bool failsafe) {
         if(reg >= this->tmp_used.size()) {
             if(failsafe) {
-                cout_verbose << "\t* FAILSAFE freeTmpReg TMP" << reg << std::endl;
+                this->verbose_nl("* FAILSAFE freeTmpReg TMP" + std::to_string(reg), true);
                 return;
             };
 
@@ -33,13 +34,13 @@ namespace ULang {
         }
 
         this->tmp_used[reg] = false;
-        cout_verbose << "\t* OK: freeTmpReg TMP" << reg << std::endl;
+        this->verbose_nl("* OK freeTmpReg TMP" + std::to_string(reg), true);
     }
 
     void CompilerInstance::freeTmpReg(Operand reg, bool failsafe) {
         if(reg.type != OperandType::OP_REGISTER || reg.data < R_TMP0.reg_no || reg.data >= R_TMP0.reg_no + this->tmp_used.size()) {
             if(failsafe) {
-                cout_verbose << "\t* FAILSAFE freeTmpReg TMP" << reg.data - R_TMP0.reg_no << std::endl;
+                this->verbose_nl("* FAILSAFE freeTmpReg TMP" + std::to_string(reg.data - R_TMP0.reg_no), true);
                 return;
             };
 
@@ -47,7 +48,7 @@ namespace ULang {
         }
 
         this->tmp_used[reg.data - R_TMP0.reg_no] = false;
-        cout_verbose << "\t* OK: freeTmpReg TMP" << reg.data - R_TMP0.reg_no << std::endl;
+        this->verbose_nl("* OK freeTmpReg TMP" + std::to_string(reg.data - R_TMP0.reg_no), true);
     }
 };
 
