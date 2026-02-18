@@ -71,6 +71,7 @@ namespace ULang {
         ASTNode* initial = nullptr;     ///< initial value (if ASTNodeType::DECLARATION)
 
         Symbol* symbol = nullptr;       ///< symbol
+        Symbol* target_symbol = nullptr;///< target symbol (where to store return value)
 
         std::vector<ASTNode*> body;     ///< function body (if ASTNodeType::FN_DEF)
         std::vector<ASTNode*> args;     ///< function args (if ASTNodeType::FN_CALL)
@@ -183,7 +184,7 @@ namespace ULang {
         SymbolKind kind = SymbolKind::VARIABLE;
         const DataType* type;
 
-        size_t stackOffset;
+        uint32_t stackOffset;
         uint32_t entry_ip; ///< functions only
 
         SourceLocation where;
@@ -365,6 +366,9 @@ namespace ULang {
         CompilerParameters cparams;
 
         size_t pos = 0;             ///< Current position
+        ASTNode* currentFunction = nullptr; ///< Current function
+
+        GenerationContext ctx;
 
         /**
          * @brief CompilerSyntaxException exceptions not terminating the compilation
@@ -474,6 +478,7 @@ namespace ULang {
         std::vector<uint8_t> serializeProgram(const std::vector<Instruction>& program);
 
         Operand compileNode(ASTNode* node, std::vector<Instruction>& out);
+        void compileFunction(ASTNode* node, std::vector<Instruction>& out);
 
         void emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b);
 

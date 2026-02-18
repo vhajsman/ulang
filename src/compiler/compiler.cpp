@@ -14,9 +14,9 @@
 
 #include "errno.h"
 
-#define cout_verbose        \
-    if(this->cparams.verbose)    \
-        std::cout
+#define cout_verbose                                                           \
+if (this->cparams.verbose)                                                   \
+std::cout
 
 namespace ULang {
     void writeOperand(std::vector<uint8_t>& out, const Operand& op) {
@@ -44,7 +44,7 @@ namespace ULang {
 
             case ASTNodeType::ASSIGNMENT:
                 return node->righthand ? getType(node->righthand, loc) : nullptr;
-                
+
             case ASTNodeType::NUMBER:
                 return &TYPE_INT32;
 
@@ -61,7 +61,6 @@ namespace ULang {
                 );
 
             case ASTNodeType::BINOP: {
-                // fallback loc pro levý a pravý operand
                 SourceLocation loc_left  = node->lefthand && node->lefthand->symbol ? node->lefthand->symbol->where : loc;
                 SourceLocation loc_right = node->righthand && node->righthand->symbol ? node->righthand->symbol->where : loc;
 
@@ -100,12 +99,12 @@ namespace ULang {
         if((left->flags & SIGN) != (right->flags & SIGN)) {
             return (left->flags & SIGN) ? left : right;
         }
-        
+
         return left;
     }
 
     const Token& CompilerInstance::expectToken(TokenType type) {
-        if(this->tokens[this->pos].type != type) {            
+        if(this->tokens[this->pos].type != type) {
             throw CompilerSyntaxException(
                 CompilerSyntaxException::Severity::Error, 
                 "Unexcepted token: '" + this->tokens[this->pos].text + "', excepted " + toktype2str(type),
@@ -139,19 +138,19 @@ namespace ULang {
         return false;
     }
 
-    bool CompilerInstance::matchToken(const std::string& token) {
+    bool CompilerInstance::matchToken(const std::string &token) {
         if(this->tokens[this->pos].text == token) {
             this->pos++;
             return true;
         }
-
+        
         return false;
     }
 
     int CompilerInstance::precedence(TokenType type) {
         switch(type) {
             case TokenType::Mul:
-            case TokenType::Div:  
+            case TokenType::Div:
                 return 20;
 
             case TokenType::Plus:
@@ -164,7 +163,7 @@ namespace ULang {
     }
 
     ASTNode* CompilerInstance::parsePrimary() {
-        Token& tok = this->tokens[this->pos];
+        Token &tok = this->tokens[this->pos];
 
         if(tok.type == TokenType::LParen) {
             this->pos++;
@@ -221,10 +220,10 @@ namespace ULang {
                         args.push_back(arg_curr);
                     } while(this->matchToken(TokenType::Comma));
                     this->expectToken(TokenType::RParen);
-                    
+
                     node->args = std::move(args);
                     node->type = ASTNodeType::FN_CALL;
-    
+
                     cout_verbose << " --> Arguments count: " << args.size() << std::endl;
 
                     // set symbol and return type
@@ -331,7 +330,7 @@ namespace ULang {
         ASTNode* node = new ASTNode(ASTNodeType::FN_DEF);
         node->name = tok_name.text;
         node->symbol = sym;
-        
+
         // parameters
         this->expectToken("("); 
         while(!this->matchToken(")")) {
@@ -343,7 +342,7 @@ namespace ULang {
             ASTNode* arg_node = new ASTNode(ASTNodeType::FN_ARG);
             arg_node->name = arg_name.text;
             arg_node->symbol = arg_sym;
-            
+
             node->args.push_back(arg_node);
         }
 
@@ -361,7 +360,7 @@ namespace ULang {
         std::string scopeName = this->symbols.getCurrentScope()->_name + "::" + tok_name.text + "@fn_decl";
         Scope* fn_scope = this->symbols.enter(scopeName);
         cout_verbose << "Enter new scope: " << fn_scope->_name << std::endl;
-        
+
         node->body = this->parseBlock();
 
         this->symbols.leave();
@@ -388,18 +387,18 @@ namespace ULang {
             node->lefthand = lefthand;
             node->righthand = righthand;
 
-            switch (op) {
-                case TokenType::Plus:  node->op = BinopType::ADDITION;          break;
-                case TokenType::Minus: node->op = BinopType::SUBSTRACTION;      break;
-                case TokenType::Mul:   node->op = BinopType::MULTIPLICATION;    break;
-                case TokenType::Div:   node->op = BinopType::DIVISION;          break;
-                
+            switch(op) {
+                case TokenType::Plus:   node->op = BinopType::ADDITION;         break;
+                case TokenType::Minus:  node->op = BinopType::SUBSTRACTION;     break;
+                case TokenType::Mul:    node->op = BinopType::MULTIPLICATION;   break;
+                case TokenType::Div:    node->op = BinopType::DIVISION;         break;
+
                 default:
                     break;
             }
 
             // ---- type checking & BINOP result type ----
-            const DataType* left_type  = getType(lefthand, lefthand->symbol ? lefthand->symbol->where : SourceLocation{});
+            const DataType* left_type =  getType(lefthand, lefthand->symbol ? lefthand->symbol->where : SourceLocation{});
             const DataType* right_type = getType(righthand, righthand->symbol ? righthand->symbol->where : SourceLocation{});
 
             if((left_type->flags & SIGN) != (right_type->flags & SIGN)) {
@@ -436,7 +435,14 @@ namespace ULang {
             );
             */
 
-            node->symbol = new Symbol{"<binop>", 0, SymbolKind::VARIABLE, result_type, 0, {}};
+            node->symbol = new Symbol{
+                "<binop>", 
+                0, 
+                SymbolKind::VARIABLE, 
+                result_type, 
+                0, 
+                {}
+            };
             // -----------------------------------------
 
             lefthand = node;
@@ -476,12 +482,13 @@ namespace ULang {
             }
 
             ASTNode* node = new ASTNode(ASTNodeType::ASSIGNMENT);
+            
+            ASTNode* lhs = new ASTNode(ASTNodeType::VARIABLE);
+            lhs->name = tok.text;
+            lhs->symbol = const_cast<Symbol *>(sym);
+            node->lefthand = lhs;
 
-            node->lefthand = new ASTNode(ASTNodeType::VARIABLE);
-            node->lefthand = new ASTNode(tok.text);
-            node->lefthand->symbol = (Symbol*) sym;
-
-            cout_verbose << " --> Assignment LHS: " << tok.text << ", following: " << this->tokens[this->pos+1].text << std::endl;
+            cout_verbose << " --> Assignment LHS: " << tok.text << ", following: " << this->tokens[this->pos + 1].text << std::endl;
             this->pos += 2;
 
             node->righthand = parseExpression();
@@ -494,6 +501,10 @@ namespace ULang {
                 );
             }
 
+            // is righthand a call?
+            if(node->righthand->type == ASTNodeType::FN_CALL)
+                node->righthand->target_symbol = lhs->symbol;
+
             this->expectToken(TokenType::Semicolon);
             return node;
         }
@@ -505,8 +516,8 @@ namespace ULang {
 
     std::vector<ASTNode*> CompilerInstance::parseBlock() {
         this->expectToken(TokenType::LCurly);
-        
-        std::vector<ASTNode*> stmt;
+
+        std::vector<ASTNode *> stmt;
         while(this->tokens[this->pos].type != TokenType::RCurly) {
             ASTNode* stmt_curr = this->parseStatement();
             stmt.push_back(stmt_curr);
@@ -520,7 +531,7 @@ namespace ULang {
         std::vector<uint8_t> bytecode;
         bytecode.reserve(256);
 
-        for(const Instruction& instr: program) {
+        for(const Instruction& instr : program) {
             this->serializeInstruction(instr, bytecode);
         }
 
@@ -549,7 +560,7 @@ namespace ULang {
                     break;
                 }
             }
-            
+
             if(!node_raw)
                 throw std::runtime_error("Parser returned null AST node");
 
@@ -573,8 +584,7 @@ namespace ULang {
         try {
             this->tokens = this->lexer.tokenize();
             this->buildAST();
-            //this->registerFunctions();
-        } catch(const CompilerSyntaxException& e) {
+        } catch (const CompilerSyntaxException &e) {
             std::cerr << e.fmt(true) << std::endl;
 
             if(e.getSeverity() == CompilerSyntaxException::Severity::Error) {
@@ -586,11 +596,11 @@ namespace ULang {
             exit(1);
         }
 
-        cout_verbose<< " -> " << this->tokens.size() << " tokens, " << this->ast_owned.size() << " AST nodes" << std::endl;
+        cout_verbose << " -> " << this->tokens.size() << " tokens, " << this->ast_owned.size() << " AST nodes" << std::endl;
 
-        GenerationContext ctx;
-        ctx.symtab = &this->symbols;
-        ctx.stack_top = 0x00;
+        // GenerationContext ctx;
+        this->ctx.symtab = &this->symbols;
+        this->ctx.stack_top = 0x00;
 
         // functions first
         for(const auto& node: this->ast_owned) {
@@ -598,18 +608,20 @@ namespace ULang {
                 continue;
 
             ASTNode* nodeg = node.get();
-            cout_verbose<< " --> AST (f) node type: " << static_cast<int>(node->type) << std::endl;
-            cout_verbose<< "   --> node.get() = " << std::hex << &nodeg << std::endl;
-            cout_verbose<< "   --> node.get()->symbol = " << std::hex << nodeg->symbol << std::endl;
+            cout_verbose << " --> AST (f) node type: "      << static_cast<int>(node->type) << std::endl;
+            cout_verbose << "   --> node.get() = "          << std::hex << &nodeg << std::endl;
+            cout_verbose << "   --> node.get()->symbol = "  << std::hex << nodeg->symbol << std::endl;
+
             this->compileNode(nodeg, ctx.instructions);
         }
 
         // upstream then
         for(const auto& node: this->ast_owned) {
             ASTNode* nodeg = node.get();
-            cout_verbose<< " --> AST node type: " << static_cast<int>(node->type) << std::endl;
-            cout_verbose<< "   --> node.get() = " << std::hex << &nodeg << std::endl;
-            cout_verbose<< "   --> node.get()->symbol = " << std::hex << nodeg->symbol << std::endl;
+            cout_verbose << " --> AST node type: "          << static_cast<int>(node->type) << std::endl;
+            cout_verbose << "   --> node.get() = "          << std::hex << &nodeg << std::endl;
+            cout_verbose << "   --> node.get()->symbol = "  << std::hex << nodeg->symbol << std::endl;
+
             this->compileNode(nodeg, ctx.instructions);
         }
 

@@ -28,15 +28,16 @@ namespace ULang {
     {0x0d, "FP"},
     {0x0e, "PC"},
     {0x0f, "FLAGS"},
+    {0x10, "IP"},
 
     // --- temporary / scratch registers ---
-    {0x10, "TMP0"},
-    {0x11, "TMP1"},
-    {0x12, "TMP2"},
-    {0x13, "TMP3"},
+    {0x11, "TMP0"},
+    {0x12, "TMP1"},
+    {0x13, "TMP2"},
+    {0x14, "TMP3"},
 
 
-    {0xff, "EXC"},
+    {0x15, "FNR"},
     };
 };
 
@@ -60,4 +61,4 @@ namespace ULang {
 #define R_TMP1  vmreg_defines[17]
 #define R_TMP2  vmreg_defines[18]
 #define R_TMP3  vmreg_defines[19]
-#define R_EXC   vmreg_defines[20]
+#define R_FNR   vmreg_defines[20]

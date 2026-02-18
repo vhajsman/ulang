@@ -6,6 +6,7 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "types.hpp"
 #include "vmreg_defines.hpp"
 
 #define cout_verbose        \
@@ -30,6 +31,9 @@ namespace ULang {
         Instruction instruction;
 
         switch(node->type) {
+            case ASTNodeType::FN_ARG:
+                break;
+
             case ASTNodeType::VARIABLE: {
                 if(!node->symbol) {
                     throw CompilerSyntaxException(
@@ -118,9 +122,90 @@ namespace ULang {
                 return OP_GET_NULL;
             }
 
+            case ASTNodeType::FN_DEF: {
+                ASTNode* prev = this->currentFunction;
+                this->currentFunction = node;
+
+                this->compileFunction(node, out);
+
+                this->currentFunction = prev;
+                return OP_GET_NULL;
+            }
+
+            case ASTNodeType::FN_RET: {
+                if(!this->currentFunction) {
+                    throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Error,
+                        "return statement not excepted",
+                        node->symbol->where,
+                        ULANG_SYNT_ERR_UNEXCEPTED_RET
+                    );
+                }
+
+                const DataType* ret_type = currentFunction->symbol->type;
+
+                if(node->initial) {
+                    if(ret_type == &TYPE_VOID) {
+                        throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Error,
+                            "void function can't return a value",
+                            node->symbol->where,
+                            ULANG_SYNT_ERR_FN_RET_VOID
+                        );
+                    }
+
+                    const DataType* retExpr_type = getType(node->initial, node->initial->symbol ? node->initial->symbol->where : ULANG_LOCATION_NULL);
+                    if(retExpr_type != ret_type) {
+                        // TODO: implicit casts
+
+                        throw CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Error,
+                            "return type mismatch",
+                            currentFunction->symbol->where,
+                            ULANG_SYNT_ERR_INVALID_RET
+                        );
+                    }
+
+                    Operand op = this->compileNode(node->initial, out);
+                    this->emit(this->ctx, Opcode::RET, op, OP_GET_NULL);
+                } else {
+                    if(ret_type != &TYPE_VOID) {
+                        throw CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Error,
+                            "non-void function must return a value: '" + node->name + "'",
+                            node->symbol->where,
+                            ULANG_SYNT_ERR_FN_NO_RET
+                        );
+                    }
+
+                    this->emit(this->ctx, Opcode::RET, OP_GET_NULL, OP_GET_NULL);
+                }
+                
+                return OP_GET_NULL;
+            }
+
+            case ASTNodeType::FN_CALL: {
+                for(ASTNode* arg: node->args) {
+                    // TODO: calling convention
+                    this->compileNode(arg, out);
+                }
+
+                if(!node->symbol)
+                    throw std::runtime_error("function symbol not set for FN_CALL: '" + node->name + "'");
+
+                this->emit(this->ctx, Opcode::CALL, {OperandType::OP_REFERENCE, node->symbol->entry_ip}, OP_GET_NULL);
+
+                if(node->target_symbol)
+                    this->emit(this->ctx, Opcode::MOV, {OperandType::OP_REFERENCE, node->target_symbol->stackOffset}, {OperandType::OP_REGISTER, R_FNR.reg_no});
+
+                return OP_GET_NULL;
+            }
+
             default:
                 throw std::runtime_error("invalid AST node type");
         }
+
+        return OP_GET_NULL;
     }
 
     void CompilerInstance::serializeInstruction(const Instruction& instr, std::vector<uint8_t>& out) {

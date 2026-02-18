@@ -1,15 +1,17 @@
-/*
+#include "bytecode.hpp"
 #include "compiler/compiler.hpp"
 #include "compiler/errno.h"
 #include "types.hpp"
-#include <cstddef>
-#include <cstdint>
+#include <iostream>
+#include <stdexcept>
+#include <vector>
 
 #define cout_verbose        \
     if(this->cparams.verbose)    \
         std::cout
 
 namespace ULang {
+    /*
     void CompilerInstance::registerFunctions() {
         for(const auto& node: this->ast_owned) {
             ASTNode* n = node.get();
@@ -32,7 +34,32 @@ namespace ULang {
             n->symbol = sym;
         }
     }
+    */
+
+    void CompilerInstance::compileFunction(ASTNode* node, std::vector<Instruction>& out) {
+        if(!node->symbol)
+            throw std::runtime_error("function symbol not found");
+
+        node->symbol->entry_ip = out.size();
+        cout_verbose << "Compile function " << node->symbol->name << ", entry IP=" << node->symbol->entry_ip << std::endl;
+
+        std::string scope_name = this->symbols.getCurrentScope()->_name + "::" + node->name + "@fn_decl";
+        this->symbols.enter(scope_name);
+        cout_verbose << " --> Enter scope: " << scope_name << std::endl;
+
+        for(ASTNode* stmt: node->body)
+            this->compileNode(stmt, out);
+    
+        bool termRet = !node->body.empty() && node->body.back()->type == ASTNodeType::FN_RET;
+        if(node->symbol->type != &TYPE_VOID && !termRet) {
+            throw CompilerSyntaxException(
+                CompilerSyntaxException::Severity::Error,
+                "non-void function must return a value: '" + node->name + "'",
+                node->symbol->where,
+                ULANG_SYNT_ERR_FN_NO_RET
+            );
+        }
+    }
 };
 
 #undef cout_verbose
-*/
