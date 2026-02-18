@@ -370,6 +370,30 @@ namespace ULang {
 
         GenerationContext ctx;
 
+        std::vector<bool> tmp_used = std::vector<bool>(4, false);
+
+        /**
+         * @brief Allocate temporary register
+         * @exception std::runtime_error no free tmp register available
+         * @return Operand 
+         */
+        Operand allocTmpReg();
+
+        /**
+         * @brief Free allocated temporary register
+         * @exception std::runtime_error invalid tmp register free
+         * @param reg register index
+         */
+        void freeTmpReg(uint8_t reg);
+
+
+        /**
+         * @brief Free allocated temporary register
+         * @exception std::runtime_error invalid tmp register free
+         * @param reg register as an operand
+         */
+        void freeTmpReg(Operand reg);
+
         /**
          * @brief CompilerSyntaxException exceptions not terminating the compilation
          * 
