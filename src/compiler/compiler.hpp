@@ -16,6 +16,11 @@
 #define THROW_AWAY (void)
 #endif
 
+#ifndef IGNORE_EXCEPTION
+#define IGNORE_EXCEPTION(CODE)  \
+    try {CODE} catch(std::exception& e) {THROW_AWAY e;}
+#endif
+
 namespace ULang {
     struct Symbol;
 
@@ -384,15 +389,14 @@ namespace ULang {
          * @exception std::runtime_error invalid tmp register free
          * @param reg register index
          */
-        void freeTmpReg(uint8_t reg);
-
+        void freeTmpReg(uint8_t reg, bool failsafe = false);
 
         /**
          * @brief Free allocated temporary register
          * @exception std::runtime_error invalid tmp register free
          * @param reg register as an operand
          */
-        void freeTmpReg(Operand reg);
+        void freeTmpReg(Operand reg, bool failsafe = false);
 
         /**
          * @brief CompilerSyntaxException exceptions not terminating the compilation

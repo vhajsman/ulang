@@ -20,19 +20,21 @@
 
 namespace ULang {
     Operand CompilerInstance::compileNode(ASTNode* node, std::vector<Instruction>& out) {
+        // TODO: locations in exceptions
+
         if(!node) {
             std::cout << "warning: null node" << std::endl;
             return OP_GET_NULL;
         }
 
-        // TODO: locations in exceptions
-        // TODO: allocTmp()
-
+        std::vector<bool> tmp_snapshot = this->tmp_used;
+        Operand result = OP_GET_NULL;
         Instruction instruction;
 
         switch(node->type) {
-            case ASTNodeType::FN_ARG:
-                break;
+            case ASTNodeType::NUMBER: {
+                return {OperandType::OP_IMMEDIATE, node->val};
+            }
 
             case ASTNodeType::VARIABLE: {
                 if(!node->symbol) {
@@ -44,11 +46,34 @@ namespace ULang {
                     );
                 }
 
-                return this->makeRef(node->symbol->stackOffset);
+                Operand reg = this->allocTmpReg();
+                this->emit(this->ctx, Opcode::LD, reg, {OperandType::OP_REFERENCE, node->symbol->stackOffset});
+                return reg;
             }
 
-            case ASTNodeType::NUMBER: {
-                return {OperandType::OP_IMMEDIATE, node->val};
+            case ASTNodeType::ASSIGNMENT: {
+                Operand R = this->compileNode(node->righthand, out);
+                if(!node->lefthand || !node->lefthand->symbol)
+                    throw std::runtime_error("Assignment target missing");
+
+                this->emit(this->ctx, Opcode::ST, {OperandType::OP_REFERENCE, node->lefthand->symbol->stackOffset}, R);
+
+                if(R.type == OperandType::OP_REGISTER && R.data >= R_TMP0.reg_no && R.data < R_TMP0.reg_no + this->tmp_used.size())
+                    this->freeTmpReg(R, true);
+                
+                return OP_GET_NULL;
+            }
+
+            case ASTNodeType::DECLARATION: {
+                if(node->initial) {
+                    Operand R = this->compileNode(node->initial, out);
+                    this->emit(this->ctx, Opcode::ST, {OperandType::OP_REFERENCE, node->symbol->stackOffset}, R);
+
+                    if(R.type == OperandType::OP_REGISTER && R.data >= R_TMP0.reg_no && R.data < R_TMP0.reg_no + this->tmp_used.size())
+                        this->freeTmpReg(R, true);
+                }
+
+                return OP_GET_NULL;
             }
 
             case ASTNodeType::BINOP: {
@@ -56,18 +81,8 @@ namespace ULang {
                 Operand R = this->compileNode(node->righthand, out);
 
                 if(L.type != OperandType::OP_REGISTER && R.type != OperandType::OP_REGISTER) {
-                    Operand tmp = {
-                        OperandType::OP_REGISTER, 
-                        vmreg_defines[19].reg_no // TMP3
-                    };
-
-                    Instruction i_mov;
-                    i_mov.opcode = Opcode::MOV;
-                    i_mov.operands.push_back(tmp);
-                    i_mov.operands.push_back(L);
-
-                    out.push_back(i_mov);
-                    L = tmp;
+                    L = this->allocTmpReg();
+                    this->emit(this->ctx, Opcode::MOV, L, OP_GET_NULL);
                 }
 
                 switch(node->op) {
@@ -83,6 +98,7 @@ namespace ULang {
                 instruction.operands.push_back(R);
                 out.push_back(instruction);
 
+                // handle division by zero
                 if( node->op == BinopType::DIVISION && 
                     (R.type == OperandType::OP_IMMEDIATE || R.type == OperandType::OP_CONSTANT) &&
                     R.data == 0) {
@@ -92,35 +108,15 @@ namespace ULang {
                             ULANG_SYNT_WARN_DIVISION_ZERO
                         ));
                 }
+
+                if(R.type == OperandType::OP_REGISTER && R.data >= R_TMP0.reg_no && R.data < R_TMP0.reg_no + this->tmp_used.size())
+                    this->freeTmpReg(R, true);
                 
                 return L;
             }
 
-            case ASTNodeType::ASSIGNMENT: {
-                Operand R = this->compileNode(node->righthand, out);
-                if(!node->lefthand || !node->lefthand->symbol)
-                    throw std::runtime_error("Assignment target missing");
-
-                instruction.opcode = Opcode::ST;
-                instruction.operands.push_back(this->makeRef(node->lefthand->symbol->stackOffset));
-                instruction.operands.push_back(R);
-                out.push_back(instruction);
-                
-                return OP_GET_NULL;
-            }
-
-            case ASTNodeType::DECLARATION: {
-                if(node->initial) {
-                    Operand R = this->compileNode(node->initial, out);
-
-                    instruction.opcode = Opcode::ST;
-                    instruction.operands.push_back(this->makeRef(node->symbol->stackOffset));
-                    instruction.operands.push_back(R);
-                    out.push_back(instruction);
-                }
-
-                return OP_GET_NULL;
-            }
+            case ASTNodeType::FN_ARG:
+                break;
 
             case ASTNodeType::FN_DEF: {
                 ASTNode* prev = this->currentFunction;
@@ -168,6 +164,9 @@ namespace ULang {
 
                     Operand op = this->compileNode(node->initial, out);
                     this->emit(this->ctx, Opcode::RET, op, OP_GET_NULL);
+
+                    if(op.type == OperandType::OP_REGISTER && op.data >= R_TMP0.reg_no && op.data < R_TMP0.reg_no + this->tmp_used.size())
+                        this->freeTmpReg(op, true);
                 } else {
                     if(ret_type != &TYPE_VOID) {
                         throw CompilerSyntaxException(
@@ -185,27 +184,43 @@ namespace ULang {
             }
 
             case ASTNodeType::FN_CALL: {
-                for(ASTNode* arg: node->args) {
-                    // TODO: calling convention
-                    this->compileNode(arg, out);
-                }
+                // TODO: calling convention
 
                 if(!node->symbol)
                     throw std::runtime_error("function symbol not set for FN_CALL: '" + node->name + "'");
+                if(node->symbol->kind != SymbolKind::FUNCTION)
+                    throw std::runtime_error("invalid symbol in FN_CALL: '" + node->name + "'");
+
+                for(ASTNode* arg: node->args)
+                    this->compileNode(arg, out);
 
                 this->emit(this->ctx, Opcode::CALL, {OperandType::OP_REFERENCE, node->symbol->entry_ip}, OP_GET_NULL);
 
                 if(node->target_symbol)
                     this->emit(this->ctx, Opcode::MOV, {OperandType::OP_REFERENCE, node->target_symbol->stackOffset}, {OperandType::OP_REGISTER, R_FNR.reg_no});
 
-                return OP_GET_NULL;
+                // return OP_GET_NULL;
+                return {
+                    OperandType::OP_REGISTER,
+                    R_FNR.reg_no
+                };
             }
 
             default:
                 throw std::runtime_error("invalid AST node type");
         }
 
-        return OP_GET_NULL;
+        // free all the tmp registers allocated in this scope, except the result
+        for(uint32_t i = 0; i < this->tmp_used.size(); i++) { // FIXME
+            if(this->tmp_used[i] && !tmp_snapshot[i]) {
+                Operand tmp{OperandType::OP_REGISTER, R_TMP0.reg_no + i};
+                if(!(result.type == OperandType::OP_REGISTER && result.data == tmp.data))
+                    this->freeTmpReg(tmp);
+            }
+        }
+
+        //return OP_GET_NULL;
+        return result;
     }
 
     void CompilerInstance::serializeInstruction(const Instruction& instr, std::vector<uint8_t>& out) {
