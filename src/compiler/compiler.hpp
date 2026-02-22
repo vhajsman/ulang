@@ -129,7 +129,7 @@ namespace ULang {
             case TokenType::Div:            return "division";
             case TokenType::Assign:         return "assignment";
             case TokenType::Return:         return "return statement";
-            case TokenType::Semicolon:      return "','";
+            case TokenType::Semicolon:      return "';'";
             case TokenType::Function:       return "function";
             case TokenType::EndOfFile:      return "EOF";
         }
