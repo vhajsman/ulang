@@ -128,6 +128,7 @@ namespace ULang {
                     break;
     
                 case ASTNodeType::FN_DEF: {
+                    
                     ASTNode* prev = this->currentFunction;
                     this->currentFunction = node;
     
@@ -136,6 +137,7 @@ namespace ULang {
                     this->currentFunction = prev;
 
                     this->verbose_descend();
+                    
                     return OP_GET_NULL;
                 }
     
@@ -206,12 +208,20 @@ namespace ULang {
                     for(ASTNode* arg: node->args)
                         this->compileNode(arg, out);
     
-                    this->emit(this->ctx, Opcode::CALL, {OperandType::OP_REFERENCE, node->symbol->entry_ip}, OP_GET_NULL);
+                    this->emit(this->ctx, Opcode::CALL, {
+                        OperandType::OP_REFERENCE, 
+                        node->symbol->entry_ip
+                    }, OP_GET_NULL);
     
-                    if(node->target_symbol)
-                        this->emit(this->ctx, Opcode::MOV, {OperandType::OP_REFERENCE, node->target_symbol->stackOffset}, {OperandType::OP_REGISTER, R_FNR.reg_no});
-    
-                    // return OP_GET_NULL;
+                    if(node->target_symbol) {
+                        this->emit(this->ctx, Opcode::MOV, {
+                            OperandType::OP_REFERENCE, 
+                            node->target_symbol->stackOffset}, 
+                        {
+                            OperandType::OP_REGISTER, 
+                            R_FNR.reg_no
+                        });
+                    }
 
                     this->verbose_descend();
                     return {

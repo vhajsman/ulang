@@ -58,7 +58,9 @@ namespace ULang {
 
             auto it = std::find(types.begin(), types.end(), sym.type);
             msym.type_id = (it != types.end()) ? std::distance(types.begin(), it) : 0;
-            msym.stack_offset = sym.stackOffset;
+            msym.stack_offset = sym.kind == SymbolKind::FUNCTION 
+                ? sym.entry_ip + sizeof(BytecodeHeader) 
+                : sym.stackOffset;
             msym.flags = 0;
 
             meta.symbols.push_back(msym);

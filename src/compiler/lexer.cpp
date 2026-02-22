@@ -3,6 +3,7 @@
 
 #include <cctype>
 #include <cstddef>
+#include <iostream>
 #include <stdexcept>
 
 namespace ULang {
@@ -122,6 +123,10 @@ namespace ULang {
             this->line,
             this->col
         }});
+
+        for(auto& tok: tokens) {
+            std::cout << "Token: " << int(tok.type) << ", text: '" << tok.text << "'" << std::endl;
+        }
         
         return tokens;
     }
