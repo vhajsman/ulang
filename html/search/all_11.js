@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['r_5fexc_0',['R_EXC',['../vmreg__defines_8hpp.html#ade364c708c4ac2c91fe92b0750cc81d2',1,'vmreg_defines.hpp']]],
-  ['r_5fflags_1',['R_FLAGS',['../vmreg__defines_8hpp.html#a6690d11464f8349fed0c7cf6d4a338fc',1,'vmreg_defines.hpp']]],
+  ['r_5fflags_0',['R_FLAGS',['../vmreg__defines_8hpp.html#a6690d11464f8349fed0c7cf6d4a338fc',1,'vmreg_defines.hpp']]],
+  ['r_5ffnr_1',['R_FNR',['../vmreg__defines_8hpp.html#a99f67573b937408b934189e14b4a4f71',1,'vmreg_defines.hpp']]],
   ['r_5ffp_2',['R_FP',['../vmreg__defines_8hpp.html#aa8370e02498e34d53fa7f6cd88132ba3',1,'vmreg_defines.hpp']]],
   ['r_5fgpr0a_3',['R_GPR0A',['../vmreg__defines_8hpp.html#ab63e5b69e490e58f840054d3a8f0aea7',1,'vmreg_defines.hpp']]],
   ['r_5fgpr0b_4',['R_GPR0B',['../vmreg__defines_8hpp.html#a6d4f8bbf5207a4058b4848baaabd04eb',1,'vmreg_defines.hpp']]],

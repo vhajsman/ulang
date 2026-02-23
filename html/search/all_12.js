@@ -11,7 +11,7 @@ var searchData=
   ['st_8',['ST',['../namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a326062a58c51a73bc246d4b182738244',1,'ULang']]],
   ['stack_5foffset_9',['stack_offset',['../structULang_1_1MetaSymbol.html#a79d2d7327a81fdd3c367157ce1f86f0c',1,'ULang::MetaSymbol']]],
   ['stack_5ftop_10',['stack_top',['../structULang_1_1GenerationContext.html#a09fed38da0c81032d13d3c19f046baaa',1,'ULang::GenerationContext']]],
-  ['stackoffset_11',['stackOffset',['../structULang_1_1Symbol.html#a30b2463dea90338a50b8445f05cb68d5',1,'ULang::Symbol']]],
+  ['stackoffset_11',['stackOffset',['../structULang_1_1Symbol.html#a3f6bdce70a3ff3e45b5d2c1609fa0d76',1,'ULang::Symbol']]],
   ['start_12',['start',['../classULang_1_1StatTimeMeter.html#aecbbcd3a4ed94c610a28f5f030333fd1',1,'ULang::StatTimeMeter']]],
   ['statmemorymeter_13',['statmemorymeter',['../classULang_1_1StatMemoryMeter.html#af0ad8befb908c1f61645bbc7d5e015f8',1,'ULang::StatMemoryMeter::StatMemoryMeter()'],['../classULang_1_1StatMemoryMeter.html',1,'ULang::StatMemoryMeter']]],
   ['stats_5fen_14',['stats_en',['../structULang_1_1VMParams.html#ada6f97be4f076142de69d33365efc807',1,'ULang::VMParams']]],

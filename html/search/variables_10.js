@@ -4,7 +4,7 @@ var searchData=
   ['sourcefile_1',['sourceFile',['../structULang_1_1CompilerParameters.html#ac45091e1560d4a973b45fad9b80697f8',1,'ULang::CompilerParameters']]],
   ['stack_5foffset_2',['stack_offset',['../structULang_1_1MetaSymbol.html#a79d2d7327a81fdd3c367157ce1f86f0c',1,'ULang::MetaSymbol']]],
   ['stack_5ftop_3',['stack_top',['../structULang_1_1GenerationContext.html#a09fed38da0c81032d13d3c19f046baaa',1,'ULang::GenerationContext']]],
-  ['stackoffset_4',['stackOffset',['../structULang_1_1Symbol.html#a30b2463dea90338a50b8445f05cb68d5',1,'ULang::Symbol']]],
+  ['stackoffset_4',['stackOffset',['../structULang_1_1Symbol.html#a3f6bdce70a3ff3e45b5d2c1609fa0d76',1,'ULang::Symbol']]],
   ['stats_5fen_5',['stats_en',['../structULang_1_1VMParams.html#ada6f97be4f076142de69d33365efc807',1,'ULang::VMParams']]],
   ['string_5fpool_6',['string_pool',['../structULang_1_1MetaData.html#ada753dd0b96d285f6daa4918c51a07f2',1,'ULang::MetaData']]],
   ['string_5fpool_5fsize_7',['string_pool_size',['../structULang_1_1BytecodeMetaHeader.html#abcd2017c79f7af6d812c1d1d34c6721d',1,'ULang::BytecodeMetaHeader']]],

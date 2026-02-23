@@ -114,40 +114,41 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {0x0d, <span class="stringliteral">&quot;FP&quot;</span>},</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {0x0e, <span class="stringliteral">&quot;PC&quot;</span>},</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    {0x0f, <span class="stringliteral">&quot;FLAGS&quot;</span>},</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// --- temporary / scratch registers ---</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {0x10, <span class="stringliteral">&quot;TMP0&quot;</span>},</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {0x11, <span class="stringliteral">&quot;TMP1&quot;</span>},</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {0x12, <span class="stringliteral">&quot;TMP2&quot;</span>},</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {0x13, <span class="stringliteral">&quot;TMP3&quot;</span>},</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {0x10, <span class="stringliteral">&quot;IP&quot;</span>},</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// --- temporary / scratch registers ---</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {0x11, <span class="stringliteral">&quot;TMP0&quot;</span>},</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {0x12, <span class="stringliteral">&quot;TMP1&quot;</span>},</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {0x13, <span class="stringliteral">&quot;TMP2&quot;</span>},</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {0x14, <span class="stringliteral">&quot;TMP3&quot;</span>},</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {0xff, <span class="stringliteral">&quot;EXC&quot;</span>},</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    };</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {0x15, <span class="stringliteral">&quot;FNR&quot;</span>},</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    };</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#ab63e5b69e490e58f840054d3a8f0aea7">   43</a></span><span class="preprocessor">#define R_GPR0A vmreg_defines[0]</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a6d4f8bbf5207a4058b4848baaabd04eb">   44</a></span><span class="preprocessor">#define R_GPR0B vmreg_defines[1]</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a64acca7677a5be0c37a60bfb136b28ea">   45</a></span><span class="preprocessor">#define R_GPR0C vmreg_defines[2]</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#afb8be981116e21f258dc5094d9cf371e">   46</a></span><span class="preprocessor">#define R_GPR0D vmreg_defines[3]</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a912f2786084f819aa8d3339a878234dd">   47</a></span><span class="preprocessor">#define R_GPR1A vmreg_defines[4]</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a6ff2d1fe3202b1866b16ae405625b2a8">   48</a></span><span class="preprocessor">#define R_GPR1B vmreg_defines[5]</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a57f86ef9876774c0c26a3de9ded17d5b">   49</a></span><span class="preprocessor">#define R_GPR1C vmreg_defines[6]</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#aed75fd18787444f8d32f3a583846bd0c">   50</a></span><span class="preprocessor">#define R_GPR1D vmreg_defines[7]</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a8823d22431cc079fee27c3c518781002">   51</a></span><span class="preprocessor">#define R_MIA   vmreg_defines[8]</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a5ed68633cd0609add167e99c28ccd328">   52</a></span><span class="preprocessor">#define R_MIR   vmreg_defines[9]</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a7f7f4e60bc1085c7a185fd2d874cca63">   53</a></span><span class="preprocessor">#define R_MID0  vmreg_defines[10]</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a959b2257a3838c03cbf4d23f7d4ff5be">   54</a></span><span class="preprocessor">#define R_MID1  vmreg_defines[11]</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a42e1c418f11d3a5ed97d6666862d4d84">   55</a></span><span class="preprocessor">#define R_SP    vmreg_defines[12]</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#aa8370e02498e34d53fa7f6cd88132ba3">   56</a></span><span class="preprocessor">#define R_FP    vmreg_defines[13]</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#aa055a6bdbbef3566eec38ef49c4731a4">   57</a></span><span class="preprocessor">#define R_PC    vmreg_defines[14]</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a6690d11464f8349fed0c7cf6d4a338fc">   58</a></span><span class="preprocessor">#define R_FLAGS vmreg_defines[15]</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#af32b95766f80e8cfc0c4fa3dfe4e5f11">   59</a></span><span class="preprocessor">#define R_TMP0  vmreg_defines[16]</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a5a4e9da9e468f4af7d1a9c80e7995971">   60</a></span><span class="preprocessor">#define R_TMP1  vmreg_defines[17]</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a665c42b0ac79aa44ccd3c4a241351341">   61</a></span><span class="preprocessor">#define R_TMP2  vmreg_defines[18]</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a355018be6c7d14c9fe8217b078940a42">   62</a></span><span class="preprocessor">#define R_TMP3  vmreg_defines[19]</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#ade364c708c4ac2c91fe92b0750cc81d2">   63</a></span><span class="preprocessor">#define R_EXC   vmreg_defines[20]</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#ab63e5b69e490e58f840054d3a8f0aea7">   44</a></span><span class="preprocessor">#define R_GPR0A vmreg_defines[0]</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a6d4f8bbf5207a4058b4848baaabd04eb">   45</a></span><span class="preprocessor">#define R_GPR0B vmreg_defines[1]</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a64acca7677a5be0c37a60bfb136b28ea">   46</a></span><span class="preprocessor">#define R_GPR0C vmreg_defines[2]</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#afb8be981116e21f258dc5094d9cf371e">   47</a></span><span class="preprocessor">#define R_GPR0D vmreg_defines[3]</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a912f2786084f819aa8d3339a878234dd">   48</a></span><span class="preprocessor">#define R_GPR1A vmreg_defines[4]</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a6ff2d1fe3202b1866b16ae405625b2a8">   49</a></span><span class="preprocessor">#define R_GPR1B vmreg_defines[5]</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a57f86ef9876774c0c26a3de9ded17d5b">   50</a></span><span class="preprocessor">#define R_GPR1C vmreg_defines[6]</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#aed75fd18787444f8d32f3a583846bd0c">   51</a></span><span class="preprocessor">#define R_GPR1D vmreg_defines[7]</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a8823d22431cc079fee27c3c518781002">   52</a></span><span class="preprocessor">#define R_MIA   vmreg_defines[8]</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a5ed68633cd0609add167e99c28ccd328">   53</a></span><span class="preprocessor">#define R_MIR   vmreg_defines[9]</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a7f7f4e60bc1085c7a185fd2d874cca63">   54</a></span><span class="preprocessor">#define R_MID0  vmreg_defines[10]</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a959b2257a3838c03cbf4d23f7d4ff5be">   55</a></span><span class="preprocessor">#define R_MID1  vmreg_defines[11]</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a42e1c418f11d3a5ed97d6666862d4d84">   56</a></span><span class="preprocessor">#define R_SP    vmreg_defines[12]</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#aa8370e02498e34d53fa7f6cd88132ba3">   57</a></span><span class="preprocessor">#define R_FP    vmreg_defines[13]</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#aa055a6bdbbef3566eec38ef49c4731a4">   58</a></span><span class="preprocessor">#define R_PC    vmreg_defines[14]</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a6690d11464f8349fed0c7cf6d4a338fc">   59</a></span><span class="preprocessor">#define R_FLAGS vmreg_defines[15]</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#af32b95766f80e8cfc0c4fa3dfe4e5f11">   60</a></span><span class="preprocessor">#define R_TMP0  vmreg_defines[16]</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a5a4e9da9e468f4af7d1a9c80e7995971">   61</a></span><span class="preprocessor">#define R_TMP1  vmreg_defines[17]</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a665c42b0ac79aa44ccd3c4a241351341">   62</a></span><span class="preprocessor">#define R_TMP2  vmreg_defines[18]</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a355018be6c7d14c9fe8217b078940a42">   63</a></span><span class="preprocessor">#define R_TMP3  vmreg_defines[19]</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="vmreg__defines_8hpp.html#a99f67573b937408b934189e14b4a4f71">   64</a></span><span class="preprocessor">#define R_FNR   vmreg_defines[20]</span></div>
 <div class="ttc" id="anamespaceULang_html"><div class="ttname"><a href="namespaceULang.html">ULang</a></div><div class="ttdef"><b>Definition</b> bytecode.cpp:5</div></div>
 <div class="ttc" id="anamespaceULang_html_a95b672dfcbef736ceb453a40559a9031"><div class="ttname"><a href="namespaceULang.html#a95b672dfcbef736ceb453a40559a9031">ULang::vmreg_defines</a></div><div class="ttdeci">constexpr VMReg_define vmreg_defines[]</div><div class="ttdef"><b>Definition</b> vmreg_defines.hpp:9</div></div>
 <div class="ttc" id="astructULang_1_1VMReg__define_html"><div class="ttname"><a href="structULang_1_1VMReg__define.html">ULang::VMReg_define</a></div><div class="ttdef"><b>Definition</b> vmreg_defines.hpp:4</div></div>

@@ -1,13 +1,15 @@
 <map id="src/common/vmreg_defines.hpp" name="src/common/vmreg_defines.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="89,5,320,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="215,5,445,31"/>
 <area shape="rect" id="Node000002" href="$compile_8cpp.html" title=" " alt="" coords="5,79,191,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,40,117,81,114,76,175,36"/>
-<area shape="rect" id="Node000003" href="$VirtualMachine_8hpp.html" title=" " alt="" coords="215,79,411,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,36,296,76,294,81,232,40"/>
-<area shape="rect" id="Node000004" href="$heap_8cpp.html" title=" " alt="" coords="93,152,223,177"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="277,112,184,154,182,149,274,107"/>
-<area shape="rect" id="Node000005" href="$vm_2main_8cpp.html" title=" " alt="" coords="247,152,378,177"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="315,118,315,152,310,152,310,118"/>
-<area shape="rect" id="Node000006" href="$vm_8cpp.html" title=" " alt="" coords="403,152,521,177"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="350,107,439,149,436,154,348,112"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="281,37,136,81,135,76,279,32"/>
+<area shape="rect" id="Node000003" href="$temp__allocator_8cpp.html" title=" " alt="" coords="215,79,445,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="333,44,333,79,327,79,327,44"/>
+<area shape="rect" id="Node000004" href="$VirtualMachine_8hpp.html" title=" " alt="" coords="469,79,665,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="382,32,530,76,528,81,380,37"/>
+<area shape="rect" id="Node000005" href="$heap_8cpp.html" title=" " alt="" coords="348,152,477,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="531,112,439,154,437,149,529,107"/>
+<area shape="rect" id="Node000006" href="$vm_2main_8cpp.html" title=" " alt="" coords="502,152,633,177"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="570,118,570,152,565,152,565,118"/>
+<area shape="rect" id="Node000007" href="$vm_8cpp.html" title=" " alt="" coords="657,152,776,177"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="605,107,693,149,691,154,602,112"/>
 </map>

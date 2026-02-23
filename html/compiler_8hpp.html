@@ -100,7 +100,7 @@ Include dependency graph for compiler.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__dep__incl.svg" width="2248" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="compiler_8hpp__dep__incl.svg" width="2682" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="compiler_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -139,6 +139,8 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:adad4758e9e4b3df8d21cf708c07e9ed9" id="r_adad4758e9e4b3df8d21cf708c07e9ed9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compiler_8hpp.html#adad4758e9e4b3df8d21cf708c07e9ed9">THROW_AWAY</a>&#160;&#160;&#160;(void)</td></tr>
 <tr class="separator:adad4758e9e4b3df8d21cf708c07e9ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ba9e9b13e66bf9e02461ede5f05443" id="r_aa2ba9e9b13e66bf9e02461ede5f05443"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compiler_8hpp.html#aa2ba9e9b13e66bf9e02461ede5f05443">IGNORE_EXCEPTION</a>(CODE)&#160;&#160;&#160;    try {CODE} catch(std::exception&amp; e) {<a class="el" href="compiler_8hpp.html#adad4758e9e4b3df8d21cf708c07e9ed9">THROW_AWAY</a> e;}</td></tr>
+<tr class="separator:aa2ba9e9b13e66bf9e02461ede5f05443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b7ad7ca803cbcdf5b4faba2abc49a3c" id="r_a1b7ad7ca803cbcdf5b4faba2abc49a3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compiler_8hpp.html#a1b7ad7ca803cbcdf5b4faba2abc49a3c">ULANG_LOCATION_NULL</a>&#160;&#160;&#160;(<a class="el" href="structULang_1_1SourceLocation.html">ULang::SourceLocation</a>) {nullptr, &quot;(unknown)&quot;, 0, 0}</td></tr>
 <tr class="separator:a1b7ad7ca803cbcdf5b4faba2abc49a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -212,6 +214,24 @@ Functions</h2></td></tr>
 <tr class="separator:a223393890930647184159ba3ee750798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aa2ba9e9b13e66bf9e02461ede5f05443" name="aa2ba9e9b13e66bf9e02461ede5f05443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ba9e9b13e66bf9e02461ede5f05443">&#9670;&#160;</a></span>IGNORE_EXCEPTION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IGNORE_EXCEPTION</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">CODE</td><td>)</td>
+          <td>&#160;&#160;&#160;    try {CODE} catch(std::exception&amp; e) {<a class="el" href="compiler_8hpp.html#adad4758e9e4b3df8d21cf708c07e9ed9">THROW_AWAY</a> e;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adad4758e9e4b3df8d21cf708c07e9ed9" name="adad4758e9e4b3df8d21cf708c07e9ed9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adad4758e9e4b3df8d21cf708c07e9ed9">&#9670;&#160;</a></span>THROW_AWAY</h2>
 

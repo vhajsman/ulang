@@ -11,6 +11,7 @@ var searchData=
   ['loc_5ffile_8',['loc_file',['../structULang_1_1SourceLocation.html#ac3cb885a8639c80e7677ce9846f00d71',1,'ULang::SourceLocation']]],
   ['loc_5fline_9',['loc_line',['../structULang_1_1SourceLocation.html#ab0d2ac2c17fb8f4973f042f9d217235d',1,'ULang::SourceLocation']]],
   ['loc_5fparent_10',['loc_parent',['../structULang_1_1SourceLocation.html#afd072750a79bb0f85daac71f4fce8d91',1,'ULang::SourceLocation']]],
-  ['lookup_11',['lookup',['../structULang_1_1Scope.html#a8de957aca07ee4601f6032ad26063dfd',1,'ULang::Scope::lookup()'],['../classULang_1_1SymbolTable.html#a19fb5b1b47d3e13844e01860062a1241',1,'ULang::SymbolTable::lookup(const std::string &amp;name) const'],['../classULang_1_1SymbolTable.html#a7a31dd1e97f816cdbf0f6930577eac9e',1,'ULang::SymbolTable::lookup(unsigned int symbolId) const'],['../structULang_1_1Scope.html#af3efbd04bbca65236e196aadda6c05d0',1,'ULang::Scope::lookup()']]],
-  ['lparen_12',['LParen',['../namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea876a9d4efdf66785e41cb452f0402c79',1,'ULang']]]
+  ['log_2ecpp_11',['log.cpp',['../log_8cpp.html',1,'']]],
+  ['lookup_12',['lookup',['../structULang_1_1Scope.html#af3efbd04bbca65236e196aadda6c05d0',1,'ULang::Scope::lookup(const std::string &amp;name) const'],['../structULang_1_1Scope.html#a8de957aca07ee4601f6032ad26063dfd',1,'ULang::Scope::lookup(unsigned int symbolId) const'],['../classULang_1_1SymbolTable.html#a19fb5b1b47d3e13844e01860062a1241',1,'ULang::SymbolTable::lookup(const std::string &amp;name) const'],['../classULang_1_1SymbolTable.html#a7a31dd1e97f816cdbf0f6930577eac9e',1,'ULang::SymbolTable::lookup(unsigned int symbolId) const']]],
+  ['lparen_13',['LParen',['../namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0ea876a9d4efdf66785e41cb452f0402c79',1,'ULang']]]
 ];
