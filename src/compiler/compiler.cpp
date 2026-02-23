@@ -268,6 +268,7 @@ namespace ULang {
         Symbol* sym = this->symbols.decl(tok_name.text, type, &tok_name.loc);
 
         this->verbose_nl("Creating ASTNode for decl: '" + tok_name.text + "'");
+        this->verbose_ascend();
 
         ASTNode* node = new ASTNode(ASTNodeType::DECLARATION);
         node->name = tok_name.text;
@@ -275,8 +276,6 @@ namespace ULang {
 
         // optional initializer
         if(this->tokens[this->pos].type == TokenType::Assign) {
-            this->verbose_ascend();
-
             this->pos++;
             node->initial = this->parseExpression();
 
@@ -301,11 +300,10 @@ namespace ULang {
                     ));
                 }
             }
-
-            this->verbose_descend();
         } else node->initial = nullptr;
 
         this->expectToken(TokenType::Semicolon);
+        this->verbose_descend();
         return node;
     }
 
