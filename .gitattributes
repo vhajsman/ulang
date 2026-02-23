@@ -1,0 +1,4 @@
+*.u linguist-language=ULang
+*.uinc linguist-language=ULang
+*.umod linguist-language=ULang
+*.us linguist-language=ULang
