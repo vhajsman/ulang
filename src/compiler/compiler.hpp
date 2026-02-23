@@ -503,6 +503,13 @@ namespace ULang {
          */
         ASTNode* parseExpression(int prec_min = 0);
 
+        /**
+         * @brief Parse function postfix
+         * @exception std::runtime_error
+         * @return ASTNode* pointer to new AST node
+         */
+        ASTNode* parsePostfix();
+
         // void registerFunctions();
 
         /**
