@@ -16,6 +16,11 @@
 #define THROW_AWAY (void)
 #endif
 
+#ifndef IGNORE_EXCEPTION
+#define IGNORE_EXCEPTION(CODE)  \
+    try {CODE} catch(std::exception& e) {THROW_AWAY e;}
+#endif
+
 namespace ULang {
     struct Symbol;
 
@@ -71,6 +76,7 @@ namespace ULang {
         ASTNode* initial = nullptr;     ///< initial value (if ASTNodeType::DECLARATION)
 
         Symbol* symbol = nullptr;       ///< symbol
+        Symbol* target_symbol = nullptr;///< target symbol (where to store return value)
 
         std::vector<ASTNode*> body;     ///< function body (if ASTNodeType::FN_DEF)
         std::vector<ASTNode*> args;     ///< function args (if ASTNodeType::FN_CALL)
@@ -123,7 +129,7 @@ namespace ULang {
             case TokenType::Div:            return "division";
             case TokenType::Assign:         return "assignment";
             case TokenType::Return:         return "return statement";
-            case TokenType::Semicolon:      return "','";
+            case TokenType::Semicolon:      return "';'";
             case TokenType::Function:       return "function";
             case TokenType::EndOfFile:      return "EOF";
         }
@@ -183,7 +189,7 @@ namespace ULang {
         SymbolKind kind = SymbolKind::VARIABLE;
         const DataType* type;
 
-        size_t stackOffset;
+        uint32_t stackOffset;
         uint32_t entry_ip; ///< functions only
 
         SourceLocation where;
@@ -365,6 +371,46 @@ namespace ULang {
         CompilerParameters cparams;
 
         size_t pos = 0;             ///< Current position
+        ASTNode* currentFunction = nullptr; ///< Current function
+
+        GenerationContext ctx;
+
+        std::vector<bool> tmp_used = std::vector<bool>(4, false);
+
+        unsigned int verbose_depthLvl = 0;
+
+        void verbose_print(std::string str);
+        void verbose_print(int val, int base = 16, int pad_width = 0);
+        void verbose_nl(std::string str, bool ignore_depth = false);
+        
+        inline void verbose_ascend() {
+            this->verbose_depthLvl++;
+        }
+
+        inline void verbose_descend() {
+            if(this->verbose_depthLvl > 0) this->verbose_depthLvl--;
+        }
+
+        /**
+         * @brief Allocate temporary register
+         * @exception std::runtime_error no free tmp register available
+         * @return Operand 
+         */
+        Operand allocTmpReg();
+
+        /**
+         * @brief Free allocated temporary register
+         * @exception std::runtime_error invalid tmp register free
+         * @param reg register index
+         */
+        void freeTmpReg(uint8_t reg, bool failsafe = false);
+
+        /**
+         * @brief Free allocated temporary register
+         * @exception std::runtime_error invalid tmp register free
+         * @param reg register as an operand
+         */
+        void freeTmpReg(Operand reg, bool failsafe = false);
 
         /**
          * @brief CompilerSyntaxException exceptions not terminating the compilation
@@ -442,6 +488,12 @@ namespace ULang {
          */
         ASTNode* parseStatement();
 
+        /**
+         * @brief parses code block (a sequence of statements)
+         * @exception std::runtime_error
+         * @return std::vector<ASTNode*> a vector of pointers to new AST nodes
+         */
+        std::vector<ASTNode*> parseBlock();
 
         /**
          * @brief parses arithmetical expression
@@ -451,7 +503,7 @@ namespace ULang {
          */
         ASTNode* parseExpression(int prec_min = 0);
 
-        void registerFunctions();
+        // void registerFunctions();
 
         /**
          * @brief generates AST based on tokens
@@ -468,6 +520,7 @@ namespace ULang {
         std::vector<uint8_t> serializeProgram(const std::vector<Instruction>& program);
 
         Operand compileNode(ASTNode* node, std::vector<Instruction>& out);
+        void compileFunction(ASTNode* node, std::vector<Instruction>& out);
 
         void emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b);
 
