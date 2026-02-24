@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <exception>
 #include <iostream>
+#include <ostream>
 #include <stdexcept>
 
 #include "types.hpp"
@@ -124,8 +125,10 @@ namespace ULang {
                     return L;
                 }
     
-                case ASTNodeType::FN_ARG:
-                    break;
+                case ASTNodeType::FN_ARG: {
+                    this->verbose_descend();
+                    return OP_GET_NULL;
+                }
     
                 case ASTNodeType::FN_DEF: {
                     
@@ -234,6 +237,9 @@ namespace ULang {
                     throw std::runtime_error("invalid AST node type");
             }
         } catch(std::exception& e) {
+            std::cerr << "compileNode() failed for '" << node->name << "' type=" << int(node->type) << std::endl;
+            std::cerr << "  what=" << e.what() << std::endl;
+            
             this->verbose_descend();
             throw e;
         }

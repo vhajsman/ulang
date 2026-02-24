@@ -154,9 +154,9 @@ namespace ULang {
         return false;
     }
 
-//    inline static bool isBinop(TokenType tt) {
-//        return tt == TokenType::Plus || tt == TokenType::Minus || tt == TokenType::Div || tt == TokenType::Mul;
-//    }
+    inline static bool isBinop(TokenType tt) {
+        return tt == TokenType::Plus || tt == TokenType::Minus || tt == TokenType::Div || tt == TokenType::Mul;
+    }
 
     int CompilerInstance::precedence(TokenType type) {
         switch(type) {
@@ -207,35 +207,6 @@ namespace ULang {
             node->name = tok.text;
             node->symbol = const_cast<Symbol*>(sym);
 
-//            // Is function call?
-//            if(this->matchToken(TokenType::LParen)) {
-//                node->type = ASTNodeType::FN_CALL;
-//                this->verbose_nl("Parsing function call: '" + tok.text + "(...)' -> ");
-//
-//                std::vector<ASTNode*> args;
-//
-//                if(!this->matchToken(TokenType::RParen)) {
-//                    do {
-//                        args.push_back(parseExpression());
-//                    } while(this->matchToken(TokenType::Comma));
-//                    this->expectToken(TokenType::RParen);
-//                }
-//
-//                node->args = std::move(args);
-//                    
-//                // set symbol and return type
-//                if(sym->kind != SymbolKind::FUNCTION) {
-//                    throw CompilerSyntaxException(
-//                        CompilerSyntaxException::Severity::Error,
-//                        "'" + tok.text + "' is not a function",
-//                        tok.loc,
-//                        ULANG_SYNT_ERR_FN_NOT_FN
-//                    );
-//                }
-//
-//                this->verbose_print("argc=" + std::to_string(args.size()));
-//            }
-
             this->verbose_descend();
             return node;
         }
@@ -281,23 +252,24 @@ namespace ULang {
 
             if(node->initial) {
                 const DataType* init_type = getType(node->initial, sym->where);
-
-                if((init_type->flags & SIGN) != (type->flags & SIGN)) {
-                    this->friendlyException(CompilerSyntaxException(
-                        CompilerSyntaxException::Severity::Warning,
-                        "Types '" + init_type->name + "' and '" + type->name + "' differ in signedness",
-                        sym->where,
-                        ULANG_SYNT_WARN_TYPES_SIGN_DIFF
-                    ));
-                }
-
-                if(init_type->size != type->size) {
-                    this->friendlyException(CompilerSyntaxException(
-                        CompilerSyntaxException::Severity::Warning,
-                        "Types '" + init_type->name + "' and '" + type->name + "' differ in sizes",
-                        sym->where,
-                        ULANG_SYNT_WARN_TYPES_SIZE_DIFF
-                    ));
+                if(init_type) {
+                    if((init_type->flags & SIGN) != (type->flags & SIGN)) {
+                        this->friendlyException(CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Warning,
+                            "Types '" + init_type->name + "' and '" + type->name + "' differ in signedness",
+                            sym->where,
+                            ULANG_SYNT_WARN_TYPES_SIGN_DIFF
+                        ));
+                    }
+    
+                    if(init_type->size != type->size) {
+                        this->friendlyException(CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Warning,
+                            "Types '" + init_type->name + "' and '" + type->name + "' differ in sizes",
+                            sym->where,
+                            ULANG_SYNT_WARN_TYPES_SIZE_DIFF
+                        ));
+                    }
                 }
             }
         } else node->initial = nullptr;
@@ -380,10 +352,12 @@ namespace ULang {
     ASTNode* CompilerInstance::parseExpression(int prec_min) {
         //ASTNode* lefthand = this->parsePrimary();
         ASTNode* lefthand = this->parsePostfix();
+        if(!lefthand)
+            throw std::runtime_error("parsePostfix() returned nullptr");
 
-        while(true) {
+        while(this->pos < this->tokens.size()) {
             TokenType op = this->tokens[this->pos].type;
-            if(op == TokenType::Semicolon || op == TokenType::EndOfFile /*|| isBinop(op)*/)
+            if(op == TokenType::Semicolon || op == TokenType::EndOfFile || !isBinop(op))
                 break;
 
             int prec = this->precedence(op);
@@ -393,24 +367,39 @@ namespace ULang {
             this->pos++;
 
             ASTNode* righthand = this->parseExpression(prec + 1);
+            if(!lefthand || !righthand) {
+                throw CompilerSyntaxException(
+                    CompilerSyntaxException::Severity::Error,
+                    "Invalid expression operands",
+                    ULANG_LOCATION_NULL,
+                    ULANG_SYNT_ERR_EXCEPTED_EXPR
+                );
+            }
 
-            ASTNode* node = new ASTNode(ASTNodeType::BINOP);
-            node->lefthand = lefthand;
-            node->righthand = righthand;
+            //ASTNode* node = new ASTNode(ASTNodeType::BINOP);
+            //node->lefthand = lefthand;
+            //node->righthand = righthand;
+
+            BinopType op_type;
 
             switch(op) {
-                case TokenType::Plus:   node->op = BinopType::ADDITION;         break;
-                case TokenType::Minus:  node->op = BinopType::SUBSTRACTION;     break;
-                case TokenType::Mul:    node->op = BinopType::MULTIPLICATION;   break;
-                case TokenType::Div:    node->op = BinopType::DIVISION;         break;
+                case TokenType::Plus:   op_type = BinopType::ADDITION;         break;
+                case TokenType::Minus:  op_type = BinopType::SUBSTRACTION;     break;
+                case TokenType::Mul:    op_type = BinopType::MULTIPLICATION;   break;
+                case TokenType::Div:    op_type = BinopType::DIVISION;         break;
 
                 default:
                     break;
             }
 
+            if(isBinop(op))
+                this->verbose_nl("IS binop");
+
             // ---- type checking & BINOP result type ----
-            const DataType* left_type =  getType(lefthand, lefthand->symbol ? lefthand->symbol->where : SourceLocation{});
-            const DataType* right_type = getType(righthand, righthand->symbol ? righthand->symbol->where : SourceLocation{});
+            const DataType* left_type =  getType(lefthand, lefthand->symbol ? lefthand->symbol->where : ULANG_LOCATION_NULL);
+            const DataType* right_type = getType(righthand, righthand->symbol ? righthand->symbol->where : ULANG_LOCATION_NULL);
+            if(!left_type || !right_type)
+                throw std::runtime_error("Could not determine operand types");
 
             if((left_type->flags & SIGN) != (right_type->flags & SIGN)) {
                 this->friendlyException(CompilerSyntaxException(
@@ -437,6 +426,11 @@ namespace ULang {
             } else if((left_type->flags & SIGN) != (right_type->flags & SIGN)) {
                 result_type = (left_type->flags & SIGN) ? left_type : right_type;
             }
+
+            ASTNode* node = new ASTNode(ASTNodeType::BINOP);
+            node->lefthand = lefthand;
+            node->righthand = righthand;
+            node->op = op_type;
 
             node->symbol = new Symbol{
                 "<binop>", 
@@ -528,14 +522,28 @@ namespace ULang {
         ASTNode* node = this->parsePrimary();
 
         while(this->pos < this->tokens.size()) {
+            /*
             if(this->tokens[this->pos].type == TokenType::LParen) {
                 if(!node->symbol) {
-                    throw CompilerSyntaxException(
-                        CompilerSyntaxException::Severity::Error,
-                        "Attempted to call a value without a symbol (not a function)",
-                        node->symbol->where,
-                        ULANG_SYNT_ERR_FN_NOT_FN
-                    );
+                    const Symbol* sym = this->symbols.lookup(node->name);
+                    if(!sym) {
+                        throw CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Error,
+                            "'" + node->name + "' was not declared in current scope",
+                            node->symbol->where,
+                            ULANG_SYNT_ERR_VAR_UNDEFINED
+                        );
+                    }
+
+                    node->symbol = const_cast<Symbol*>(sym);
+                    if(node->symbol->kind != SymbolKind::FUNCTION) {
+                        throw CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Error,
+                            "'" + node->name + "' is not a function",
+                            node->symbol->where,
+                            ULANG_SYNT_ERR_FN_NOT_FN
+                        );
+                    }
                 }
 
                 ASTNode* call = new ASTNode(ASTNodeType::FN_CALL);
@@ -571,6 +579,57 @@ namespace ULang {
             }
 
             break;
+            */
+
+            if(this->tokens[this->pos].type != TokenType::LParen)
+                break;
+
+            if(node->name.empty() || !node->symbol) {
+                /*
+                if(node->symbol->kind != SymbolKind::FUNCTION) {
+                    throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Error,
+                        "'" + node->name + "' is not a function",
+                        node->symbol->where,
+                        ULANG_SYNT_ERR_FN_NOT_FN
+                    );
+                }*/
+
+                break;
+            }
+
+            // TODO: support call by reference
+            if(node->symbol->kind != SymbolKind::FUNCTION) {
+                if(node->symbol->kind != SymbolKind::FUNCTION) {
+                    throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Error,
+                        "'" + node->name + "' is not a function",
+                        node->symbol->where,
+                        ULANG_SYNT_ERR_FN_NOT_FN
+                    );
+                }
+            }
+
+            ASTNode* call_node = new ASTNode(ASTNodeType::FN_CALL);
+            call_node->lefthand = node;
+            call_node->symbol = node->symbol;
+            this->pos++;
+
+            if(this->tokens[this->pos].type != TokenType::RParen) {
+                do {
+                    //ASTNode* arg_node = new ASTNode(ASTNodeType::FN_ARG);
+                    ASTNode* arg_node = this->parseExpression();
+                    call_node->args.push_back(arg_node);
+
+                    if(this->tokens[this->pos].type != TokenType::Comma)
+                        break;
+
+                    this->pos++;
+                } while(true);
+            }
+
+            this->expectToken(TokenType::RParen);
+            node = call_node;
         }
 
         return node;
