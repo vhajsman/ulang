@@ -2,7 +2,7 @@
 #define __ULANG_COMPILER_H
 
 #include "bytecode.hpp"
-#include "compiler/errno.h"
+#include "essentials.hpp"
 #include "compiler/params.hpp"
 #include "types.hpp"
 
@@ -24,18 +24,20 @@
 
 namespace ULang {
     struct Symbol;
+    class SymbolTable;
     class CompilerInstance;
+
+    struct GenerationContext {
+        std::vector<Instruction> instructions;
+        SymbolTable* symtab;
+        uint32_t stack_top;
+    };
 
     static inline void write_bytes(std::vector<uint8_t>& out, const void* src, size_t size) {
         const uint8_t* p = static_cast<const uint8_t*>(src);
         out.insert(out.end(), p, p + size);
     }
-    struct SourceLocation {
-        void* loc_parent;
-        std::string loc_file;
-        size_t loc_line;
-        size_t loc_col;
-    };
+    
 #ifndef ULANG_LOCATION_NULL
     #define ULANG_LOCATION_NULL (ULang::SourceLocation) {nullptr, "(unknown)", 0, 0}
 #endif
@@ -44,12 +46,7 @@ namespace ULang {
         "uGetChar", "uPutChar"
     };
 
-    inline bool isBuiltin(const std::string& str) {
-        for(std::string& curr: builtin_ids)
-            if(str == curr) return true;
-
-        return false;
-    }
+    bool isBuiltin(const std::string& str);
 
     // ==================================================================
     // ======== AST NODES
@@ -153,6 +150,8 @@ namespace ULang {
         std::string text;
         SourceLocation loc;
     };
+
+    bool isBinop(TokenType tt);
 
     /**
      * @brief converts source to tokens
@@ -365,12 +364,6 @@ namespace ULang {
     MetaData buildMeta(SymbolTable& symtable, const std::vector<const DataType*>& types0, bool verbose_en);
     void writeBytecode(const std::string& filename, const std::vector<uint8_t>& code, const MetaData& meta, uint8_t word_size);
 
-    struct GenerationContext {
-        std::vector<Instruction> instructions;
-        SymbolTable* symtab;
-        uint32_t stack_top;
-    };
-
     // ==================================================================
     // ======== COMPILER INSTANCE
     // ==================================================================
@@ -561,16 +554,7 @@ namespace ULang {
          * @param str symbol name
          * @param loc exception location (optional)
          */
-        inline void checkBuiltinRedecl(const std::string& str, SourceLocation* loc = nullptr) {
-            if(isBuiltin((std::string&) str) && !this->cparams.excludeBuiltin) {
-                throw CompilerSyntaxException(
-                    CompilerSyntaxException::Severity::Error,
-                    "'" + str + "' was already declared as builtin symbol",
-                    loc == nullptr ? ULANG_LOCATION_NULL : *loc,
-                    ULANG_SYNT_ERR_BUILTIN_REDECL
-                );
-            }
-        }
+        void checkBuiltinRedecl(const std::string& str, SourceLocation* loc = nullptr);
 
     };
 };
