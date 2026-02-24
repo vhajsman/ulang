@@ -1,0 +1,11 @@
+<map id="ULang::CompilerInstance::checkBuiltinRedecl" name="ULang::CompilerInstance::checkBuiltinRedecl">
+<area shape="rect" id="Node000001" title="Check if declaring symbol redeclares builtin symbol, throw exception if so." alt="" coords="421,39,607,79"/>
+<area shape="rect" id="Node000002" href="$structULang_1_1Scope.html#ad041b2f9f91de453cfc34f1ff1192744" title="Declares a symbol in current scope." alt="" coords="218,17,363,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,47,363,41,364,36,408,42"/>
+<area shape="rect" id="Node000004" href="$structULang_1_1Scope.html#aa61f3baec1d9f9c74f342cb6e34d0f22" title="Declares a function symbol in current scope." alt="" coords="208,70,373,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="408,73,374,76,373,71,407,67"/>
+<area shape="rect" id="Node000003" href="$classULang_1_1SymbolTable.html#a97ea7bc61ceb17207ac67415f6982803" title="Declares a symbol in current scope." alt="" coords="5,5,160,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="204,30,160,29,160,24,204,25"/>
+<area shape="rect" id="Node000005" href="$classULang_1_1SymbolTable.html#a6f137f4772f459991b6aebf60cd0b897" title="Declares a function symbol in current scope." alt="" coords="5,69,160,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="194,88,160,90,160,84,194,83"/>
+</map>

@@ -1,29 +1,43 @@
 <map id="src/compiler/compiler.hpp" name="src/compiler/compiler.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="1282,5,1473,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1934,5,2125,31"/>
 <area shape="rect" id="Node000002" href="$CompilerSyntaxException_8cpp.html" title=" " alt="" coords="5,79,216,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1268,24,814,39,522,56,227,81,216,83,216,77,226,76,521,51,814,34,1268,18"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1920,24,1071,43,584,60,381,70,227,81,216,82,216,77,226,76,380,65,583,54,1071,37,1920,18"/>
 <area shape="rect" id="Node000003" href="$ast_8cpp.html" title=" " alt="" coords="239,86,393,111"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1268,23,1101,28,885,38,645,55,404,81,364,89,363,83,404,76,645,50,885,32,1101,23,1268,18"/>
-<area shape="rect" id="Node000004" href="$compiler_2bytecode_8cpp.html" title=" " alt="" coords="417,86,610,111"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1268,27,976,47,799,62,622,81,574,89,573,83,621,76,798,57,975,41,1268,22"/>
-<area shape="rect" id="Node000005" href="$compile_8cpp.html" title=" " alt="" coords="634,86,819,111"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1268,32,1065,52,832,81,787,89,786,83,832,76,1065,47,1268,26"/>
-<area shape="rect" id="Node000006" href="$compiler_8cpp.html" title=" " alt="" coords="844,86,1033,111"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1301,36,1003,89,1002,83,1300,30"/>
-<area shape="rect" id="Node000007" href="$functions_8cpp.html" title=" " alt="" coords="1058,86,1251,111"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1333,38,1188,88,1186,83,1331,33"/>
-<area shape="rect" id="Node000008" href="$instruction_8cpp.html" title=" " alt="" coords="1276,86,1479,111"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1380,44,1380,86,1375,86,1375,44"/>
-<area shape="rect" id="Node000009" href="$lexer_8cpp.html" title=" " alt="" coords="1503,86,1667,111"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1421,33,1556,83,1554,88,1419,38"/>
-<area shape="rect" id="Node000010" href="$log_8cpp.html" title=" " alt="" coords="1691,86,1845,111"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1451,31,1681,76,1716,83,1714,89,1679,81,1450,36"/>
-<area shape="rect" id="Node000011" href="$compiler_2main_8cpp.html" title=" " alt="" coords="1869,86,2035,111"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1487,28,1661,48,1858,76,1898,83,1897,89,1857,81,1660,54,1486,33"/>
-<area shape="rect" id="Node000012" href="$symbol_8cpp.html" title=" " alt="" coords="2060,86,2241,111"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1487,23,1743,43,2048,76,2094,83,2093,89,2048,81,1743,48,1486,29"/>
-<area shape="rect" id="Node000013" href="$symbol__table_8cpp.html" title=" " alt="" coords="2265,79,2420,119"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1487,19,1830,35,2041,52,2254,76,2266,78,2265,83,2253,81,2041,57,1829,41,1487,25"/>
-<area shape="rect" id="Node000014" href="$temp__allocator_8cpp.html" title=" " alt="" coords="2445,86,2675,111"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1486,20,1902,37,2166,53,2432,76,2490,83,2489,89,2432,81,2166,59,1902,42,1486,25"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1920,24,1154,41,721,58,541,69,404,81,363,89,362,83,404,76,541,63,721,52,1154,35,1920,18"/>
+<area shape="rect" id="Node000004" href="$binop_8cpp.html" title=" " alt="" coords="417,86,586,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1920,21,1682,22,1354,29,979,48,787,62,599,81,554,89,553,83,598,76,786,57,978,42,1354,24,1682,17,1920,16"/>
+<area shape="rect" id="Node000005" href="$block_8cpp.html" title=" " alt="" coords="611,86,779,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1920,22,1711,25,1430,33,1112,51,950,64,791,81,746,89,745,83,790,76,949,59,1112,46,1430,28,1710,19,1920,17"/>
+<area shape="rect" id="Node000006" href="$builtin_8cpp.html" title=" " alt="" coords="803,86,978,111"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1920,24,1742,28,1510,38,1251,55,990,81,944,89,943,83,989,76,1250,50,1510,33,1742,23,1920,18"/>
+<area shape="rect" id="Node000007" href="$compiler_2bytecode_8cpp.html" title=" " alt="" coords="1002,86,1195,111"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1920,26,1600,45,1404,61,1207,81,1159,89,1158,83,1206,76,1403,55,1599,40,1920,21"/>
+<area shape="rect" id="Node000008" href="$compile_8cpp.html" title=" " alt="" coords="1219,86,1405,111"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1920,30,1689,50,1418,81,1372,89,1371,83,1417,76,1688,45,1920,25"/>
+<area shape="rect" id="Node000009" href="$compiler_8cpp.html" title=" " alt="" coords="1429,86,1619,111"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1936,35,1631,81,1588,89,1587,83,1630,76,1935,30"/>
+<area shape="rect" id="Node000010" href="$expr_8cpp.html" title=" " alt="" coords="1643,86,1805,111"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1972,37,1769,89,1768,83,1971,31"/>
+<area shape="rect" id="Node000011" href="$function_8cpp.html" title=" " alt="" coords="1829,86,2016,111"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="2004,41,1940,88,1937,84,2001,37"/>
+<area shape="rect" id="Node000012" href="$functions_8cpp.html" title=" " alt="" coords="2041,86,2234,111"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="2058,37,2123,84,2120,88,2055,41"/>
+<area shape="rect" id="Node000013" href="$instruction_8cpp.html" title=" " alt="" coords="2259,86,2461,111"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="2091,31,2312,83,2311,89,2090,36"/>
+<area shape="rect" id="Node000014" href="$lexer_8cpp.html" title=" " alt="" coords="2486,86,2650,111"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="2139,29,2297,50,2474,76,2514,83,2513,89,2473,81,2297,55,2138,35"/>
+<area shape="rect" id="Node000015" href="$log_8cpp.html" title=" " alt="" coords="2674,86,2827,111"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="2138,23,2379,42,2522,57,2663,76,2702,83,2701,89,2662,81,2521,62,2379,47,2138,28"/>
+<area shape="rect" id="Node000016" href="$compiler_2main_8cpp.html" title=" " alt="" coords="2851,86,3018,111"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="2139,20,2455,38,2647,54,2840,76,2883,83,2882,89,2840,81,2647,59,2454,43,2139,26"/>
+<area shape="rect" id="Node000017" href="$statement_8cpp.html" title=" " alt="" coords="3043,86,3243,111"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="2138,19,2533,36,2781,53,3031,76,3082,83,3081,89,3030,81,2781,58,2532,41,2138,25"/>
+<area shape="rect" id="Node000018" href="$symbol_8cpp.html" title=" " alt="" coords="3267,86,3448,111"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="2139,17,2346,21,2624,30,2938,47,3255,76,3303,83,3302,89,3254,81,2937,53,2623,35,2346,26,2139,22"/>
+<area shape="rect" id="Node000019" href="$symbol__table_8cpp.html" title=" " alt="" coords="3472,79,3627,119"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="2138,19,2811,38,3186,55,3342,65,3460,76,3472,78,3472,83,3460,81,3341,70,3186,60,2811,43,2138,24"/>
+<area shape="rect" id="Node000020" href="$temp__allocator_8cpp.html" title=" " alt="" coords="3651,86,3882,111"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="2138,17,2403,19,2775,27,3204,45,3423,59,3639,76,3699,83,3698,89,3638,81,3423,64,3203,51,2775,33,2403,24,2138,22"/>
+<area shape="rect" id="Node000021" href="$variable_8cpp.html" title=" " alt="" coords="3907,86,4093,111"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="2139,18,3017,35,3524,53,3735,63,3895,76,3945,83,3944,89,3894,81,3734,69,3524,58,3017,41,2138,23"/>
 </map>

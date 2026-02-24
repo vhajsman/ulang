@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main_2ecpp_0',['main.cpp',['../bcdisasm_2main_8cpp.html',1,'(Global Namespace)'],['../bcdump_2main_8cpp.html',1,'(Global Namespace)'],['../compiler_2main_8cpp.html',1,'(Global Namespace)'],['../vm_2main_8cpp.html',1,'(Global Namespace)']]]
+  ['lexer_2ecpp_0',['lexer.cpp',['../lexer_8cpp.html',1,'']]],
+  ['log_2ecpp_1',['log.cpp',['../log_8cpp.html',1,'']]]
 ];

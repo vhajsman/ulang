@@ -175,8 +175,13 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610acad7fdbefc17f2ea92d60469ccf4eabd">CALL</a> = 0x0B
 , <br />
 &#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610af3c02bba182046bfe063f7c2fa0745b2">RET</a> = 0x0C
-, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6">HALT</a> = 0x0D
 , <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a4646cd810e6e72ef2562f2b31ba7e507">MOV</a> = 0x0E
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a561b8d6ac1a4db0d183f8c76f33b5e54">PUTC</a> = 0x20
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610ad117da4ad85e07bbc2593d3751a49624">GETC</a> = 0x21
+, <br />
+&#160;&#160;<a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a15a7998608c5df8a98dc3233b2ad3c6f">OUT</a> = 0x22
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a76ab8c5f10d784560c9f20715d9418d0">IN</a> = 0x23
+, <a class="el" href="namespaceULang.html#a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6">HALT</a> = 0xF0
 <br />
  }</td></tr>
 <tr class="separator:a8d7a15ed9bd07d0972e15fda566fc610"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -277,6 +282,10 @@ Functions</h2></td></tr>
 <tr class="separator:a27b551aecfa07f4f0b3f56d976cf1d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2437ad588ffb8270e6c3c174357638f2" id="r_a2437ad588ffb8270e6c3c174357638f2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structULang_1_1DataType.html">ULang::DataType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a2437ad588ffb8270e6c3c174357638f2">resolveDataType</a> (const std::string &amp;typeName)</td></tr>
 <tr class="separator:a2437ad588ffb8270e6c3c174357638f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a990835905509648ffda0349aa594a0b5" id="r_a990835905509648ffda0349aa594a0b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a990835905509648ffda0349aa594a0b5">isBinop</a> (<a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a> tt)</td></tr>
+<tr class="separator:a990835905509648ffda0349aa594a0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a225f15e1428e44bc79a8278e653bbd0d" id="r_a225f15e1428e44bc79a8278e653bbd0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a225f15e1428e44bc79a8278e653bbd0d">isBuiltin</a> (const std::string &amp;str)</td></tr>
+<tr class="separator:a225f15e1428e44bc79a8278e653bbd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8674adb59a39623d1f715c18a8cede91" id="r_a8674adb59a39623d1f715c18a8cede91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1BytecodeHeader.html">BytecodeHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a8674adb59a39623d1f715c18a8cede91">buildBytecodeHeader</a> (uint32_t code_size, uint32_t meta_size, uint8_t word_size)</td></tr>
 <tr class="separator:a8674adb59a39623d1f715c18a8cede91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0b1129fa6b35790dbd18cbf3add8eb8" id="r_ae0b1129fa6b35790dbd18cbf3add8eb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structULang_1_1MetaData.html">MetaData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#ae0b1129fa6b35790dbd18cbf3add8eb8">buildMeta</a> (<a class="el" href="classULang_1_1SymbolTable.html">SymbolTable</a> &amp;symtable, const std::vector&lt; const <a class="el" href="structULang_1_1DataType.html">DataType</a> * &gt; &amp;types, bool verbose_en)</td></tr>
@@ -318,6 +327,8 @@ Variables</h2></td></tr>
 <tr class="separator:a7b5bf6f424862b1ed19864fa84ff23c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95b672dfcbef736ceb453a40559a9031" id="r_a95b672dfcbef736ceb453a40559a9031"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structULang_1_1VMReg__define.html">VMReg_define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#a95b672dfcbef736ceb453a40559a9031">vmreg_defines</a> []</td></tr>
 <tr class="separator:a95b672dfcbef736ceb453a40559a9031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49b0364601ec2d876a3b28f75b5c142" id="r_aa49b0364601ec2d876a3b28f75b5c142"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceULang.html#aa49b0364601ec2d876a3b28f75b5c142">builtin_ids</a></td></tr>
+<tr class="separator:aa49b0364601ec2d876a3b28f75b5c142"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a6360ef03fa62fd65f848a8b51c0aef3a" name="a6360ef03fa62fd65f848a8b51c0aef3a"></a>
@@ -539,8 +550,12 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a1030c24aabd1d9b37cf1bba04a548fa2" name="a8d7a15ed9bd07d0972e15fda566fc610a1030c24aabd1d9b37cf1bba04a548fa2"></a>JZ&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610acad7fdbefc17f2ea92d60469ccf4eabd" name="a8d7a15ed9bd07d0972e15fda566fc610acad7fdbefc17f2ea92d60469ccf4eabd"></a>CALL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610af3c02bba182046bfe063f7c2fa0745b2" name="a8d7a15ed9bd07d0972e15fda566fc610af3c02bba182046bfe063f7c2fa0745b2"></a>RET&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6" name="a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6"></a>HALT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a4646cd810e6e72ef2562f2b31ba7e507" name="a8d7a15ed9bd07d0972e15fda566fc610a4646cd810e6e72ef2562f2b31ba7e507"></a>MOV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a561b8d6ac1a4db0d183f8c76f33b5e54" name="a8d7a15ed9bd07d0972e15fda566fc610a561b8d6ac1a4db0d183f8c76f33b5e54"></a>PUTC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610ad117da4ad85e07bbc2593d3751a49624" name="a8d7a15ed9bd07d0972e15fda566fc610ad117da4ad85e07bbc2593d3751a49624"></a>GETC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a15a7998608c5df8a98dc3233b2ad3c6f" name="a8d7a15ed9bd07d0972e15fda566fc610a15a7998608c5df8a98dc3233b2ad3c6f"></a>OUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a76ab8c5f10d784560c9f20715d9418d0" name="a8d7a15ed9bd07d0972e15fda566fc610a76ab8c5f10d784560c9f20715d9418d0"></a>IN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6" name="a8d7a15ed9bd07d0972e15fda566fc610a21e8d3626472a494365b83c8f6b614d6"></a>HALT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -823,6 +838,47 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_ad8e49c1984c33b8c1c608f97a125e3ea_icgraph.svg" width="488" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a990835905509648ffda0349aa594a0b5" name="a990835905509648ffda0349aa594a0b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a990835905509648ffda0349aa594a0b5">&#9670;&#160;</a></span>isBinop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ULang::isBinop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceULang.html#a2c4e3d276fdc66f3f1b17e41292d7d0e">TokenType</a>&#160;</td>
+          <td class="paramname"><em>tt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a225f15e1428e44bc79a8278e653bbd0d" name="a225f15e1428e44bc79a8278e653bbd0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a225f15e1428e44bc79a8278e653bbd0d">&#9670;&#160;</a></span>isBuiltin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ULang::isBuiltin </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceULang_a225f15e1428e44bc79a8278e653bbd0d_icgraph.svg" width="784" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1120,6 +1176,31 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="aa49b0364601ec2d876a3b28f75b5c142" name="aa49b0364601ec2d876a3b28f75b5c142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49b0364601ec2d876a3b28f75b5c142">&#9670;&#160;</a></span>builtin_ids</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; ULang::builtin_ids</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">        <span class="stringliteral">&quot;uGetChar&quot;</span>, <span class="stringliteral">&quot;uPutChar&quot;</span></div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="af1b081c8e94003fb18ef59b3873c0c96" name="af1b081c8e94003fb18ef59b3873c0c96"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1b081c8e94003fb18ef59b3873c0c96">&#9670;&#160;</a></span>TYPE_CHAR</h2>
 

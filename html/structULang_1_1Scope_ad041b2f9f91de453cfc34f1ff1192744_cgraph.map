@@ -1,0 +1,7 @@
+<map id="ULang::Scope::decl" name="ULang::Scope::decl">
+<area shape="rect" id="Node000001" title="Declares a symbol in current scope." alt="" coords="5,13,151,38"/>
+<area shape="rect" id="Node000002" href="$classULang_1_1CompilerInstance.html#aaa8966815572b7ad7d45b07fd712d062" title="Check if declaring symbol redeclares builtin symbol, throw exception if so." alt="" coords="199,5,384,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,23,185,23,185,28,151,28"/>
+<area shape="rect" id="Node000003" href="$namespaceULang.html#a225f15e1428e44bc79a8278e653bbd0d" title=" " alt="" coords="432,13,556,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,23,418,23,418,28,384,28"/>
+</map>

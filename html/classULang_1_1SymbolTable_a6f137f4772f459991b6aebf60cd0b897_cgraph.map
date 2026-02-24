@@ -2,4 +2,8 @@
 <area shape="rect" id="Node000001" title="Declares a function symbol in current scope." alt="" coords="5,5,160,45"/>
 <area shape="rect" id="Node000002" href="$structULang_1_1Scope.html#aa61f3baec1d9f9c74f342cb6e34d0f22" title="Declares a function symbol in current scope." alt="" coords="208,13,373,38"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,23,195,23,195,28,160,28"/>
+<area shape="rect" id="Node000003" href="$classULang_1_1CompilerInstance.html#aaa8966815572b7ad7d45b07fd712d062" title="Check if declaring symbol redeclares builtin symbol, throw exception if so." alt="" coords="421,5,607,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,23,408,23,408,28,374,28"/>
+<area shape="rect" id="Node000004" href="$namespaceULang.html#a225f15e1428e44bc79a8278e653bbd0d" title=" " alt="" coords="655,13,779,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="607,23,641,23,641,28,607,28"/>
 </map>

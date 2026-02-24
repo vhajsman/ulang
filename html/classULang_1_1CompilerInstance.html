@@ -89,6 +89,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a421fd0510115d58a186435486b9fa7aa" id="r_a421fd0510115d58a186435486b9fa7aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerInstance.html#a421fd0510115d58a186435486b9fa7aa">compile</a> ()</td></tr>
 <tr class="memdesc:a421fd0510115d58a186435486b9fa7aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">does the compilation  <br /></td></tr>
 <tr class="separator:a421fd0510115d58a186435486b9fa7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8966815572b7ad7d45b07fd712d062" id="r_aaa8966815572b7ad7d45b07fd712d062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classULang_1_1CompilerInstance.html#aaa8966815572b7ad7d45b07fd712d062">checkBuiltinRedecl</a> (const std::string &amp;str, <a class="el" href="structULang_1_1SourceLocation.html">SourceLocation</a> *loc=nullptr)</td></tr>
+<tr class="memdesc:aaa8966815572b7ad7d45b07fd712d062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if declaring symbol redeclares builtin symbol, throw exception if so.  <br /></td></tr>
+<tr class="separator:aaa8966815572b7ad7d45b07fd712d062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1e7c4c8659c9ebd21014068382bd8848" name="a1e7c4c8659c9ebd21014068382bd8848"></a>
@@ -116,10 +119,68 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classULang_1_1CompilerInstance_a1e7c4c8659c9ebd21014068382bd8848_cgraph.svg" width="399" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaa8966815572b7ad7d45b07fd712d062" name="aaa8966815572b7ad7d45b07fd712d062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8966815572b7ad7d45b07fd712d062">&#9670;&#160;</a></span>checkBuiltinRedecl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ULang::CompilerInstance::checkBuiltinRedecl </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structULang_1_1SourceLocation.html">SourceLocation</a> *&#160;</td>
+          <td class="paramname"><em>loc</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if declaring symbol redeclares builtin symbol, throw exception if so. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">CompilerSyntaxExecption</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>symbol name </td></tr>
+    <tr><td class="paramname">loc</td><td>exception location (optional) </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classULang_1_1CompilerInstance_aaa8966815572b7ad7d45b07fd712d062_cgraph.svg" width="368" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classULang_1_1CompilerInstance_aaa8966815572b7ad7d45b07fd712d062_icgraph.svg" width="612" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a421fd0510115d58a186435486b9fa7aa" name="a421fd0510115d58a186435486b9fa7aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a421fd0510115d58a186435486b9fa7aa">&#9670;&#160;</a></span>compile()</h2>
 
@@ -157,12 +218,19 @@ Here is the caller graph for this function:</div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/compiler/<a class="el" href="compiler_8hpp_source.html">compiler.hpp</a></li>
+<li>src/compiler/<a class="el" href="binop_8cpp.html">binop.cpp</a></li>
+<li>src/compiler/<a class="el" href="block_8cpp.html">block.cpp</a></li>
+<li>src/compiler/<a class="el" href="builtin_8cpp.html">builtin.cpp</a></li>
 <li>src/compiler/<a class="el" href="compile_8cpp.html">compile.cpp</a></li>
 <li>src/compiler/<a class="el" href="compiler_8cpp.html">compiler.cpp</a></li>
+<li>src/compiler/<a class="el" href="expr_8cpp.html">expr.cpp</a></li>
+<li>src/compiler/<a class="el" href="function_8cpp.html">function.cpp</a></li>
 <li>src/compiler/<a class="el" href="functions_8cpp.html">functions.cpp</a></li>
 <li>src/compiler/<a class="el" href="instruction_8cpp.html">instruction.cpp</a></li>
 <li>src/compiler/<a class="el" href="log_8cpp.html">log.cpp</a></li>
+<li>src/compiler/<a class="el" href="statement_8cpp.html">statement.cpp</a></li>
 <li>src/compiler/<a class="el" href="temp__allocator_8cpp.html">temp_allocator.cpp</a></li>
+<li>src/compiler/<a class="el" href="variable_8cpp.html">variable.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
