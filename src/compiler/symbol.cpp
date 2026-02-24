@@ -10,6 +10,9 @@ namespace ULang {
         if(this->symbols.count(name) > 0)
             throw std::runtime_error("Variable already declared in '" + this->_name + "' scope: " + name);
 
+        if(this->ci_ptr)
+            this->ci_ptr->checkBuiltinRedecl(name, where);
+
         Symbol sym;
         sym.name = name;
         sym.symbolId = 0;
@@ -30,6 +33,9 @@ namespace ULang {
     Symbol* Scope::decl_fn(const std::string& name, const DataType* ret_type, SourceLocation* where, size_t align_head, size_t align_tail) {
         if(this->symbols.count(name) > 0)
             throw std::runtime_error("Function already declared in '" + this->_name + "' scope: " + name);
+
+        if(this->ci_ptr)
+            this->ci_ptr->checkBuiltinRedecl(name, where);
 
         Symbol sym;
         sym.name = name;

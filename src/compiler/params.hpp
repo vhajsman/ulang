@@ -8,6 +8,8 @@ namespace ULang {
         std::string sourceFile;
         std::string outFile;
 
+        bool excludeBuiltin;
+
         // --- optimalization ---
         bool OExplicitZero; ///< Whether declaration without assignment should explicitely assign zero
     };

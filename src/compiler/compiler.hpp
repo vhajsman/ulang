@@ -2,6 +2,7 @@
 #define __ULANG_COMPILER_H
 
 #include "bytecode.hpp"
+#include "compiler/errno.h"
 #include "compiler/params.hpp"
 #include "types.hpp"
 
@@ -23,6 +24,7 @@
 
 namespace ULang {
     struct Symbol;
+    class CompilerInstance;
 
     static inline void write_bytes(std::vector<uint8_t>& out, const void* src, size_t size) {
         const uint8_t* p = static_cast<const uint8_t*>(src);
@@ -37,6 +39,17 @@ namespace ULang {
 #ifndef ULANG_LOCATION_NULL
     #define ULANG_LOCATION_NULL (ULang::SourceLocation) {nullptr, "(unknown)", 0, 0}
 #endif
+
+    inline std::vector<std::string> builtin_ids = {
+        "uGetChar", "uPutChar"
+    };
+
+    inline bool isBuiltin(const std::string& str) {
+        for(std::string& curr: builtin_ids)
+            if(str == curr) return true;
+
+        return false;
+    }
 
     // ==================================================================
     // ======== AST NODES
@@ -196,6 +209,8 @@ namespace ULang {
     };
 
     struct Scope {
+        CompilerInstance* ci_ptr;
+
         std::string _name;
 
         std::unordered_map<std::string, Symbol> symbols;
@@ -539,6 +554,24 @@ namespace ULang {
          * @exception std::runtime_error
          */
         void compile();
+
+        /**
+         * @brief Check if declaring symbol redeclares builtin symbol, throw exception if so
+         * @exception CompilerSyntaxExecption
+         * @param str symbol name
+         * @param loc exception location (optional)
+         */
+        inline void checkBuiltinRedecl(const std::string& str, SourceLocation* loc = nullptr) {
+            if(isBuiltin((std::string&) str) && !this->cparams.excludeBuiltin) {
+                throw CompilerSyntaxException(
+                    CompilerSyntaxException::Severity::Error,
+                    "'" + str + "' was already declared as builtin symbol",
+                    loc == nullptr ? ULANG_LOCATION_NULL : *loc,
+                    ULANG_SYNT_ERR_BUILTIN_REDECL
+                );
+            }
+        }
+
     };
 };
 

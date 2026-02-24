@@ -19,7 +19,8 @@ int main(int argc, char** argv) {
         ("help,h", "Show help")
         ("file,f", po::value<std::string>(&cparams.sourceFile), "Source file")
         ("output,o", po::value<std::string>(&cparams.outFile)->default_value("a.out"), "Output file")
-        ("verbose", po::bool_switch(&cparams.verbose)->default_value(false), "Generate verbose compilation log");
+        ("verbose", po::bool_switch(&cparams.verbose)->default_value(false), "Generate verbose compilation log")
+        ("exclude-builtin", po::bool_switch(&cparams.excludeBuiltin)->default_value(false), "Exclude builtin symbols from the compilation");
 
     po::variables_map vm;
     try {

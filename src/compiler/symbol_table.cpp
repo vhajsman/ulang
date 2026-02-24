@@ -33,6 +33,8 @@ namespace ULang {
         s->parent = this->scope_current;
         s->nextOffset = this->scope_current->nextOffset;
 
+        s->ci_ptr = s->parent->ci_ptr;
+
         this->scope_current = s;
         return s;
     }

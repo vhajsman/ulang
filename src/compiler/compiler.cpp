@@ -27,7 +27,9 @@ namespace ULang {
     }
 
     CompilerInstance::CompilerInstance(const std::string& source, CompilerParameters& cparams)
-    : lexer(source), cparams(cparams) {}
+    : lexer(source), cparams(cparams) {
+        this->symbols.getGlobalScope()->ci_ptr = this;
+    }
 
     void CompilerInstance::friendlyException(CompilerSyntaxException e) {
         this->exceptions_friendly.push_back(e);
