@@ -130,6 +130,8 @@ namespace ULang {
     }
 
     bool CompilerInstance::matchToken(TokenType type) {
+        std::cout << "matchToken? current=" << toktype2str(this->tokens[this->pos].type) << " expected=" << toktype2str(type) << std::endl;
+        
         //if(this->pos >= this->tokens.size()) 
         // return false;
 
@@ -142,12 +144,18 @@ namespace ULang {
     }
 
     bool CompilerInstance::matchToken(const std::string &token) {
+        std::cout << "matchToken? current=" << toktype2str(this->tokens[this->pos].type) << " expected=" << token << std::endl;
+
         if(this->tokens[this->pos].text == token) {
             this->pos++;
             return true;
         }
         
         return false;
+    }
+
+    inline static bool isBinop(TokenType tt) {
+        return tt == TokenType::Plus || tt == TokenType::Minus || tt == TokenType::Div || tt == TokenType::Mul;
     }
 
     int CompilerInstance::precedence(TokenType type) {
@@ -166,7 +174,8 @@ namespace ULang {
     }
 
     ASTNode* CompilerInstance::parsePrimary() {
-        Token &tok = this->tokens[this->pos];
+        Token& tok = this->tokens[this->pos];
+        this->verbose_ascend();
 
         if(tok.type == TokenType::LParen) {
             this->pos++;
@@ -180,22 +189,6 @@ namespace ULang {
             this->pos++;
             return new ASTNode(std::stoll(tok.text));
         }
-
-//        if(tok.type == TokenType::Return) {
-//            this->pos++;
-//            ASTNode* expr = nullptr;
-//
-//            if(this->tokens[this->pos].type != TokenType::Semicolon)
-//                expr = this->parseExpression();
-//
-//            this->expectToken(TokenType::Semicolon);
-//
-//            ASTNode* node = new ASTNode(ASTNodeType::FN_RET);
-//            node->initial = expr;
-//            return node;
-//        }
-
-        this->verbose_ascend();
 
         if(tok.type == TokenType::Identifier) {
             this->pos++;
@@ -213,35 +206,6 @@ namespace ULang {
             ASTNode* node = new ASTNode(ASTNodeType::VARIABLE);
             node->name = tok.text;
             node->symbol = const_cast<Symbol*>(sym);
-
-            // Is function call?
-            if(this->matchToken(TokenType::LParen)) {
-                node->type = ASTNodeType::FN_CALL;
-                this->verbose_nl("Parsing function call: '" + tok.text + "(...)' -> ");
-
-                std::vector<ASTNode*> args;
-
-                if(!this->matchToken(TokenType::RParen)) {
-                    do {
-                        args.push_back(parseExpression());
-                    } while(this->matchToken(TokenType::Comma));
-                    this->expectToken(TokenType::RParen);
-                }
-
-                node->args = std::move(args);
-                    
-                // set symbol and return type
-                if(sym->kind != SymbolKind::FUNCTION) {
-                    throw CompilerSyntaxException(
-                        CompilerSyntaxException::Severity::Error,
-                        "'" + tok.text + "' is not a function",
-                        tok.loc,
-                        ULANG_SYNT_ERR_FN_NOT_FN
-                    );
-                }
-
-                this->verbose_print("argc=" + std::to_string(args.size()));
-            }
 
             this->verbose_descend();
             return node;
@@ -264,8 +228,6 @@ namespace ULang {
     }
 
     ASTNode* CompilerInstance::parseVarDecl() {
-        //this->verbose_ascend();
-
         // type
         Token tok_type = this->expectToken(TokenType::TypeKeyword);
         const DataType* type = resolveDataType(tok_type.text);
@@ -277,41 +239,43 @@ namespace ULang {
         Symbol* sym = this->symbols.decl(tok_name.text, type, &tok_name.loc);
 
         this->verbose_nl("Creating ASTNode for decl: '" + tok_name.text + "'");
+        this->verbose_ascend();
 
         ASTNode* node = new ASTNode(ASTNodeType::DECLARATION);
         node->name = tok_name.text;
         node->symbol = sym;
 
+        // optional initializer
         if(this->tokens[this->pos].type == TokenType::Assign) {
             this->pos++;
             node->initial = this->parseExpression();
 
             if(node->initial) {
                 const DataType* init_type = getType(node->initial, sym->where);
-
-                if((init_type->flags & SIGN) != (type->flags & SIGN)) {
-                    this->friendlyException(CompilerSyntaxException(
-                        CompilerSyntaxException::Severity::Warning,
-                        "Types '" + init_type->name + "' and '" + type->name + "' differ in signedness",
-                        sym->where,
-                        ULANG_SYNT_WARN_TYPES_SIGN_DIFF
-                    ));
-                }
-
-                if(init_type->size != type->size) {
-                    this->friendlyException(CompilerSyntaxException(
-                        CompilerSyntaxException::Severity::Warning,
-                        "Types '" + init_type->name + "' and '" + type->name + "' differ in sizes",
-                        sym->where,
-                        ULANG_SYNT_WARN_TYPES_SIZE_DIFF
-                    ));
+                if(init_type) {
+                    if((init_type->flags & SIGN) != (type->flags & SIGN)) {
+                        this->friendlyException(CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Warning,
+                            "Types '" + init_type->name + "' and '" + type->name + "' differ in signedness",
+                            sym->where,
+                            ULANG_SYNT_WARN_TYPES_SIGN_DIFF
+                        ));
+                    }
+    
+                    if(init_type->size != type->size) {
+                        this->friendlyException(CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Warning,
+                            "Types '" + init_type->name + "' and '" + type->name + "' differ in sizes",
+                            sym->where,
+                            ULANG_SYNT_WARN_TYPES_SIZE_DIFF
+                        ));
+                    }
                 }
             }
-
         } else node->initial = nullptr;
 
         this->expectToken(TokenType::Semicolon);
-        //this->verbose_descend();
+        this->verbose_descend();
         return node;
     }
 
@@ -323,6 +287,7 @@ namespace ULang {
 
         // identifier
         Token tok_name = this->expectToken(TokenType::Identifier);
+        
         Symbol* sym = this->symbols.decl_fn(tok_name.text, ret_type, &tok_name.loc);
 
         this->verbose_nl("Creating ASTNode for function '" + tok_name.text + "(...)'");
@@ -342,13 +307,6 @@ namespace ULang {
             Token arg_name = this->expectToken(TokenType::Identifier);
 
             Symbol* arg_sym = this->symbols.decl(arg_name.text, arg_type);
-
-            //Symbol* arg_sym = this->symbols.decl(
-            //    // identifier
-            //    this->expectToken(TokenType::Identifier).text,
-            //    // type
-            //    resolveDataType(this->expectToken(TokenType::TypeKeyword).text)
-            //);
 
             this->verbose_nl("Creating ASTNode for function parameter '" + tok_name.text + "(...)->" + arg_sym->name + "'");
             
@@ -383,6 +341,7 @@ namespace ULang {
         this->verbose_nl("Enter new scope: " + fn_scope->_name);
 
         // function body
+        // ! function MUST have code block unlike if-else statements, etc
         node->body = this->parseBlock();
 
         this->symbols.leave();
@@ -391,11 +350,14 @@ namespace ULang {
     }
 
     ASTNode* CompilerInstance::parseExpression(int prec_min) {
-        ASTNode* lefthand = this->parsePrimary();
+        //ASTNode* lefthand = this->parsePrimary();
+        ASTNode* lefthand = this->parsePostfix();
+        if(!lefthand)
+            throw std::runtime_error("parsePostfix() returned nullptr");
 
-        while(true) {
+        while(this->pos < this->tokens.size()) {
             TokenType op = this->tokens[this->pos].type;
-            if(op == TokenType::Semicolon || op == TokenType::EndOfFile)
+            if(op == TokenType::Semicolon || op == TokenType::EndOfFile || !isBinop(op))
                 break;
 
             int prec = this->precedence(op);
@@ -405,24 +367,39 @@ namespace ULang {
             this->pos++;
 
             ASTNode* righthand = this->parseExpression(prec + 1);
+            if(!lefthand || !righthand) {
+                throw CompilerSyntaxException(
+                    CompilerSyntaxException::Severity::Error,
+                    "Invalid expression operands",
+                    ULANG_LOCATION_NULL,
+                    ULANG_SYNT_ERR_EXCEPTED_EXPR
+                );
+            }
 
-            ASTNode* node = new ASTNode(ASTNodeType::BINOP);
-            node->lefthand = lefthand;
-            node->righthand = righthand;
+            //ASTNode* node = new ASTNode(ASTNodeType::BINOP);
+            //node->lefthand = lefthand;
+            //node->righthand = righthand;
+
+            BinopType op_type;
 
             switch(op) {
-                case TokenType::Plus:   node->op = BinopType::ADDITION;         break;
-                case TokenType::Minus:  node->op = BinopType::SUBSTRACTION;     break;
-                case TokenType::Mul:    node->op = BinopType::MULTIPLICATION;   break;
-                case TokenType::Div:    node->op = BinopType::DIVISION;         break;
+                case TokenType::Plus:   op_type = BinopType::ADDITION;         break;
+                case TokenType::Minus:  op_type = BinopType::SUBSTRACTION;     break;
+                case TokenType::Mul:    op_type = BinopType::MULTIPLICATION;   break;
+                case TokenType::Div:    op_type = BinopType::DIVISION;         break;
 
                 default:
                     break;
             }
 
+            if(isBinop(op))
+                this->verbose_nl("IS binop");
+
             // ---- type checking & BINOP result type ----
-            const DataType* left_type =  getType(lefthand, lefthand->symbol ? lefthand->symbol->where : SourceLocation{});
-            const DataType* right_type = getType(righthand, righthand->symbol ? righthand->symbol->where : SourceLocation{});
+            const DataType* left_type =  getType(lefthand, lefthand->symbol ? lefthand->symbol->where : ULANG_LOCATION_NULL);
+            const DataType* right_type = getType(righthand, righthand->symbol ? righthand->symbol->where : ULANG_LOCATION_NULL);
+            if(!left_type || !right_type)
+                throw std::runtime_error("Could not determine operand types");
 
             if((left_type->flags & SIGN) != (right_type->flags & SIGN)) {
                 this->friendlyException(CompilerSyntaxException(
@@ -450,6 +427,11 @@ namespace ULang {
                 result_type = (left_type->flags & SIGN) ? left_type : right_type;
             }
 
+            ASTNode* node = new ASTNode(ASTNodeType::BINOP);
+            node->lefthand = lefthand;
+            node->righthand = righthand;
+            node->op = op_type;
+
             node->symbol = new Symbol{
                 "<binop>", 
                 0, 
@@ -458,7 +440,6 @@ namespace ULang {
                 0, 
                 {}
             };
-            // -----------------------------------------
 
             lefthand = node;
         }
@@ -527,14 +508,131 @@ namespace ULang {
             if(node->righthand->type == ASTNodeType::FN_CALL)
                 node->righthand->target_symbol = lhs->symbol;
 
-            this->verbose_descend();
             this->expectToken(TokenType::Semicolon);
+            this->verbose_descend();
             return node;
         }
 
         ASTNode* expr = this->parseExpression();
         this->expectToken(TokenType::Semicolon);
         return expr;
+    }
+
+    ASTNode* CompilerInstance::parsePostfix() {
+        ASTNode* node = this->parsePrimary();
+
+        while(this->pos < this->tokens.size()) {
+            /*
+            if(this->tokens[this->pos].type == TokenType::LParen) {
+                if(!node->symbol) {
+                    const Symbol* sym = this->symbols.lookup(node->name);
+                    if(!sym) {
+                        throw CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Error,
+                            "'" + node->name + "' was not declared in current scope",
+                            node->symbol->where,
+                            ULANG_SYNT_ERR_VAR_UNDEFINED
+                        );
+                    }
+
+                    node->symbol = const_cast<Symbol*>(sym);
+                    if(node->symbol->kind != SymbolKind::FUNCTION) {
+                        throw CompilerSyntaxException(
+                            CompilerSyntaxException::Severity::Error,
+                            "'" + node->name + "' is not a function",
+                            node->symbol->where,
+                            ULANG_SYNT_ERR_FN_NOT_FN
+                        );
+                    }
+                }
+
+                ASTNode* call = new ASTNode(ASTNodeType::FN_CALL);
+                call->lefthand = node;
+
+                this->pos++;
+
+                if(this->tokens[this->pos].type != TokenType::RParen) {
+                    do {
+                        ASTNode* arg = parseExpression();
+                        call->args.push_back(arg);
+
+                        if(this->tokens[this->pos].type != TokenType::Comma) 
+                            break;
+
+                        this->pos++;
+                    } while(true);
+                }
+
+                this->expectToken(TokenType::RParen);
+
+                if(node->symbol->kind != SymbolKind::FUNCTION) {
+                    throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Error,
+                        "'" + node->name + "' is not a function",
+                        node->symbol->where,
+                        ULANG_SYNT_ERR_FN_NOT_FN
+                    );
+                }
+
+                node = call;
+                continue;
+            }
+
+            break;
+            */
+
+            if(this->tokens[this->pos].type != TokenType::LParen)
+                break;
+
+            if(node->name.empty() || !node->symbol) {
+                /*
+                if(node->symbol->kind != SymbolKind::FUNCTION) {
+                    throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Error,
+                        "'" + node->name + "' is not a function",
+                        node->symbol->where,
+                        ULANG_SYNT_ERR_FN_NOT_FN
+                    );
+                }*/
+
+                break;
+            }
+
+            // TODO: support call by reference
+            if(node->symbol->kind != SymbolKind::FUNCTION) {
+                if(node->symbol->kind != SymbolKind::FUNCTION) {
+                    throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Error,
+                        "'" + node->name + "' is not a function",
+                        node->symbol->where,
+                        ULANG_SYNT_ERR_FN_NOT_FN
+                    );
+                }
+            }
+
+            ASTNode* call_node = new ASTNode(ASTNodeType::FN_CALL);
+            call_node->lefthand = node;
+            call_node->symbol = node->symbol;
+            this->pos++;
+
+            if(this->tokens[this->pos].type != TokenType::RParen) {
+                do {
+                    //ASTNode* arg_node = new ASTNode(ASTNodeType::FN_ARG);
+                    ASTNode* arg_node = this->parseExpression();
+                    call_node->args.push_back(arg_node);
+
+                    if(this->tokens[this->pos].type != TokenType::Comma)
+                        break;
+
+                    this->pos++;
+                } while(true);
+            }
+
+            this->expectToken(TokenType::RParen);
+            node = call_node;
+        }
+
+        return node;
     }
 
     std::vector<ASTNode*> CompilerInstance::parseBlock() {
@@ -579,7 +677,7 @@ namespace ULang {
                 case TokenType::Function:
                     node_raw = this->parseFnDecl();
                     break;
-                    
+
                 default: {
                     node_raw = this->parseExpression();
                     this->expectToken(TokenType::Semicolon);

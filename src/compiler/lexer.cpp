@@ -80,8 +80,6 @@ namespace ULang {
                     str = type->name;
                 } catch(const std::exception& e) {
                     THROW_AWAY e;
-                    //TokenType tt = TokenType::Identifier;
-                    //tokens.push_back({tt, str});
                 };
 
                 tokens.push_back({tt, str, {
@@ -105,6 +103,7 @@ namespace ULang {
                 case '=': tokens.push_back({TokenType::Assign,   std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
 
                 case ';': tokens.push_back({TokenType::Semicolon,std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
+                case ',': tokens.push_back({TokenType::Comma,std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
 
                 case '(': tokens.push_back({TokenType::LParen,std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
                 case ')': tokens.push_back({TokenType::RParen,std::string(1, this->get()), {nullptr, filename, this->line, tok_col}}); break;
@@ -123,10 +122,6 @@ namespace ULang {
             this->line,
             this->col
         }});
-
-        for(auto& tok: tokens) {
-            std::cout << "Token: " << int(tok.type) << ", text: '" << tok.text << "'" << std::endl;
-        }
         
         return tokens;
     }
