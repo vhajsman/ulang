@@ -2,6 +2,7 @@
 #define __ULANG_COMPILER_H
 
 #include "bytecode.hpp"
+#include "essentials.hpp"
 #include "compiler/params.hpp"
 #include "types.hpp"
 
@@ -23,20 +24,29 @@
 
 namespace ULang {
     struct Symbol;
+    class SymbolTable;
+    class CompilerInstance;
+
+    struct GenerationContext {
+        std::vector<Instruction> instructions;
+        SymbolTable* symtab;
+        uint32_t stack_top;
+    };
 
     static inline void write_bytes(std::vector<uint8_t>& out, const void* src, size_t size) {
         const uint8_t* p = static_cast<const uint8_t*>(src);
         out.insert(out.end(), p, p + size);
     }
-    struct SourceLocation {
-        void* loc_parent;
-        std::string loc_file;
-        size_t loc_line;
-        size_t loc_col;
-    };
+    
 #ifndef ULANG_LOCATION_NULL
     #define ULANG_LOCATION_NULL (ULang::SourceLocation) {nullptr, "(unknown)", 0, 0}
 #endif
+
+    inline std::vector<std::string> builtin_ids = {
+        "uGetChar", "uPutChar"
+    };
+
+    bool isBuiltin(const std::string& str);
 
     // ==================================================================
     // ======== AST NODES
@@ -141,6 +151,8 @@ namespace ULang {
         SourceLocation loc;
     };
 
+    bool isBinop(TokenType tt);
+
     /**
      * @brief converts source to tokens
      */
@@ -196,6 +208,8 @@ namespace ULang {
     };
 
     struct Scope {
+        CompilerInstance* ci_ptr;
+
         std::string _name;
 
         std::unordered_map<std::string, Symbol> symbols;
@@ -349,12 +363,6 @@ namespace ULang {
     BytecodeHeader buildBytecodeHeader(uint32_t code_size, uint32_t meta_size, uint8_t word_size);
     MetaData buildMeta(SymbolTable& symtable, const std::vector<const DataType*>& types0, bool verbose_en);
     void writeBytecode(const std::string& filename, const std::vector<uint8_t>& code, const MetaData& meta, uint8_t word_size);
-
-    struct GenerationContext {
-        std::vector<Instruction> instructions;
-        SymbolTable* symtab;
-        uint32_t stack_top;
-    };
 
     // ==================================================================
     // ======== COMPILER INSTANCE
@@ -539,6 +547,15 @@ namespace ULang {
          * @exception std::runtime_error
          */
         void compile();
+
+        /**
+         * @brief Check if declaring symbol redeclares builtin symbol, throw exception if so
+         * @exception CompilerSyntaxExecption
+         * @param str symbol name
+         * @param loc exception location (optional)
+         */
+        void checkBuiltinRedecl(const std::string& str, SourceLocation* loc = nullptr);
+
     };
 };
 

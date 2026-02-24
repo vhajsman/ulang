@@ -1,10 +1,13 @@
 #include "compiler.hpp"
+#include "compiler/errno.h"
 #include "types.hpp"
 
 #include <cctype>
 #include <cstddef>
+#include <cstdint>
 #include <iostream>
 #include <stdexcept>
+#include <string>
 
 namespace ULang {
     Lexer::Lexer(const std::string& input)
@@ -52,6 +55,34 @@ namespace ULang {
                     numstr += this->get();
 
                 tokens.push_back({TokenType::Number, numstr, {
+                    nullptr,
+                    filename,
+                    this->line,
+                    tok_col
+                }});
+
+                continue;
+            }
+
+            // character literal
+            if(c == '\'') {
+                size_t tok_col = this->col;
+                this->get();
+                char ch = this->get();
+
+                if(this->peek() != '\'') {
+                    throw CompilerSyntaxException(
+                        CompilerSyntaxException::Severity::Error,
+                        "Expected closing quote for character literal",
+                        {nullptr, filename, this->line, tok_col},
+                        ULANG_SYNT_ERR_MISSING_CLOSE_QUOTE
+                    );
+                }
+
+                this->get();
+
+                std::string sval = std::to_string(static_cast<uint32_t>(ch));
+                tokens.push_back({TokenType::Number, sval, {
                     nullptr,
                     filename,
                     this->line,

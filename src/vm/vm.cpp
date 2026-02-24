@@ -2,6 +2,7 @@
 #include "bytecode.hpp"
 #include <chrono>
 #include <cstdint>
+#include <cstdio>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
@@ -288,6 +289,23 @@ namespace ULang {
 
                 writeOpCast(dst, readOpCast(src));
                 break;
+            }
+
+            case Opcode::PUTC: {
+                uint32_t val = this->readOpCast(instr.operands[0]);
+                std::cout.put(static_cast<char>(val));
+                std::cout.flush();
+                break;
+            }
+
+            case Opcode::GETC: {
+                //const Operand& dst = instr.operands[0];
+                //const Operand& src = instr.operands[1];
+                
+                int ch = std::cin.get();
+                if(ch == EOF) ch = 0;
+
+                writeOpCast(instr.operands[0], ch);
             }
         }
     }

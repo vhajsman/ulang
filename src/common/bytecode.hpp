@@ -37,8 +37,12 @@ namespace ULang {
         JZ = 0x0A,
         CALL = 0x0B,
         RET = 0x0C,
-        HALT = 0x0D,
-        MOV = 0x0E
+        MOV = 0x0E,
+        PUTC = 0x20,
+        GETC = 0x21,
+        OUT = 0x22,
+        IN = 0x23,
+        HALT = 0xF0,
     };
 
     struct Instruction {
