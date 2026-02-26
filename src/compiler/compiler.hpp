@@ -24,6 +24,7 @@
 
 namespace ULang {
     struct Symbol;
+    struct ASTNode;
     class SymbolTable;
     class CompilerInstance;
 
@@ -41,6 +42,19 @@ namespace ULang {
 #ifndef ULANG_LOCATION_NULL
     #define ULANG_LOCATION_NULL (ULang::SourceLocation) {nullptr, "(unknown)", 0, 0}
 #endif
+
+    struct Builtin {
+        std::string name;   // example: ___uV0a042_builtin_uPutChar
+        std::string alias;  // example: uPutChar
+        
+        std::vector<const DataType*> args;
+        Symbol* symbol;
+        
+        void (*emitter)(ULang::CompilerInstance&, ULang::GenerationContext*, ULang::ASTNode*) = nullptr;
+        
+        bool warn_redef = true;
+        bool enabled = true;
+    };
 
     inline std::vector<std::string> builtin_ids = {
         "uGetChar", "uPutChar"
@@ -194,11 +208,17 @@ namespace ULang {
         FUNCTION
     };
 
+    enum class SymbolOrigin {
+        USER,
+        BUILTIN
+    };
+
     struct Symbol {
         std::string name;
         unsigned int symbolId;
 
         SymbolKind kind = SymbolKind::VARIABLE;
+        SymbolOrigin origin = SymbolOrigin::USER;
         const DataType* type;
 
         uint32_t stackOffset;
@@ -231,6 +251,7 @@ namespace ULang {
         Symbol* decl(   const std::string& name, 
                         const DataType* type, 
                         SourceLocation* where = nullptr, 
+                        SymbolOrigin origin = SymbolOrigin::USER,
                         size_t align_head = 0, 
                         size_t align_tail = 0);
 
@@ -249,6 +270,7 @@ namespace ULang {
         Symbol* decl_fn(const std::string& name,
                         const DataType* ret_type,
                         SourceLocation* where = nullptr,
+                        SymbolOrigin origin = SymbolOrigin::USER,
                         size_t align_head = 0,
                         size_t align_tail = 0);
         
@@ -288,6 +310,7 @@ namespace ULang {
         Symbol* decl(   const std::string& name, 
                         const DataType* type, 
                         SourceLocation* loc = nullptr, 
+                        SymbolOrigin origin = SymbolOrigin::USER,
                         size_t align_head = 0, 
                         size_t align_tail = 0);
 
@@ -306,6 +329,7 @@ namespace ULang {
         Symbol* decl_fn(const std::string& name,
                         const DataType* ret_type,
                         SourceLocation* where = nullptr,
+                        SymbolOrigin origin = SymbolOrigin::USER,
                         size_t align_head = 0,
                         size_t align_tail = 0);
         
@@ -398,27 +422,6 @@ namespace ULang {
         inline void verbose_descend() {
             if(this->verbose_depthLvl > 0) this->verbose_depthLvl--;
         }
-
-        /**
-         * @brief Allocate temporary register
-         * @exception std::runtime_error no free tmp register available
-         * @return Operand 
-         */
-        Operand allocTmpReg();
-
-        /**
-         * @brief Free allocated temporary register
-         * @exception std::runtime_error invalid tmp register free
-         * @param reg register index
-         */
-        void freeTmpReg(uint8_t reg, bool failsafe = false);
-
-        /**
-         * @brief Free allocated temporary register
-         * @exception std::runtime_error invalid tmp register free
-         * @param reg register as an operand
-         */
-        void freeTmpReg(Operand reg, bool failsafe = false);
 
         /**
          * @brief CompilerSyntaxException exceptions not terminating the compilation
@@ -534,11 +537,6 @@ namespace ULang {
         void serializeInstruction(const Instruction& instr, std::vector<uint8_t>& out);
         std::vector<uint8_t> serializeProgram(const std::vector<Instruction>& program);
 
-        Operand compileNode(ASTNode* node, std::vector<Instruction>& out);
-        void compileFunction(ASTNode* node, std::vector<Instruction>& out);
-
-        void emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b);
-
         public:
         CompilerInstance(const std::string& source, CompilerParameters& cparams);
 
@@ -548,14 +546,56 @@ namespace ULang {
          */
         void compile();
 
+        Operand compileNode(ASTNode* node, std::vector<Instruction>& out);
+        void compileFunction(ASTNode* node, std::vector<Instruction>& out);
+
+        void emit(GenerationContext& ctx, Opcode opcode, const Operand& op_a, const Operand& op_b);
+
+        /**
+         * @brief Allocate temporary register
+         * @exception std::runtime_error no free tmp register available
+         * @return Operand 
+         */
+        Operand allocTmpReg();
+
+        /**
+         * @brief Free allocated temporary register
+         * @exception std::runtime_error invalid tmp register free
+         * @param reg register index
+         */
+        void freeTmpReg(uint8_t reg, bool failsafe = false);
+
+        /**
+         * @brief Free allocated temporary register
+         * @exception std::runtime_error invalid tmp register free
+         * @param reg register as an operand
+         */
+        void freeTmpReg(Operand reg, bool failsafe = false);
+
+        std::vector<Builtin> builtins;
+
         /**
          * @brief Check if declaring symbol redeclares builtin symbol, throw exception if so
          * @exception CompilerSyntaxExecption
          * @param str symbol name
          * @param loc exception location (optional)
          */
-        void checkBuiltinRedecl(const std::string& str, SourceLocation* loc = nullptr);
+        // void checkBuiltinRedecl(const std::string& str, SourceLocation* loc = nullptr);
 
+        /**
+         * @brief Check if declaring symbol redeclares builtin symbol, throw exception if so
+         * @exception CompilerSyntaxExecption
+         * @param str symbol name
+         * @param loc exception location (optional)
+         */
+        void checkBuiltinRedecl(const std::string& str, SymbolOrigin origin, SourceLocation* loc = nullptr);
+
+        Builtin* findBuiltin(const std::string& name);
+        void registerBuiltin(Builtin& builtin);
+
+        ASTNode* insertBuiltinNode(Builtin& builtin);
+        
+        void subconstructor_builtin();
     };
 };
 

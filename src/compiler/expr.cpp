@@ -158,6 +158,7 @@ namespace ULang {
                 "<binop>", 
                 0, 
                 SymbolKind::VARIABLE, 
+                SymbolOrigin::USER,
                 result_type, 
                 0, 
                 {}

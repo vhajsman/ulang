@@ -1,6 +1,36 @@
 #include "compiler.hpp"
+#include <stdexcept>
 
 namespace ULang {
+    void CompilerInstance::compileFunction(ASTNode* node, std::vector<Instruction>& out) {
+        if(!node->symbol)
+            throw std::runtime_error("function symbol not found");
+
+        node->symbol->entry_ip = out.size();
+        this->verbose_nl("Compile function '" + node->symbol->name + "', entry_ip=");
+        this->verbose_print(node->symbol->entry_ip);
+        this->verbose_ascend();
+
+        std::string scope_name = this->symbols.getCurrentScope()->_name + "::" + node->name + "@fn_decl";
+        this->symbols.enter(scope_name);
+        this->verbose_nl("Enter scope: " + scope_name);
+
+        for(ASTNode* stmt: node->body)
+            this->compileNode(stmt, out);
+    
+        bool termRet = !node->body.empty() && node->body.back()->type == ASTNodeType::FN_RET;
+        if(node->symbol->type != &TYPE_VOID && !termRet) {
+            throw CompilerSyntaxException(
+                CompilerSyntaxException::Severity::Error,
+                "non-void function must return a value: '" + node->name + "'",
+                node->symbol->where,
+                ULANG_SYNT_ERR_FN_NO_RET
+            );
+        }
+
+        this->verbose_descend();
+    }
+
     ASTNode* CompilerInstance::parseFnDecl() {
         this->expectToken(TokenType::Function);
 
